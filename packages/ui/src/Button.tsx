@@ -2,7 +2,7 @@ import { VariantProps, cva } from "cva";
 import type { ComponentPropsWithRef } from "react";
 import { forwardRef } from "react";
 
-const styles = cva("ui-font-semibold px-4 py-2 ui-rounded-md", {
+const styles = cva("ui-font-semibold ui-px-4 ui-py-2 ui-rounded-md", {
   variants: {
     variant: {
       primary: "ui-bg-primary-600 ui-text-primary-50",

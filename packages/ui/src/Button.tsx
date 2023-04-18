@@ -1,16 +1,25 @@
-import * as React from "react";
+import { VariantProps, cva } from "cva";
+import type { ComponentPropsWithRef } from "react";
+import { forwardRef } from "react";
 
-export const Button = () => {
+const styles = cva("ui-font-semibold px-4 py-2 ui-rounded-md", {
+  variants: {
+    variant: {
+      primary: "ui-bg-primary-600 ui-text-primary-50",
+      neutral: "ui-bg-transparent ui-ring-1 ui-ring-neutral-50"
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+type PropTypes = VariantProps<typeof styles> & ComponentPropsWithRef<"button">;
+export const Button = forwardRef<HTMLButtonElement, PropTypes>(({ className, variant }: PropTypes, ref) => {
   return (
-    <div className="rounded-md ">
-      <a href="https://turbo.build/repo/docs">
-        <div className="ui-flex ui-w-full ui-items-center ui-justify-center ui-rounded-md ui-border ui-border-transparent ui-px-8 ui-py-3 ui-text-base ui-font-medium ui-no-underline ui-bg-white ui-text-black hover:ui-bg-gray-300 md:ui-py-3 md:ui-px-10 md:ui-text-lg md:ui-leading-6">
-          Read the docs
-          <span className="ui-ml-2 ui-bg-gradient-to-r ui-from-brandred ui-to-brandblue ui-bg-clip-text ui-text-transparent">
-            →
-          </span>
-        </div>
-      </a>
-    </div>
+    <button ref={ref} className={styles({ className, variant })}>
+      Button
+    </button>
   );
-};
+});
+
+Button.displayName = "Button";

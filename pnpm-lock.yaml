@@ -136,6 +136,10 @@ importers:
   packages/tsconfig: {}
 
   packages/ui:
+    dependencies:
+      cva:
+        specifier: npm:class-variance-authority@^0.5.2
+        version: /class-variance-authority@0.5.2(typescript@4.9.4)
     devDependencies:
       '@types/react':
         specifier: ^18.0.26
@@ -738,6 +742,17 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /class-variance-authority@0.5.2(typescript@4.9.4):
+    resolution: {integrity: sha512-j7Qqw3NPbs4IpO80gvdACWmVvHiLLo5MECacUBLnJG17CrLpWaQ7/4OaWX6P0IO1j2nvZ7AuSfBS/ImtEUZJGA==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 6'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 4.9.4
+    dev: false
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}

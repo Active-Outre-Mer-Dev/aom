@@ -19,7 +19,7 @@ export default function ServicesPage() {
       </section>
       <section className="px-16 cta-gradient py-20 ">
         <h2 className="text-center text-4xl font-heading mb-7">
-          Ready to unlock your business's full potential and become a <br />
+          Ready to unlock your business&apos;s full potential and become a <br />
           <span className="text-gradient">digital game-changer</span>?
         </h2>
         <div>

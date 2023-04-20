@@ -7,7 +7,6 @@ module.exports = {
     // include packages if not transpiling
     // "../../packages/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
   theme: {
     colors: {
       neutral: {

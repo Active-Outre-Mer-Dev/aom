@@ -47,8 +47,8 @@ export default function Home() {
             Build your <span className="text-gradient">online presence</span>
           </h2>
           <p style={{ width: "clamp(36ch, 100%, 60ch)" }} className="text-center text-lg">
-            In today's fast-paced business world, building a website is essential for any business looking to
-            establish a strong online presence and succeed in the digital space.
+            In today&apos;s fast-paced business world, building a website is essential for any business
+            looking to establish a strong online presence and succeed in the digital space.
           </p>
         </header>
         <div className="grid grid-cols-3 gap-4">
@@ -71,9 +71,9 @@ export default function Home() {
               <h2 className="font-heading  text-4xl">Yalography</h2>
             </div>
             <p className="text-lg">
-              "Ex labore irure labore proident excepteur aute ipsum ea exercitation ex officia fugiat. Aute
-              culpa duis esse ut mollit ad aliqua aliquip consectetur. Est eiusmod occaecat ad Lorem elit
-              mollit aute quis ipsum."
+              &quot;Ex labore irure labore proident excepteur aute ipsum ea exercitation ex officia fugiat.
+              Aute culpa duis esse ut mollit ad aliqua aliquip consectetur. Est eiusmod occaecat ad Lorem elit
+              mollit aute quis ipsum.&quot;
             </p>
             <div>
               <p className="text-neutral-200 mb-2">Yasmino Lousiy</p>
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
       <section className="px-16 cta-gradient py-20 ">
         <h2 className="text-center text-4xl font-heading mb-7">
-          Ready to unlock your business's full potential and become a <br />
+          Ready to unlock your business&apos;s full potential and become a <br />
           <span className="text-gradient">digital game-changer</span>?
         </h2>
         <div>

@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
+    "@tabler/icons-react": "^2.15.0",
+    "framer-motion": "^10.11.6",
+    "next": "^13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ui": "workspace:*"
@@ -22,7 +24,7 @@
     "eslint-config-custom": "workspace:*",
     "postcss": "^8.4.20",
     "tailwind-config": "workspace:*",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "^3.3.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.4"
   }

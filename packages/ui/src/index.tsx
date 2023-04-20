@@ -2,7 +2,8 @@
 import "./styles.css";
 
 // components
-export * from "./Button";
-export * from "./Card";
-export * from "./Input";
-export * from "./Label";
+export * from "./button";
+export * from "./card";
+export * from "./input";
+export * from "./label";
+export * from "./textarea";

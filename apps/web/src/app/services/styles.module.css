@@ -1,0 +1,34 @@
+.section,
+.section2,
+.section3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.section > *,
+.section2 > *,
+.section3 > * {
+  position: relative;
+}
+
+.section::before,
+.section2::before,
+.section3::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  filter: blur(8px);
+}
+
+.section::before {
+  background: radial-gradient(circle at 50% 100%, rgba(77, 50, 128, 0.25), rgb(9, 9, 20, 0) 75%);
+}
+.section2::before {
+  background: radial-gradient(circle at 50% 100%, rgb(179, 132, 0, 0.25), rgb(9, 9, 20, 0) 75%);
+}
+.section3::before {
+  background: radial-gradient(circle at 50% 100%, rgb(45, 63, 133, 0.25), rgb(9, 9, 20, 0) 75%);
+}

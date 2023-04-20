@@ -80,7 +80,8 @@ module.exports = {
         700: "#740b17",
         800: "#47050c",
         900: "#1e0002"
-      }
+      },
+      transparent: colors.transparent
     }
   },
   plugins: []

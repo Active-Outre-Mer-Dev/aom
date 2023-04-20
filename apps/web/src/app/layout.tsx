@@ -16,7 +16,7 @@ const familjen = HeadingFont({ subsets: ["latin"], variable: "--font-heading" })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ui-dark ${inter.variable} ${familjen.variable}`}>
+    <html lang="en" data-mode="dark" className={`dark  ${inter.variable} ${familjen.variable}`}>
       <body className="bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100">
         <Nav />
         {children}

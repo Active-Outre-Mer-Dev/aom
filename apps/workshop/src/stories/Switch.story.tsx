@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Switch } from "ui";
+import { IconCheck } from "@tabler/icons-react";
 
 const meta = {
   title: "Switch",
@@ -22,4 +23,10 @@ type Story = StoryObj<typeof meta>;
 
 export const SwitchInput: Story = {
   args: {}
+};
+
+export const SwitchWithIcon: Story = {
+  args: {
+    thumbIcon: <IconCheck size={12} />
+  }
 };

@@ -6,7 +6,7 @@ import { cva } from "cva";
 import type { VariantProps } from "cva";
 
 const styles = cva(
-  `ui-bg-neutral-200 data-[state=checked]:ui-bg-primary-600 dark:ui-bg-neutral-700 
+  `ui-bg-neutral-200  data-[state=checked]:ui-bg-primary-600 dark:ui-bg-neutral-700 
 ui-rounded-full ui-relative data-[state=checked]:dark:ui-bg-primary-400 ui-outline-none ui-cursor-default`,
   {
     variants: {
@@ -23,7 +23,7 @@ ui-rounded-full ui-relative data-[state=checked]:dark:ui-bg-primary-400 ui-outli
 );
 
 const thumbStyles = cva(
-  `ui-block ui-bg-neutral-50 ui-rounded-full  
+  `ui-block ui-bg-neutral-50  ui-rounded-full ui-overflow-hidden  ui-relative
 ui-transition-transform ui-duration-100 ui-translate-x-0.5 ui-will-change-transform 
 `,
   {
@@ -39,16 +39,29 @@ ui-transition-transform ui-duration-100 ui-translate-x-0.5 ui-will-change-transf
 
 type PropTypes = {
   label?: string;
+  thumbIcon?: React.ReactNode;
 } & RadixSwitch.SwitchProps &
   VariantProps<typeof styles>;
 
-export const Switch = forwardRef<HTMLInputElement, PropTypes>(({ className, size, ...props }, ref) => (
-  <>
-    <div className="ui-flex ui-items-center ui-gap-2">
-      {props.label ? <Label htmlFor="airplane-mode">Airplane mode</Label> : null}
-      <RadixSwitch.Root ref={ref} {...props} className={styles({ className, size })} id="airplane-mode">
-        <RadixSwitch.Thumb className={thumbStyles({ size })} />
-      </RadixSwitch.Root>
-    </div>
-  </>
-));
+export const Switch = forwardRef<HTMLInputElement, PropTypes>(
+  ({ className, size, thumbIcon, ...props }, ref) => (
+    <>
+      <div className="ui-flex ui-items-center ui-gap-2">
+        {props.label ? <Label htmlFor="airplane-mode">Airplane mode</Label> : null}
+        <RadixSwitch.Root ref={ref} {...props} className={styles({ className, size })} id="airplane-mode">
+          <RadixSwitch.Thumb className={thumbStyles({ size })}>
+            {thumbIcon ? (
+              <span
+                aria-hidden="true"
+                className={`ui-absolute ui-flex ui-justify-center ui-items-center ui-top-2/4 ui-left-2/4
+               -ui-translate-x-2/4 -ui-translate-y-2/4`}
+              >
+                {thumbIcon}
+              </span>
+            ) : null}
+          </RadixSwitch.Thumb>
+        </RadixSwitch.Root>
+      </div>
+    </>
+  )
+);

@@ -7,7 +7,12 @@ const meta = {
   tags: ["autodocs"],
   args: {
     required: false,
-    label: "Airplane mode"
+    label: "Airplane mode",
+    size: "md"
+  },
+  argTypes: {
+    //@ts-expect-error
+    size: { options: ["sm", "md", "lg"], type: "radio" }
   }
 } satisfies Meta<typeof Switch>;
 

@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         fontFamily: {
-          sans: ["--font-sans", "Segoe UI"],
-          heading: ["--font-heading"]
+          inter: ["var(--font-sans)", "Segoe UI"],
+          heading: ["var(--font-heading)"]
         }
       }
     }

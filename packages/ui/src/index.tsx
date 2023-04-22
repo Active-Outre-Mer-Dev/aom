@@ -10,3 +10,4 @@ export * from "./textarea";
 export * from "./switch";
 export * from "./skeleton";
 export * from "./progress";
+export * from "./slider";

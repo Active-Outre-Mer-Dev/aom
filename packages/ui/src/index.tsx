@@ -11,3 +11,4 @@ export * from "./switch";
 export * from "./skeleton";
 export * from "./progress";
 export * from "./slider";
+export * from "./badge";

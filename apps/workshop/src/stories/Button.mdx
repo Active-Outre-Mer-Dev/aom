@@ -1,0 +1,35 @@
+import { Meta, Canvas, Story, Primary, Controls } from "@storybook/blocks";
+
+import * as ButtonStories from "./Button.story";
+
+# Button Component
+
+Interactive component used to respond to user events.
+
+<Meta of={ButtonStories} name="Info" />
+
+<Canvas of={ButtonStories.Primary} />
+
+## Props
+
+This component extends the native button element and offers additional properties.
+
+<Controls />
+
+## Primary Button
+
+High emphasis button used for primary actions
+
+<Canvas of={ButtonStories.Primary} />
+
+## Neutral Button
+
+Low emphasis button used for secondary actions.
+
+<Canvas of={ButtonStories.Neutral} />
+
+## CTA Button
+
+High emphasis button used as a call to action
+
+<Canvas of={ButtonStories.CTA} />

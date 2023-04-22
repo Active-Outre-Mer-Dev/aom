@@ -5,15 +5,32 @@ import { Button } from "ui";
 const meta = {
   title: "Button",
   component: Button,
-  tags: ["autodocs"],
   args: { size: "medium", children: "Button" },
   argTypes: {
-    //@ts-expect-error
-    size: { options: ["small", "medium", "large"], type: "radio" },
-    //@ts-expect-error
-    disabled: { options: [false, true], type: "radio" },
-    //@ts-expect-error
-    fullWidth: { options: [true, false], type: "radio" }
+    children: { type: "string", description: "Button label" },
+    disabled: { type: "boolean", defaultValue: false, description: "Disabled state" },
+    fullWidth: { type: "boolean", description: "Sets button to 100% width of parent element" },
+    size: {
+      options: ["small", "medium", "large"],
+      //@ts-expect-error
+      type: "radio",
+      defaultValue: "medium",
+      description: "Predefined button size"
+    },
+    variant: {
+      options: ["primary", "neutral", "cta", "error"],
+      //@ts-expect-error
+      type: "select",
+      description: "Determines the role of the button"
+    }
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        className: "bg-neutral-50 dark:bg-neutral-900",
+        withToolbar: true
+      }
+    }
   }
 } satisfies Meta<typeof Button>;
 
@@ -33,7 +50,7 @@ export const Neutral: Story = {
   }
 };
 
-export const Cta: Story = {
+export const CTA: Story = {
   args: {
     variant: "cta"
   }

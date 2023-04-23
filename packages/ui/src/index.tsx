@@ -12,3 +12,4 @@ export * from "./skeleton";
 export * from "./progress";
 export * from "./slider";
 export * from "./badge";
+export * from "./scroll-area";

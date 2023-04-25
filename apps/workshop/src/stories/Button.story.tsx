@@ -23,14 +23,6 @@ const meta = {
       type: "select",
       description: "Determines the role of the button"
     }
-  },
-  parameters: {
-    docs: {
-      canvas: {
-        className: "bg-neutral-50 dark:bg-neutral-900",
-        withToolbar: true
-      }
-    }
   }
 } satisfies Meta<typeof Button>;
 

@@ -1,9 +1,13 @@
 import { Meta, Canvas, Primary, Controls } from "@storybook/blocks";
 import * as AlertStories from "./Alert.story";
+import { Badge } from "ui";
 
 <Meta of={AlertStories} />
 
-# Alert
+<div className="flex gap-2 items-center">
+  <h1>Alert</h1>
+  <Badge color={"success"}>Complete</Badge>
+</div>
 
 Alert component is used to inform users of important information without disrupting them.
 

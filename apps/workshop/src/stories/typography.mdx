@@ -1,0 +1,45 @@
+import { Meta, Typeset } from "@storybook/blocks";
+import { Title } from "ui";
+
+<Meta title="Typography" />
+
+export const typography = {
+  type: {
+    primary: 'Familjen Grotesk, "Helvetica Neue", Helvetica, Segoe UI, Arial, sans-serif'
+  },
+  weight: {
+    regular: "400",
+    "semi-bold": "500",
+    bold: "700",
+    extrabold: "800",
+    black: "900"
+  },
+  size: {
+    s3: 16,
+    m1: 20,
+    m2: 18,
+    m3: 21,
+    l1: 26,
+    l2: 37,
+    l3: 68
+  }
+};
+
+export const sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+# Heading styles
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s3),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3)
+  ].reverse()}
+  fontWeight={typography.weight["semi-bold"]}
+  sampleText={sampleText}
+  fontFamily={typography.type.primary}
+/>

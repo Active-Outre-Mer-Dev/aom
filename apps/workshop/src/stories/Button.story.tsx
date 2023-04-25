@@ -19,8 +19,7 @@ const meta = {
     },
     variant: {
       options: ["primary", "neutral", "cta", "error"],
-      //@ts-expect-error
-      type: "select",
+      controls: { type: "select" },
       description: "Determines the role of the button"
     }
   }

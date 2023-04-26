@@ -3,7 +3,7 @@ import { Switch } from "ui";
 import { IconCheck } from "@tabler/icons-react";
 
 const meta = {
-  title: "Switch",
+  title: "Molecules/Switch",
   component: Switch,
   tags: ["autodocs"],
   args: {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Progress as UiProgress } from "ui";
 
 const meta = {
-  title: "Progress",
+  title: "Molecules/Progress",
   component: UiProgress,
   args: { value: 0, max: 100 },
   argTypes: { value: { control: { type: "range", max: 100 } } }

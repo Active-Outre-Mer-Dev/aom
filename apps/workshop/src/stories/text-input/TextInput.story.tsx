@@ -3,7 +3,7 @@ import { TextInput } from "ui";
 import { IconAt } from "@tabler/icons-react";
 
 const meta = {
-  title: "TextInput",
+  title: "Molecules/TextInput",
   component: TextInput,
   tags: ["autodocs"],
   args: { placeholder: "Placeholder", description: "", error: "" }

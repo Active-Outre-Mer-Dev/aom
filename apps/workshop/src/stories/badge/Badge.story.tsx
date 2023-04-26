@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "ui";
 
 const meta = {
-  title: "Badge",
+  title: "Molecules/Badge",
   component: Badge,
   args: { children: "Incomplete" },
   argTypes: {

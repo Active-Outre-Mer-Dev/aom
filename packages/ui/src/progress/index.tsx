@@ -19,7 +19,7 @@ export const Progress = forwardRef<HTMLProgressElement, PropTypes>((props, ref) 
       }}
     >
       <RadixProgress.Indicator
-        className={`ui-bg-primary-600 dark:ui-bg-primary-400 ui-w-full ui-h-full 
+        className={`ui-bg-primary-600 dark:ui-bg-primary-500 ui-w-full ui-h-full 
         data-[state=indeterminate]:ui-animate-progress-indeterminate
          ui-transition-transform ui-duration-[660ms]
          ui-ease-[cubic-bezier(0.65, 0, 0.35, 1)]`}

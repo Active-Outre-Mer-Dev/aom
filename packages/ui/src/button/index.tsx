@@ -1,3 +1,4 @@
+"use client";
 import { VariantProps, cva } from "cva";
 import type { ComponentPropsWithRef } from "react";
 import { forwardRef } from "react";
@@ -9,8 +10,8 @@ const styles = cva(
   {
     variants: {
       variant: {
-        primary: `ui-bg-primary-600 ui-text-primary-50 dark:ui-bg-primary-200 dark:ui-text-primary-700
-        dark:ui-ring-primary-300 ui-ring-primary-500 
+        primary: `ui-bg-primary-600 ui-text-primary-50 dark:ui-bg-primary-500
+        dark:ui-ring-primary-400 ui-ring-primary-500 
         `,
         neutral: `ui-bg-transparent ui-ring-1 ui-ring-neutral-600 dark:ui-bg-transparent 
         dark:ui-ring-neutral-100 dark:ui-text-neutral-100 ui-ring-off`,

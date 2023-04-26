@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Skeleton as UiSkeleton } from "ui";
 
 const meta = {
-  title: "Skeleton",
+  title: "Molecules/Skeleton",
   component: UiSkeleton,
   tags: ["autodocs"],
   args: {

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "ui";
 
 const meta = {
-  title: "Card",
+  title: "Molecules/Card",
   component: Card,
   tags: ["autodocs"],
   args: {

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from "@storybook/react";
 import { Label } from "ui";
 
 const meta = {
-  title: "Label",
+  title: "Molecules/Label",
   component: Label,
   tags: ["autodocs"],
   args: { htmlFor: "", children: "First name" }

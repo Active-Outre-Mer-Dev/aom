@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Slider } from "ui";
 
 const meta = {
-  title: "Slider",
+  title: "Molecules/Slider",
   component: Slider,
   tags: ["autodocs"],
   args: {

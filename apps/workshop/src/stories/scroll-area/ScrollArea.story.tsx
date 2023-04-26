@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from "ui";
 
 const meta = {
-  title: "Scroll Area",
+  title: "Molecules/Scroll Area",
   component: ScrollArea,
   args: {
     scrollHideDelay: 500

@@ -7,7 +7,7 @@ import type { VariantProps } from "cva";
 
 const styles = cva(
   `ui-bg-neutral-200  data-[state=checked]:ui-bg-primary-600 dark:ui-bg-neutral-700 
-ui-rounded-full ui-relative data-[state=checked]:dark:ui-bg-primary-400 ui-outline-none ui-cursor-default`,
+ui-rounded-full ui-relative data-[state=checked]:dark:ui-bg-primary-500 ui-outline-none ui-cursor-default`,
   {
     variants: {
       size: {

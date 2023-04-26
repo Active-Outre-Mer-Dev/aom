@@ -15,3 +15,4 @@ export * from "./badge";
 export * from "./scroll-area";
 export * from "./alert";
 export * from "./title";
+export * from "./checkbox";

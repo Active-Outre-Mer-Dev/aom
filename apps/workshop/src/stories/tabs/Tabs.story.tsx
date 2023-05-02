@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Tabs as UiTabs } from "ui";
+import { Tabs as UiTabs, Button, TextInput } from "ui";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { IconGrillFork, IconBottle, IconMilkshake } from "@tabler/icons-react";
+import { IconUser, IconLock } from "@tabler/icons-react";
 
 const meta = { title: "Atoms/Tabs", component: UiTabs } satisfies Meta<typeof UiTabs>;
 
@@ -10,19 +10,53 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+function Account() {
+  return (
+    <>
+      <h3 className="text-2xl font-heading font-medium mb-1">Account</h3>
+      <p className="mb-4 text-neutral-700 dark:text-neutral-200">
+        Make changes to your account here. Click save when you&apos;re done
+      </p>
+      <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+        <TextInput label="Name" className="bg-neutral-900" />
+        <TextInput label="Username" />
+        <Button className="block ml-auto">Save</Button>
+      </form>
+    </>
+  );
+}
+
+function Password() {
+  return (
+    <>
+      <h3 className="text-2xl font-heading font-medium mb-1">Password</h3>
+      <p className="mb-4 text-neutral-700 dark:text-neutral-200">
+        Change your password here. After saving, you&apos;ll be logged out.
+      </p>
+      <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+        <TextInput label="Current password" className="bg-neutral-900" />
+        <TextInput label="New Password" />
+        <Button className="block ml-auto">Save</Button>
+      </form>
+    </>
+  );
+}
+
 export const Tabs: Story = {
   render: () => {
     return (
       <div className="flex justify-center">
-        <UiTabs defaultValue="food" className="text-neutral-100">
+        <UiTabs defaultValue="account" className="text-neutral-800 dark:text-neutral-100 w-2/4">
           <UiTabs.List>
-            <UiTabs.Trigger value="food">Food</UiTabs.Trigger>
-            <UiTabs.Trigger value="drink">Drinks</UiTabs.Trigger>
-            <UiTabs.Trigger value="desserts">Desserts</UiTabs.Trigger>
+            <UiTabs.Trigger value="account">Account</UiTabs.Trigger>
+            <UiTabs.Trigger value="password">Password</UiTabs.Trigger>
           </UiTabs.List>
-          <UiTabs.Content value="food">This is the food section</UiTabs.Content>
-          <UiTabs.Content value="drink">This is the drinks section</UiTabs.Content>
-          <UiTabs.Content value="desserts">This is the desserts section</UiTabs.Content>
+          <UiTabs.Content value="account">
+            <Account />
+          </UiTabs.Content>
+          <UiTabs.Content value="password">
+            <Password />
+          </UiTabs.Content>
         </UiTabs>
       </div>
     );
@@ -30,16 +64,19 @@ export const Tabs: Story = {
 };
 
 const values = [
-  { label: "Food", value: "food", Icon: IconBottle },
-  { label: "Drinks", value: "drinks", Icon: IconGrillFork },
-  { label: "Desserts", value: "desserts", Icon: IconMilkshake }
+  { label: "Account", value: "account", Icon: IconUser },
+  { label: "Password", value: "password", Icon: IconLock }
 ];
 
 function FramerTab() {
-  const [active, setActive] = useState("food");
+  const [active, setActive] = useState("account");
   return (
     <div className="flex justify-center">
-      <UiTabs value={active} onValueChange={setActive} className="text-neutral-100">
+      <UiTabs
+        value={active}
+        onValueChange={setActive}
+        className="text-neutral-800 dark:text-neutral-100 w-2/4"
+      >
         <UiTabs.List>
           {values.map(tab => {
             return (
@@ -55,9 +92,12 @@ function FramerTab() {
             );
           })}
         </UiTabs.List>
-        <UiTabs.Content value="food">This is the food section</UiTabs.Content>
-        <UiTabs.Content value="drinks">This is the drinks section</UiTabs.Content>
-        <UiTabs.Content value="desserts">This is the desserts section</UiTabs.Content>
+        <UiTabs.Content value="account">
+          <Account />
+        </UiTabs.Content>
+        <UiTabs.Content value="password">
+          <Password />
+        </UiTabs.Content>
       </UiTabs>
     </div>
   );
@@ -66,11 +106,15 @@ function FramerTab() {
 export const AnimatedTabs: Story = { render: () => <FramerTab /> };
 
 function Icons() {
-  const [active, setActive] = useState("food");
+  const [active, setActive] = useState("account");
 
   return (
     <div className="flex justify-center">
-      <UiTabs value={active} onValueChange={setActive} className="text-neutral-100">
+      <UiTabs
+        value={active}
+        onValueChange={setActive}
+        className="text-neutral-800 dark:text-neutral-100 w-2/4"
+      >
         <UiTabs.List>
           {values.map(({ Icon, ...tab }) => {
             return (
@@ -89,9 +133,12 @@ function Icons() {
             );
           })}
         </UiTabs.List>
-        <UiTabs.Content value="food">This is the food section</UiTabs.Content>
-        <UiTabs.Content value="drinks">This is the drinks section</UiTabs.Content>
-        <UiTabs.Content value="desserts">This is the desserts section</UiTabs.Content>
+        <UiTabs.Content value="account">
+          <Account />
+        </UiTabs.Content>
+        <UiTabs.Content value="password">
+          <Password />
+        </UiTabs.Content>
       </UiTabs>
     </div>
   );

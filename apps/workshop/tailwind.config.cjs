@@ -5,5 +5,10 @@ module.exports = {
   // prefix ui lib classes to avoid conflicting with the app
   presets: [sharedConfig],
   content: [`src/**/*.{js,ts,jsx,tsx,mdx}`],
-  darkMode: ["class", '[data-mode="dark"]']
+  darkMode: ["class", '[data-mode="dark"]'],
+  theme: {
+    extend: {
+      fontFamily: { heading: ["Familjen Grotesk", "Segoe UI"], sans: ["Inter", "Segoe UI"] }
+    }
+  }
 };

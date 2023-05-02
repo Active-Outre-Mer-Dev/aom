@@ -4,10 +4,10 @@ import { Section } from "./section";
 import type { VariantProps } from "cva";
 import type { ComponentPropsWithoutRef } from "react";
 
-const styles = cva("ui-p-4 ui-rounded-xl", {
+export const cardStyles = cva("ui-p-4 ui-rounded-md", {
   variants: {
     variant: {
-      outline: "ui-ring-1 ui-ring-neutral-300 dark:ui-ring-neutral-500 ",
+      outline: "ui-ring-1 ui-ring-neutral-300 dark:ui-ring-neutral-700 ",
       filled: `ui-bg-neutral-50 ui-ring-neutral-100 ui-ring-1 dark:ui-ring-0  
       ui-shadow-md  dark:ui-bg-neutral-800`
     }
@@ -17,12 +17,12 @@ const styles = cva("ui-p-4 ui-rounded-xl", {
   }
 });
 
-type PropTypes = ComponentPropsWithoutRef<"div"> & VariantProps<typeof styles>;
+type PropTypes = ComponentPropsWithoutRef<"div"> & VariantProps<typeof cardStyles>;
 
 export function Card({ className, variant, ...props }: PropTypes) {
   const _children = Children.toArray(props.children);
   return (
-    <div className={styles({ className, variant })}>
+    <div className={cardStyles({ className, variant })}>
       {_children.map((child, index) => {
         if (typeof child === "object" && "type" in child && child.type === Section)
           return cloneElement(child, {

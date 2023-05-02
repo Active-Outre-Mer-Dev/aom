@@ -1,5 +1,5 @@
 "use client";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useId } from "react";
 import { InputRoot } from "../input-wrapper";
 import { cx } from "../cx";
 import { Eye, EyeOff } from "lucide-react";
@@ -11,13 +11,15 @@ type PropTypes = Omit<InputRootProps, "icon"> & ComponentPropsWithRef<"input">;
 export const PasswordInput = forwardRef<HTMLInputElement, PropTypes>(
   ({ label, description, error, ...props }, ref) => {
     const [type, setType] = useState<"text" | "password">("password");
+    const id = useId();
     return (
       <>
-        <InputRoot {...props} error={error} description={description} label={label}>
+        <InputRoot {...props} error={error} id={props.id || id} description={description} label={label}>
           <input
             {...props}
             type={type}
             ref={ref}
+            id={props.id || id}
             className={cx(
               `ui-appearance-none  ui-outline-none ui-w-full ui-bg-transparent ui-h-full ui-inline-block
           placeholder:dark:ui-text-neutral-600 placeholder:ui-text-neutral-400`,
@@ -31,7 +33,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PropTypes>(
             <button
               aria-hidden="true"
               tabIndex={-1}
-              className={`hover:ui-bg-neutral-300/10 ui-p-[2px] ui-relative active:ui-top-[2px] 
+              className={`hover:ui-bg-neutral-300/10 ui-rounded-sm ui-p-[2px] ui-relative active:ui-top-[2px] 
             hover:dark:ui-bg-neutral-700/50`}
               onClick={() => setType(type === "text" ? "password" : "text")}
             >

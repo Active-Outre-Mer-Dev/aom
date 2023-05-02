@@ -1,8 +1,8 @@
-import { ComponentPropsWithoutRef, useId } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { cx } from "../cx";
 import { Label } from "../label";
 
-type InputWrapperProps = Pick<InputRootProps, "icon" | "error"> & ComponentPropsWithoutRef<"div">;
+type InputWrapperProps = Pick<InputRootProps, "error"> & ComponentPropsWithoutRef<"div">;
 
 function InputWrapper({ children, className, ...props }: InputWrapperProps) {
   return (
@@ -19,14 +19,6 @@ function InputWrapper({ children, className, ...props }: InputWrapperProps) {
         className
       )}
     >
-      {props.icon ? (
-        <span
-          aria-hidden="true"
-          className="ui-absolute ui-neutral-500 dark:ui-neutral-300 ui-top-2/4 ui-left-2 -ui-translate-y-2/4"
-        >
-          {props.icon}
-        </span>
-      ) : null}
       {children}
     </div>
   );
@@ -40,11 +32,10 @@ export type InputRootProps = {
 } & ComponentPropsWithoutRef<"input">;
 
 export function InputRoot({ children, ...props }: InputRootProps) {
-  const id = useId();
   return (
     <div>
       {props.label ? (
-        <Label htmlFor={props.id || id} className={cx("ui-block", props.description ? "" : "ui-mb-1")}>
+        <Label htmlFor={props.id!} className={cx("ui-block", props.description ? "" : "ui-mb-1")}>
           {props.label}{" "}
           {props.required ? (
             <span aria-label="required" className="ui-text-error-400">
@@ -55,13 +46,23 @@ export function InputRoot({ children, ...props }: InputRootProps) {
       ) : null}
       {props.description ? (
         <span
-          id={`${id}-description`}
+          id={`${props.id}-description`}
           className="dark:ui-text-neutral-200 ui-text-xs ui-inline-block ui-mb-1"
         >
           {props.description}
         </span>
       ) : null}
-      <InputWrapper>{children}</InputWrapper>
+      <InputWrapper error={props.error}>
+        {props.icon ? (
+          <span
+            aria-hidden="true"
+            className="ui-absolute ui-neutral-500 dark:ui-neutral-300 ui-top-2/4 ui-left-2 -ui-translate-y-2/4"
+          >
+            {props.icon}
+          </span>
+        ) : null}
+        {children}
+      </InputWrapper>
       {props.error ? (
         <span className={"ui-text-error-600 ui-text-sm dark:ui-text-error-400"}>{props.error}</span>
       ) : null}

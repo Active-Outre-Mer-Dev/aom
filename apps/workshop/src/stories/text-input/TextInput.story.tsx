@@ -25,7 +25,7 @@ export const WithLabel: Story = {
 export const WithIcon: Story = {
   args: {
     icon: <IconAt size={14} />,
-    label: "",
+    label: "Email",
     required: false
   }
 };

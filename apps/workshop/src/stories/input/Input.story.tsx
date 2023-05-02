@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TextInput } from "ui";
+import { TextInput, PasswordInput as UiPassword } from "ui";
 import { IconAt } from "@tabler/icons-react";
 
 const meta = {
-  title: "Molecules/TextInput",
+  title: "Molecules/Input",
   component: TextInput,
-  tags: ["autodocs"],
   args: { placeholder: "Placeholder", description: "", error: "" }
 } satisfies Meta<typeof TextInput>;
 
@@ -25,7 +24,13 @@ export const WithLabel: Story = {
 export const WithIcon: Story = {
   args: {
     icon: <IconAt size={14} />,
-    label: "",
+    label: "Email",
     required: false
+  }
+};
+
+export const PasswordInput: Story = {
+  render: props => {
+    return <UiPassword {...props} label="Password" placeholder="" />;
   }
 };

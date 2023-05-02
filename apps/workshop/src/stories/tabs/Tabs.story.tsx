@@ -18,7 +18,7 @@ function Account() {
         Make changes to your account here. Click save when you&apos;re done
       </p>
       <form className="space-y-4" onSubmit={e => e.preventDefault()}>
-        <TextInput label="Name" className="bg-neutral-900" />
+        <TextInput label="Name" />
         <TextInput label="Username" />
         <Button className="block ml-auto">Save</Button>
       </form>
@@ -34,7 +34,7 @@ function Password() {
         Change your password here. After saving, you&apos;ll be logged out.
       </p>
       <form className="space-y-4" onSubmit={e => e.preventDefault()}>
-        <TextInput label="Current password" className="bg-neutral-900" />
+        <TextInput label="Current password" />
         <TextInput label="New Password" />
         <Button className="block ml-auto">Save</Button>
       </form>

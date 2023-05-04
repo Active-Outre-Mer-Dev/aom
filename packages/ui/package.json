@@ -7,7 +7,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist",
-    "./styles.css": "./dist/index.css"
+    "./styles.css": "./dist/index.css",
+    "./src/client": "./dist/client"
   },
   "license": "MIT",
   "scripts": {

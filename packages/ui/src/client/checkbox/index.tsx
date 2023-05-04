@@ -7,7 +7,7 @@ import { Label } from "../label";
 
 type PropTypes = RadixCheckbox.CheckboxProps & ComponentPropsWithRef<"input"> & { label?: string };
 
-export const Checkbox = forwardRef<HTMLInputElement, PropTypes>(({ label, ...props }, ref) => {
+export const Checkbox = forwardRef<HTMLButtonElement, PropTypes>(({ label, ...props }, ref) => {
   const id = useId();
   return (
     <>

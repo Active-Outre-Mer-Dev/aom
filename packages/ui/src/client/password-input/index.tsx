@@ -1,10 +1,10 @@
 "use client";
 import { useState, forwardRef, useId } from "react";
-import { InputRoot } from "../input-wrapper";
-import { cx } from "../cx";
+import { InputRoot } from "../../input-wrapper";
+import { cx } from "../../cx";
 import { Eye, EyeOff } from "lucide-react";
 import type { ComponentPropsWithRef } from "react";
-import type { InputRootProps } from "../input-wrapper";
+import type { InputRootProps } from "../../input-wrapper";
 
 type PropTypes = Omit<InputRootProps, "icon"> & ComponentPropsWithRef<"input">;
 

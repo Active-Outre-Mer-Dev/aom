@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef } from "react";
 import type { ComponentPropsWithRef } from "react";
-import { cx } from "../cx";
+import { cx } from "../../cx";
 import { Label } from "../label";
 import { useId } from "react";
 

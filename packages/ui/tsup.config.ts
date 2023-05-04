@@ -1,6 +1,6 @@
-import { defineConfig, Options } from "tsup";
+import { defineConfig, Options, build } from "tsup";
 
-export default defineConfig((options: Options) => ({
+export default defineConfig(async (options: Options) => ({
   ...options,
   minify: true,
   target: "es2018",
@@ -9,10 +9,6 @@ export default defineConfig((options: Options) => ({
   clean: true,
   format: ["esm"],
   splitting: true,
-  entry: ["src/**/*.tsx"],
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client"'
-    };
-  }
+  entry: ["src/index.tsx", "src/client/index.tsx"],
+  treeshake: true
 }));

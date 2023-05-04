@@ -2,7 +2,7 @@
 import React from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { cx } from "../cx";
+import { cx } from "../../cx";
 
 type PropTypes = {
   items?: { value: string; label: string }[];

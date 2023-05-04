@@ -1,7 +1,7 @@
 "use client";
 import * as RadixTabs from "@radix-ui/react-tabs";
-import { cardStyles } from "../card";
-import { cx } from "../cx";
+import { cardStyles } from "../../index";
+import { cx } from "../../cx";
 import { VariantProps } from "cva";
 
 function List(props: RadixTabs.TabsListProps) {

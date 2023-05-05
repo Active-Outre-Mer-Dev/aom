@@ -22,3 +22,5 @@ export const Skeleton = forwardRef<HTMLDivElement, PropTypes>(
     return <div ref={ref} {...props} className={styles({ className, animate, rounded })} />;
   }
 );
+
+Skeleton.displayName = "Skeleton";

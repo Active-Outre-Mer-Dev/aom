@@ -43,7 +43,7 @@ type PropTypes = {
 } & RadixSwitch.SwitchProps &
   VariantProps<typeof styles>;
 
-export const Switch = forwardRef<HTMLInputElement, PropTypes>(
+export const Switch = forwardRef<HTMLButtonElement, PropTypes>(
   ({ className, size, thumbIcon, ...props }, ref) => (
     <>
       <div className="ui-flex ui-items-center ui-gap-2">
@@ -65,3 +65,5 @@ export const Switch = forwardRef<HTMLInputElement, PropTypes>(
     </>
   )
 );
+
+Switch.displayName = "Switch";

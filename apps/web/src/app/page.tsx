@@ -2,7 +2,7 @@ import Image from "next/image";
 import yalo from "@/assets/yalo-frame.png";
 import yaloLogo from "@/assets/logo.png";
 import { Cards } from "@/components/Cards";
-import { Button } from "ui";
+import { Button } from "ui/src/client";
 
 export default function Home() {
   return (
@@ -113,7 +113,8 @@ export default function Home() {
           <span className="text-gradient">digital game-changer</span>?
         </h2>
         <div>
-          <Button className="mx-auto">Contact us</Button>
+          {" "}
+          <Button className="mx-auto">Contact us</Button>{" "}
         </div>
       </section>
     </main>

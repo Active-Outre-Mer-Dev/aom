@@ -8,12 +8,12 @@
   "exports": {
     ".": "./dist",
     "./styles.css": "./dist/index.css",
-    "./src/client/*": "./dist/client/*"
+    "./src/*": "./dist/*"
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsup && tsup --config tsup-client.config.ts",
-    "dev": "tsup --watch && tsup --config tsup-client.config.ts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "check-types": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

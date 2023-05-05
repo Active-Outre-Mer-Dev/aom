@@ -1,7 +1,7 @@
 "use client";
 import * as RadixScrollArea from "@radix-ui/react-scroll-area";
 import { forwardRef } from "react";
-import { cx } from "../../cx";
+import { cx } from "../cx";
 
 type PropTypes = RadixScrollArea.ScrollAreaProps;
 

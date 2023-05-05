@@ -5,7 +5,7 @@ import type { ComponentPropsWithRef } from "react";
 
 type PropTypes = ComponentPropsWithRef<"progress"> & RadixProgress.ProgressProps;
 
-export const Progress = forwardRef<HTMLProgressElement, PropTypes>((props, ref) => {
+export const Progress = forwardRef<HTMLDivElement, PropTypes>((props, ref) => {
   return (
     <RadixProgress.Root
       {...props}
@@ -28,3 +28,5 @@ export const Progress = forwardRef<HTMLProgressElement, PropTypes>((props, ref) 
     </RadixProgress.Root>
   );
 });
+
+Progress.displayName = "Progress";

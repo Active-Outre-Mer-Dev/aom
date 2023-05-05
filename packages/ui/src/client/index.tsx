@@ -6,7 +6,7 @@ export * from "./select";
 export * from "./tabs";
 export * from "./password-input";
 export * from "./slider";
-export * from "./input";
+export * from "./text-input";
 export * from "./label";
 export * from "./button";
 export * from "./textarea";

@@ -7,10 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        fontFamily: {
-          inter: ["var(--font-sans)", "Segoe UI"],
-          heading: ["var(--font-heading)"]
-        }
+        inter: ["var(--font-sans)", "Segoe UI"],
+        heading: ["var(--font-heading)"]
       }
     }
   }

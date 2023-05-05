@@ -7,7 +7,7 @@ import { useId } from "react";
 
 type PropTypes = ComponentPropsWithRef<"textarea"> & { label?: string; wrapperClass?: string };
 
-export const TextArea = forwardRef<HTMLTextAreaElement, PropTypes>((props, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, PropTypes>((props, ref) => {
   const id = useId();
   return (
     <div className={props.wrapperClass}>
@@ -34,3 +34,5 @@ export const TextArea = forwardRef<HTMLTextAreaElement, PropTypes>((props, ref) 
     </div>
   );
 });
+
+Textarea.displayName = "Textarea";

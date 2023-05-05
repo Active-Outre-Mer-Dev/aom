@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import { IconBuildingSkyscraper, IconPhone, IconAt } from "@tabler/icons-react";
-import { TextInput, Label, TextArea, Button } from "ui/src/client";
+import { TextInput, Label, Textarea, Button } from "ui/src/client";
 
 export default function ContactPage() {
   return (
@@ -20,7 +20,7 @@ export default function ContactPage() {
                 *
               </span>
             </Label>
-            <TextArea id="message" name="message" className="w-full" />
+            <Textarea id="message" name="message" className="w-full" />
           </p>
           <Button className="block ml-auto">Submit</Button>
         </form>

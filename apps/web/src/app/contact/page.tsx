@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import { IconBuildingSkyscraper, IconPhone, IconAt } from "@tabler/icons-react";
-import { TextInput, Label, Textarea, Button } from "ui/src/client";
+import { TextInput, Label, Textarea, Button } from "./client";
 
 export default function ContactPage() {
   return (

@@ -2,7 +2,7 @@ import Image from "next/image";
 import yalo from "@/assets/yalo-frame.png";
 import yaloLogo from "@/assets/logo.png";
 import { Cards } from "@/components/Cards";
-import { Button } from "ui/src/client";
+import { Button } from "@/components/shared";
 
 export default function Home() {
   return (

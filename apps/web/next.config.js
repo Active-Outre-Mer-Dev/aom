@@ -3,8 +3,8 @@ module.exports = {
   reactStrictMode: true,
   experimental: { appDir: true },
   modularizeImports: {
-    "ui/src/client": {
-      transform: "ui/src/client/{{ kebabCase member }}",
+    ui: {
+      transform: "ui/src/{{ kebabCase member }}",
       skipDefaultConversion: true
     }
   }

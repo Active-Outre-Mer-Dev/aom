@@ -2,7 +2,7 @@
 import type { ComponentPropsWithRef } from "react";
 import { forwardRef, useId } from "react";
 import { Label } from "../label";
-import { cx } from "../../cx";
+import { cx } from "../cx";
 
 type PropTypes = {
   label?: string;

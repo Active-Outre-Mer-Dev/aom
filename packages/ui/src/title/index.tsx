@@ -30,3 +30,5 @@ export const Title = forwardRef<HTMLHeadingElement, PropTypes>(({ order, classNa
     </Component>
   );
 });
+
+Title.displayName = "Title";

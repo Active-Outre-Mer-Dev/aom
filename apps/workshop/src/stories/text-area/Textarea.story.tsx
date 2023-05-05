@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TextArea } from "ui/src/client";
+import { Textarea } from "ui";
 
 const meta = {
   title: "Molecules/Textarea",
-  component: TextArea,
+  component: Textarea,
   args: { placeholder: "Write message", wrapperClass: "w-full" }
-} satisfies Meta<typeof TextArea>;
+} satisfies Meta<typeof Textarea>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;

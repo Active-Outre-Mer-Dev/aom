@@ -44,3 +44,5 @@ export const Badge = forwardRef<HTMLDivElement, PropTypes>(
     );
   }
 );
+
+Badge.displayName = "Badge";

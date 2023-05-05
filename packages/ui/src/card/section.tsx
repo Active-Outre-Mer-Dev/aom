@@ -26,3 +26,5 @@ export const Section = forwardRef<HTMLDivElement, PropTypes>(
     );
   }
 );
+
+Section.displayName = "CardSection";

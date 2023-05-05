@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ScrollArea } from "ui";
+import { ScrollArea } from "ui/src/client";
 
 const meta = {
   title: "Molecules/Scroll Area",

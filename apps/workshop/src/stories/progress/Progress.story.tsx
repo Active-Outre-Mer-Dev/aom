@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Progress as UiProgress } from "ui";
+import { Progress as UiProgress } from "ui/src/client";
 
 const meta = {
   title: "Molecules/Progress",

@@ -1,4 +1,3 @@
-"use client";
 import "../styles.css";
 
 export * from "./checkbox";
@@ -11,3 +10,6 @@ export * from "./input";
 export * from "./label";
 export * from "./button";
 export * from "./textarea";
+export * from "./progress";
+export * from "./scroll-area";
+export * from "./switch";

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { parameters } from "../../parameters";
-import { Radio as UiRadio } from "ui/src/client";
+import { Radio as UiRadio } from "ui";
 
 const meta = { title: "Molecules/Radio", component: UiRadio.Group, parameters } satisfies Meta<
   typeof UiRadio.Group

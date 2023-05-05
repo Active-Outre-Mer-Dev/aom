@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Checkbox as UiCheckbox } from "ui/src/client";
+import { Checkbox as UiCheckbox } from "ui";
 import { parameters } from "../../parameters";
 
 const meta = {

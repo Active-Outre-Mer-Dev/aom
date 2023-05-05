@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Tabs as UiTabs, Button, TextInput } from "ui/src/client";
+import { Tabs as UiTabs, Button, TextInput } from "ui";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { IconUser, IconLock } from "@tabler/icons-react";

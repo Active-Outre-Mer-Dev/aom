@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Slider } from "ui/src/client";
+import { Slider } from "ui";
 
 const meta = {
   title: "Molecules/Slider",

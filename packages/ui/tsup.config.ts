@@ -9,6 +9,6 @@ export default defineConfig(async (options: Options) => ({
   clean: true,
   format: ["esm"],
   splitting: true,
-  entry: ["src/index.tsx", "src/client/index.tsx"],
+  entry: ["src/**/*.tsx"],
   treeshake: true
 }));

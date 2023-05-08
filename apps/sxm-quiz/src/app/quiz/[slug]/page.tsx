@@ -1,8 +1,11 @@
 import { questions } from "@/questions";
 import { Quiz } from "./quiz";
+import { revalidatePath } from "next/cache";
 
-function randomize(arr: string[]) {
-  const newArr: string[] = [];
+export const dynamic = "force-dynamic";
+
+function randomize<T>(arr: T[]) {
+  const newArr: T[] = [];
   const original = arr.slice();
   for (const _ of arr) {
     const random = Math.floor(Math.random() * original.length);
@@ -12,8 +15,13 @@ function randomize(arr: string[]) {
   return newArr;
 }
 
+async function action(path: string) {
+  "use server";
+  revalidatePath(path);
+}
+
 export default function Page() {
-  const newQuestions = questions.map(question => {
+  const newQuestions = randomize(questions).map(question => {
     return {
       ...question,
       options: randomize([...question.options, question.answer])
@@ -21,7 +29,7 @@ export default function Page() {
   });
   return (
     <>
-      <Quiz questions={newQuestions} />
+      <Quiz questions={newQuestions} action={action} />
     </>
   );
 }

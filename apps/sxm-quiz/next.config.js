@@ -5,6 +5,9 @@ const nextConfig = {
       transform: "ui/src/{{ kebabCase member }}",
       skipDefaultConversion: true
     }
+  },
+  experimental: {
+    serverActions: true
   }
 };
 

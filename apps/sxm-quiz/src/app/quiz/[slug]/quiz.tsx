@@ -3,14 +3,16 @@ import type { Question } from "@/questions";
 import { useReducer } from "react";
 import { Button } from "./client";
 import { initialState, reducer } from "./reducer";
+import { usePathname } from "next/navigation";
 
 type PropTypes = {
   questions: Question[];
+  action: (path: string) => Promise<void>;
 };
 
 export function Quiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const path = usePathname();
   const question = props.questions[state.current];
 
   const complete = state.current === props.questions.length;
@@ -60,7 +62,13 @@ export function Quiz(props: PropTypes) {
             </span>{" "}
             questions correct!
           </p>
-          <Button className="mx-auto block" onClick={() => dispatch({ type: "reset" })}>
+          <Button
+            className="mx-auto block"
+            onClick={async () => {
+              await props.action(path);
+              dispatch({ type: "reset" });
+            }}
+          >
             Reset
           </Button>
         </>

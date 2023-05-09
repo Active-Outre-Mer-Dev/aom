@@ -1,6 +1,6 @@
 import { questions } from "@/questions";
 import { Quiz } from "./quiz";
-import { revalidatePath } from "next/cache";
+
 export const dynamic = "force-dynamic";
 
 function randomize<T>(arr: T[]) {
@@ -13,11 +13,6 @@ function randomize<T>(arr: T[]) {
   }
   return newArr;
 }
-
-// async function action(path: string) {
-//   "use server";
-//   revalidatePath(path);
-// }
 
 export default function Page() {
   const newQuestions = randomize(questions).map(question => {

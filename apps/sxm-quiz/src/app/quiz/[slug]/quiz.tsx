@@ -9,7 +9,7 @@ import { SummaryDetails } from "./Details";
 
 type PropTypes = {
   questions: Question[];
-  action: (path: string) => Promise<void>;
+  // action: (path: string) => Promise<void>;
 };
 
 function useTimer() {
@@ -43,7 +43,7 @@ export function Quiz(props: PropTypes) {
   const score = complete ? (state.points / props.questions.length) * 100 : 0;
 
   const onReset = async () => {
-    await props.action(path);
+    // await props.action(path);
     dispatch({ type: "reset" });
     timer.reset();
   };

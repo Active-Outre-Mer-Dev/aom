@@ -14,10 +14,10 @@ function randomize<T>(arr: T[]) {
   return newArr;
 }
 
-async function action(path: string) {
-  "use server";
-  revalidatePath(path);
-}
+// async function action(path: string) {
+//   "use server";
+//   revalidatePath(path);
+// }
 
 export default function Page() {
   const newQuestions = randomize(questions).map(question => {
@@ -26,5 +26,9 @@ export default function Page() {
       options: randomize([...question.options, question.answer])
     };
   });
-  return <>{/* <Quiz questions={newQuestions} action={action} /> */}</>;
+  return (
+    <>
+      <Quiz questions={newQuestions} />
+    </>
+  );
 }

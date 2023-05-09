@@ -3,13 +3,11 @@ import type { Question } from "@/questions";
 import { useReducer, useState, useRef } from "react";
 import { Button } from "./client";
 import { initialState, reducer } from "./reducer";
-import { usePathname } from "next/navigation";
 import { Summary } from "./Summary";
 import { SummaryDetails } from "./Details";
 
 type PropTypes = {
   questions: Question[];
-  action: (path: string) => Promise<void>;
 };
 
 function useTimer() {
@@ -32,7 +30,6 @@ function useTimer() {
 
 export function Quiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const path = usePathname();
   const [time, timer] = useTimer();
 
   const question = props.questions[state.current];
@@ -43,7 +40,6 @@ export function Quiz(props: PropTypes) {
   const score = complete ? (state.points / props.questions.length) * 100 : 0;
 
   const onReset = async () => {
-    await props.action(path);
     dispatch({ type: "reset" });
     timer.reset();
   };

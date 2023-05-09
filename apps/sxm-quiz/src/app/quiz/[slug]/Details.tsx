@@ -1,3 +1,4 @@
+"use client";
 import type { Question } from "@/questions";
 import { ScrollArea } from "./client";
 import { useState } from "react";

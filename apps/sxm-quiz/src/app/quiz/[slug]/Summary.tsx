@@ -1,3 +1,4 @@
+"use client";
 import { Card, Button } from "./client";
 import { Rocket, Zap, Timer } from "lucide-react";
 

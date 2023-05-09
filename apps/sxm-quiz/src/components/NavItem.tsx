@@ -6,7 +6,7 @@ import type { LinkProps } from "next/link";
 export function NavItem(props: LinkProps & { children: React.ReactNode }) {
   const path = usePathname();
   return (
-    <li className={`text-lg font-medium ${path === props.href ? "text-primary-600" : "text-neutral-700"}`}>
+    <li className={`text-lg font-medium ${path === props.href ? "text-primary-600" : "text-neutral-600"}`}>
       <Link {...props}>{props.children}</Link>
     </li>
   );

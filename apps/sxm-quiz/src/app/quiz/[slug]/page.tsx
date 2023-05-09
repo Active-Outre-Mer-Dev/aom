@@ -26,9 +26,5 @@ export default function Page() {
       options: randomize([...question.options, question.answer])
     };
   });
-  return (
-    <>
-      <Quiz questions={newQuestions} action={action} />
-    </>
-  );
+  return <>{/* <Quiz questions={newQuestions} action={action} /> */}</>;
 }

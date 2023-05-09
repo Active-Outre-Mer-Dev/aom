@@ -9,7 +9,7 @@ export default function Page() {
         <Title order={1} className="font-heading leading-none mb-5">
           For Saint Martiners, <br /> by Saint Martiners
         </Title>
-        <p className="text-2xl mb-5">Take a deep dive into SXM's culture and enrichen your knowledge.</p>
+        <p className="text-2xl mb-5">Take a deep dive into SXM&apos;s culture and enrichen your knowledge.</p>
       </section>
       <section className="container mx-auto mb-36">
         <Title order={2} className="font-heading mb-5">

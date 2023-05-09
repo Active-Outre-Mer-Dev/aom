@@ -1,7 +1,6 @@
 import { questions } from "@/questions";
 import { Quiz } from "./quiz";
 import { revalidatePath } from "next/cache";
-
 export const dynamic = "force-dynamic";
 
 function randomize<T>(arr: T[]) {

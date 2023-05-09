@@ -1,15 +1,18 @@
-type Action =
+export type Action =
   | {
       type: "next";
       value: { answer: string; choice: string };
     }
   | { type: "reset" };
 
-export const initialState = {
+type State = { choices: string[]; highStreak: number; streak: number; current: number; points: number };
+
+export const initialState: State = {
   highStreak: 0,
   streak: 0,
   current: 0,
-  points: 0
+  points: 0,
+  choices: []
 };
 
 export function reducer(state: typeof initialState, action: Action): typeof initialState {
@@ -19,6 +22,8 @@ export function reducer(state: typeof initialState, action: Action): typeof init
       let highStreak = state.highStreak;
       let nextStreak = state.streak;
       let points = state.points;
+      let choices = state.choices.slice();
+      choices.push(action.value.choice);
       if (action.value.answer === action.value.choice) {
         points++;
         nextStreak++;
@@ -32,7 +37,8 @@ export function reducer(state: typeof initialState, action: Action): typeof init
         current,
         highStreak,
         streak: nextStreak,
-        points
+        points,
+        choices
       };
     }
     case "reset": {
@@ -40,7 +46,8 @@ export function reducer(state: typeof initialState, action: Action): typeof init
         current: 0,
         highStreak: 0,
         streak: 0,
-        points: 0
+        points: 0,
+        choices: []
       };
     }
     default: {

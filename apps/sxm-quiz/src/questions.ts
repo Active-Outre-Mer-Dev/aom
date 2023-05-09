@@ -45,13 +45,13 @@ export const questions: Question[] = [
   {
     answer: "Marigot",
     options: ["Grand-Case", "St James", "Sandy-Ground"],
-    question: "What is the capitol of the French Side",
+    question: "What is the capital of the French Side",
     type: "geography"
   },
   {
     answer: "Philipsburg",
     options: ["Simpson Bay", "St Peters", "Cole Bay"],
-    question: "What is the capitol of the Dutch Side",
+    question: "What is the capital of the Dutch Side",
     type: "geography"
   },
   {

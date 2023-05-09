@@ -1,2 +1,2 @@
 "use client";
-export { Button } from "ui";
+export { Button, Card, ScrollArea } from "ui";

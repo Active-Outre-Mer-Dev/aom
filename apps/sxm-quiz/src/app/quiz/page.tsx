@@ -1,5 +1,5 @@
 import { Title, Card, Badge } from "ui";
-import { Button, Select } from "./client";
+import { Button } from "./client";
 import { MoreVertical, Shuffle } from "lucide-react";
 import { allQuizzes } from "@/questions";
 import { TopicLink } from "./TopicLink";
@@ -18,6 +18,8 @@ const topicLinks = [
   { label: "Geography", href: "/quiz?topic=geography" },
   { label: "Economy", href: "/quiz?topic=economy" }
 ];
+
+export const dynamic = "force-dynamic";
 
 export default function Page({ searchParams }: PageProps) {
   const search = new URLSearchParams(searchParams);

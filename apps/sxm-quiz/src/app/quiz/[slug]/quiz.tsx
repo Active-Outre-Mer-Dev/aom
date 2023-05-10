@@ -8,6 +8,7 @@ import { SummaryDetails } from "./Details";
 
 type PropTypes = {
   questions: Question[];
+  title: string;
 };
 
 function useTimer() {
@@ -59,7 +60,7 @@ export function Quiz(props: PropTypes) {
       ) : (
         <div className="w-2/4 mx-auto p-4 overflow-hidden rounded-md mt-20 ring-black/5 shadow-md ring ">
           <div className="flex justify-between items-center bg-success-700 text-white border-b border-neutral-100 -mx-4 -mt-4 p-2">
-            <p className="font-heading text-2xl">General</p>
+            <p className="font-heading text-2xl">{props.title}</p>
             <p className="text-lg font-medium">
               {!complete ? `${state.current + 1} of ${props.questions.length}` : "Complete"}
             </p>

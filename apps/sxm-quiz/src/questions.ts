@@ -1,3 +1,5 @@
+type QuestionType = "history" | "geography" | "economy" | "general";
+
 export type Question = {
   question: string;
   answer: string;
@@ -19,9 +21,9 @@ export const questions: Question[] = [
     type: "history"
   },
   {
-    answer: "900",
+    answer: "900k USD",
     question: "What is SXM's GDP",
-    options: ["400", "500", "100"],
+    options: ["400k USD", "500k USD", "100k USD"],
     type: "economy"
   },
   {
@@ -61,3 +63,32 @@ export const questions: Question[] = [
     type: "geography"
   }
 ];
+
+class Quiz {
+  public slug: string;
+  constructor(public title: string, public type: QuestionType, public questions: Question[]) {
+    this.title = title;
+    this.type = type;
+    this.questions = questions;
+    this.slug = title.toLowerCase().trim().replaceAll(" ", "-");
+  }
+}
+
+const sxmHistory = new Quiz(
+  "SXM History intro",
+  "history",
+  questions.filter(({ type }) => type === "history")
+);
+const sxmGeo = new Quiz(
+  "SXM Geography Intro",
+  "geography",
+  questions.filter(({ type }) => type === "geography")
+);
+const sxmEco = new Quiz(
+  "SXM Economy Intro",
+  "economy",
+  questions.filter(({ type }) => type === "economy")
+);
+const sxmGeneral = new Quiz("General", "general", questions);
+
+export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo];

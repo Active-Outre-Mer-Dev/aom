@@ -1,7 +1,5 @@
-import { questions } from "@/questions";
 import { Quiz } from "./quiz";
-
-export const dynamic = "force-dynamic";
+import { allQuizzes } from "@/questions";
 
 function randomize<T>(arr: T[]) {
   const newArr: T[] = [];
@@ -14,8 +12,12 @@ function randomize<T>(arr: T[]) {
   return newArr;
 }
 
-export default function Page() {
-  const newQuestions = randomize(questions).map(question => {
+export default function Page({ params }: { params: { slug: string } }) {
+  const quizQuestions =
+    params.slug === "random"
+      ? allQuizzes[Math.floor(Math.random() * allQuizzes.length)]
+      : allQuizzes.find(({ slug }) => slug === params.slug)!;
+  const newQuestions = randomize(quizQuestions.questions).map(question => {
     return {
       ...question,
       options: randomize([...question.options, question.answer])
@@ -23,7 +25,7 @@ export default function Page() {
   });
   return (
     <>
-      <Quiz questions={newQuestions} />
+      <Quiz title={quizQuestions.title} questions={newQuestions} />
     </>
   );
 }

@@ -12,7 +12,6 @@ const meta = {
     fullWidth: { type: "boolean", description: "Sets button to 100% width of parent element" },
     size: {
       options: ["small", "medium", "large"],
-      //@ts-expect-error
       type: "radio",
       defaultValue: "medium",
       description: "Predefined button size"

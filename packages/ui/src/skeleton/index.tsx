@@ -1,25 +1,13 @@
-import { cva } from "cva";
-import type { VariantProps } from "cva";
 import { forwardRef } from "react";
+import { skeletonStyles } from "./styles";
 import type { ComponentPropsWithRef } from "react";
+import type { VariantProps } from "cva";
 
-const styles = cva(" ui-bg-neutral-200 dark:ui-bg-neutral-700", {
-  variants: {
-    animate: {
-      true: "ui-animate-pulse"
-    },
-    rounded: {
-      true: "ui-rounded-full",
-      false: "ui-rounded-md"
-    }
-  }
-});
-
-type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof styles>;
+type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof skeletonStyles>;
 
 export const Skeleton = forwardRef<HTMLDivElement, PropTypes>(
   ({ animate, className, rounded, ...props }, ref) => {
-    return <div ref={ref} {...props} className={styles({ className, animate, rounded })} />;
+    return <div ref={ref} {...props} className={skeletonStyles({ className, animate, rounded })} />;
   }
 );
 

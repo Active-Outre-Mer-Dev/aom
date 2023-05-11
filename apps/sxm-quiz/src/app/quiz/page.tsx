@@ -5,6 +5,7 @@ import { allQuizzes } from "@/questions";
 import { TopicLink } from "./TopicLink";
 import Link from "next/link";
 import { Sidebar } from "./Sidebar";
+import { buttonStyles } from "ui/src/button/styles";
 
 type Search = string | string[][] | Record<string, string> | URLSearchParams | undefined;
 
@@ -129,12 +130,7 @@ function QuizCard(props: PropTypes) {
 
         <p className="mb-4">Quick description about quiz.</p>
         <div className="flex gap-2">
-          <Link
-            className={`ui-bg-primary-600 ui-text-primary-50 dark:ui-bg-primary-500
-            dark:ui-ring-primary-400 ui-ring-primary-500 ui-px-4 ui-py-2 ui-text-base rounded-md
-            `}
-            href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}
-          >
+          <Link className={buttonStyles({})} href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}>
             Take quiz
           </Link>
           <Button variant={"neutral"}>View details</Button>

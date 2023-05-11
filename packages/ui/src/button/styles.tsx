@@ -1,6 +1,6 @@
 import { cva } from "cva";
 
-export const styles = cva(
+export const buttonStyles = cva(
   `ui-font-medium  ui-rounded-md disabled:ui-grayscale ui-appearance-none ui-outline-none 
     disabled:ui-opacity-50 focus-within:ui-ring focus-within:ui-ring-offset-2 ui-ring-0  
     disabled:ui-cursor-not-allowed ui-ring-offset-neutral-50 dark:ui-ring-offset-neutral-900 `,

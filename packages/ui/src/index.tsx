@@ -20,3 +20,4 @@ export * from "./textarea";
 export * from "./progress";
 export * from "./scroll-area";
 export * from "./switch";
+export * from "./dropdown";

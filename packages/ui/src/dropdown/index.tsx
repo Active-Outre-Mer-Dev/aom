@@ -15,8 +15,7 @@ const itemStyles = cva(
         default: `dark:ui-text-neutral-100 ui-text-neutral-900  
       data-[disabled]:ui-text-neutral-200 data-[highlighted]:ui-bg-primary-200/30 
       data-[highlighted]:ui-text-primary-600 data-[highlighted]:dark:ui-text-primary-200
-      data-[disabled]:dark:ui-text-neutral-500 data-[highlighted]:dark:ui-bg-primary-600/30
-       dark:ui-text-neutral-100`
+      data-[disabled]:dark:ui-text-neutral-500 data-[highlighted]:dark:ui-bg-primary-600/30`
       }
     },
     defaultVariants: {

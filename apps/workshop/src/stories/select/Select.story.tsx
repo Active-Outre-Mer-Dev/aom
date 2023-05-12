@@ -9,7 +9,8 @@ const meta = {
       { label: "Blue", value: "blue" },
       { label: "Orange", value: "orange" },
       { label: "Pink", value: "pink" }
-    ]
+    ],
+    fullWidth: false
   }
 } satisfies Meta<typeof UiSelect>;
 
@@ -23,7 +24,7 @@ export const WithGroups: Story = {
   args: { placeholder: "Select food" },
   render: props => {
     return (
-      <UiSelect placeholder={props.placeholder}>
+      <UiSelect fullWidth={props.fullWidth} placeholder={props.placeholder}>
         <UiSelect.Group label="Fruits">
           <UiSelect.Item value="orange">Orange</UiSelect.Item>
           <UiSelect.Item value="apple">Apple</UiSelect.Item>

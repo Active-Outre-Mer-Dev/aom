@@ -1,31 +1,29 @@
 import { Card, Title, Badge } from "ui";
 import { Button } from "@/components/learn";
 import { Bookmark } from "lucide-react";
+import Image from "next/image";
+import blobGeo from "@/assets/blob-geo.svg";
+import blobHistory from "@/assets/blob-hist.svg";
+import blobHistory2 from "@/assets/blob-hist-2.svg";
+import blobGeo2 from "@/assets/blob-geo-2.svg";
+import blobGeo3 from "@/assets/blob-geo-3.svg";
+
+const blobs = {
+  geo: [blobGeo, blobGeo2, blobGeo3],
+  history: [blobHistory, blobHistory2],
+  getRandomBlob(key: "history" | "geo") {
+    return this[key][Math.floor(Math.random() * this[key].length)];
+  }
+};
 
 export default function Page() {
   return (
-    <main>
+    <>
       <section className="mb-20 container mx-auto">
-        <Title order={1} className="font-heading leading-none mb-5">
-          For Saint Martiners, <br /> by Saint Martiners
+        <Title order={1} className="font-heading text-neutral-800 text-center leading-none mb-2">
+          Lessons
         </Title>
-        <p className="text-2xl mb-5">Take a deep dive into SXM&apos;s culture and enrichen your knowledge.</p>
-      </section>
-      <section className="container mx-auto mb-36">
-        <Title order={2} className="font-heading mb-5">
-          Categories
-        </Title>
-        <div className="grid gap-4 grid-cols-3">
-          <div className="bg-error-600 h-36 flex items-center justify-center text-error-50 text-2xl rounded-md">
-            History
-          </div>
-          <div className="bg-secondary-600 h-36 flex items-center justify-center text-secondary-50 text-2xl rounded-md">
-            Geography
-          </div>
-          <div className="bg-tertiary-600 h-36 flex items-center justify-center text-tertiary-50 text-2xl rounded-md">
-            Economy
-          </div>
-        </div>
+        <p className="text-xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
       <section className="container mx-auto mb-36">
         <Title order={2} className="font-heading mb-10">
@@ -33,15 +31,18 @@ export default function Page() {
         </Title>
         <div className="grid lg:grid-cols-4 gap-4">
           {articles.map((_, key) => {
+            const blob = blobs.getRandomBlob("history");
             return (
-              <Card key={key}>
-                <Card.Section className="bg-error-600 h-36"></Card.Section>
+              <Card key={key} className="overflow-hidden">
+                <Card.Section className=" h-36 mb-1 relative flex items-center justify-center ">
+                  <Image src={blob} fill alt="" className=" object-cover" />
+                  <Title order={3} className="relative  text-center font-heading text-white">
+                    Intro to SXM History
+                  </Title>
+                </Card.Section>
                 <Badge color="error" className="mb-1">
                   History
                 </Badge>
-                <Title order={3} className="font-heading mb-2 leading-none">
-                  Intro to SXM History
-                </Title>
                 <p className="mb-4">Irure cupidatat deserunt laboris est sint exercitation.</p>
                 <hr className="my-4 -mx-4 text-neutral-200" />
                 <div className="flex gap-2">
@@ -59,7 +60,7 @@ export default function Page() {
         </div>
       </section>
       <section className="mb-36">
-        <div className="bg-primary-600 p-4 w-3/4 mx-auto text-primary-100  rounded-md">
+        <div className="bg-primary-600 p-4 w-3/4 mx-auto text-primary-100  rounded-xl">
           <Title order={2} className="text-primary-50 font-heading mb-2">
             Become a contributor
           </Title>
@@ -76,15 +77,18 @@ export default function Page() {
         </Title>
         <div className="grid lg:grid-cols-4 gap-4">
           {articles.map((_, key) => {
+            const blob = blobs.getRandomBlob("geo");
             return (
-              <Card key={key}>
-                <Card.Section className="bg-secondary-600 h-36 mb-1"></Card.Section>
+              <Card key={key} className="overflow-hidden">
+                <Card.Section className=" h-36 mb-1 relative flex items-center justify-center ">
+                  <Image src={blob} fill alt="" className=" object-cover" />
+                  <Title order={3} className="relative text-center font-heading text-white">
+                    Intro to SXM Geography
+                  </Title>
+                </Card.Section>
                 <Badge color="secondary" className="mb-1">
                   Geography
                 </Badge>
-                <Title order={3} className="font-heading mb-2">
-                  Intro to SXM geography
-                </Title>
                 <p className="mb-4">Irure cupidatat deserunt laboris est sint exercitation.</p>
                 <hr className="my-4 -mx-4 text-neutral-200" />
                 <div className="flex gap-2">
@@ -101,7 +105,7 @@ export default function Page() {
           })}
         </div>
       </section>
-    </main>
+    </>
   );
 }
 

@@ -62,9 +62,13 @@ export const WithIcons: Story = {
               Search
             </Dropdown.Item>
             <Dropdown.Separator />
-            <Dropdown.Label>Dangerzone</Dropdown.Label>
-            <Dropdown.Item icon={<IconTransferOut size={14} />}>Transfer my account</Dropdown.Item>
-            <Dropdown.Item icon={<IconTrash size={14} />}>Delete my account</Dropdown.Item>
+            <Dropdown.Label>Danger zone</Dropdown.Label>
+            <Dropdown.Item color={"warn"} icon={<IconTransferOut size={14} />}>
+              Transfer my account
+            </Dropdown.Item>
+            <Dropdown.Item color={"error"} icon={<IconTrash size={14} />}>
+              Delete my account
+            </Dropdown.Item>
           </Dropdown.Content>
         </Dropdown>
       </div>
@@ -119,9 +123,13 @@ function AnimatedDropdown() {
                   Search
                 </Dropdown.Item>
                 <Dropdown.Separator />
-                <Dropdown.Label>Dangerzone</Dropdown.Label>
-                <Dropdown.Item icon={<IconTransferOut size={14} />}>Transfer my account</Dropdown.Item>
-                <Dropdown.Item icon={<IconTrash size={14} />}>Delete my account</Dropdown.Item>
+                <Dropdown.Label>Danger zone</Dropdown.Label>
+                <Dropdown.Item color={"warn"} icon={<IconTransferOut size={14} />}>
+                  Transfer my account
+                </Dropdown.Item>
+                <Dropdown.Item color={"error"} icon={<IconTrash size={14} />}>
+                  Delete my account
+                </Dropdown.Item>
               </motion.div>
             </Dropdown.Content>
           )}

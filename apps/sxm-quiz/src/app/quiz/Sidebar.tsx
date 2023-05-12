@@ -25,7 +25,7 @@ export function Sidebar({ defaultValue }: PropTypes) {
         <p className="text-xl mb-2">Sort by</p>
         <Select
           defaultValue={defaultValue}
-          onValueChange={onChange}
+          onValueChange={onChange} fullWidth
           items={[
             { label: "Oldest", value: "oldest" },
             { label: "Newest", value: "newest" },

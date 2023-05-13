@@ -1,11 +1,31 @@
-type QuestionType = "history" | "geography" | "economy" | "general";
-
+export type QuestionType = "history" | "geography" | "economy" | "general";
+type ColorTypes = "secondary" | "primary" | "error" | "success";
 export type Question = {
   question: string;
   answer: string;
   options: string[];
-  type: string;
+  type: QuestionType;
 };
+
+export function getCatColor(type: QuestionType): ColorTypes {
+  switch (type) {
+    case "economy": {
+      return "primary";
+    }
+
+    case "general": {
+      return "success";
+    }
+    case "geography": {
+      return "secondary";
+    }
+    case "history": {
+      return "error";
+    }
+    default:
+      return "success";
+  }
+}
 
 export const questions: Question[] = [
   {
@@ -36,7 +56,7 @@ export const questions: Question[] = [
     answer: "11 November",
     options: ["4 July", "14 July", "17 August"],
     question: "When is SXM Day?",
-    type: "History"
+    type: "history"
   },
   {
     answer: "1648",
@@ -60,6 +80,30 @@ export const questions: Question[] = [
     answer: "Pic Paradis",
     options: ["Mont des Accords", "St Peters hill", "Morne Valois"],
     question: "What is the highest hill in Saint Martin/Sint Maarten?",
+    type: "geography"
+  },
+  {
+    answer: "1990",
+    question: "When ws thee national flag of SXM unveiled?",
+    type: "history",
+    options: ["Yellow, Red, Green, Blue", "White, Red, Blue", "White, Red, Green", "Yellow, Blue, Red, Brown"]
+  },
+  {
+    answer: "37",
+    question: "How many beaches are there in Sxm?",
+    type: "geography",
+    options: ["47", "16", "23"]
+  },
+  {
+    answer: "Brown Pelican",
+    options: ["Ground Dove", "Hummingbird", "Blackbird"],
+    question: "What is Sxm's national animal?",
+    type: "general"
+  },
+  {
+    answer: "20",
+    options: ["37", "19", "12"],
+    question: "How many ponds are there in Sxm?",
     type: "geography"
   }
 ];

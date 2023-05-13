@@ -1,18 +1,24 @@
-import { Card, Title, Badge } from "ui";
+import { Title } from "ui";
 import { Button } from "@/components/learn";
-import { Bookmark } from "lucide-react";
-import Image from "next/image";
+import { RandomFacts } from "./random-facts";
 import blobGeo from "@/assets/blob-geo.svg";
 import blobHistory from "@/assets/blob-hist.svg";
 import blobHistory2 from "@/assets/blob-hist-2.svg";
 import blobGeo2 from "@/assets/blob-geo-2.svg";
 import blobGeo3 from "@/assets/blob-geo-3.svg";
+import blobEco from "@/assets/blob-eco.svg";
+import blobEco2 from "@/assets/blob-eco-2.svg";
+import blobEco3 from "@/assets/blob-eco-3.svg";
+import { Articles } from "./Articles";
 
 const blobs = {
   geo: [blobGeo, blobGeo2, blobGeo3],
   history: [blobHistory, blobHistory2],
-  getRandomBlob(key: "history" | "geo") {
-    return this[key][Math.floor(Math.random() * this[key].length)];
+  economy: [blobEco, blobEco2, blobEco3],
+  getRandomBlob(key: "history" | "geo" | "economy") {
+    return () => {
+      return this[key][Math.floor(Math.random() * this[key].length)];
+    };
   }
 };
 
@@ -26,38 +32,7 @@ export default function Page() {
         <p className="text-xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
       <section className="container mx-auto mb-36">
-        <Title order={2} className="font-heading mb-10">
-          All articles
-        </Title>
-        <div className="grid lg:grid-cols-4 gap-4">
-          {articles.map((_, key) => {
-            const blob = blobs.getRandomBlob("history");
-            return (
-              <Card key={key} className="overflow-hidden">
-                <Card.Section className=" h-36 mb-1 relative flex items-center justify-center ">
-                  <Image src={blob} fill alt="" className=" object-cover" />
-                  <Title order={3} className="relative  text-center font-heading text-white">
-                    Intro to SXM History
-                  </Title>
-                </Card.Section>
-                <Badge color="error" className="mb-1">
-                  History
-                </Badge>
-                <p className="mb-4">Irure cupidatat deserunt laboris est sint exercitation.</p>
-                <hr className="my-4 -mx-4 text-neutral-200" />
-                <div className="flex gap-2">
-                  <Button className="grow">Read article</Button>
-                  <button
-                    aria-label="Bookmark article"
-                    className={`relative text-secondary-600 basis-10 flex items-center justify-center active:top-[2px]`}
-                  >
-                    <Bookmark />
-                  </button>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+        <Articles getRandomBlob={blobs.getRandomBlob("history")} type="history" title="Featured" />
       </section>
       <section className="mb-36">
         <div className="bg-primary-600 p-4 w-3/4 mx-auto text-primary-100  rounded-xl">
@@ -72,41 +47,14 @@ export default function Page() {
         </div>
       </section>
       <section className="container mx-auto mb-36">
-        <Title order={2} className="font-heading mb-10">
-          Community articles
-        </Title>
-        <div className="grid lg:grid-cols-4 gap-4">
-          {articles.map((_, key) => {
-            const blob = blobs.getRandomBlob("geo");
-            return (
-              <Card key={key} className="overflow-hidden">
-                <Card.Section className=" h-36 mb-1 relative flex items-center justify-center ">
-                  <Image src={blob} fill alt="" className=" object-cover" />
-                  <Title order={3} className="relative text-center font-heading text-white">
-                    Intro to SXM Geography
-                  </Title>
-                </Card.Section>
-                <Badge color="secondary" className="mb-1">
-                  Geography
-                </Badge>
-                <p className="mb-4">Irure cupidatat deserunt laboris est sint exercitation.</p>
-                <hr className="my-4 -mx-4 text-neutral-200" />
-                <div className="flex gap-2">
-                  <Button className="grow">Read article</Button>
-                  <button
-                    aria-label="Bookmark article"
-                    className={`relative text-secondary-600 basis-10 flex items-center justify-center active:top-[2px]`}
-                  >
-                    <Bookmark />
-                  </button>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+        <Articles getRandomBlob={blobs.getRandomBlob("geo")} title="Community" type="geography" />
+      </section>
+      <section className="mb-36">
+        <RandomFacts />
+      </section>
+      <section className="container mx-auto mb-36">
+        <Articles getRandomBlob={blobs.getRandomBlob("economy")} title="Recently added" type="economy" />
       </section>
     </>
   );
 }
-
-const articles = Array(8).fill(null);

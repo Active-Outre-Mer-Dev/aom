@@ -86,7 +86,13 @@ export const questions: Question[] = [
     answer: "1990",
     question: "When was the national flag of SXM unveiled?",
     type: "history",
-    options: ["Yellow, Red, Green, Blue", "White, Red, Blue", "White, Red, Green", "Yellow, Blue, Red, Brown"]
+    options: ["1996", "1987", "1965"]
+  },
+  {
+    answer: "Yellow, Red, Green, Blue",
+    options: ["White, Red, Blue", "White, Red, Green", "Yellow, Blue, Red, Brown"],
+    question: "The national flag for Sxm is made up of what colors?",
+    type: "geography"
   },
   {
     answer: "37",

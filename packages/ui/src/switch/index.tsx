@@ -37,13 +37,13 @@ ui-transition-transform ui-duration-100 ui-translate-x-0.5 ui-will-change-transf
   }
 );
 
-type PropTypes = {
+export type SwitchProps = {
   label?: string;
   thumbIcon?: React.ReactNode;
 } & RadixSwitch.SwitchProps &
   VariantProps<typeof styles>;
 
-export const Switch = forwardRef<HTMLButtonElement, PropTypes>(
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ className, size, thumbIcon, ...props }, ref) => (
     <>
       <div className="ui-flex ui-items-center ui-gap-2">

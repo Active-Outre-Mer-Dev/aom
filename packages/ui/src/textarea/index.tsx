@@ -1,13 +1,12 @@
-"use client";
 import { forwardRef } from "react";
-import type { ComponentPropsWithRef } from "react";
 import { cx } from "../cx";
 import { Label } from "../label";
 import { useId } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-type PropTypes = ComponentPropsWithRef<"textarea"> & { label?: string; wrapperClass?: string };
+export type TextareaProps = ComponentPropsWithRef<"textarea"> & { label?: string; wrapperClass?: string };
 
-export const Textarea = forwardRef<HTMLTextAreaElement, PropTypes>((props, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => {
   const id = useId();
   return (
     <div className={props.wrapperClass}>

@@ -4,9 +4,9 @@ import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";
 import { cardSectionStyles } from "./styles";
 
-type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof cardSectionStyles>;
+type CardSectionProps = ComponentPropsWithRef<"div"> & VariantProps<typeof cardSectionStyles>;
 
-export const Section = forwardRef<HTMLDivElement, PropTypes>(
+export const Section = forwardRef<HTMLDivElement, CardSectionProps>(
   ({ className, inheritPadding, ...props }, ref) => {
     return (
       <div {...props} ref={ref} className={cardSectionStyles({ className, inheritPadding })}>

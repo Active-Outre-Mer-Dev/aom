@@ -3,9 +3,10 @@ import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";
 import { alertStyles } from "./styles";
 
-type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof alertStyles> & { icon?: React.ReactNode };
+export type AlertProps = ComponentPropsWithRef<"div"> &
+  VariantProps<typeof alertStyles> & { icon?: React.ReactNode };
 
-export const Alert = forwardRef<HTMLDivElement, PropTypes>(
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ({ className, color, title, icon, ...props }, ref) => {
     return (
       <div ref={ref} role="alert" {...props} className={alertStyles({ className, color })}>

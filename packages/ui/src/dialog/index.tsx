@@ -2,8 +2,8 @@ import * as RadixDialog from "@radix-ui/react-dialog";
 import { cardStyles } from "../card/styles";
 import { titleStyles } from "../title/styles";
 import { buttonStyles } from "../button/styles";
-import type { VariantProps } from "cva";
 import { cva } from "cva";
+import type { VariantProps } from "cva";
 
 const overlayStyles = cva(
   `ui-bg-black/30 data-[state=open]:ui-animate-overlay-show ui-flex ui-items-center ui-justify-center
@@ -18,10 +18,12 @@ data-[state=closed]:ui-animate-overlay-hide`,
   }
 );
 
-type ContentProps = { portalProps?: RadixDialog.DialogPortalProps } & RadixDialog.DialogContentProps &
+export type DialogContentProps = {
+  portalProps?: RadixDialog.DialogPortalProps;
+} & RadixDialog.DialogContentProps &
   VariantProps<typeof overlayStyles>;
 
-function Content({ blur, portalProps, className, ...props }: ContentProps) {
+function Content({ blur, portalProps, className, ...props }: DialogContentProps) {
   return (
     <RadixDialog.Portal {...portalProps}>
       <RadixDialog.Overlay className={overlayStyles({ blur })}>
@@ -39,17 +41,17 @@ function Content({ blur, portalProps, className, ...props }: ContentProps) {
   );
 }
 
-type CloseProps = RadixDialog.DialogCloseProps;
+export type DialogCloseProps = RadixDialog.DialogCloseProps;
 
-function Close({ className, ...props }: CloseProps) {
+function Close({ className, ...props }: DialogCloseProps) {
   const defaultStyles = `ui-h-6 ui-w-6 ui-rounded-full ui-inline-flex ui-items-center ui-justify-center 
   hover:ui-bg-neutral-100 hover:dark:ui-bg-neutral-700`;
   return <RadixDialog.Close {...props} className={className || defaultStyles} />;
 }
 
-type TriggerProps = VariantProps<typeof buttonStyles> & RadixDialog.DialogTriggerProps;
+export type DialogTriggerProps = VariantProps<typeof buttonStyles> & RadixDialog.DialogTriggerProps;
 
-function Trigger({ variant, color, fullWidth, size, className, ...props }: TriggerProps) {
+function Trigger({ variant, color, fullWidth, size, className, ...props }: DialogTriggerProps) {
   return <RadixDialog.Trigger {...props} className={buttonStyles({ className, fullWidth, variant, size })} />;
 }
 
@@ -61,9 +63,9 @@ function Description(props: RadixDialog.DialogDescriptionProps) {
   return <RadixDialog.Description {...props} className={`ui-text-neutral-700 ui-mt-[10px] ui-mb-5 `} />;
 }
 
-type PropTypes = RadixDialog.DialogProps;
+export type DialogProps = RadixDialog.DialogProps;
 
-export function Dialog(props: PropTypes) {
+export function Dialog(props: DialogProps) {
   return <RadixDialog.Root {...props}></RadixDialog.Root>;
 }
 

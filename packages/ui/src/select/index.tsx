@@ -1,16 +1,15 @@
-"use client";
 import React from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { cx } from "../cx";
 
-type PropTypes = {
+export type SelectProps = {
   items?: { value: string; label: string }[];
   placeholder?: string;
   fullWidth?: boolean;
 } & RadixSelect.SelectProps;
 
-export const Select = ({ items = [], placeholder, fullWidth, ...props }: PropTypes) => (
+export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectProps) => (
   <RadixSelect.Root {...props}>
     <RadixSelect.Trigger
       className={cx(

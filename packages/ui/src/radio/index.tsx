@@ -3,9 +3,9 @@ import * as RadixRadio from "@radix-ui/react-radio-group";
 import { useId } from "react";
 import { Label } from "../label";
 
-type PropTypes = { label?: string } & RadixRadio.RadioGroupItemProps;
+export type RadioProps = { label?: string } & RadixRadio.RadioGroupItemProps;
 
-export function Radio({ label, ...props }: PropTypes) {
+export function Radio({ label, ...props }: RadioProps) {
   const id = useId();
   return (
     <div className="ui-flex ui-items-cente ui-gap-2">

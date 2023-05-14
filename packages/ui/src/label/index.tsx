@@ -1,9 +1,13 @@
 import { forwardRef } from "react";
 import type { ComponentPropsWithRef } from "react";
 import { cx } from "../cx";
-type PropTypes = { htmlFor: string; disabled?: boolean } & Omit<ComponentPropsWithRef<"label">, "htmlFor">;
 
-export const Label = forwardRef<HTMLLabelElement, PropTypes>(({ className, disabled, ...props }, ref) => {
+export type LabelProps = { htmlFor: string; disabled?: boolean } & Omit<
+  ComponentPropsWithRef<"label">,
+  "htmlFor"
+>;
+
+export const Label = forwardRef<HTMLLabelElement, LabelProps>(({ className, disabled, ...props }, ref) => {
   return (
     <label
       {...props}

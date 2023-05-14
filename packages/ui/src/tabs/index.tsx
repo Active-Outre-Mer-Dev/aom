@@ -16,9 +16,9 @@ function List(props: RadixTabs.TabsListProps) {
   );
 }
 
-type TriggerProps = { customBg?: boolean } & RadixTabs.TabsTriggerProps;
+export type TabsTriggerProps = { customBg?: boolean } & RadixTabs.TabsTriggerProps;
 
-function Trigger({ customBg, ...props }: TriggerProps) {
+function Trigger({ customBg, ...props }: TabsTriggerProps) {
   return (
     <RadixTabs.Trigger
       {...props}
@@ -48,11 +48,9 @@ function Trigger({ customBg, ...props }: TriggerProps) {
   );
 }
 
-function Content({
-  className,
-  variant = "outline",
-  ...props
-}: RadixTabs.TabsContentProps & VariantProps<typeof cardStyles>) {
+export type TabsContentProps = RadixTabs.TabsContentProps & VariantProps<typeof cardStyles>;
+
+function Content({ className, variant = "outline", ...props }: TabsContentProps) {
   return (
     <RadixTabs.Content {...props} className={cx(cardStyles({ className, variant }), "ui-translate-y-2")}>
       {props.children}

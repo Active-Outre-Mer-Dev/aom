@@ -1,11 +1,11 @@
 import { Title, Card, Badge } from "ui";
-import { Button } from "./client";
-import { MoreVertical, Shuffle } from "lucide-react";
+import { Shuffle } from "lucide-react";
 import { allQuizzes } from "@/questions";
 import { TopicLink } from "./TopicLink";
 import Link from "next/link";
-import { Sidebar } from "./Sidebar";
 import { buttonStyles } from "ui/src/button/styles";
+import { Dropdown } from "./Dropdown";
+import { DetailsModal } from "@/components/quiz/details-modals";
 
 type Search = string | string[][] | Record<string, string> | URLSearchParams | undefined;
 
@@ -20,16 +20,13 @@ const topicLinks = [
   { label: "Economy", href: "/quiz?topic=economy" }
 ];
 
-export const dynamic = "force-dynamic";
-
 export default function Page({ searchParams }: PageProps) {
   const search = new URLSearchParams(searchParams);
   const topic = search.get("topic");
-  const sort = search.get("sort") || undefined;
   const filteredQuizzes = topic ? allQuizzes.filter(({ type }) => type === topic) : allQuizzes;
   return (
-    <main>
-      <section className="container mx-auto mt-4">
+    <>
+      {/* <section className="container mx-auto mt-4">
         <header className="w-3/4 mx-auto mb-10">
           <Title order={1} className=" font-heading leading-tight">
             Some lessons before you get started
@@ -71,9 +68,11 @@ export default function Page({ searchParams }: PageProps) {
             Random lesson
           </div>
         </div>
-      </section>
+      </section> */}
+      <Title className="font-heading mb-4 text-center" order={1}>
+        Quiz
+      </Title>
       <section id="quiz-section" className="container flex gap-4  mx-auto pt-20 mb-20">
-        <Sidebar defaultValue={sort} />
         <div className="grow">
           <div className="flex gap-4 justify-around mb-4 text-center items-center">
             {topicLinks.map(link => {
@@ -94,7 +93,7 @@ export default function Page({ searchParams }: PageProps) {
           </ul>
         </div>
       </section>
-    </main>
+    </>
   );
 }
 
@@ -105,16 +104,14 @@ function QuizCard(props: PropTypes) {
     props.type === "economy"
       ? "primary"
       : props.type === "geography"
-      ? "warn"
+      ? "secondary"
       : props.type === "history"
       ? "error"
       : "success";
   return (
     <li>
       <Card className="relative">
-        <button className="absolute text-neutral-600 top-4 flex justify-center items-center right-4 rounded-full h-5 w-5 border border-neutral-400">
-          <MoreVertical />
-        </button>
+        <Dropdown />
         <div className="flex gap-2 items-center mb-2">
           <Title order={3} className="font-heading">
             {props.title}
@@ -133,7 +130,7 @@ function QuizCard(props: PropTypes) {
           <Link className={buttonStyles({})} href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}>
             Take quiz
           </Link>
-          <Button variant={"neutral"}>View details</Button>
+          <DetailsModal badgeColor={color} {...props} />
         </div>
       </Card>
     </li>

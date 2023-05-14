@@ -1,6 +1,6 @@
 import { cva } from "cva";
 
-export const titleStyles = cva("", {
+export const titleStyles = cva("ui-text-neutral-800 dark:ui-text-neutral-50", {
   variants: {
     /**Used to render specific heading element from h1-h6
      * @default 1

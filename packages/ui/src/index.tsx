@@ -21,3 +21,4 @@ export * from "./progress";
 export * from "./scroll-area";
 export * from "./switch";
 export * from "./dropdown";
+export * from "./dialog";

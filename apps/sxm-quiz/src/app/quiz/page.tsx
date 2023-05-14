@@ -1,11 +1,10 @@
 import { Title, Card, Badge } from "ui";
-import { Shuffle } from "lucide-react";
 import { allQuizzes } from "@/questions";
 import { TopicLink } from "./TopicLink";
 import Link from "next/link";
 import { buttonStyles } from "ui/src/button/styles";
 import { Dropdown } from "./Dropdown";
-import { DetailsModal } from "@/components/quiz/details-modals";
+import { DetailsWrapper } from "@/components/quiz/details-modals";
 
 type Search = string | string[][] | Record<string, string> | URLSearchParams | undefined;
 
@@ -26,49 +25,6 @@ export default function Page({ searchParams }: PageProps) {
   const filteredQuizzes = topic ? allQuizzes.filter(({ type }) => type === topic) : allQuizzes;
   return (
     <>
-      {/* <section className="container mx-auto mt-4">
-        <header className="w-3/4 mx-auto mb-10">
-          <Title order={1} className=" font-heading leading-tight">
-            Some lessons before you get started
-          </Title>
-        </header>
-        <div className="grid w-3/4 mx-auto mb-10 gap-4 text-2xl font-heading grid-cols-3">
-          <div className="bg-error-600  space-y-4  p-4 rounded-md text-white">
-            <p>SXM History</p>
-            <Button variant={"neutral"}>Learn</Button>
-          </div>
-          <div className="bg-warn-600 text-white rounded-md p-4 space-y-4 ">
-            <p>SXM Geo</p>
-            <Button variant={"neutral"}>Learn</Button>
-          </div>
-          <div className="bg-primary-600 text-white rounded-md p-4 space-y-4 ">
-            <p>SXM Econo</p>
-            <Button variant={"neutral"}>Learn</Button>
-          </div>
-        </div>
-        <div className="flex gap-4 flex-wrap w-3/4 mx-auto text-xl text-white">
-          <div className="basis-1/6 p-4 rounded-md bg-success-700 flex justify-center items-center aspect-square grow">
-            {" "}
-            Random lesson
-          </div>
-          <div className="basis-1/6 p-4 rounded-md bg-success-700 flex justify-center items-center aspect-square grow">
-            {" "}
-            Random lesson
-          </div>
-          <div className="basis-1/6 p-4 rounded-md bg-success-700 flex justify-center items-center aspect-square grow">
-            {" "}
-            Random lesson
-          </div>
-          <div className="basis-1/6 p-4 rounded-md bg-success-700 flex justify-center items-center aspect-square grow">
-            {" "}
-            Random lesson
-          </div>
-          <div className="basis-1/6 p-4 rounded-md bg-success-700 flex justify-center items-center aspect-square grow">
-            {" "}
-            Random lesson
-          </div>
-        </div>
-      </section> */}
       <Title className="font-heading mb-4 text-center" order={1}>
         Quiz
       </Title>
@@ -79,12 +35,6 @@ export default function Page({ searchParams }: PageProps) {
               const active = topic === link.label.toLowerCase() || (!topic && link.href === "/quiz");
               return <TopicLink {...link} key={`${link.href}`} active={active} />;
             })}
-            <Link
-              href={"/quiz/random"}
-              className="basis-10 p-1 aspect-square bg-neutral-100 rounded-full flex justify-center items-center"
-            >
-              <Shuffle size={"90%"} />
-            </Link>
           </div>
           <ul className="space-y-4">
             {filteredQuizzes.map(quiz => {
@@ -130,7 +80,7 @@ function QuizCard(props: PropTypes) {
           <Link className={buttonStyles({})} href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}>
             Take quiz
           </Link>
-          <DetailsModal badgeColor={color} {...props} />
+          <DetailsWrapper badgeColor={color} {...props} />
         </div>
       </Card>
     </li>

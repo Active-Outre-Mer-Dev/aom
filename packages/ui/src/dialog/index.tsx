@@ -7,7 +7,7 @@ import { cva } from "cva";
 
 const overlayStyles = cva(
   `ui-bg-black/30 data-[state=open]:ui-animate-overlay-show ui-flex ui-items-center ui-justify-center
-   ui-fixed ui-inset-0 ui-h-screen  ui-w-full
+   ui-fixed ui-inset-0 ui-h-screen  ui-w-full ui-z-[9999]
 data-[state=closed]:ui-animate-overlay-hide`,
   {
     variants: {
@@ -21,7 +21,7 @@ data-[state=closed]:ui-animate-overlay-hide`,
 type ContentProps = { portalProps?: RadixDialog.DialogPortalProps } & RadixDialog.DialogContentProps &
   VariantProps<typeof overlayStyles>;
 
-function Content({ blur, portalProps, ...props }: ContentProps) {
+function Content({ blur, portalProps, className, ...props }: ContentProps) {
   return (
     <RadixDialog.Portal {...portalProps}>
       <RadixDialog.Overlay className={overlayStyles({ blur })}>
@@ -29,9 +29,7 @@ function Content({ blur, portalProps, ...props }: ContentProps) {
           {...props}
           className={cardStyles({
             variant: "filled",
-            className: `ui-max-h-[85vh] ui-w-[90vw] ui-max-w-[450px]
-            
-            `
+            className
           })}
         >
           {props.children}
@@ -45,7 +43,7 @@ type CloseProps = RadixDialog.DialogCloseProps;
 
 function Close({ className, ...props }: CloseProps) {
   const defaultStyles = `ui-h-6 ui-w-6 ui-rounded-full ui-inline-flex ui-items-center ui-justify-center 
-  hover:ui-bg-neutral-200 hover:dark:ui-bg-neutral-700`;
+  hover:ui-bg-neutral-100 hover:dark:ui-bg-neutral-700`;
   return <RadixDialog.Close {...props} className={className || defaultStyles} />;
 }
 

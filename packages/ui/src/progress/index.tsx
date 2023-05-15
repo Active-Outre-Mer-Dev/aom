@@ -3,9 +3,9 @@ import * as RadixProgress from "@radix-ui/react-progress";
 import { forwardRef } from "react";
 import type { ComponentPropsWithRef } from "react";
 
-type PropTypes = ComponentPropsWithRef<"progress"> & RadixProgress.ProgressProps;
+export type ProgressProps = ComponentPropsWithRef<"progress"> & RadixProgress.ProgressProps;
 
-export const Progress = forwardRef<HTMLDivElement, PropTypes>((props, ref) => {
+export const Progress = forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
   return (
     <RadixProgress.Root
       {...props}

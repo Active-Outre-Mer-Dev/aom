@@ -1,12 +1,11 @@
-"use client";
 import * as RadixSlider from "@radix-ui/react-slider";
 import { forwardRef } from "react";
 import type { ComponentPropsWithRef } from "react";
 import { cx } from "../cx";
 
-type PropTypes = RadixSlider.SliderProps & ComponentPropsWithRef<"input">;
+export type SliderProps = RadixSlider.SliderProps & ComponentPropsWithRef<"input">;
 
-export const Slider = forwardRef<HTMLInputElement, PropTypes>((props, ref) => (
+export const Slider = forwardRef<HTMLInputElement, SliderProps>((props, ref) => (
   <>
     <RadixSlider.Root
       ref={ref}

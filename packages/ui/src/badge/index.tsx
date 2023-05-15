@@ -33,9 +33,9 @@ const styles = cva(`ui-rounded-full ui-px-2 ui-text-sm ui-inline-flex ui-justify
   }
 });
 
-type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof styles>;
+export type BadgeProps = ComponentPropsWithRef<"div"> & VariantProps<typeof styles>;
 
-export const Badge = forwardRef<HTMLDivElement, PropTypes>(
+export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, color, fullWidth, size, ...props }, ref) => {
     return (
       <div {...props} ref={ref} className={styles({ className, color, fullWidth, size })}>

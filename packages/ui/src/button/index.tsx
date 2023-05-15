@@ -3,10 +3,11 @@ import { buttonStyles } from "./styles";
 import type { VariantProps } from "cva";
 import type { ComponentPropsWithRef } from "react";
 
-type PropTypes = VariantProps<typeof buttonStyles> & ComponentPropsWithRef<"button"> & { loading?: boolean };
+export type ButtonProps = VariantProps<typeof buttonStyles> &
+  ComponentPropsWithRef<"button"> & { loading?: boolean };
 
-export const Button = forwardRef<HTMLButtonElement, PropTypes>(
-  ({ className, variant, size, fullWidth, loading, ...props }: PropTypes, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, fullWidth, loading, ...props }: ButtonProps, ref) => {
     return (
       <button
         ref={ref}

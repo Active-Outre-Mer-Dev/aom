@@ -1,11 +1,10 @@
-"use client";
 import * as RadixScrollArea from "@radix-ui/react-scroll-area";
 import { forwardRef } from "react";
 import { cx } from "../cx";
 
-type PropTypes = RadixScrollArea.ScrollAreaProps;
+export type ScrollAreaProps = RadixScrollArea.ScrollAreaProps;
 
-export const ScrollArea = forwardRef<HTMLDivElement, PropTypes>(({ className, ...props }, ref) => (
+export const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(({ className, ...props }, ref) => (
   <RadixScrollArea.Root ref={ref} {...props} className={cx("ui-overflow-hidden", className)}>
     <RadixScrollArea.Viewport className="ui-w-full ui-h-full ui-rounded">
       {props.children}

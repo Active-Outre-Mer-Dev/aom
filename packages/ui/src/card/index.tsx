@@ -4,9 +4,9 @@ import type { VariantProps } from "cva";
 import type { ComponentPropsWithoutRef } from "react";
 import { cardStyles } from "./styles";
 
-type PropTypes = ComponentPropsWithoutRef<"div"> & VariantProps<typeof cardStyles>;
+type CardProps = ComponentPropsWithoutRef<"div"> & VariantProps<typeof cardStyles>;
 
-export function Card({ className, variant, ...props }: PropTypes) {
+export function Card({ className, variant, ...props }: CardProps) {
   const _children = Children.toArray(props.children);
   return (
     <div className={cardStyles({ className, variant })}>

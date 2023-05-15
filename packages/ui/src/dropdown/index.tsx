@@ -24,12 +24,12 @@ const itemStyles = cva(
   }
 );
 
-type ItemProps = VariantProps<typeof itemStyles> & {
+export type DropdownItemProps = VariantProps<typeof itemStyles> & {
   icon?: React.ReactNode;
   rightSection?: React.ReactNode;
 } & RadixDropdown.MenuItemProps;
 
-function Item({ icon, rightSection, color, className, ...props }: ItemProps) {
+function Item({ icon, rightSection, color, className, ...props }: DropdownItemProps) {
   return (
     <RadixDropdown.Item {...props} className={itemStyles({ className, color })}>
       {icon ? <span className="mr-2 inline-block">{icon}</span> : null}
@@ -48,12 +48,12 @@ function Item({ icon, rightSection, color, className, ...props }: ItemProps) {
   );
 }
 
-type ContentProps = {
+export type DropdownContentProps = {
   portalProps?: RadixDropdown.DropdownMenuPortalProps;
   arrow?: boolean;
 } & RadixDropdown.DropdownMenuContentProps;
 
-function Content({ arrow, portalProps, ...props }: ContentProps) {
+function Content({ arrow, portalProps, ...props }: DropdownContentProps) {
   return (
     <RadixDropdown.Portal {...portalProps}>
       <RadixDropdown.Content

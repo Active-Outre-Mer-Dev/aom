@@ -6,13 +6,13 @@ export type ActionIconProps = { label?: string } & ComponentPropsWithoutRef<"but
   VariantProps<typeof actionIconStyles>;
 
 export const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(
-  ({ className, color, size, label, ...props }, ref) => {
+  ({ className, color, size, label, variant, ...props }, ref) => {
     return (
       <button
         ref={ref}
         aria-label={label}
         {...props}
-        className={actionIconStyles({ className, color, size })}
+        className={actionIconStyles({ className, color, size, variant })}
       />
     );
   }

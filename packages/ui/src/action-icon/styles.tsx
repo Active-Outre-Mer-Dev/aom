@@ -9,9 +9,13 @@ ui-items-center active:ui-top-[2px] ui-relative`,
         primary: `ui-text-primary-600 ui-bg-primary-200/30 hover:ui-bg-primary-200/60 
         dark:ui-bg-primary-600/30 dark:ui-text-primary-200 hover:dark:ui-bg-primary-600/60`,
         secondary: `ui-text-secondary-600 ui-bg-secondary-200/30 dark:ui-bg-secondary-600/30
-        dark:ui-text-secondary-200 hover:bg-secondary-200/60 hover:dark:bg-secondary-600/30`,
-        success: `ui-success-600 ui-bg-success-200/30 dark:ui-bg-secondary-600/30 
+        dark:ui-text-secondary-200 hover:ui-bg-secondary-200/60 hover:dark:ui-bg-secondary-600/60`,
+        success: `ui-text-success-600 ui-bg-success-200/30 dark:ui-bg-success-600/30 
         dark:ui-text-success-200 hover:ui-bg-success-200/60 hover:dark:ui-bg-success-600/60`
+      },
+      variant: {
+        light: ``,
+        subtle: ``
       },
       size: {
         md: "ui-h-6 ui-w-6",
@@ -21,7 +25,15 @@ ui-items-center active:ui-top-[2px] ui-relative`,
     },
     defaultVariants: {
       color: "primary",
-      size: "md"
-    }
+      size: "md",
+      variant: "light"
+    },
+    compoundVariants: [
+      {
+        color: ["primary", "secondary", "success"],
+        variant: "subtle",
+        className: "ui-bg-primary-100/0 dark:ui-bg-primary-100/0"
+      }
+    ]
   }
 );

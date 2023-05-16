@@ -1,4 +1,4 @@
-export type QuestionType = "history" | "geography" | "economy" | "general";
+export type QuestionType = "history" | "geography" | "economy" | "general" | "environment";
 type ColorTypes = "secondary" | "primary" | "error" | "success";
 export type Question = {
   question: string;
@@ -111,34 +111,30 @@ export const questions: Question[] = [
     options: ["37", "19", "12"],
     question: "How many ponds are there in Sxm?",
     type: "geography"
+  },
+  {
+    answer: "Flamboyant Tree",
+    options: ["Palm Tree", "Mango Tree", "Coconut Tree"],
+    question: "What is the national tree of the island?",
+    type: "environment"
   }
 ];
 
 class Quiz {
   public slug: string;
-  constructor(public title: string, public type: QuestionType, public questions: Question[]) {
+  public questions: Question[];
+  constructor(public title: string, public type: QuestionType) {
     this.title = title;
     this.type = type;
-    this.questions = questions;
+    this.questions = type === "general" ? questions : questions.filter(question => question.type === type);
     this.slug = title.toLowerCase().trim().replaceAll(" ", "-");
   }
 }
 
-const sxmHistory = new Quiz(
-  "SXM History intro",
-  "history",
-  questions.filter(({ type }) => type === "history")
-);
-const sxmGeo = new Quiz(
-  "SXM Geography Intro",
-  "geography",
-  questions.filter(({ type }) => type === "geography")
-);
-const sxmEco = new Quiz(
-  "SXM Economy Intro",
-  "economy",
-  questions.filter(({ type }) => type === "economy")
-);
-const sxmGeneral = new Quiz("General", "general", questions);
+const sxmHistory = new Quiz("SXM History intro", "history");
+const sxmGeo = new Quiz("SXM Geography Intro", "geography");
+const sxmEco = new Quiz("SXM Economy Intro", "economy");
+const sxmGeneral = new Quiz("General", "general");
+const sxmEnv = new Quiz("SXM Environment", "environment");
 
-export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo];
+export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv];

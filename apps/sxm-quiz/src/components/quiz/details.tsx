@@ -12,7 +12,7 @@ export default function DetailsModal({ badgeColor, slug, title, type }: Containe
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>
-        <Dialog.Trigger variant={"neutral"}>View details</Dialog.Trigger>
+        <Dialog.Trigger size={"small"} variant={"neutral"}>View details</Dialog.Trigger>
         <Dialog.Content className="w-2/4">
           <Card.Section className="flex items-center pt-2 justify-between px-4 mb-2">
             <Dialog.Title className="font-heading  capitalize leading-none">{title}</Dialog.Title>

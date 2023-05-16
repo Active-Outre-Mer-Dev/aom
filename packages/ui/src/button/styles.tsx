@@ -10,10 +10,12 @@ export const buttonStyles = cva(
         primary: `ui-bg-primary-600 ui-text-primary-50 dark:ui-bg-primary-500
           dark:ui-ring-primary-400 ui-ring-primary-500 
           `,
-        neutral: `ui-bg-transparent ui-ring-1 ui-ring-neutral-600 dark:ui-bg-transparent 
-          dark:ui-ring-neutral-100 dark:ui-text-neutral-100 ui-ring-off`,
+        neutral: `ui-bg-white ui-ring-1 ui-ring-neutral-200 dark:ui-bg-white/10 
+          dark:ui-ring-white/10 dark:ui-text-neutral-100 ui-ring-off`,
         cta: "ui-bg-gradient-to-r ui-from-primary-500 ui-to-tertiary-400 ui-text-primary-50",
-        error: `ui-bg-error-600 ui-text-neutral-50 ui-ring-error-500`
+        error: `ui-bg-error-600 ui-text-neutral-50 ui-ring-error-500`,
+        outline: `ui-bg-transparent ui-ring-1 ui-ring-primary-600 ui-text-primary-600 
+        dark:ui-bg-transparent dark:ui-text-primary-200 dark:ui-ring-primary-200`
       },
       size: {
         small: "ui-px-2 ui-py-1 ui-text-sm",

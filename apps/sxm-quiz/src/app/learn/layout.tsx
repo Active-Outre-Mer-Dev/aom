@@ -1,40 +1,26 @@
-import Link from "next/link";
 import { NavLink } from "./NavLink";
-import { Select, TextInput } from "./client";
-import { Search } from "lucide-react";
+import { BookOpen, LayoutGrid } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
-      <nav
-        style={{ height: "calc(100vh - 64px)" }}
-        className="w-1/6 border-r border-neutral-100 p-4 space-y-6 fixed top-16 left-0"
-      >
-        <TextInput icon={<Search size={12} />} placeholder="Search..." />
+      <nav style={{ height: "calc(100vh - 64px)" }} className="w-1/6 p-4  space-y-6 fixed top-16 left-0">
         <div>
-          <p className="text-lg text-neutral-800 font-medium mb-2">Sort by:</p>
-          <Select
-            fullWidth
-            items={[
-              { label: "Oldest", value: "oldest" },
-              { label: "Newest", value: "newest" },
-              { label: "Name", value: "name" },
-              { label: "Completed", value: "completed" },
-              { label: "Incomplete", value: "incomplete" }
-            ]}
-          />
-        </div>
-        <div>
-          <p className="text-lg text-neutral-800 font-medium mb-2">Articles</p>
-          <ul className="space-y-4 w-full">
-            <NavLink href={"/learn"}>All lessons</NavLink>
-            <NavLink href={"/learn/community"}>Community lessons</NavLink>
-            <NavLink href={"/learn/beta"}>Beta lessons</NavLink>
+          <p className="text-lg text-neutral-700 font-medium font-medium mb-2 flex items-center gap-2">
+            <BookOpen size={18} className="text-neutral-700 text-lg" />
+            Articles
+          </p>
+          <ul className="w-full border-l-2 border-neutral-100 space-y-[2px]">
+            <NavLink href={"/learn"}>Community articles</NavLink>
+            <NavLink href={"/learn/beta"}>Beta articles</NavLink>
           </ul>
         </div>
         <div>
-          <p className="text-lg text-neutral-800 font-medium mb-2">Categories</p>
-          <ul className="space-y-4 w-full">
+          <p className="text-lg flex items-center gap-2 text-neutral-700 font-medium mb-2">
+            <LayoutGrid size={18} className="text-neutral-700" />
+            Categories
+          </p>
+          <ul className="w-full">
             <NavLink href={"/learn/categories/history"}>History</NavLink>
             <NavLink href={"/learn/categories/geography"}>Geography</NavLink>
             <NavLink href={"/learn/categories/economy"}>Economy</NavLink>

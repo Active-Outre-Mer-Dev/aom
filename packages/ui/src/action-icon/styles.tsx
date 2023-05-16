@@ -11,7 +11,11 @@ ui-items-center active:ui-top-[2px] ui-relative`,
         secondary: `ui-text-secondary-600 ui-bg-secondary-200/30 dark:ui-bg-secondary-600/30
         dark:ui-text-secondary-200 hover:ui-bg-secondary-200/60 hover:dark:ui-bg-secondary-600/60`,
         success: `ui-text-success-600 ui-bg-success-200/30 dark:ui-bg-success-600/30 
-        dark:ui-text-success-200 hover:ui-bg-success-200/60 hover:dark:ui-bg-success-600/60`
+        dark:ui-text-success-200 hover:ui-bg-success-200/60 hover:dark:ui-bg-success-600/60`,
+        warn: `ui-text-warn-600 ui-bg-warn-200/30 dark:ui-text-warn-200 dark:ui-bg-warn-600/30
+        hover:ui-bg-warn-200/60 hover:dark:ui-bg-warn-600/60`,
+        error: `ui-text-error-600 ui-bg-error-200/30 dark:ui-text-error-20 dark:ui-bg-error-600/30
+        hover:ui-bg-error-200/60 hover:dark:ui-bg-error-600/60`
       },
       variant: {
         light: ``,

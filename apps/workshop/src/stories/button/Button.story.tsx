@@ -12,6 +12,7 @@ const meta = {
     fullWidth: { type: "boolean", description: "Sets button to 100% width of parent element" },
     size: {
       options: ["small", "medium", "large"],
+      // @ts-expect-error
       type: "radio",
       defaultValue: "medium",
       description: "Predefined button size"
@@ -43,6 +44,12 @@ export const Neutral: Story = {
 export const CTA: Story = {
   args: {
     variant: "cta"
+  }
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline"
   }
 };
 

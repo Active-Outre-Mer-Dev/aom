@@ -18,7 +18,7 @@ const meta = {
     // @ts-expect-error
     variant: { type: "radio", options: ["light", "subtle"] },
     // @ts-expect-error
-    color: { type: "select", options: ["primary", "success", "secondary"] }
+    color: { type: "select", options: ["primary", "success", "secondary", "warn", "error"] }
   }
 } satisfies Meta<typeof ActionIcon>;
 

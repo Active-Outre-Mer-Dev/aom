@@ -1,10 +1,10 @@
 import { Title, Card, Badge } from "ui";
 import { allQuizzes } from "@/questions";
-import { TopicLink } from "./TopicLink";
 import Link from "next/link";
 import { buttonStyles } from "ui/src/button/styles";
 import { Dropdown } from "./Dropdown";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
+import { Filters } from "./Filters";
 
 type Search = string | string[][] | Record<string, string> | URLSearchParams | undefined;
 
@@ -22,32 +22,42 @@ const topicLinks = [
 export default function Page({ searchParams }: PageProps) {
   const search = new URLSearchParams(searchParams);
   const topic = search.get("topic");
+  const sort = search.get("sort");
   const filteredQuizzes = topic ? allQuizzes.filter(({ type }) => type === topic) : allQuizzes;
   return (
     <>
-      <Title className="font-heading mb-4 text-center" order={1}>
-        Quiz
-      </Title>
-      <section id="quiz-section" className="container flex gap-4  mx-auto pt-20 mb-20">
-        <div className="grow">
-          <div className="flex gap-4 justify-around mb-4 text-center items-center">
-            {topicLinks.map(link => {
-              const active = topic === link.label.toLowerCase() || (!topic && link.href === "/quiz");
-              return <TopicLink {...link} key={`${link.href}`} active={active} />;
-            })}
-          </div>
-          <ul className="space-y-4">
-            {filteredQuizzes.map(quiz => {
-              return <QuizCard key={quiz.title} {...quiz} />;
-            })}
-          </ul>
+      <section className="bg-gradient-to-r from-primary-500 to-primary-200 h-96 text-white relative flex items-center justify-center">
+        <Title className="font-heading mb-4 text-center text-white" order={1}>
+          Explore all of our quizzes
+        </Title>
+        <div className="custom-shape-divider-bottom-1684197028">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"
+              className="shape-fill"
+            ></path>
+          </svg>
+        </div>
+      </section>
+      <section id="quiz-section" className="container   mx-auto pt-20 mb-20">
+        <Filters search={sort || undefined} />
+        <div className="grid gap-4 grid-cols-3">
+          {allQuizzes.map((quiz, key) => {
+            const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
+            return <QuizCard {...quiz} score={randomScore} key={key} />;
+          })}
         </div>
       </section>
     </>
   );
 }
 
-type PropTypes = typeof allQuizzes[0];
+type PropTypes = typeof allQuizzes[0] & { score?: number };
 
 function QuizCard(props: PropTypes) {
   const color =
@@ -57,32 +67,50 @@ function QuizCard(props: PropTypes) {
       ? "secondary"
       : props.type === "history"
       ? "error"
-      : "success";
+      : props.type === "environment"
+      ? "success"
+      : "tertiary";
+
+  const scoreColor = props.score
+    ? props?.score > 85
+      ? "text-success-600 bg-success-200/30"
+      : props?.score > 50
+      ? "text-warn-600 bg-warn-200/30"
+      : "text-error-600 bg-error-200/30"
+    : "bg-neutral-200/30";
   return (
-    <li>
-      <Card className="relative">
-        <Dropdown />
-        <div className="flex gap-2 items-center mb-2">
+    <>
+      <Card className="relative" style={{ backgroundColor: "white" }}>
+        <div className="flex justify-between items-center mb-2">
           <Title order={3} className="font-heading">
             {props.title}
           </Title>
-          <Badge className="h-fit capitalize" color={color}>
-            {props.type}
-          </Badge>
+          <div
+            className={`font-heading font-medium text-lg rounded-full
+           flex items-center justify-center h-10 w-10 ${scoreColor}`}
+          >
+            {props.score ? props.score : <span className="h-[1px] w-1/4 bg-neutral-600"></span>}
+          </div>
         </div>
-        <span className="text-sm text-neutral-500 inline-block mb-4">
-          {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} - Score:{" "}
-          <span className="text-success-600   text-sm font-medium">100</span>
-        </span>
 
-        <p className="mb-4">Quick description about quiz.</p>
+        <p className="mb-4">
+          Eiusmod proident exercitation enim dolor cupidatat sint fugiat excepteur eiusmod occaecat
+          reprehenderit.
+        </p>
+        <span className="text-sm text-neutral-500 inline-block mb-4">
+          {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
+          <Badge color={color}>{props.type}</Badge>
+        </span>
         <div className="flex gap-2">
-          <Link className={buttonStyles({})} href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}>
+          <Link
+            className={buttonStyles({ size: "small" })}
+            href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}
+          >
             Take quiz
           </Link>
           <DetailsWrapper badgeColor={color} {...props} />
         </div>
       </Card>
-    </li>
+    </>
   );
 }

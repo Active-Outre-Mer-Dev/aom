@@ -8,7 +8,7 @@ export type TitleProps = ComponentPropsWithRef<"h1"> & VariantProps<typeof title
 export const Title = forwardRef<HTMLHeadingElement, TitleProps>(({ order, className, ...props }, ref) => {
   const Component = `h${order}` as `h1`;
   return (
-    <Component ref={ref} className={titleStyles({ className, order })}>
+    <Component ref={ref} className={titleStyles({ className, order })} {...props}>
       {props.children}
     </Component>
   );

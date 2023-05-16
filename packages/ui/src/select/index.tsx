@@ -14,9 +14,10 @@ export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectP
     <RadixSelect.Trigger
       className={cx(
         `ui-inline-flex ui-items-center ui-min-w-[150px] ui-justify-between ui-rounded ui-px-[15px] 
-      ui-text-[13px] ui-leading-none ui-h-[35px] ui-gap-[5px] ui-bg-neutral-50 ui-text-neutral-700 
+      ui-text-sm ui-leading-none ui-h-8 ui-gap-[5px] ui-bg-white ui-text-neutral-700 
       dark:ui-bg-neutral-800 focus:ui-ring-2 dark:ui-ring-offset-neutral-900 focus:ui-ring-offset-2 
-      focus:ui-ring-primary-600 focus:dark:ui-ring-primary-500
+      focus:ui-ring-primary-600 focus:dark:ui-ring-primary-500 ui-border ui-border-neutral-100
+      dark:ui-border-neutral-700
       dark:ui-text-neutral-100  ui-outline-none`,
         fullWidth ? "ui-w-full" : "ui-min-w-[150px]"
       )}
@@ -32,8 +33,9 @@ export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectP
     <RadixSelect.Portal>
       <RadixSelect.Content
         position="popper"
-        className={`ui-overflow-hidden  ui-translate-y-1 ui-bg-neutral-50
-        dark:ui-bg-neutral-800 ui-rounded-md ui-min-w-[--radix-select-trigger-width]`}
+        className={`ui-overflow-hidden ui-border  ui-translate-y-1 ui-bg-white ui-border-neutral-100
+        dark:ui-bg-neutral-800 ui-rounded-md  dark:ui-border-neutral-700
+        ui-min-w-[--radix-select-trigger-width]`}
       >
         <RadixSelect.ScrollUpButton
           className={`ui-flex ui-items-center ui-justify-center ui-h-[25px] 
@@ -68,12 +70,15 @@ const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
     return (
       <RadixSelect.Item
         className={cx(
-          `ui-text-[13px] ui-leading-none ui-text-neutral-800 dark:ui-text-neutral-100 ui-rounded-[3px] 
-          ui-flex ui-items-center ui-h-[25px] ui-pr-[35px] ui-pl-[25px] ui-relative ui-select-none 
-          data-[disabled]:ui-text-neutral-500 
+          `ui-text-sm ui-leading-none ui-text-neutral-800 dark:ui-text-neutral-100 ui-rounded-[3px] 
+          ui-flex ui-items-center ui-pr-[35px] ui-pl-[25px] ui-relative ui-select-none 
+          data-[disabled]:ui-text-neutral-500  ui-h-8 
            data-[disabled]:ui-pointer-events-none data-[highlighted]:ui-outline-none 
-           data-[highlighted]:ui-bg-primary-600 data-[highlighted]:dark:ui-bg-primary-500 
-           data-[highlighted]:ui-text-primary-50`,
+           data-[highlighted]:ui-bg-primary-200/30 data-[highlighted]:dark:ui-bg-primary-600/30 
+           data-[highlighted]:ui-text-primary-600 data-[highlighted]:dark:ui-text-primary-200
+           data-[state=checked]:ui-bg-primary-600 data-[state=checked]:ui-text-white 
+           data-[state=checked]:dark:ui-bg-primary-500 data-[state=checked]:dark:ui-text-white
+           `,
           className
         )}
         {...props}

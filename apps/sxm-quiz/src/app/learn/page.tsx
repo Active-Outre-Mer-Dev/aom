@@ -29,31 +29,35 @@ export default function Page() {
         <Title order={1} className="font-heading text-neutral-800 text-center leading-none mb-2">
           Lessons
         </Title>
-        <p className="text-xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
+        <p className="text-2xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
       <section className="container mx-auto mb-36">
         <Articles getRandomBlob={blobs.getRandomBlob("history")} type="history" title="Featured" />
       </section>
+      <section className="container mx-auto mb-36">
+        <Articles getRandomBlob={blobs.getRandomBlob("history")} type="history" title="Recently added" />
+      </section>
       <section className="mb-36">
-        <div className="bg-primary-600 p-4 w-3/4 mx-auto text-primary-100  rounded-xl">
-          <Title order={2} className="text-primary-50 font-heading mb-2">
+        <RandomFacts />
+      </section>
+      <section className="container mx-auto mb-36">
+        <Articles getRandomBlob={blobs.getRandomBlob("economy")} title="All" type="economy" />
+      </section>
+
+      <section className="mb-36">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-300 p-4 w-3/4 mx-auto text-primary-50  rounded-xl">
+          <Title order={2} className="tfont-heading mb-2">
             Become a contributor
           </Title>
           <p style={{ width: "clamp(36ch, 90%, 64ch)" }} className="text-xl mb-4">
             Have some knowledge you&apos;d like to share with the island? Look no further! Become a
             contributor today and join our community!
           </p>
-          <Button variant="cta">Get started</Button>
+          <Button variant="neutral">Get started</Button>
         </div>
       </section>
       <section className="container mx-auto mb-36">
         <Articles getRandomBlob={blobs.getRandomBlob("geo")} title="Community" type="geography" />
-      </section>
-      <section className="mb-36">
-        <RandomFacts />
-      </section>
-      <section className="container mx-auto mb-36">
-        <Articles getRandomBlob={blobs.getRandomBlob("economy")} title="Recently added" type="economy" />
       </section>
     </>
   );

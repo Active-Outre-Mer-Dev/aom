@@ -1,2 +1,2 @@
 "use client";
-export { Select, TextInput } from "ui";
+export { Select, TextInput, Button } from "ui";

@@ -5,6 +5,7 @@ import { Select } from "./client";
 import type { QuestionType } from "@/questions";
 import pixel from "@/assets/pixel.webp";
 import profile from "@/assets/agis.jpg";
+import Link from "next/link";
 
 type PropTypes = {
   title: "Community" | "Featured" | "Recently added" | "All";
@@ -33,11 +34,23 @@ export function Articles({ title, type, amount }: PropTypes) {
         )}
         {articles.map((_, key) => {
           return (
-            <div key={key} className="overflow-hidden">
-              <figure className="rounded-xl overflow-hidden h-36 mb-4 px-2 relative flex items-center justify-center ">
-                <Image src={pixel} fill alt="" className=" object-cover" />
+            <Link href={"/learn/sxm-history"} key={key} className="overflow-hidden group">
+              <figure
+                className={`rounded-xl overflow-hidden h-36 mb-4 px-2 relative flex items-center 
+              justify-center  `}
+              >
+                <Image
+                  src={pixel}
+                  fill
+                  alt=""
+                  className=" object-cover group-hover:scale-110 duration-200 ease-out"
+                />
               </figure>
-              <Title order={3} className="relative font-medium capitalize font-heading mb-4">
+              <Title
+                order={3}
+                className={`relative group-hover:text-primary-500 font-medium capitalize font-heading mb-4
+                duration-200 ease-out`}
+              >
                 Intro to SXM {type}
               </Title>
               <p className="mb-4">
@@ -60,7 +73,7 @@ export function Articles({ title, type, amount }: PropTypes) {
                 </div>
                 <Badge color={getCatColor(type)}>{type}</Badge>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -1,24 +1,27 @@
-import { Card, Title, Badge } from "ui";
+import { Title, Badge } from "ui";
 import Image from "next/image";
 import { getCatColor } from "@/questions";
 import { Select } from "./client";
 import type { QuestionType } from "@/questions";
-
-const articles = Array(9).fill(null);
+import pixel from "@/assets/pixel.webp";
+import profile from "@/assets/agis.jpg";
+import Link from "next/link";
 
 type PropTypes = {
-  getRandomBlob: () => any;
   title: "Community" | "Featured" | "Recently added" | "All";
   type: QuestionType;
+  amount?: number;
 };
 
-export function Articles({ getRandomBlob, title, type }: PropTypes) {
+export function Articles({ title, type, amount }: PropTypes) {
+  const articles = Array(amount ?? 3).fill(null);
+
   return (
     <>
       <Title order={2} className="font-heading mb-10">
         {title} articles
       </Title>
-      <div className="grid lg:grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 gap-x-8 gap-y-16">
         {title === "All" && (
           <div className="col-span-full">
             <Select
@@ -30,27 +33,47 @@ export function Articles({ getRandomBlob, title, type }: PropTypes) {
           </div>
         )}
         {articles.map((_, key) => {
-          const blob = getRandomBlob();
           return (
-            <Card key={key} className="overflow-hidden">
-              <Card.Section className=" h-36 mb-4 px-2 relative flex items-center justify-center ">
-                <Image src={blob} fill alt="" className=" object-cover" />
-                <Title order={3} className="relative capitalize text-center font-heading text-white">
-                  Intro to SXM {type}
-                </Title>
-              </Card.Section>
-
-              <p className="mb-2">
+            <Link href={"/learn/sxm-history"} key={key} className="overflow-hidden group">
+              <figure
+                className={`rounded-xl overflow-hidden h-36 mb-4 px-2 relative flex items-center 
+              justify-center  `}
+              >
+                <Image
+                  src={pixel}
+                  fill
+                  alt=""
+                  className=" object-cover group-hover:scale-110 duration-200 ease-out"
+                />
+              </figure>
+              <Title
+                order={3}
+                className={`relative group-hover:text-primary-500 font-medium capitalize font-heading mb-4
+                duration-200 ease-out`}
+              >
+                Intro to SXM {type}
+              </Title>
+              <p className="mb-4">
                 Sit commodo reprehenderit mollit ullamco eiusmod est cupidatat esse exercitation ut. Nostrud
                 cupidatat ullamco aute elit nisi eiusmod elit.
               </p>
-              <div className="flex items-center text-sm gap-2 text-neutral-600">
-                <span className="font-medium">5 mins </span> -{" "}
-                <Badge color={getCatColor(type)} className="mb-1 capitalize">
-                  {type}
-                </Badge>
+              <div className="flex justify-between items-end">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={profile.src}
+                    width={50}
+                    height={50}
+                    className="rounded-full object-cover"
+                    alt={""}
+                  />
+                  <div>
+                    <span className="block text-sm font-medium">Agis Carty</span>
+                    <span className="block text-sm text-neutral-600">{new Date().toDateString()}</span>
+                  </div>
+                </div>
+                <Badge color={getCatColor(type)}>{type}</Badge>
               </div>
-            </Card>
+            </Link>
           );
         })}
       </div>

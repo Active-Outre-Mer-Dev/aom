@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  scroll-padding-top: 80px;
+}
+
 .bg {
   background-image: url(/waves2.svg);
   position: absolute;

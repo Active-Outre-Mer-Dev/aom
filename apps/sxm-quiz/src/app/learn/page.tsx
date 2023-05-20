@@ -1,26 +1,7 @@
 import { Title } from "ui";
 import { Button } from "@/components/learn";
 import { RandomFacts } from "./random-facts";
-import blobGeo from "@/assets/blob-geo.svg";
-import blobHistory from "@/assets/blob-hist.svg";
-import blobHistory2 from "@/assets/blob-hist-2.svg";
-import blobGeo2 from "@/assets/blob-geo-2.svg";
-import blobGeo3 from "@/assets/blob-geo-3.svg";
-import blobEco from "@/assets/blob-eco.svg";
-import blobEco2 from "@/assets/blob-eco-2.svg";
-import blobEco3 from "@/assets/blob-eco-3.svg";
 import { Articles } from "./Articles";
-
-const blobs = {
-  geo: [blobGeo, blobGeo2, blobGeo3],
-  history: [blobHistory, blobHistory2],
-  economy: [blobEco, blobEco2, blobEco3],
-  getRandomBlob(key: "history" | "geo" | "economy") {
-    return () => {
-      return this[key][Math.floor(Math.random() * this[key].length)];
-    };
-  }
-};
 
 export default function Page() {
   return (
@@ -32,32 +13,34 @@ export default function Page() {
         <p className="text-2xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
       <section className="container mx-auto mb-36">
-        <Articles getRandomBlob={blobs.getRandomBlob("history")} type="history" title="Featured" />
+        <Articles type="history" title="Featured" />
       </section>
       <section className="container mx-auto mb-36">
-        <Articles getRandomBlob={blobs.getRandomBlob("history")} type="history" title="Recently added" />
+        <Articles type="history" title="Recently added" />
       </section>
       <section className="mb-36">
         <RandomFacts />
       </section>
       <section className="container mx-auto mb-36">
-        <Articles getRandomBlob={blobs.getRandomBlob("economy")} title="All" type="economy" />
+        <Articles amount={9} title="All" type="economy" />
       </section>
 
       <section className="mb-36">
-        <div className="bg-gradient-to-r from-primary-600 to-primary-300 p-4 w-3/4 mx-auto text-primary-50  rounded-xl">
-          <Title order={2} className="tfont-heading mb-2">
+        <div className="radial-gradient p-4 w-3/4 mx-auto text-primary-50  rounded-xl">
+          <Title order={2} className="font-heading mb-2">
             Become a contributor
           </Title>
           <p style={{ width: "clamp(36ch, 90%, 64ch)" }} className="text-xl mb-4">
             Have some knowledge you&apos;d like to share with the island? Look no further! Become a
             contributor today and join our community!
           </p>
-          <Button variant="neutral">Get started</Button>
+          <Button variant="neutral" className="text-primary-600">
+            Get started
+          </Button>
         </div>
       </section>
       <section className="container mx-auto mb-36">
-        <Articles getRandomBlob={blobs.getRandomBlob("geo")} title="Community" type="geography" />
+        <Articles title="Community" type="geography" />
       </section>
     </>
   );

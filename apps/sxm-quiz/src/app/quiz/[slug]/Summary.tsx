@@ -1,8 +1,8 @@
 import { Card, Button } from "./client";
 import { Rocket, Zap, Timer } from "lucide-react";
-import styles from "./styles.module.css";
 import { SummaryDetails } from "./Details";
 import { Question } from "@/questions";
+import { Ring } from "./Ring";
 
 type PropTypes = {
   reset: () => Promise<void>;
@@ -27,7 +27,9 @@ function SummaryResult({ reset, score, highestStreak, points, duration }: PropTy
   return (
     <div className=" basis-2/5 flex flex-col  gap-4 justify-between pr-4 py-6 border-r border-neutral-100 -my-4">
       <p className="text-center text-2xl  mb-4 font-medium font-heading ">Summary</p>
-      <Ring percentage={score} />
+      <div className="flex justify-center">
+        <Ring size={100} value={score} />
+      </div>
       <ul className="space-y-4">
         <li className="flex p-2 justify-between text-success-600 bg-success-200/30 rounded-md">
           <p className="flex items-center gap-2">
@@ -62,30 +64,4 @@ function SummaryResult({ reset, score, highestStreak, points, duration }: PropTy
 
 function format(seconds: number) {
   return seconds <= 60 ? `${seconds} seconds` : seconds <= 3600 ? `${seconds / 60} minutes` : "WTF";
-}
-
-function Ring({ percentage }: { percentage: number }) {
-  return (
-    <div className="w-full  ">
-      <div className="w-2/4 relative mx-auto  flex items-center justify-center aspect-square">
-        <svg className="w-full h-full absolute">
-          <circle
-            strokeDashoffset={0}
-            className={`fill-success-200/30 stroke-success-600 ${styles.circle}`}
-            cx="70"
-            cy="70"
-            r="70"
-          ></circle>
-          <circle
-            strokeDashoffset={440 - (440 * (100 - percentage)) / 100}
-            className={`stroke-white ${styles.circle}`}
-            cx="70"
-            cy="70"
-            r="70"
-          ></circle>
-        </svg>
-        <p className="text-success-600 font-heading font-medium text-4xl">{percentage}</p>
-      </div>
-    </div>
-  );
 }

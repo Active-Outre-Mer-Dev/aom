@@ -1,5 +1,7 @@
+import type { BadgeProps } from "ui";
+
 export type QuestionType = "history" | "geography" | "economy" | "general" | "environment";
-type ColorTypes = "secondary" | "primary" | "error" | "success";
+
 export type Question = {
   question: string;
   answer: string;
@@ -7,7 +9,14 @@ export type Question = {
   type: QuestionType;
 };
 
-export function getCatColor(type: QuestionType): ColorTypes {
+type Quiz = {
+  questions: Question[];
+  type: QuestionType;
+  title: string;
+  slug: string;
+};
+
+export function getCatColor(type: QuestionType): BadgeProps["color"] {
   switch (type) {
     case "economy": {
       return "primary";
@@ -120,21 +129,30 @@ export const questions: Question[] = [
   }
 ];
 
-class Quiz {
-  public slug: string;
-  public questions: Question[];
-  constructor(public title: string, public type: QuestionType) {
-    this.title = title;
-    this.type = type;
-    this.questions = type === "general" ? questions : questions.filter(question => question.type === type);
-    this.slug = title.toLowerCase().trim().replaceAll(" ", "-");
-  }
+function createQuiz(type: QuestionType, title: string): Quiz {
+  return {
+    type,
+    questions: type === "general" ? questions : questions.filter(question => question.type === type),
+    title,
+    slug: title.toLowerCase().trim().replaceAll(" ", "-")
+  };
 }
 
-const sxmHistory = new Quiz("SXM History intro", "history");
-const sxmGeo = new Quiz("SXM Geography Intro", "geography");
-const sxmEco = new Quiz("SXM Economy Intro", "economy");
-const sxmGeneral = new Quiz("General", "general");
-const sxmEnv = new Quiz("SXM Environment", "environment");
+function partial(type: QuestionType) {
+  return function (title: string) {
+    return createQuiz(type, title);
+  };
+}
+
+const historyQuiz = partial("history");
+const geoQuiz = partial("geography");
+const ecoQuiz = partial("economy");
+const envQuiz = partial("environment");
+
+const sxmHistory = historyQuiz("SXM History Intro");
+const sxmGeo = geoQuiz("SXM Geography Intro");
+const sxmEco = ecoQuiz("SXM Economy Intro");
+const sxmEnv = envQuiz("SXM Environment Intro");
+const sxmGeneral = createQuiz("general", "General");
 
 export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv];

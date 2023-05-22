@@ -23,3 +23,4 @@ export * from "./switch";
 export * from "./dropdown";
 export * from "./dialog";
 export * from "./action-icon";
+export * from "./ring-progress";

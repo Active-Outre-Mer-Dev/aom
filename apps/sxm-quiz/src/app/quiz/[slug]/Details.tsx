@@ -10,20 +10,22 @@ type PropTypes = {
 
 export function SummaryDetails({ choices, questions }: PropTypes) {
   return (
-    <ScrollArea className="h-96 -mx-4 p-4">
-      <p className="font-heading text-3xl mb-2">Details</p>
-      <ul className="space-y-6">
-        {questions.map((value, index) => {
-          const choice = choices[index];
-          return (
-            <li key={value.question}>
-              <p className="mb-4 text-lg font-medium">{value.question}</p>
-              <Options answer={value.answer} choice={choice} options={value.options} />
-            </li>
-          );
-        })}
-      </ul>
-    </ScrollArea>
+    <div className="basis-3/5 grow p-2">
+      <ScrollArea className="h-96 -mr-6 pb-4 pr-2 grow">
+        <p className="font-heading text-2xl font-medium mb-4 ">Details</p>
+        <ul className="space-y-6">
+          {questions.map((value, index) => {
+            const choice = choices[index];
+            return (
+              <li key={value.question}>
+                <p className="mb-4 text-lg font-medium">{value.question}</p>
+                <Options answer={value.answer} choice={choice} options={value.options} />
+              </li>
+            );
+          })}
+        </ul>
+      </ScrollArea>
+    </div>
   );
 }
 
@@ -51,7 +53,12 @@ function Options({ answer, choice, options }: Props) {
           >
             <span>{option}</span>{" "}
             {choice !== answer && option === choice && (
-              <Button size={"small"} variant={"neutral"} onClick={() => setShow(true)}>
+              <Button
+                size={"small"}
+                variant={"neutral"}
+                className="text-neutral-800"
+                onClick={() => setShow(true)}
+              >
                 Show answer
               </Button>
             )}

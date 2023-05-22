@@ -19,7 +19,12 @@ export function SummaryDetails({ choices, questions }: PropTypes) {
             return (
               <li key={value.question}>
                 <p className="mb-4 text-lg font-medium">{value.question}</p>
-                <Options answer={value.answer} choice={choice} options={value.options} />
+                <Options
+                  description={value.description || ""}
+                  answer={value.answer}
+                  choice={choice}
+                  options={value.options}
+                />
               </li>
             );
           })}
@@ -33,35 +38,38 @@ type Props = {
   options: string[];
   answer: string;
   choice: string;
+  description: string;
 };
 
-function Options({ answer, choice, options }: Props) {
+function Options({ answer, choice, options, description }: Props) {
   const [show, setShow] = useState(false);
   return (
     <ul className="space-y-2">
       {options.map(option => {
         return (
-          <li
-            key={option}
-            className={`p-2 border rounded-md flex items-center justify-between ${
-              (option === choice && choice === answer) || (option === answer && show)
-                ? "bg-success-600 text-white"
-                : option === choice && choice !== answer
-                ? "bg-error-600 text-white"
-                : "border-neutral-200"
-            }`}
-          >
-            <span>{option}</span>{" "}
-            {choice !== answer && option === choice && (
-              <Button
-                size={"small"}
-                variant={"neutral"}
-                className="text-neutral-800"
-                onClick={() => setShow(true)}
-              >
-                Show answer
-              </Button>
-            )}
+          <li key={option}>
+            <span
+              className={`p-2 border rounded-md flex items-center justify-between ${
+                (option === choice && choice === answer) || (option === answer && show)
+                  ? "bg-success-600 text-white"
+                  : option === choice && choice !== answer
+                  ? "bg-error-600 text-white"
+                  : "border-neutral-200"
+              }`}
+            >
+              {option}{" "}
+              {choice !== answer && option === choice && (
+                <Button
+                  size={"small"}
+                  variant={"neutral"}
+                  className="text-neutral-800"
+                  onClick={() => setShow(true)}
+                >
+                  Show answer
+                </Button>
+              )}
+            </span>{" "}
+            {show && option === answer && <span className="mt-2 text-sm">{description}</span>}
           </li>
         );
       })}

@@ -21,7 +21,13 @@ export function DetailsWrapper(props: PropTypes) {
           View details
         </Button>
       )}
-      <Suspense fallback={<Button variant={"neutral"}>View details</Button>}>
+      <Suspense
+        fallback={
+          <Button size={"small"} variant={"neutral"}>
+            View details
+          </Button>
+        }
+      >
         {load && <Details {...props} />}
       </Suspense>
     </>

@@ -9,5 +9,8 @@ module.exports = {
         heading: ["var(--font-heading)"]
       }
     }
-  }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

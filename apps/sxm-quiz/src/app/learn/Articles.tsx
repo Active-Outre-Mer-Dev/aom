@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getCatColor } from "@/questions";
 import { Select } from "./client";
 import type { QuestionType } from "@/questions";
-import pixel from "@/assets/pixel.webp";
+import pixel from "@/assets/sxm2.jpg";
 import profile from "@/assets/agis.jpg";
 import Link from "next/link";
 

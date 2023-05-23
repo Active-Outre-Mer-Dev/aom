@@ -7,12 +7,6 @@ type TOCProps = {
   headings: Heading[];
 };
 
-const titles = [
-  { id: "intro", label: "Intro" },
-  { id: "title2", label: "Title 2" },
-  { id: "title3", label: "Title 3" }
-];
-
 function createObserver(cb: (id: string) => void) {
   return new IntersectionObserver(
     entries => {

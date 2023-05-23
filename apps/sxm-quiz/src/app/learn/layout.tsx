@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <main>
       <nav style={{ height: "calc(100vh - 64px)" }} className="w-1/6 p-4  space-y-6 fixed top-16 left-0">
         <div>
-          <p className="text-lg text-neutral-700 font-medium font-medium mb-2 flex items-center gap-2">
+          <p className="text-lg text-neutral-700 font-medium mb-2 flex items-center gap-2">
             <BookOpen size={18} className="text-neutral-700 text-lg" />
             Articles
           </p>

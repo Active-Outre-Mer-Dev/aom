@@ -9,7 +9,7 @@ export function NavLink(props: LinkProps & { children?: React.ReactNode }) {
     <li
       data-active={path === props.href}
       className={`group w-full relative border-l-2 hover:bg-neutral-200/30 
-      data-[active=true]:bg-primary-200/30 rounded-r
+      data-[active=true]:bg-primary-200/10 rounded-r
     border-neutral-100 data-[active=true]:border-primary-500 -ml-[2px] pl-[2px]`}
     >
       <Link

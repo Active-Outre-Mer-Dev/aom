@@ -6,14 +6,16 @@ import { Bookmark, Share, ExternalLink } from "lucide-react";
 import profile from "@/assets/agis.jpg";
 import pixel2 from "@/assets/pixel.jpg";
 import { TableOfContents } from "./toc";
+import { generateContent } from "@/lib/get-content";
 
-export default function Page() {
+export default async function Page() {
+  const { metadata, content, headings } = await generateContent("sxm-history");
   return (
     <>
       <div className="flex gap-2 w-4/6 items-center border-b border-neutral-200 pb-5 mb-10">
         <span className="text-3xl font-medium text-neutral-900">Articles</span>
         <span className="h-10 w-[2px] bg-neutral-900" />
-        <span className="text-error-600 font-medium text-3xl">History</span>
+        <span className="text-error-600 font-medium text-3xl">{metadata.type}</span>
       </div>
       <div className="mb-36 flex gap-7">
         <div className=" basis-4/6">
@@ -21,7 +23,7 @@ export default function Page() {
             <div className="mb-10">
               <header className="flex items-center justify-between mb-4">
                 <h1 id={"intro"} className={"text-4xl leading-none font-medium font-heading"}>
-                  SXM History Intro
+                  {metadata.title}
                 </h1>
                 <div className="gap-2 flex">
                   <ActionIcon aria-label="Bookmark" color={"secondary"} size={"lg"}>
@@ -33,15 +35,16 @@ export default function Page() {
                 </div>
               </header>
               <p style={{ width: "clamp(36ch, 90%, 75ch)" }} className="text-lg mb-4">
-                Anim minim est sit excepteur duis nostrud voluptate nisi duis mollit irure enim laborum.
-                Dolore do sunt deserunt ad nisi enim.
+                {metadata.intro}
               </p>
-              <span className="text-neutral-600 text-sm block mb-6">May 18, 2023 - 5 min read</span>
+              <span className="text-neutral-600 text-sm block mb-6">
+                {metadata.creationDate} - 5 min read
+              </span>
               <div className="flex items-end justify-between">
                 <div className="flex items-center gap-2">
                   <img src={profile.src} width={50} height={50} className="rounded-full object-cover" />
                   <div>
-                    <span className="font-medium block text-neutral-800">Agis Carty</span>
+                    <span className="font-medium block text-neutral-800">{metadata.author}</span>
                     <span className="text-neutral-600">SXM Quiz core team</span>
                   </div>
                 </div>
@@ -57,7 +60,8 @@ export default function Page() {
               </div>
             </div>
             <Image src={pixel} alt={""} className={"rounded-xl mb-10"} />
-            <div className="space-y-8">
+            <div dangerouslySetInnerHTML={{ __html: content }}></div>
+            {/* <div className="space-y-8">
               <p>
                 Qui fugiat consectetur commodo laborum veniam voluptate proident aliquip est ea ullamco
                 laboris sit. Lorem ut ullamco pariatur elit velit ut commodo proident. Adipisicing commodo
@@ -107,7 +111,7 @@ export default function Page() {
                 eiusmod. Id nostrud qui tempor in consectetur excepteur consectetur mollit dolor adipisicing
                 id incididunt amet ex.
               </p>
-            </div>
+            </div> */}
           </article>
           <div className="space-y-10">
             <Title order={2} className="font-medium font-heading mb-6">
@@ -118,7 +122,7 @@ export default function Page() {
             <RelatedArticles />
           </div>
         </div>
-        <TableOfContents />
+        <TableOfContents headings={headings} />
       </div>
     </>
   );

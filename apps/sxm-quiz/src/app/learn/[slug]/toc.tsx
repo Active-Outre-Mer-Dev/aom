@@ -1,6 +1,11 @@
 "use client";
+import type { Heading } from "@/lib/get-content";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+type TOCProps = {
+  headings: Heading[];
+};
 
 const titles = [
   { id: "intro", label: "Intro" },
@@ -8,28 +13,37 @@ const titles = [
   { id: "title3", label: "Title 3" }
 ];
 
-export function TableOfContents() {
+function createObserver(cb: (id: string) => void) {
+  return new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cb(entry.target.id);
+        }
+      });
+    },
+    { rootMargin: "0% 0% -80% 0%" }
+  );
+}
+
+export function TableOfContents({ headings }: TOCProps) {
   const [activeId, setActiveId] = useState("");
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "0% 0% -80% 0%" }
-    );
-    titles.forEach(heading => {
-      const element = document.getElementById(heading.id);
+    const observer = createObserver(setActiveId);
+
+    const intro = document.getElementById("intro");
+    if (intro) observer.observe(intro);
+    headings.forEach(heading => {
+      const element = document.getElementById(`user-content-${heading.data.hProperties.id}`);
       if (element) {
         observer.observe(element);
       }
     });
     return () => {
-      titles.forEach(heading => {
-        const element = document.getElementById(heading.id);
+      const intro = document.getElementById("intro");
+      if (intro) observer.unobserve(intro);
+      headings.forEach(heading => {
+        const element = document.getElementById(`user-content-${heading.data.hProperties.id}`);
         if (element) {
           observer.unobserve(element);
         }
@@ -41,10 +55,17 @@ export function TableOfContents() {
       <div className="sticky top-20">
         <p className="font-medium text-lg mb-5">On this page</p>
         <ul className="space-y-2 mb-5">
-          {titles.map(heading => {
+          <Item active={activeId === "intro"} id={"intro"}>
+            Intro
+          </Item>
+          {headings.map(heading => {
             return (
-              <Item key={heading.id} active={activeId === heading.id} id={heading.id}>
-                {heading.label}
+              <Item
+                key={`user-content-${heading.data.hProperties.id}`}
+                active={activeId === `user-content-${heading.data.hProperties.id}`}
+                id={`user-content-${heading.data.hProperties.id}`}
+              >
+                {heading.value}
               </Item>
             );
           })}

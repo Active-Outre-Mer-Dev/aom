@@ -1,7 +1,7 @@
 import { cva } from "cva";
 
 export const progressStyles = cva(
-  `ui-relative ui-overflow-hidden ui-bg-neutral-200 dark:ui-bg-neutral-700 
+  `ui-overflow-hidden ui-bg-neutral-200 dark:ui-bg-neutral-700 
 ui-rounded-full `,
   {
     variants: {

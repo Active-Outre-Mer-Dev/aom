@@ -1,4 +1,3 @@
-import { Title } from "ui";
 import { Button } from "@/components/home";
 import { Boxes, GraduationCap, BarChart3, Github } from "lucide-react";
 import Image from "next/image";
@@ -33,14 +32,6 @@ export default function Home() {
           Learn more
         </Button>
       </section>
-      <footer className="bg-white py-10 flex items-center justify-between">
-        <div className="container mx-auto flex items-center justify-between h-full">
-          <span className="text-neutral-600">
-            Built by <span className="underline">AOMDev</span>, 2023
-          </span>
-          <Github />
-        </div>
-      </footer>
     </main>
   );
 }
@@ -104,15 +95,15 @@ function Features() {
               <Boxes className="" />
               <span className="text-white font-medium text-xl">Multiple Categories</span>
             </div>
-            <div className="bg-error-600 text-white flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video  ">
+            <div className="bg-error-600  flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video  ">
               <GraduationCap />
               <span className="text-white font-medium text-xl">Learn as you play</span>
             </div>
-            <div className="bg-success-700 text-white flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video  ">
+            <div className="bg-success-700  flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video  ">
               <BarChart3 />
               <span className="text-white font-medium text-xl">Leaderboards</span>
             </div>
-            <div className="bg-warn-600 text-white flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video   "></div>
+            <div className="bg-warn-600  flex flex-col items-center justify-center gap-4 text-white rounded-md aspect-video   "></div>
           </div>
         </div>
         <div className="custom-shape-divider-bottom-1684520909">

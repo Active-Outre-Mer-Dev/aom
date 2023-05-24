@@ -1,5 +1,5 @@
 import { Button } from "@/components/home";
-import { Boxes, GraduationCap, BarChart3, Github } from "lucide-react";
+import { Boxes, GraduationCap, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import photo from "@/assets/Group 3.png";
 
@@ -25,8 +25,8 @@ export default function Home() {
       <section className="py-20 radial-gradient bg-gradient-to-r flex flex-col items-center gap-6 from-primary-800 to-neutral-900 text-white">
         <h2 className="text-center text-5xl font-medium  font-heading">Become a contributor</h2>
         <p className="text-center" style={{ width: "clamp(36ch, 90%, 50ch)" }}>
-          Have some knowledge you'd like to share with the island? Look no further! Become a contributor today
-          and join our community!
+          Have some knowledge you&apos;d like to share with the island? Look no further! Become a contributor
+          today and join our community!
         </p>
         <Button variant="neutral" className="text-primary-600">
           Learn more

@@ -129,6 +129,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      framer-motion:
+        specifier: ^10.11.6
+        version: 10.11.6(react-dom@18.2.0)(react@18.2.0)
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

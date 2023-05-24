@@ -5,7 +5,11 @@ const meta = {
   title: "Molecules/Progress",
   component: UiProgress,
   args: { value: 0, max: 100 },
-  argTypes: { value: { control: { type: "range", max: 100 } } }
+  argTypes: {
+    value: { control: { type: "range", max: 100 } },
+    //@ts-expect-error
+    size: { type: "select", options: ["sm", "md", "lg"] }
+  }
 } satisfies Meta<typeof UiProgress>;
 
 export default meta;

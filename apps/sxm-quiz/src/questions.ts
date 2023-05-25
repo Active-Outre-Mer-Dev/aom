@@ -1,4 +1,5 @@
 import type { BadgeProps } from "ui";
+import { randomize } from "./randomize-quiz";
 
 export type QuestionType = "history" | "geography" | "economy" | "general" | "environment";
 
@@ -128,9 +129,15 @@ when the tree was in full bloom.`
 environmentQ("What is Sxm's national animal?", "Brown Pelican", ["Ground Dove", "Hummingbird", "Blackbird"]);
 
 function createQuiz(type: QuestionType, title: string): Quiz {
+  const rQuestions = type === "general" ? questions : questions.filter(question => question.type === type);
   return {
     type,
-    questions: type === "general" ? questions : questions.filter(question => question.type === type),
+    questions: rQuestions.map(question => {
+      return {
+        ...question,
+        options: randomize([...question.options, question.answer])
+      };
+    }),
     title,
     slug: title.toLowerCase().trim().replaceAll(" ", "-")
   };

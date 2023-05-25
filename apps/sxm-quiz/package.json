@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "playwright test",
-    "test-ct": "playwright test -c playwright-ct.config.ts"
+    "test": "pnpm run test:ct && playwright test",
+    "test:ct": "playwright test -c playwright-ct.config.ts",
+    "codegen": "playwright codegen localhost:3000"
   },
   "dependencies": {
     "date-fns": "^2.30.0",

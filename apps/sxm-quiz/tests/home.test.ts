@@ -9,6 +9,12 @@ test("has title", async ({ page }) => {
   await expect(page).toHaveTitle(/SXM Quiz/);
 });
 
-test("has get start quiz button", async ({ page }) => {
-  await expect(page.getByRole("button", { name: "Start quiz" })).toBeVisible();
+test.describe("Start quiz button", () => {
+  test("is visible", async ({ page }) => {
+    await expect(page.getByRole("link", { name: /Start quiz/gi })).toBeVisible();
+  });
+  test("navigates to random quiz", async ({ page }) => {
+    await page.getByRole("link", { name: /Start quiz/gi }).click();
+    await expect(page).toHaveURL(/.*random/);
+  });
 });

@@ -1,7 +1,9 @@
 import { Button } from "@/components/home";
-import { Boxes, GraduationCap, BarChart3, Github } from "lucide-react";
+import { buttonStyles } from "ui/src/button/styles";
+import { Boxes, GraduationCap, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import photo from "@/assets/Group 3.png";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,8 +27,8 @@ export default function Home() {
       <section className="py-20 radial-gradient bg-gradient-to-r flex flex-col items-center gap-6 from-primary-800 to-neutral-900 text-white">
         <h2 className="text-center text-5xl font-medium  font-heading">Become a contributor</h2>
         <p className="text-center" style={{ width: "clamp(36ch, 90%, 50ch)" }}>
-          Have some knowledge you'd like to share with the island? Look no further! Become a contributor today
-          and join our community!
+          Have some knowledge you&apos;d like to share with the island? Look no further! Become a contributor
+          today and join our community!
         </p>
         <Button variant="neutral" className="text-primary-600">
           Learn more
@@ -51,7 +53,9 @@ function Hero() {
             Test your knowledge, explore hidden gems, and learn fascinating facts about Saint Martin!{" "}
           </p>
           <div className="  flex  gap-4">
-            <Button size={"large"}>Start quiz</Button>
+            <Link href={"/quiz/random"} className={buttonStyles({ size: "large" })}>
+              Start quiz
+            </Link>
             <Button size={"large"} variant={"neutral"}>
               Learn more
             </Button>

@@ -69,8 +69,8 @@ export function Quiz(props: PropTypes) {
         <Summary resultProps={result} detailsProps={details} />
       ) : (
         <>
-          <div className=" flex justify-between items-center border-b border-neutral-200 pb-2 mb-5">
-            <Progress value={progress} />
+          <div className=" flex justify-between items-end border-b border-neutral-200 pb-2 mb-5">
+            <Progress aria-label="Quiz progression" size={"sm"} className="w-1/4" value={progress} />
             <span className="font-medium">
               Streak: <span className="font-heading">{state.streak}</span>
             </span>

@@ -1,26 +1,37 @@
 import type { BadgeProps } from "ui";
 import { randomize } from "./randomize-quiz";
+import { lists } from "./list-quizzes";
 
-export type QuestionType = "history" | "geography" | "economy" | "general" | "environment";
+export type QuestionCategory = "history" | "geography" | "economy" | "general" | "environment";
 
 export type Question = {
   question: string;
   answer: string;
   options: string[];
-  type: QuestionType;
+  category: QuestionCategory;
   description?: string;
 };
 
 type QuestionOptions = [string, string, string];
 
-type Quiz = {
-  questions: Question[];
-  type: QuestionType;
-  title: string;
-  slug: string;
-};
+type Quiz =
+  | {
+      questions: Question[];
+      category: QuestionCategory;
+      title: string;
+      slug: string;
+      type: "question";
+    }
+  | {
+      type: "list";
+      options: string[];
+      title: string;
+      slug: string;
+      task: string;
+      category: QuestionCategory;
+    };
 
-export function getCatColor(type: QuestionType): BadgeProps["color"] {
+export function getCatColor(type: QuestionCategory): BadgeProps["color"] {
   switch (type) {
     case "economy": {
       return "primary";
@@ -43,14 +54,14 @@ export function getCatColor(type: QuestionType): BadgeProps["color"] {
 const questions: Question[] = [];
 
 function createQuestion(
-  type: QuestionType,
+  category: QuestionCategory,
   question: string,
   answer: string,
   options: QuestionOptions,
   description = "No description available"
 ) {
   questions.push({
-    type,
+    category,
     answer,
     options,
     question,
@@ -58,7 +69,7 @@ function createQuestion(
   });
 }
 
-function questionPartial(type: QuestionType) {
+function questionPartial(type: QuestionCategory) {
   return function (question: string, answer: string, options: QuestionOptions, description?: string) {
     return createQuestion(type, question, answer, options, description);
   };
@@ -128,36 +139,58 @@ when the tree was in full bloom.`
 );
 environmentQ("What is Sxm's national animal?", "Brown Pelican", ["Ground Dove", "Hummingbird", "Blackbird"]);
 
-function createQuiz(type: QuestionType, title: string): Quiz {
-  const rQuestions = type === "general" ? questions : questions.filter(question => question.type === type);
-  return {
-    type,
-    questions: rQuestions.map(question => {
-      return {
-        ...question,
-        options: randomize([...question.options, question.answer])
-      };
-    }),
-    title,
-    slug: title.toLowerCase().trim().replaceAll(" ", "-")
+function createQuiz(type: Quiz["type"], category: QuestionCategory, title: string): Quiz {
+  if (type === "question") {
+    const rQuestions =
+      category === "general" ? questions : questions.filter(question => question.category === category);
+
+    return {
+      category,
+      type: "question",
+      questions: rQuestions.map(question => {
+        return {
+          ...question,
+          options: randomize([...question.options, question.answer])
+        };
+      }),
+      title,
+      slug: title.toLowerCase().trim().replaceAll(" ", "-")
+    };
+  } else {
+    const quiz = lists.find(quiz => quiz.title === title)!;
+    return {
+      options: quiz.options,
+      title,
+      type: "list",
+      slug: title.toLowerCase().trim().replaceAll(" ", "-"),
+      task: quiz.task,
+      category
+    };
+  }
+}
+
+function partial(type: Quiz["type"]) {
+  return function (category: QuestionCategory) {
+    return function (title: string) {
+      return createQuiz(type, category, title);
+    };
   };
 }
 
-function partial(type: QuestionType) {
-  return function (title: string) {
-    return createQuiz(type, title);
-  };
-}
+const questionQuiz = partial("question");
+const listQuiz = partial("list");
 
-const historyQuiz = partial("history");
-const geoQuiz = partial("geography");
-const ecoQuiz = partial("economy");
-const envQuiz = partial("environment");
+const historyQuiz = questionQuiz("history");
+const geoQuiz = questionQuiz("geography");
+const ecoQuiz = questionQuiz("economy");
+const envQuiz = questionQuiz("environment");
 
 const sxmHistory = historyQuiz("SXM History Intro");
 const sxmGeo = geoQuiz("SXM Geography Intro");
 const sxmEco = ecoQuiz("SXM Economy Intro");
 const sxmEnv = envQuiz("SXM Environment Intro");
-const sxmGeneral = createQuiz("general", "General");
+const sxmGeneral = createQuiz("question", "general", "General");
 
-export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv];
+const allBeaches = listQuiz("geography")("All SXM Beaches");
+
+export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv, allBeaches];

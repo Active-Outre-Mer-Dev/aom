@@ -61,13 +61,13 @@ type PropTypes = typeof allQuizzes[0] & { score?: number };
 
 function QuizCard(props: PropTypes) {
   const color =
-    props.type === "economy"
+    props.category === "economy"
       ? "primary"
-      : props.type === "geography"
+      : props.category === "geography"
       ? "secondary"
-      : props.type === "history"
+      : props.category === "history"
       ? "error"
-      : props.type === "environment"
+      : props.category === "environment"
       ? "success"
       : "tertiary";
 
@@ -78,6 +78,7 @@ function QuizCard(props: PropTypes) {
       ? "text-warn-600 bg-warn-200/30"
       : "text-error-600 bg-error-200/30"
     : "bg-neutral-200/30";
+  const isQuestionBased = props.type === "question";
   return (
     <>
       <Card className="relative" style={{ backgroundColor: "white" }}>
@@ -98,7 +99,11 @@ function QuizCard(props: PropTypes) {
           reprehenderit.
         </p>
         <span className="text-sm text-neutral-500 inline-block mb-4">
-          {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
+          {isQuestionBased && (
+            <>
+              {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
+            </>
+          )}
           <Badge color={color}>{props.type}</Badge>
         </span>
         <div className="flex gap-2">

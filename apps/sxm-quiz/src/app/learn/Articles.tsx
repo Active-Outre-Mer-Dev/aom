@@ -2,14 +2,14 @@ import { Title, Badge } from "ui";
 import Image from "next/image";
 import { getCatColor } from "@/questions";
 import { Select } from "./client";
-import type { QuestionType } from "@/questions";
+import type { QuestionCategory } from "@/questions";
 import pixel from "@/assets/sxm2.jpg";
 import profile from "@/assets/agis.jpg";
 import Link from "next/link";
 
 type PropTypes = {
   title: "Community" | "Featured" | "Recently added" | "All";
-  type: QuestionType;
+  type: QuestionCategory;
   amount?: number;
 };
 

@@ -104,7 +104,7 @@ function QuizCard(props: PropTypes) {
               {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
             </>
           )}
-          <Badge color={color}>{props.type}</Badge>
+          <Badge color={color}>{props.category}</Badge>
         </span>
         <div className="flex gap-2">
           <Link

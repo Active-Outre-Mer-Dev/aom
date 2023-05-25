@@ -1,6 +1,6 @@
 "use client";
 import { Title } from "ui";
-import { facts } from "@/random-facts";
+import { randomFacts as facts } from "@/data-lists.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -54,7 +54,6 @@ export function RandomFacts() {
     start();
     return pause;
   }, []);
-
   const [direction, current] = value;
   const fact = facts[current];
 

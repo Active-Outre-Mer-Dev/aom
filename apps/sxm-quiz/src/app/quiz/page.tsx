@@ -1,8 +1,7 @@
 import { Title, Card, Badge } from "ui";
-import { allQuizzes } from "@/questions";
+import { allQuizzes } from "@/quizzes";
 import Link from "next/link";
 import { buttonStyles } from "ui/src/button/styles";
-import { Dropdown } from "./Dropdown";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
 import { Filters } from "./Filters";
 
@@ -23,7 +22,9 @@ export default function Page({ searchParams }: PageProps) {
   const search = new URLSearchParams(searchParams);
   const topic = search.get("topic");
   const sort = search.get("sort");
-  const filteredQuizzes = topic ? allQuizzes.filter(({ type }) => type === topic) : allQuizzes;
+  const filteredQuizzes = topic
+    ? allQuizzes.all.filter(({ category }) => category === topic)
+    : allQuizzes.all;
   return (
     <>
       <section className="bg-gradient-to-r from-primary-500 to-primary-200 h-96 text-white relative flex items-center justify-center">
@@ -47,7 +48,7 @@ export default function Page({ searchParams }: PageProps) {
       <section id="quiz-section" className="container   mx-auto pt-20 mb-20">
         <Filters search={sort || undefined} />
         <div className="grid gap-4 grid-cols-3">
-          {allQuizzes.map((quiz, key) => {
+          {filteredQuizzes.map((quiz, key) => {
             const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
             return <QuizCard {...quiz} score={randomScore} key={key} />;
           })}
@@ -57,7 +58,7 @@ export default function Page({ searchParams }: PageProps) {
   );
 }
 
-type PropTypes = typeof allQuizzes[0] & { score?: number };
+type PropTypes = typeof allQuizzes.all[0] & { score?: number };
 
 function QuizCard(props: PropTypes) {
   const color =

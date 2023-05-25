@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/experimental-ct-react";
 import { Quiz } from "../src/app/quiz/[slug]/quiz";
-import { allQuizzes } from "../src/questions";
+import { allQuizzes } from "../src/quizzes";
 
-const history = allQuizzes.find(({ type }) => type === "history")!;
+const history = allQuizzes.question.find(({ category }) => category === "history")!;
 
 test("contains four buttons", async ({ mount }) => {
   const component = await mount(<Quiz questions={history.questions} title={"test"} />);

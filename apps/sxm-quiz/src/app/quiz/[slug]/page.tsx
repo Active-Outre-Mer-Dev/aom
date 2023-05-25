@@ -1,5 +1,5 @@
 import { Quiz } from "./quiz";
-import { allQuizzes } from "@/questions";
+import { allQuizzes } from "@/quizzes";
 import { RelatedQuizzes } from "./Related";
 import { randomize } from "@/randomize-quiz";
 import { ListQuiz } from "@/components/quiz/list-quiz";
@@ -7,8 +7,8 @@ import { ListQuiz } from "@/components/quiz/list-quiz";
 export default function Page({ params }: { params: { slug: string } }) {
   const quizGame =
     params.slug === "random"
-      ? allQuizzes[Math.floor(Math.random() * allQuizzes.length)]
-      : allQuizzes.find(({ slug }) => slug === params.slug)!;
+      ? allQuizzes.all[Math.floor(Math.random() * allQuizzes.all.length)]
+      : allQuizzes.all.find(({ slug }) => slug === params.slug)!;
   return (
     <div style={{ minHeight: "calc(100vh - 64px - 80px)" }} className="flex gap-10 w-4/5 mx-auto mt-20 mb-36">
       <main className="basis-4/5">

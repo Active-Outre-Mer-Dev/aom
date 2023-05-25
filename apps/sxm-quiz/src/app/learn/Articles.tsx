@@ -1,11 +1,11 @@
 import { Title, Badge } from "ui";
 import Image from "next/image";
-import { getCatColor } from "@/questions";
+import { getCatColor } from "@/get-category-color";
 import { Select } from "./client";
-import type { QuestionCategory } from "@/questions";
 import pixel from "@/assets/sxm2.jpg";
 import profile from "@/assets/agis.jpg";
 import Link from "next/link";
+import type { QuestionCategory } from "@/questions";
 
 type PropTypes = {
   title: "Community" | "Featured" | "Recently added" | "All";

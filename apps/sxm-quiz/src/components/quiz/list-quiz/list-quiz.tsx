@@ -42,7 +42,6 @@ function reducer(state: typeof initialState, action: Action): State {
 }
 
 type PropTypes = {
-  title: string;
   task: string;
   options: string[];
 };

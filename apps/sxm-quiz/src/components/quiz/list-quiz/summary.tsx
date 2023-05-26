@@ -1,6 +1,6 @@
 import { Timer } from "lucide-react";
 import { Rocket } from "lucide-react";
-import { Card, RingProgress } from "ui";
+import { Card, RingProgress, ScrollArea } from "ui";
 import { secondsToMinutes } from "date-fns";
 
 type PropTypes = {
@@ -47,21 +47,23 @@ export function Summary({ children, options, inputs, score, points, duration }: 
         {children}
       </div>
       <div className="grow p-2">
-        <p className="text-center text-2xl   mb-4 font-medium font-heading ">All Beaches</p>
-        <div className="grid grid-cols-4 gap-2">
-          {options.map(option => {
-            return (
-              <p
-                key={option}
-                className={`text-white rounded-sm p-2 ${
-                  inputs.includes(option.toLowerCase()) ? "bg-success-700 text" : "bg-error-600"
-                }`}
-              >
-                {option}
-              </p>
-            );
-          })}
-        </div>
+        <ScrollArea className="h-96 pr-2 -mr-6">
+          <p className="text-center text-2xl   mb-4 font-medium font-heading ">All Beaches</p>
+          <div className="grid grid-cols-4 gap-2">
+            {options.map(option => {
+              return (
+                <p
+                  key={option}
+                  className={`text-white rounded-sm flex items-center justify-center p-2 ${
+                    inputs.includes(option.toLowerCase()) ? "bg-success-700 text" : "bg-error-600"
+                  }`}
+                >
+                  {option}
+                </p>
+              );
+            })}
+          </div>
+        </ScrollArea>
       </div>
     </Card>
   );

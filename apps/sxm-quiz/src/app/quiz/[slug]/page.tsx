@@ -16,7 +16,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         {quizGame.type === "question" ? (
           <Quiz title={quizGame.title} questions={randomize(quizGame.questions)} />
         ) : (
-          <ListQuiz task={quizGame.task} title={quizGame.title} options={quizGame.options} />
+          <ListQuiz task={quizGame.task} options={quizGame.options} />
         )}
       </main>
       <aside className="grow h-64">

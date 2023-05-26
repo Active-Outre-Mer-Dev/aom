@@ -69,7 +69,7 @@ const sxmGeneral = createQuestionQuiz("general", "General");
 
 const allBeaches = listQuizPartial("geography")(
   "All SXM Beaches",
-  "Name every beach on Saint Martin",
+  "Name as many beaches as you can",
   lists.beaches
 );
 

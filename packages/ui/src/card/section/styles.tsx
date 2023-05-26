@@ -1,12 +1,12 @@
 import { cva } from "cva";
 
 export const cardSectionStyles = cva(
-  `-ui-mx-4 data-[first=true]:-ui-mt-4  data-[first=true]:ui-rounded-t-md 
-  data-[last=true]:ui-rounded-b-md data-[last=true]:-ui-mb-4  `,
+  `-mx-4 data-[first=true]:-mt-4  data-[first=true]:rounded-t-md 
+  data-[last=true]:rounded-b-md data-[last=true]:-mb-4  `,
   {
     variants: {
       inheritPadding: {
-        true: "ui-p-4"
+        true: "p-4"
       }
     }
   }

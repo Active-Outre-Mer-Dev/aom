@@ -6,12 +6,12 @@ export const titleStyles = cva("", {
      * @default 1
      */
     order: {
-      1: "ui-text-[4.25rem]",
-      2: "ui-text-[2.333rem] ",
-      3: "ui-text-[1.625rem]",
-      4: "ui-text-[1.2917rem]",
-      5: "ui-text-[1.1458rem]",
-      6: "ui-text-base"
+      1: "text-[4.25rem]",
+      2: "text-[2.333rem] ",
+      3: "text-[1.625rem]",
+      4: "text-[1.2917rem]",
+      5: "text-[1.1458rem]",
+      6: "text-base"
     }
   },
   defaultVariants: {

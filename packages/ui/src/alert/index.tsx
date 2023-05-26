@@ -11,9 +11,9 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
     return (
       <div ref={ref} role="alert" {...props} className={alertStyles({ className, color })}>
         {icon ? (
-          <div className="ui-col-span-1 ui-flex ui-items-center ui-justify-center">{icon}</div>
+          <div className="col-span-1 flex items-center justify-center">{icon}</div>
         ) : (
-          <div className="ui-col-span-1 ui-flex ui-items-center ui-justify-center">
+          <div className="col-span-1 flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={16}
@@ -32,10 +32,10 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
             </svg>
           </div>
         )}
-        <div className={"ui-col-span-11"}>
-          {title ? <h5 className="ui-font-semibold ui-grow ui-text-lg ui-block">{title}</h5> : null}
+        <div className={"col-span-11"}>
+          {title ? <h5 className="font-semibold grow text-lg block">{title}</h5> : null}
         </div>
-        <span className={"ui-row-start-2  ui-col-start-2 ui-col-span-11"}>{props.children}</span>
+        <span className={"row-start-2  col-start-2 col-span-11"}>{props.children}</span>
       </div>
     );
   }

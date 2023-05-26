@@ -1,9 +1,7 @@
 {
   "name": "ui",
   "version": "0.0.0",
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": false,
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist",
@@ -48,6 +46,7 @@
     "cva": "npm:class-variance-authority@^0.5.2",
     "install": "^0.13.0",
     "lucide-react": "^0.180.0",
-    "npm": "^9.6.5"
+    "npm": "^9.6.5",
+    "tailwind-merge": "^1.12.0"
   }
 }

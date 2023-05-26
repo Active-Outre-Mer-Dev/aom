@@ -1,29 +1,29 @@
 import { cva } from "cva";
 
 export const buttonStyles = cva(
-  `ui-font-medium  ui-rounded-md disabled:ui-grayscale ui-appearance-none ui-outline-none 
-    disabled:ui-opacity-50 focus-within:ui-ring focus-within:ui-ring-offset-2 ui-ring-0  
-    disabled:ui-cursor-not-allowed ui-ring-offset-neutral-50 dark:ui-ring-offset-neutral-900 `,
+  `font-medium  rounded-md disabled:grayscale appearance-none outline-none 
+    disabled:opacity-50 focus-within:ring focus-within:ring-offset-2 ring-0  
+    disabled:cursor-not-allowed ring-offset-neutral-50 dark:ring-offset-neutral-900 `,
   {
     variants: {
       variant: {
-        primary: `ui-bg-primary-600 ui-text-primary-50 dark:ui-bg-primary-500
-          dark:ui-ring-primary-400 ui-ring-primary-500 
+        primary: `bg-primary-600 text-primary-50 dark:bg-primary-500
+          dark:ring-primary-400 ring-primary-500 
           `,
-        neutral: `ui-bg-white ui-ring-1 ui-ring-neutral-200 dark:ui-bg-white/10 
-          dark:ui-ring-white/10 dark:ui-text-neutral-100 ui-ring-off`,
-        cta: "ui-bg-gradient-to-r ui-from-primary-500 ui-to-tertiary-400 ui-text-primary-50",
-        error: `ui-bg-error-600 ui-text-neutral-50 ui-ring-error-500`,
-        outline: `ui-bg-transparent ui-ring-1 ui-ring-primary-600 ui-text-primary-600 
-        dark:ui-bg-transparent dark:ui-text-primary-200 dark:ui-ring-primary-200`
+        neutral: `bg-white ring-1 ring-neutral-200 dark:bg-white/10 
+          dark:ring-white/10 dark:text-neutral-100 ring-off`,
+        cta: "bg-gradient-to-r from-primary-500 to-tertiary-400 text-primary-50",
+        error: `bg-error-600 text-neutral-50 ring-error-500`,
+        outline: `bg-transparent ring-1 ring-primary-600 text-primary-600 
+        dark:bg-transparent dark:text-primary-200 dark:ring-primary-200`
       },
       size: {
-        small: "ui-px-2 ui-py-1 ui-text-sm",
-        medium: "ui-px-4 ui-py-2 ui-text-base",
-        large: "ui-text-lg ui-px-6 ui-py-4"
+        small: "px-2 py-1 text-sm",
+        medium: "px-4 py-2 text-base",
+        large: "text-lg px-6 py-4"
       },
       fullWidth: {
-        true: "ui-w-full"
+        true: "w-full"
       }
     },
     defaultVariants: {

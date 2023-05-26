@@ -1,13 +1,13 @@
 import { cva } from "cva";
 
-export const skeletonStyles = cva(" ui-bg-neutral-200 dark:ui-bg-neutral-700", {
+export const skeletonStyles = cva(" bg-neutral-200 dark:bg-neutral-700", {
   variants: {
     animate: {
-      true: "ui-animate-pulse"
+      true: "animate-pulse"
     },
     rounded: {
-      true: "ui-rounded-full",
-      false: "ui-rounded-md"
+      true: "rounded-full",
+      false: "rounded-md"
     }
   }
 });

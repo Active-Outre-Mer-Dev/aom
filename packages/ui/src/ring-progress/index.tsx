@@ -26,14 +26,14 @@ export function RingProgress({
   rootCircle
 }: RingProgressProps & RootClass) {
   return (
-    <div style={{ width: size, height: size }} className="ui-relative">
-      <svg width={size} height={size} className="-ui-rotate-90">
+    <div style={{ width: size, height: size }} className="relative">
+      <svg width={size} height={size} className="-rotate-90">
         <Circle
           size={size}
           value={value}
           thickness={thickness}
           root
-          className={cx("ui-stroke-neutral-200 dark:ui-stroke-neutral-700", rootCircle)}
+          className={cx("stroke-neutral-200 dark:stroke-neutral-700", rootCircle)}
         />
         <Circle
           strokeLinecap={rounded ? "round" : undefined}
@@ -43,9 +43,7 @@ export function RingProgress({
           color={color || undefined}
         />
       </svg>
-      {label && (
-        <div className="ui-absolute -ui-inset-0 ui-flex ui-items-center ui-justify-center">{label}</div>
-      )}
+      {label && <div className="absolute -inset-0 flex items-center justify-center">{label}</div>}
     </div>
   );
 }

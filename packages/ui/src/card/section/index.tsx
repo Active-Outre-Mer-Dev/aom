@@ -1,4 +1,3 @@
-import { cva } from "cva";
 import { forwardRef } from "react";
 import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";

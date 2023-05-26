@@ -21,10 +21,10 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(({ size, class
       }}
     >
       <RadixProgress.Indicator
-        className={`ui-bg-primary-600 dark:ui-bg-primary-500 ui-w-full ui-h-full 
-        data-[state=indeterminate]:ui-animate-progress-indeterminate ui-relative
-         ui-transition-transform ui-duration-[660ms]
-         ui-ease-[cubic-bezier(0.65, 0, 0.35, 1)]`}
+        className={`bg-primary-600 dark:bg-primary-500 w-full h-full 
+        data-[state=indeterminate]:animate-progress-indeterminate relative
+         transition-transform duration-[660ms]
+         ease-[cubic-bezier(0.65, 0, 0.35, 1)]`}
         style={{ transform: `translateX(-${(props.max || 100) - (props.value || 0)}%)` }}
       />
     </RadixProgress.Root>

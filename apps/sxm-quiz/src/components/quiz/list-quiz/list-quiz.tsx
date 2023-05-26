@@ -5,6 +5,7 @@ import { QuizProgression } from "./quiz-progress";
 import { ListResult } from "./list-result";
 import { ListDetails } from "./list-details";
 import { QuizOption } from "./list-option";
+import { ListTimer } from "./list-timer";
 import { initialState, reducer } from "./reducer";
 
 type PropTypes = {
@@ -12,25 +13,12 @@ type PropTypes = {
   options: string[];
 };
 
-function useInterval(cb: () => void, ms?: number) {
-  const timer = useRef<NodeJS.Timer>();
-
-  const clear = () => {
-    clearInterval(timer.current);
-    timer.current = undefined;
-  };
-
-  const start = () => {
-    clearInterval(timer.current);
-    timer.current = setInterval(() => cb(), ms);
-  };
-  return [start, clear];
-}
+//timer for quiz in seconds
+const quizTimer = 60 * 2;
 
 export function ListQuiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [duration, setDuration] = useState(0);
-  const [start, clear] = useInterval(() => setDuration(prev => prev + 1), 1000 * 1);
   const [hasStarted, setHasStarted] = useState(false);
   const [giveUp, setGiveUp] = useState(false);
   const [options, setOptions] = useState(props.options.map(option => option.toLowerCase()));
@@ -51,13 +39,12 @@ export function ListQuiz(props: PropTypes) {
         break;
       }
     }
-    if (count === props.options.length) clear();
+    if (count === props.options.length) setHasStarted(false);
   };
 
   const isFinished = state.inputs.length === props.options.length;
 
   const onStart = () => {
-    start();
     setHasStarted(true);
   };
 
@@ -69,9 +56,9 @@ export function ListQuiz(props: PropTypes) {
     setGiveUp(false);
   };
 
-  const onGiveUp = () => {
+  const onGiveUp = (duration: number) => {
     setGiveUp(true);
-    clear();
+    setDuration(quizTimer - duration);
   };
 
   const summaryProps = {
@@ -86,18 +73,14 @@ export function ListQuiz(props: PropTypes) {
     <div>
       {!isFinished && !giveUp ? (
         <>
+          <ListTimer hasStarted={hasStarted} onClick={onGiveUp} timer={quizTimer} />
           <QuizProgression
             progress={(state.inputs.length / props.options.length) * 100}
             optionsLeft={props.options.length - state.inputs.length}
           />
           <p className="font-heading text-2xl mb-6">{props.task}</p>
           {hasStarted ? (
-            <div className="flex gap-2">
-              <TextInput ref={ref} key={state.score} onChange={onChange} />
-              <Button onClick={onGiveUp} variant="error">
-                Give up
-              </Button>
-            </div>
+            <TextInput ref={ref} key={state.score} onChange={onChange} />
           ) : (
             <Button onClick={onStart}>Start</Button>
           )}

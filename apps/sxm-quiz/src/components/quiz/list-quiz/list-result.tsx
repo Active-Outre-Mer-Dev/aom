@@ -1,4 +1,3 @@
-import { secondsToMinutes } from "date-fns";
 import { Rocket, Timer } from "lucide-react";
 import { RingProgress } from "ui";
 
@@ -51,6 +50,9 @@ function RingLabel({ children }: { children: React.ReactNode }) {
 }
 
 function format(seconds: number) {
-  const minutes = secondsToMinutes(seconds) > 1 ? `${secondsToMinutes(seconds)} minutes` : "1 minute";
-  return seconds <= 60 ? `${seconds} seconds` : minutes;
+  return new Intl.NumberFormat("en-US", {
+    unit: seconds >= 60 ? "minute" : "second",
+    style: "unit",
+    unitDisplay: "long"
+  }).format(seconds >= 60 ? Math.floor(seconds / 60) : seconds);
 }

@@ -16,8 +16,8 @@ export function RelatedQuizzes({ slug }: PropTypes) {
         {otherQuizzes.map(props => {
           const { title, category } = props;
           return (
-            <li className="group" key={slug}>
-              <Link href={`/quiz/${slug}`}>
+            <li className="group" key={props.slug}>
+              <Link href={`/quiz/${props.slug}`}>
                 <span className="block group-hover:text-primary-500 duration-200 ease-out text-lg font-medium">
                   {title}
                 </span>

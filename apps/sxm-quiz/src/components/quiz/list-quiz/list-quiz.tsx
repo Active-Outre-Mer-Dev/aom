@@ -1,45 +1,11 @@
 "use client";
 import { FormEvent, useEffect, useReducer, useRef, useState } from "react";
-import { Button, TextInput } from "ui";
+import { Button, TextInput, Card } from "ui";
 import { QuizProgression } from "./quiz-progress";
-import { Summary } from "./summary";
-
-type State = {
-  score: number;
-  inputs: string[];
-};
-
-const initialState: State = {
-  score: 0,
-  inputs: []
-};
-
-type Action =
-  | {
-      type: "next";
-      value: string;
-    }
-  | { type: "reset" };
-
-function reducer(state: typeof initialState, action: Action): State {
-  switch (action.type) {
-    case "next": {
-      return {
-        score: state.score + 1,
-        inputs: [...state.inputs, action.value]
-      };
-    }
-    case "reset": {
-      return {
-        score: 0,
-        inputs: []
-      };
-    }
-
-    default:
-      return state;
-  }
-}
+import { ListResult } from "./list-result";
+import { ListDetails } from "./list-details";
+import { QuizOption } from "./list-option";
+import { initialState, reducer } from "./reducer";
 
 type PropTypes = {
   task: string;
@@ -142,9 +108,22 @@ export function ListQuiz(props: PropTypes) {
           </div>
         </>
       ) : (
-        <Summary {...summaryProps}>
-          <Button onClick={onReset}>Reset</Button>
-        </Summary>
+        <Card className="flex">
+          <ListResult {...summaryProps}>
+            <Button onClick={onReset}>Reset</Button>
+          </ListResult>
+          <ListDetails>
+            {props.options.map(option => {
+              return (
+                <QuizOption
+                  key={option}
+                  active={state.inputs.includes(option.toLowerCase())}
+                  option={option}
+                />
+              );
+            })}
+          </ListDetails>
+        </Card>
       )}
     </div>
   );

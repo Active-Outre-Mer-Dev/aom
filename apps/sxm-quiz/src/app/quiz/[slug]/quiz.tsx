@@ -1,9 +1,10 @@
 "use client";
-import type { Question } from "@/questions";
 import { useReducer, useState, useRef } from "react";
 import { Button, Progress } from "ui";
 import { initialState, reducer } from "./reducer";
 import { Summary } from "./Summary";
+
+import type { Question } from "@/questions";
 
 type PropTypes = {
   questions: Question[];

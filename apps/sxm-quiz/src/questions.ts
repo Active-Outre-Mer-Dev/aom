@@ -1,56 +1,25 @@
-import type { BadgeProps } from "ui";
-import { randomize } from "./randomize-quiz";
-
-export type QuestionType = "history" | "geography" | "economy" | "general" | "environment";
+type QuestionOptions = [string, string, string];
+export type QuestionCategory = "history" | "geography" | "economy" | "general" | "environment";
 
 export type Question = {
   question: string;
   answer: string;
   options: string[];
-  type: QuestionType;
+  category: QuestionCategory;
   description?: string;
 };
 
-type QuestionOptions = [string, string, string];
-
-type Quiz = {
-  questions: Question[];
-  type: QuestionType;
-  title: string;
-  slug: string;
-};
-
-export function getCatColor(type: QuestionType): BadgeProps["color"] {
-  switch (type) {
-    case "economy": {
-      return "primary";
-    }
-
-    case "general": {
-      return "success";
-    }
-    case "geography": {
-      return "secondary";
-    }
-    case "history": {
-      return "error";
-    }
-    default:
-      return "success";
-  }
-}
-
-const questions: Question[] = [];
+export const questions: Question[] = [];
 
 function createQuestion(
-  type: QuestionType,
+  category: QuestionCategory,
   question: string,
   answer: string,
   options: QuestionOptions,
   description = "No description available"
 ) {
   questions.push({
-    type,
+    category,
     answer,
     options,
     question,
@@ -58,7 +27,7 @@ function createQuestion(
   });
 }
 
-function questionPartial(type: QuestionType) {
+function questionPartial(type: QuestionCategory) {
   return function (question: string, answer: string, options: QuestionOptions, description?: string) {
     return createQuestion(type, question, answer, options, description);
   };
@@ -74,7 +43,7 @@ historyQ(
   "1493",
   ["1568", "1392", "1501"],
   `Christopher Columbus discovered and named Saint Martin on November 11, 1493 without ever 
-  setting foot on the island`
+    setting foot on the island`
 );
 historyQ("When is SXM Day?", "11 November", ["4 July", "14 July", "17 August"]);
 historyQ(
@@ -82,14 +51,14 @@ historyQ(
   "1648",
   ["1492", "1776", "1555"],
   `On March 23, 1648 the Dutch and French signed the Treaty of Concordia which led to the island being 
-  split into two parts`
+    split into two parts`
 );
 historyQ(
   "When was the national flag of SXM unveiled?",
   "1990",
   ["1996", "1987", "1965"],
   `The national flag of St Martin was unveiled on August 31, 1990 and represents both sides of the island 
-  as one nation`
+    as one nation`
 );
 
 geographyQ("What is St Martin?", "Island", ["Continent", "City", "Country"]);
@@ -107,7 +76,7 @@ geographyQ(
   "Yellow, Red, Green, Blue",
   ["White, Red, Blue", "White, Red, Green", "Yellow, Blue, Red, Brown"],
   `Yellow represents the sun, Blue represents the sea, Red represents the blood of St Martiners, and Green
- represents the land of Saint Martin.`
+   represents the land of Saint Martin.`
 );
 geographyQ("How many ponds are there in Sxm?", "20", ["37", "19", "12"]);
 geographyQ(
@@ -124,40 +93,6 @@ environmentQ(
   "Flamboyant Tree",
   ["Palm Tree", "Mango Tree", "Coconut Tree"],
   `The Flamboyant tree has a special significance since it's associated with the abolition of slavery in July 
-when the tree was in full bloom.`
+  when the tree was in full bloom.`
 );
 environmentQ("What is Sxm's national animal?", "Brown Pelican", ["Ground Dove", "Hummingbird", "Blackbird"]);
-
-function createQuiz(type: QuestionType, title: string): Quiz {
-  const rQuestions = type === "general" ? questions : questions.filter(question => question.type === type);
-  return {
-    type,
-    questions: rQuestions.map(question => {
-      return {
-        ...question,
-        options: randomize([...question.options, question.answer])
-      };
-    }),
-    title,
-    slug: title.toLowerCase().trim().replaceAll(" ", "-")
-  };
-}
-
-function partial(type: QuestionType) {
-  return function (title: string) {
-    return createQuiz(type, title);
-  };
-}
-
-const historyQuiz = partial("history");
-const geoQuiz = partial("geography");
-const ecoQuiz = partial("economy");
-const envQuiz = partial("environment");
-
-const sxmHistory = historyQuiz("SXM History Intro");
-const sxmGeo = geoQuiz("SXM Geography Intro");
-const sxmEco = ecoQuiz("SXM Economy Intro");
-const sxmEnv = envQuiz("SXM Environment Intro");
-const sxmGeneral = createQuiz("general", "General");
-
-export const allQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv];

@@ -13,9 +13,9 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(({ className, disa
       {...props}
       ref={ref}
       className={cx(
-        "ui-text-sm ui-select-none ui-font-medium ui-text-neutral-800 dark:ui-text-neutral-100",
+        "text-sm select-none font-medium text-neutral-800 dark:text-neutral-100",
         className,
-        disabled ? "ui-text-neutral-300 dark:ui-text-neutral-700" : ""
+        disabled ? "text-neutral-300 dark:text-neutral-700" : ""
       )}
     >
       {props.children}

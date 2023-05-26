@@ -12,14 +12,14 @@ export function Radio({ label, ...props }: RadioProps) {
       <RadixRadio.Item
         {...props}
         id={props.id || id}
-        className={`data-[state=checked]:ui-bg-primary-600 data-[state=checked]:dark:ui-bg-primary-500 
-        ui-bg-neutral-200 dark:ui-bg-neutral-700 ui-overflow-hidden ui-w-5 ui-h-5 ui-rounded-full ui-outline-none 
+        className={`data-[state=checked]:primary-600 data-[state=checked]:dark:primary-500 
+        neutral-200 dark:neutral-700 ui-overflow-hidden ui-w-5 ui-h-5 ui-rounded-full ui-outline-none 
         ui-cursor-default ui-duration-200 ui-ease-out`}
       >
         <RadixRadio.Indicator
-          className={`ui-flex ui-overflow-hidden ui-bg-primary-600 dark:ui-bg-primary-500 ui-items-center 
+          className={`ui-flex ui-overflow-hidden primary-600 dark:primary-500 ui-items-center 
           ui-justify-center ui-w-full ui-h-full ui-relative after:ui-content-[''] after:ui-block 
-          after:ui-w-2/4 after:ui-h-2/4 after:ui-rounded-full after:ui-bg-primary-50`}
+          after:ui-w-2/4 after:ui-h-2/4 after:ui-rounded-full after:primary-50`}
         />
       </RadixRadio.Item>
       {label ? <Label htmlFor={props.id || id}>{label}</Label> : null}

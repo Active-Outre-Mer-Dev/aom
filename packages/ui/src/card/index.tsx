@@ -3,13 +3,15 @@ import { Section } from "./section";
 import type { VariantProps } from "cva";
 import type { ComponentPropsWithoutRef } from "react";
 import { cardStyles } from "./styles";
+import { twMerge } from "tailwind-merge";
 
 type CardProps = ComponentPropsWithoutRef<"div"> & VariantProps<typeof cardStyles>;
 
 export function Card({ className, variant, ...props }: CardProps) {
   const _children = Children.toArray(props.children);
+  const classes = cardStyles({ className, variant });
   return (
-    <div className={cardStyles({ className, variant })}>
+    <div className={twMerge(classes)}>
       {_children.map((child, index) => {
         if (typeof child === "object" && "type" in child && child.type === Section)
           return cloneElement(child, {

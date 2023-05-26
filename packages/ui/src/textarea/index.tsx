@@ -11,7 +11,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, r
   return (
     <div className={props.wrapperClass}>
       {props.label ? (
-        <Label htmlFor={props.id || id} className="ui-block ui-mb-1">
+        <Label htmlFor={props.id || id} className="block mb-1">
           {props.label}
         </Label>
       ) : null}
@@ -22,10 +22,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, r
         id={props.id || id}
         rows={props.rows || 3}
         className={cx(
-          `ui-rounded-md placeholder:ui-text-neutral-400 ui-py-1 ui-bg-transparent ui-duration-200 
-          ui-ease-out ui-text-neutral-900 ui-w-full ui-appearance-none ui-border ui-resize-none 
-          ui-border-neutral-300 ui-outline-none focus:ui-border-primary-600 focus:dark:ui-border-primary-400
-          dark:ui-border-neutral-700 placeholder:dark:ui-text-neutral-600 dark:ui-text-neutral-200 ui-pl-2  
+          `rounded-md placeholder:text-neutral-400 py-1 bg-transparent duration-200 
+          ease-out text-neutral-900 w-full appearance-none border resize-none 
+          border-neutral-300 outline-none focus:border-primary-600 focus:dark:border-primary-400
+          dark:border-neutral-700 placeholder:dark:text-neutral-600 dark:text-neutral-200 pl-2  
           `,
           props.className
         )}

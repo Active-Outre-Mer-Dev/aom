@@ -1,14 +1,14 @@
 import { cva } from "cva";
 
-export const alertStyles = cva("ui-px-2 ui-py-3 ui-grid ui-grid-cols-12 ui-gap-2 ui-rounded-md", {
+export const alertStyles = cva("px-2 py-3 grid grid-cols-12 gap-2 rounded-md", {
   variants: {
     color: {
-      primary: "ui-bg-primary-700 ui-text-primary-50",
-      secondary: "ui-bg-secondary-700 ui-text-secondary-50",
-      warn: "ui-bg-warn-700 ui-text-warn-50",
-      success: "ui-bg-success-700 ui-text-success-50",
-      error: "ui-bg-error-700 ui-text-error-50",
-      tertiary: "ui-bg-tertiary-700 ui-text-tertiary-50"
+      primary: "bg-primary-700 text-primary-50",
+      secondary: "bg-secondary-700 text-secondary-50",
+      warn: "bg-warn-700 text-warn-50",
+      success: "bg-success-700 text-success-50",
+      error: "bg-error-700 text-error-50",
+      tertiary: "bg-tertiary-700 text-tertiary-50"
     }
   },
   defaultVariants: {

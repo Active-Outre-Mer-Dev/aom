@@ -3,19 +3,19 @@ import { cva } from "cva";
 import type { VariantProps } from "cva";
 
 const itemStyles = cva(
-  `ui-group ui-text-sm ui-leading-none ui-rounded-[3px] ui-flex ui-items-center ui-h-8 ui-px-[5px]
-   ui-relative ui-pl-[25px] ui-select-none ui-outline-none`,
+  `group text-sm leading-none rounded-[3px] flex items-center h-8 px-[5px]
+   relative pl-[25px] select-none outline-none`,
   {
     variants: {
       color: {
-        warn: `ui-text-warn-600 dark:ui-text-warn-200 data-[highlighted]:ui-bg-warn-200/30
-        data-[highlighted]:dark:ui-bg-warn-600/30`,
-        error: `ui-text-error-600 dark:ui-text-error-200 
-        data-[highlighted]:ui-bg-error-200/30 data-[highlighted]:dark:ui-bg-error-600/30`,
-        default: `dark:ui-text-neutral-100 ui-text-neutral-900  
-      data-[disabled]:ui-text-neutral-200 data-[highlighted]:ui-bg-primary-200/30 
-      data-[highlighted]:ui-text-primary-600 data-[highlighted]:dark:ui-text-primary-200
-      data-[disabled]:dark:ui-text-neutral-500 data-[highlighted]:dark:ui-bg-primary-600/30`
+        warn: `text-warn-600 dark:text-warn-200 data-[highlighted]:bg-warn-200/30
+        data-[highlighted]:dark:bg-warn-600/30`,
+        error: `text-error-600 dark:text-error-200 
+        data-[highlighted]:bg-error-200/30 data-[highlighted]:dark:bg-error-600/30`,
+        default: `dark:text-neutral-100 text-neutral-900  
+      data-[disabled]:text-neutral-200 data-[highlighted]:bg-primary-200/30 
+      data-[highlighted]:text-primary-600 data-[highlighted]:dark:text-primary-200
+      data-[disabled]:dark:text-neutral-500 data-[highlighted]:dark:bg-primary-600/30`
       }
     },
     defaultVariants: {
@@ -36,10 +36,10 @@ function Item({ icon, rightSection, color, className, ...props }: DropdownItemPr
       {props.children}
       {rightSection ? (
         <div
-          className={`ui-ml-auto ui-pl-[20px] ui-text-neutral-400 group-data-[highlighted]:ui-text-primary-300 
-          group-data-[highlighted]:dark:ui-text-primary-400
-            group-data-[disabled]:dark:ui-text-neutral-600 dark:ui-text-neutral-500 
-            group-data-[disabled]:ui-text-neutral-200`}
+          className={`ml-auto pl-[20px] text-neutral-400 group-data-[highlighted]:text-primary-300 
+          group-data-[highlighted]:dark:text-primary-400
+            group-data-[disabled]:dark:text-neutral-600 dark:text-neutral-500 
+            group-data-[disabled]:text-neutral-200`}
         >
           {rightSection}
         </div>
@@ -59,8 +59,8 @@ function Content({ arrow, portalProps, ...props }: DropdownContentProps) {
       <RadixDropdown.Content
         {...props}
         sideOffset={5}
-        className={`ui-min-w-[220px] ui-bg-white ui-rounded-md ui-p-[5px] 
-        dark:ui-bg-neutral-800 ui-border ui-border-neutral-100 dark:ui-border-neutral-700
+        className={`min-w-[220px] bg-white rounded-md p-[5px] 
+        dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700
         `}
       >
         {props.children}
@@ -81,8 +81,8 @@ function Label(props: RadixDropdown.DropdownMenuLabelProps) {
   return (
     <RadixDropdown.Label
       {...props}
-      className={`ui-text-xs ui-h-5 dark:ui-text-neutral-300 ui-font-medium
-   ui-flex ui-items-center ui-text-neutral-500 ui-mb-[2px] ui-px-[5px] ui-relative ui-pl-[25px]`}
+      className={`text-xs h-5 dark:text-neutral-300 font-medium
+   flex items-center text-neutral-500 mb-[2px] px-[5px] relative pl-[25px]`}
     />
   );
 }
@@ -91,7 +91,7 @@ function Separator(props: RadixDropdown.DropdownMenuSeparatorProps) {
   return (
     <RadixDropdown.Separator
       {...props}
-      className="ui-h-[1px] dark:ui-bg-neutral-700 ui-bg-neutral-100 ui-my-[5px]"
+      className="h-[1px] dark:bg-neutral-700 bg-neutral-100 my-[5px]"
     />
   );
 }

@@ -9,12 +9,12 @@ function InputWrapper({ children, className, ...props }: InputWrapperProps) {
     <div
       data-error={props.error ? true : false}
       className={cx(
-        `ui-rounded-md  ui-relative ui-h-10 ui-duration-200 
-        ui-ease-out ui-text-neutral-900  ui-border 
-        ui-border-neutral-300 ui-outline-none focus-within:ui-border-primary-600 
-        focus-within:dark:ui-border-primary-400 data-[error=true]:ui-border-error-600 
-        data-[error=true]:dark:ui-border-error-400
-        dark:ui-border-neutral-700  dark:ui-text-neutral-200  
+        `rounded-md  relative h-10 duration-200 
+        ease-out text-neutral-900  border 
+        border-neutral-300 outline-none focus-within:border-primary-600 
+        focus-within:dark:border-primary-400 data-[error=true]:border-error-600 
+        data-[error=true]:dark:border-error-400
+        dark:border-neutral-700  dark:text-neutral-200  
         `,
         className
       )}
@@ -35,20 +35,17 @@ export function InputRoot({ children, ...props }: InputRootProps) {
   return (
     <div>
       {props.label ? (
-        <Label htmlFor={props.id!} className={cx("ui-block", props.description ? "" : "ui-mb-1")}>
+        <Label htmlFor={props.id!} className={cx("block", props.description ? "" : "mb-1")}>
           {props.label}{" "}
           {props.required ? (
-            <span aria-label="required" className="ui-text-error-400">
+            <span aria-label="required" className="text-error-400">
               *
             </span>
           ) : null}
         </Label>
       ) : null}
       {props.description ? (
-        <span
-          id={`${props.id}-description`}
-          className="dark:ui-text-neutral-200 ui-text-xs ui-inline-block ui-mb-1"
-        >
+        <span id={`${props.id}-description`} className="dark:text-neutral-200 text-xs inline-block mb-1">
           {props.description}
         </span>
       ) : null}
@@ -56,7 +53,7 @@ export function InputRoot({ children, ...props }: InputRootProps) {
         {props.icon ? (
           <span
             aria-hidden="true"
-            className="ui-absolute ui-neutral-500 dark:ui-neutral-300 ui-top-2/4 ui-left-2 -ui-translate-y-2/4"
+            className="absolute neutral-500 dark:neutral-300 top-2/4 left-2 -translate-y-2/4"
           >
             {props.icon}
           </span>
@@ -64,7 +61,7 @@ export function InputRoot({ children, ...props }: InputRootProps) {
         {children}
       </InputWrapper>
       {props.error ? (
-        <span className={"ui-text-error-600 ui-text-sm dark:ui-text-error-400"}>{props.error}</span>
+        <span className={"text-error-600 text-sm dark:text-error-400"}>{props.error}</span>
       ) : null}
     </div>
   );

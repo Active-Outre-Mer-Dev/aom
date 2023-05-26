@@ -8,8 +8,8 @@ function List(props: RadixTabs.TabsListProps) {
   return (
     <RadixTabs.List
       {...props}
-      className={`ui-shrink-0 ui-border-b ui-border-neutral-300 dark:ui-border-neutral-700 ui-gap-1 ui-h-10
-       ui-flex`}
+      className={`shrink-0 border-b border-neutral-300 dark:border-neutral-700 gap-1 h-10
+       flex`}
     >
       {props.children}
     </RadixTabs.List>
@@ -23,13 +23,13 @@ function Trigger({ customBg, ...props }: TabsTriggerProps) {
     <RadixTabs.Trigger
       {...props}
       className={cx(
-        `ui-relative ui-text-neutral-800 dark:ui-text-neutral-100 ui-px-5 ui-flex-1 ui-flex ui-items-center 
-        ui-justify-center ui-rounded-t-md ui-text-[15px] ui-leading-none ui-select-none  
-        ui-outline-none ui-cursor-default hover:ui-cursor-pointer ui-duration-200 ui-ease-out 
-        data-[state=inactive]:dark:ui-text-neutral-300 data-[state=inactive]:ui-text-neutral-600
-        data-[state=inactive]:hover:dark:ui-bg-neutral-800/50 
-        data-[state=inactive]:hover:ui-bg-neutral-300/10`,
-        customBg ? "" : `ui-group`,
+        `relative text-neutral-800 dark:text-neutral-100 px-5 flex-1 flex items-center 
+        justify-center rounded-t-md text-[15px] leading-none select-none  
+        outline-none cursor-default hover:cursor-pointer duration-200 ease-out 
+        data-[state=inactive]:dark:text-neutral-300 data-[state=inactive]:text-neutral-600
+        data-[state=inactive]:hover:dark:bg-neutral-800/50 
+        data-[state=inactive]:hover:bg-neutral-300/10`,
+        customBg ? "" : `group`,
         props.className
       )}
     >
@@ -38,10 +38,10 @@ function Trigger({ customBg, ...props }: TabsTriggerProps) {
       ) : (
         <>
           <div
-            className={`ui-absolute group-data-[state=active]:ui-block ui-hidden ui-bg-primary-600 
-            dark:ui-bg-primary-500 ui-bottom-0 ui-h-[2px] ui-w-full ui-z-[5]`}
+            className={`absolute group-data-[state=active]:block hidden bg-primary-600 
+            dark:bg-primary-500 bottom-0 h-[2px] w-full z-[5]`}
           />
-          <span className="ui-relative">{props.children}</span>
+          <span className="relative">{props.children}</span>
         </>
       )}
     </RadixTabs.Trigger>
@@ -52,7 +52,7 @@ export type TabsContentProps = RadixTabs.TabsContentProps & VariantProps<typeof 
 
 function Content({ className, variant = "outline", ...props }: TabsContentProps) {
   return (
-    <RadixTabs.Content {...props} className={cx(cardStyles({ className, variant }), "ui-translate-y-2")}>
+    <RadixTabs.Content {...props} className={cx(cardStyles({ className, variant }), "translate-y-2")}>
       {props.children}
     </RadixTabs.Content>
   );
@@ -60,7 +60,7 @@ function Content({ className, variant = "outline", ...props }: TabsContentProps)
 
 export function Tabs(props: RadixTabs.TabsProps) {
   return (
-    <RadixTabs.Root {...props} className={cx(`ui-flex ui-flex-col ui-min-w-[300px]`, props.className)}>
+    <RadixTabs.Root {...props} className={cx(`flex flex-col min-w-[300px]`, props.className)}>
       {props.children}
     </RadixTabs.Root>
   );

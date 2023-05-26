@@ -6,13 +6,13 @@ import { cva } from "cva";
 import type { VariantProps } from "cva";
 
 const overlayStyles = cva(
-  `ui-bg-black/30 data-[state=open]:ui-animate-overlay-show ui-flex ui-items-center ui-justify-center
-   ui-fixed ui-inset-0 ui-h-screen  ui-w-full ui-z-[9999]
-data-[state=closed]:ui-animate-overlay-hide`,
+  `bg-black/30 data-[state=open]:animate-overlay-show flex items-center justify-center
+   fixed inset-0 h-screen  w-full z-[9999]
+data-[state=closed]:animate-overlay-hide`,
   {
     variants: {
       blur: {
-        true: "ui-backdrop-blur-sm"
+        true: "backdrop-blur-sm"
       }
     }
   }
@@ -44,8 +44,8 @@ function Content({ blur, portalProps, className, ...props }: DialogContentProps)
 export type DialogCloseProps = RadixDialog.DialogCloseProps;
 
 function Close({ className, ...props }: DialogCloseProps) {
-  const defaultStyles = `ui-h-6 ui-w-6 ui-rounded-full ui-inline-flex ui-items-center ui-justify-center 
-  hover:ui-bg-neutral-100 hover:dark:ui-bg-neutral-700`;
+  const defaultStyles = `h-6 w-6 rounded-full inline-flex items-center justify-center 
+  hover:bg-neutral-100 hover:dark:bg-neutral-700`;
   return <RadixDialog.Close {...props} className={className || defaultStyles} />;
 }
 
@@ -60,7 +60,7 @@ function Title({ className, ...props }: RadixDialog.DialogTitleProps) {
 }
 
 function Description(props: RadixDialog.DialogDescriptionProps) {
-  return <RadixDialog.Description {...props} className={`ui-text-neutral-700 ui-mt-[10px] ui-mb-5 `} />;
+  return <RadixDialog.Description {...props} className={`text-neutral-700 mt-[10px] mb-5 `} />;
 }
 
 export type DialogProps = RadixDialog.DialogProps;

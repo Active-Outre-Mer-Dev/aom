@@ -13,37 +13,37 @@ export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectP
   <RadixSelect.Root {...props}>
     <RadixSelect.Trigger
       className={cx(
-        `ui-inline-flex ui-items-center ui-min-w-[150px] ui-justify-between ui-rounded ui-px-[15px] 
-      ui-text-sm ui-leading-none ui-h-8 ui-gap-[5px] ui-bg-white ui-text-neutral-700 
-      dark:ui-bg-neutral-800 focus:ui-ring-2 dark:ui-ring-offset-neutral-900 focus:ui-ring-offset-2 
-      focus:ui-ring-primary-600 focus:dark:ui-ring-primary-500 ui-border ui-border-neutral-100
-      dark:ui-border-neutral-700
-      dark:ui-text-neutral-100  ui-outline-none`,
-        fullWidth ? "ui-w-full" : "ui-min-w-[150px]"
+        `inline-flex items-center min-w-[150px] justify-between rounded px-[15px] 
+      text-sm leading-none h-8 gap-[5px] bg-white text-neutral-700 
+      dark:bg-neutral-800 focus:ring-2 dark:ring-offset-neutral-900 focus:ring-offset-2 
+      focus:ring-primary-600 focus:dark:ring-primary-500 border border-neutral-100
+      dark:border-neutral-700
+      dark:text-neutral-100  outline-none`,
+        fullWidth ? "w-full" : "min-w-[150px]"
       )}
     >
       <RadixSelect.Value
-        className="ui-text-neutral-600 dark:ui-text-neutral-400"
+        className="text-neutral-600 dark:text-neutral-400"
         placeholder={placeholder || "Select item..."}
       />
-      <RadixSelect.Icon className="ui-text-neutral-200 ui-w-4 ui-h-4">
+      <RadixSelect.Icon className="text-neutral-200 w-4 h-4">
         <ChevronDown size={"100%"} />
       </RadixSelect.Icon>
     </RadixSelect.Trigger>
     <RadixSelect.Portal>
       <RadixSelect.Content
         position="popper"
-        className={`ui-overflow-hidden ui-border  ui-translate-y-1 ui-bg-white ui-border-neutral-100
-        dark:ui-bg-neutral-800 ui-rounded-md  dark:ui-border-neutral-700
-        ui-min-w-[--radix-select-trigger-width]`}
+        className={`overflow-hidden border  translate-y-1 bg-white border-neutral-100
+        dark:bg-neutral-800 rounded-md  dark:border-neutral-700
+        min-w-[--radix-select-trigger-width]`}
       >
         <RadixSelect.ScrollUpButton
-          className={`ui-flex ui-items-center ui-justify-center ui-h-[25px] 
-        ui-text-neutral-600 ui-cursor-default`}
+          className={`flex items-center justify-center h-[25px] 
+        text-neutral-600 cursor-default`}
         >
           <ChevronUp />
         </RadixSelect.ScrollUpButton>
-        <RadixSelect.Viewport className="ui-p-[5px]">
+        <RadixSelect.Viewport className="p-[5px]">
           {items.length > 0
             ? items.map(item => {
                 return (
@@ -55,8 +55,8 @@ export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectP
             : props.children}
         </RadixSelect.Viewport>
         <RadixSelect.ScrollDownButton
-          className={`ui-flex ui-items-center ui-justify-center ui-h-[25px] 
-        ui-bg-primary-50 ui-text-primary-400 ui-cursor-default`}
+          className={`flex items-center justify-center h-[25px] 
+        bg-primary-50 text-primary-400 cursor-default`}
         >
           <ChevronDown />
         </RadixSelect.ScrollDownButton>
@@ -70,14 +70,14 @@ const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
     return (
       <RadixSelect.Item
         className={cx(
-          `ui-text-sm ui-leading-none ui-text-neutral-800 dark:ui-text-neutral-100 ui-rounded-[3px] 
-          ui-flex ui-items-center ui-pr-[35px] ui-pl-[25px] ui-relative ui-select-none 
-          data-[disabled]:ui-text-neutral-500  ui-h-8 
-           data-[disabled]:ui-pointer-events-none data-[highlighted]:ui-outline-none 
-           data-[highlighted]:ui-bg-primary-200/30 data-[highlighted]:dark:ui-bg-primary-600/30 
-           data-[highlighted]:ui-text-primary-600 data-[highlighted]:dark:ui-text-primary-200
-           data-[state=checked]:ui-bg-primary-600 data-[state=checked]:ui-text-white 
-           data-[state=checked]:dark:ui-bg-primary-500 data-[state=checked]:dark:ui-text-white
+          `text-sm leading-none text-neutral-800 dark:text-neutral-100 rounded-[3px] 
+          flex items-center pr-[35px] pl-[25px] relative select-none 
+          data-[disabled]:text-neutral-500  h-8 
+           data-[disabled]:pointer-events-none data-[highlighted]:outline-none 
+           data-[highlighted]:bg-primary-200/30 data-[highlighted]:dark:bg-primary-600/30 
+           data-[highlighted]:text-primary-600 data-[highlighted]:dark:text-primary-200
+           data-[state=checked]:bg-primary-600 data-[state=checked]:text-white 
+           data-[state=checked]:dark:bg-primary-500 data-[state=checked]:dark:text-white
            `,
           className
         )}
@@ -86,8 +86,8 @@ const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
       >
         <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
         <RadixSelect.ItemIndicator
-          className={`ui-absolute ui-left-1 ui-w-4 ui-inline-flex 
-        ui-items-center ui-justify-center`}
+          className={`absolute left-1 w-4 inline-flex 
+        items-center justify-center`}
         >
           <Check size={"100%"} />
         </RadixSelect.ItemIndicator>
@@ -101,8 +101,8 @@ function Group(props: RadixSelect.SelectGroupProps & { label: string }) {
     <>
       <RadixSelect.Group>
         <RadixSelect.Label
-          className={`ui-px-[25px] ui-text-xs ui-leading-[25px] dark:ui-text-neutral-300 
-        ui-text-neutral-500`}
+          className={`px-[25px] text-xs leading-[25px] dark:text-neutral-300 
+        text-neutral-500`}
         >
           {props.label}
         </RadixSelect.Label>

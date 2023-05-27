@@ -4,11 +4,11 @@ export default defineConfig(async (options: Options) => ({
   ...options,
   minify: true,
   target: "es2018",
-  external: ["react"],
+  external: ["react", "react-dom"],
   dts: true,
   clean: true,
   format: ["esm"],
   splitting: true,
-  entry: ["src/**/*.tsx"],
+  entry: ["src/**/index.tsx", "src/**/styles.tsx"],
   treeshake: true
 }));

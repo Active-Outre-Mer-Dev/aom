@@ -1,4 +1,3 @@
-"use client";
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 import { forwardRef, useId } from "react";

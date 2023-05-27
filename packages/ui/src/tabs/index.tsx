@@ -1,4 +1,3 @@
-"use client";
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { cardStyles } from "../card/styles";
 import { cx } from "../cx";

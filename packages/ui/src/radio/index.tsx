@@ -1,4 +1,3 @@
-"use client";
 import * as RadixRadio from "@radix-ui/react-radio-group";
 import { useId } from "react";
 import { Label } from "../label";

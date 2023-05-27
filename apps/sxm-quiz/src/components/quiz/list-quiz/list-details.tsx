@@ -1,4 +1,4 @@
-import { ScrollArea } from "ui";
+import { ScrollArea } from "@aom/ui";
 
 type PropTypes = {
   children: React.ReactNode;

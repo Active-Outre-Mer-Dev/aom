@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TextInput, PasswordInput as UiPassword } from "ui";
+import { TextInput, PasswordInput as UiPassword } from "@aom/ui";
 import { IconAt } from "@tabler/icons-react";
 
 const meta = {

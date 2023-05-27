@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Title } from "ui";
+import { Title } from "@aom/ui";
 
 export default function NotFound() {
   return (

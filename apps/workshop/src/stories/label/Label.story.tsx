@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Label } from "ui";
+import { Label } from "@aom/ui";
 
 const meta = {
   title: "Molecules/Label",

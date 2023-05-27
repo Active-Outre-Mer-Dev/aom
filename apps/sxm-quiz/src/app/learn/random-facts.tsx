@@ -1,5 +1,5 @@
 "use client";
-import { Title } from "ui";
+import { Title } from "@aom/ui";
 import { randomFacts as facts } from "@/data-lists.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

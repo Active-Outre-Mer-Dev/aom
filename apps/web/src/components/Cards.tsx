@@ -9,7 +9,7 @@ import {
   IconWorldSearch,
   IconTools
 } from "@tabler/icons-react";
-import { Card } from "ui";
+import { Card } from "@aom/ui";
 
 const slideUp: Variants = {
   visible: {

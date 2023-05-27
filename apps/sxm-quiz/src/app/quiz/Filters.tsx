@@ -1,8 +1,8 @@
 "use client";
-import { Select } from "ui";
+import { Select } from "@aom/ui";
 import { useRouter } from "next/navigation";
 import { Shuffle } from "lucide-react";
-import { actionIconStyles } from "ui/src/action-icon/styles";
+import { actionIconStyles } from "@aom/ui/src/action-icon/styles";
 import Link from "next/link";
 
 type PropTypes = {

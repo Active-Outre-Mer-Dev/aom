@@ -1,4 +1,4 @@
-import { Title } from "ui";
+import { Title } from "@aom/ui";
 import { Button } from "@/components/learn";
 import { RandomFacts } from "./random-facts";
 import { Articles } from "./Articles";

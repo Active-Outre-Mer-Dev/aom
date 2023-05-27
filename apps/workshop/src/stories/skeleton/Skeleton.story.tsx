@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Skeleton as UiSkeleton } from "ui";
+import { Skeleton as UiSkeleton } from "@aom/ui";
 
 const meta = {
   title: "Molecules/Skeleton",

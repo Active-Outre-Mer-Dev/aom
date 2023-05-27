@@ -1,6 +1,6 @@
 "use client";
 import { useReducer, useState, useRef } from "react";
-import { Button, Progress } from "ui";
+import { Button, Progress } from "@aom/ui";
 import { initialState, reducer } from "./reducer";
 import { Summary } from "./Summary";
 

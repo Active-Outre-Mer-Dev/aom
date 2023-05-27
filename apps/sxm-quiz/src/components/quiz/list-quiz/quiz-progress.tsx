@@ -1,4 +1,4 @@
-import { Progress } from "ui";
+import { Progress } from "@aom/ui";
 
 type PropTypes = {
   optionsLeft: number;

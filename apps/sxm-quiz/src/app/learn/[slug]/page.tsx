@@ -1,5 +1,5 @@
 import { ActionIcon } from "./client";
-import { Title } from "ui";
+import { Title } from "@aom/ui";
 import { Bookmark, Share, ExternalLink } from "lucide-react";
 import profile from "@/assets/agis.jpg";
 import pixel2 from "@/assets/pixel.jpg";

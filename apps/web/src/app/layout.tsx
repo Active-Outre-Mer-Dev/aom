@@ -1,5 +1,4 @@
 import "./globals.css";
-import "ui/styles.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Inter as MainFont, Familjen_Grotesk as HeadingFont } from "next/font/google";

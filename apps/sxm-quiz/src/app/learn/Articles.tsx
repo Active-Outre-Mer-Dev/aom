@@ -1,4 +1,4 @@
-import { Title, Badge } from "ui";
+import { Title, Badge } from "@aom/ui";
 import Image from "next/image";
 import { getCatColor } from "@/get-category-color";
 import { Select } from "./client";

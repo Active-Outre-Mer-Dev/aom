@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconLoader2 as Spinner, IconMail } from "@tabler/icons-react";
-import { Button } from "ui";
+import { Button } from "@aom/ui";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Molecules/Button",

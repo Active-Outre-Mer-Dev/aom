@@ -2,7 +2,7 @@ import { Card, Button } from "./client";
 import { Rocket, Zap, Timer } from "lucide-react";
 import { SummaryDetails } from "./Details";
 import { Question } from "@/questions";
-import { RingProgress } from "ui";
+import { RingProgress } from "@aom/ui";
 
 type PropTypes = {
   reset: () => Promise<void>;

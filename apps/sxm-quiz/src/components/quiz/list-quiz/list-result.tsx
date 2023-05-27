@@ -1,5 +1,5 @@
 import { Rocket, Timer } from "lucide-react";
-import { RingProgress } from "ui";
+import { RingProgress } from "@aom/ui";
 
 type PropTypes = {
   children: React.ReactNode;

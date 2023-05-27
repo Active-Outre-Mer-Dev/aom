@@ -1,5 +1,5 @@
 import { Button } from "@/components/home";
-import { buttonStyles } from "ui/src/button/styles";
+import { buttonStyles } from "@aom/ui/src/button/styles";
 import { Boxes, GraduationCap, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import photo from "@/assets/Group 3.png";

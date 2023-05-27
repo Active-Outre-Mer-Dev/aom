@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Select as UiSelect } from "ui";
+import { Select as UiSelect } from "@aom/ui";
 
 const meta = {
   title: "Molecules/Select",

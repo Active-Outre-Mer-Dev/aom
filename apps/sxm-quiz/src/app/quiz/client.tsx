@@ -1,3 +1,3 @@
 "use client";
 
-export { Button, Select } from "ui";
+export { Button, Select } from "@aom/ui";

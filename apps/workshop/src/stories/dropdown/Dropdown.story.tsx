@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Dropdown } from "ui";
+import { Dropdown } from "@aom/ui";
 import {
   IconSettings,
   IconMessage,
@@ -10,7 +10,7 @@ import {
 } from "@tabler/icons-react";
 
 const meta = { title: "atoms/Dropdown", component: Dropdown } satisfies Meta<typeof Dropdown>;
-import { Button } from "ui";
+import { Button } from "@aom/ui";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState } from "react";
 

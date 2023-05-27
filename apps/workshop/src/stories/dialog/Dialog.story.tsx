@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Dialog, Button, TextInput } from "ui";
+import { Dialog, Button, TextInput } from "@aom/ui";
 import { IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";

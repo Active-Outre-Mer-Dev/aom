@@ -1,2 +1,2 @@
 "use client";
-export { Button, Card, ScrollArea } from "ui";
+export { Button, Card, ScrollArea } from "@aom/ui";

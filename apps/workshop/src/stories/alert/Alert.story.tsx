@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { IconInfoCircle } from "@tabler/icons-react";
-import { Alert as UiAlert } from "ui";
+import { Alert as UiAlert } from "@aom/ui";
 import { parameters } from "../../parameters";
 
 const meta = {

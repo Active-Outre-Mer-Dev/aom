@@ -1,4 +1,4 @@
-import { Badge } from "ui";
+import { Badge } from "@aom/ui";
 import { allQuizzes } from "@/quizzes";
 import { getCatColor } from "@/get-category-color";
 import Link from "next/link";

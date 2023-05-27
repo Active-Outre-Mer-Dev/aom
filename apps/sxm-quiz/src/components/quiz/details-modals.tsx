@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "ui";
+import { Button } from "@aom/ui";
 import { useState, Suspense, lazy } from "react";
-import type { BadgeProps } from "ui";
+import type { BadgeProps } from "@aom/ui";
 
 const Details = lazy(() => import("./details"));
 

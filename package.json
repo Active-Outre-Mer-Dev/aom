@@ -8,6 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
     "test:quiz": "turbo run test --filter sxm-quiz",
+    "test:ui": "turbo run test --filter ui",
     "start": "turbo run start",
     "check": "turbo run check"
   },

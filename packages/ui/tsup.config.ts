@@ -5,7 +5,7 @@ export default defineConfig(async (options: Options) => ({
   minify: true,
   target: "es2018",
   external: ["react", "react-dom"],
-  dts: true,
+  dts: !process.env.CI,
   clean: true,
   format: ["esm"],
   splitting: true,

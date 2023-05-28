@@ -1,5 +1,4 @@
 import "./globals.css";
-import "ui/styles.css";
 import { Inter, Familjen_Grotesk } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";

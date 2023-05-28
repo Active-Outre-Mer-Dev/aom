@@ -4,7 +4,8 @@
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist"
+    ".": "./dist",
+    "./src/*": "./dist/*"
   },
   "files": [
     "dist",

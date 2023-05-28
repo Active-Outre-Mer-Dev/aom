@@ -28,8 +28,7 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
-        env:
-          NODE_OPTIONS: --max-old-space-size=6144
+
         with:
           node-version: 18
           cache: "pnpm"
@@ -37,8 +36,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install Playwright Browsers
+        run: pnpm dlx playwright install --with-deps
+
       - name: Build
         run: pnpm build
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
       - name: Test
         run: pnpm test

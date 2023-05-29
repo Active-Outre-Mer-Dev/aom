@@ -5,15 +5,22 @@ import { Eye, EyeOff } from "lucide-react";
 import type { ComponentPropsWithRef } from "react";
 import type { InputRootProps } from "../input-wrapper";
 
-export type PasswordInputProps = Omit<InputRootProps, "icon"> & ComponentPropsWithRef<"input">;
+export type PasswordInputProps = Omit<InputRootProps, "icon"> & Omit<ComponentPropsWithRef<"input">, "size">;
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-  ({ label, description, error, ...props }, ref) => {
+  ({ label, description, error, size, className, ...props }, ref) => {
     const [type, setType] = useState<"text" | "password">("password");
     const id = useId();
     return (
       <>
-        <InputRoot {...props} error={error} id={props.id || id} description={description} label={label}>
+        <InputRoot
+          size={size}
+          className={className}
+          error={error}
+          id={props.id || id}
+          description={description}
+          label={label}
+        >
           <input
             {...props}
             type={type}

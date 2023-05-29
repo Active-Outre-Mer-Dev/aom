@@ -53,10 +53,10 @@ function Hero() {
             Test your knowledge, explore hidden gems, and learn fascinating facts about Saint Martin!{" "}
           </p>
           <div className="  flex  gap-4">
-            <Link href={"/quiz/random"} className={buttonStyles({ size: "large" })}>
+            <Link href={"/quiz/random"} className={buttonStyles({ size: "lg" })}>
               Start quiz
             </Link>
-            <Button size={"large"} variant={"neutral"}>
+            <Button size={"lg"} variant={"neutral"}>
               Learn more
             </Button>
           </div>

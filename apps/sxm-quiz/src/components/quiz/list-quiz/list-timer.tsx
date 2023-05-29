@@ -42,7 +42,7 @@ export function ListTimer({ onClick, hasStarted, timer }: PropTypes) {
     <div className={"flex gap-2 items-center"}>
       <p>{seconds.format(duration)} left</p>
       {hasStarted && (
-        <Button onClick={() => onClick(duration)} size={"small"} variant="error">
+        <Button onClick={() => onClick(duration)} size={"sm"} variant="error">
           Give up
         </Button>
       )}

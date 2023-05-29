@@ -60,7 +60,7 @@ function Options({ answer, choice, options, description }: Props) {
               {option}{" "}
               {choice !== answer && option === choice && (
                 <Button
-                  size={"small"}
+                  size={"sm"}
                   variant={"neutral"}
                   className="text-neutral-800"
                   onClick={() => setShow(true)}

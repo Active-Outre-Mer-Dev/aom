@@ -17,13 +17,13 @@ export function DetailsWrapper(props: PropTypes) {
   return (
     <>
       {!load && (
-        <Button variant={"neutral"} size={"small"} onMouseEnter={() => setLoad(true)}>
+        <Button variant={"neutral"} size={"sm"} onMouseEnter={() => setLoad(true)}>
           View details
         </Button>
       )}
       <Suspense
         fallback={
-          <Button size={"small"} variant={"neutral"}>
+          <Button size={"sm"} variant={"neutral"}>
             View details
           </Button>
         }

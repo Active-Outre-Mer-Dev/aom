@@ -11,11 +11,11 @@ export const buttonStyles = cva(
           dark:ring-primary-400 ring-primary-500 
           `,
         neutral: `bg-white ring-1 ring-neutral-200 dark:bg-white/10 
-          dark:ring-white/10 dark:text-neutral-100 ring-off`,
+          dark:ring-white/10 dark:text-neutral-100 `,
         cta: "bg-gradient-to-r from-primary-500 to-tertiary-400 text-primary-50",
         error: `bg-error-600 text-neutral-50 ring-error-500`,
-        outline: `bg-transparent ring-1 ring-primary-600 text-primary-600 
-        dark:bg-transparent dark:text-primary-200 dark:ring-primary-200`
+        outline: `bg-transparent ring-1 ring-primary-500 text-primary-500 
+        dark:bg-transparent dark:text-primary-300 dark:ring-primary-300`
       },
       size: {
         sm: "h-8 px-2 text-sm",

@@ -1,11 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TextInput, PasswordInput as UiPassword } from "@aom/ui";
 import { IconAt } from "@tabler/icons-react";
+import { Button } from "@aom/ui";
 
 const meta = {
   title: "Molecules/Input",
   component: TextInput,
-  args: { placeholder: "Placeholder", description: "", error: "" }
+  args: { placeholder: "Placeholder", description: "", error: "" },
+  //@ts-expect-error
+  argTypes: { size: { type: "select", options: ["sm", "md", "lg"] } }
 } satisfies Meta<typeof TextInput>;
 
 export default meta;
@@ -32,5 +35,16 @@ export const WithIcon: Story = {
 export const PasswordInput: Story = {
   render: props => {
     return <UiPassword {...props} label="Password" placeholder="" />;
+  }
+};
+
+export const TestInput: Story = {
+  render: props => {
+    return (
+      <div className="flex gap-2">
+        <TextInput {...props} />
+        <Button size={"small"}>Hello there</Button>
+      </div>
+    );
   }
 };

@@ -18,9 +18,9 @@ export const buttonStyles = cva(
         dark:bg-transparent dark:text-primary-200 dark:ring-primary-200`
       },
       size: {
-        small: "px-2 py-1 text-sm",
-        medium: "px-4 py-2 text-base",
-        large: "text-lg px-6 py-4"
+        sm: "h-8 px-2 text-sm",
+        md: "px-4 h-10 text-base",
+        lg: "text-lg px-6 h-12"
       },
       fullWidth: {
         true: "w-full"
@@ -28,7 +28,7 @@ export const buttonStyles = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "medium"
+      size: "md"
     }
   }
 );

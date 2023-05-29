@@ -17,7 +17,7 @@ export default function Home() {
           Veniam ex incididunt incididunt tempor qui excepteur Lorem sunt eu tempor in in voluptate aliqua.
           Occaecat esse aliqua commodo labore veniam est pariatur ipsum eiusmod duis duis pariatur.
         </p>
-        <Button size={"large"} className="w-fit mx-auto mt-16">
+        <Button size={"lg"} className="w-fit mx-auto mt-16">
           Get started
         </Button>
       </section>

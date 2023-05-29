@@ -109,7 +109,7 @@ function QuizCard(props: PropTypes) {
         </span>
         <div className="flex gap-2">
           <Link
-            className={buttonStyles({ size: "small" })}
+            className={buttonStyles({ size: "sm" })}
             href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}
           >
             Take quiz

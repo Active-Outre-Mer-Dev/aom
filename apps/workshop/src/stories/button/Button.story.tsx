@@ -5,16 +5,16 @@ import { Button } from "@aom/ui";
 const meta = {
   title: "Molecules/Button",
   component: Button,
-  args: { size: "medium", children: "Button" },
+  args: { size: "md", children: "Button" },
   argTypes: {
     children: { type: "string", description: "Button label" },
     disabled: { type: "boolean", defaultValue: false, description: "Disabled state" },
     fullWidth: { type: "boolean", description: "Sets button to 100% width of parent element" },
     size: {
-      options: ["small", "medium", "large"],
+      options: ["sm", "md", "lg"],
       // @ts-expect-error
       type: "radio",
-      defaultValue: "medium",
+      defaultValue: "md",
       description: "Predefined button size"
     },
     variant: {

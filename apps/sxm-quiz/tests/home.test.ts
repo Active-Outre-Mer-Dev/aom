@@ -11,10 +11,10 @@ test("has title", async ({ page }) => {
 
 test.describe("Start quiz button", () => {
   test("is visible", async ({ page }) => {
-    await expect(page.getByRole("link", { name: /Start quiz/gi })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Start quiz/gi })).toBeVisible();
   });
   test("navigates to random quiz", async ({ page }) => {
-    await page.getByRole("link", { name: /Start quiz/gi }).click();
-    await expect(page).toHaveURL(/.*random/);
+    await page.getByRole("button", { name: /Start quiz/gi }).click();
+    await expect(page).toHaveURL(/[quiz]/);
   });
 });

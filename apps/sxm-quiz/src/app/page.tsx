@@ -1,9 +1,8 @@
 import { Button } from "@/components/home";
-import { buttonStyles } from "@aom/ui/src/button/styles";
 import { Boxes, GraduationCap, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import photo from "@/assets/Group 3.png";
-import Link from "next/link";
+import { GetStarted } from "@/components/home/get-started";
 
 export default function Home() {
   return (
@@ -53,9 +52,7 @@ function Hero() {
             Test your knowledge, explore hidden gems, and learn fascinating facts about Saint Martin!{" "}
           </p>
           <div className="  flex  gap-4">
-            <Link href={"/quiz/random"} className={buttonStyles({ size: "lg" })}>
-              Start quiz
-            </Link>
+            <GetStarted />
             <Button size={"lg"} variant={"neutral"}>
               Learn more
             </Button>

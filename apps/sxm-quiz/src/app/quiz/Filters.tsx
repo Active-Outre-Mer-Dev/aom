@@ -1,9 +1,8 @@
 "use client";
-import { Select } from "@aom/ui";
+import { ActionIcon, Select } from "@aom/ui";
 import { useRouter } from "next/navigation";
 import { Shuffle } from "lucide-react";
-import { actionIconStyles } from "@aom/ui/src/action-icon/styles";
-import Link from "next/link";
+import { getRandomQuiz } from "@/lib/get-random-quiz";
 
 type PropTypes = {
   search?: string;
@@ -34,13 +33,16 @@ export function Filters(props: PropTypes) {
         <Select />
       </div>
       <div className="flex gap-2 items-center">
-        <Link
+        <ActionIcon
+          size={"lg"}
+          onClick={async () => {
+            const quiz = await getRandomQuiz();
+            router.push(`quiz/${quiz.slug}`);
+          }}
           aria-label="Select random quiz"
-          href={"/quiz/random"}
-          className={actionIconStyles({ size: "lg" })}
         >
           <Shuffle size={"50%"} />
-        </Link>
+        </ActionIcon>
         <span className="font-medium text-neutral-700">Random</span>
       </div>
     </div>

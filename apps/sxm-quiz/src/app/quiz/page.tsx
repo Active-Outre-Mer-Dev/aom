@@ -5,23 +5,17 @@ import { buttonStyles } from "@aom/ui/src/button/styles";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
 import { Filters } from "./Filters";
 
+export const dynamic = "force-dynamic";
+
 type Search = string | string[][] | Record<string, string> | URLSearchParams | undefined;
 
 type PageProps = {
   searchParams: Search;
 };
 
-const topicLinks = [
-  { label: "All topics", href: "/quiz" },
-  { label: "History", href: "/quiz?topic=history" },
-  { label: "Geography", href: "/quiz?topic=geography" },
-  { label: "Economy", href: "/quiz?topic=economy" }
-];
-
 export default function Page({ searchParams }: PageProps) {
   const search = new URLSearchParams(searchParams);
   const topic = search.get("topic");
-  const sort = search.get("sort");
   const filteredQuizzes = topic
     ? allQuizzes.all.filter(({ category }) => category === topic)
     : allQuizzes.all;
@@ -46,7 +40,7 @@ export default function Page({ searchParams }: PageProps) {
         </div>
       </section>
       <section id="quiz-section" className="container   mx-auto pt-20 mb-20">
-        <Filters search={sort || undefined} />
+        <Filters search={topic || undefined} />
         <div className="grid gap-4 grid-cols-3">
           {filteredQuizzes.map((quiz, key) => {
             const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);

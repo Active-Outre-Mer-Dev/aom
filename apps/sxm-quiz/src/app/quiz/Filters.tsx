@@ -34,6 +34,7 @@ export function Filters(props: PropTypes) {
       </div>
       <div className="flex gap-2 items-center">
         <ActionIcon
+          size={"lg"}
           onClick={async () => {
             const quiz = await getRandomQuiz();
             router.push(`quiz/${quiz.slug}`);

@@ -1,7 +1,7 @@
 import { cva } from "cva";
 
 export const buttonStyles = cva(
-  `font-medium  rounded-md disabled:grayscale appearance-none outline-none 
+  `font-medium  rounded-md disabled:grayscale appearance-none outline-none flex items-center justify-center
     disabled:opacity-50 focus-within:ring focus-within:ring-offset-2 ring-0  
     disabled:cursor-not-allowed ring-offset-neutral-50 dark:ring-offset-neutral-900 `,
   {

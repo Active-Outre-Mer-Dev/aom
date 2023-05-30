@@ -1,7 +1,6 @@
 import { Button, Command } from "@aom/ui";
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { IconSearch, IconX } from "@tabler/icons-react";
 
 const meta = { title: "Atoms/Command", component: Command } satisfies Meta<typeof Command>;
 export default meta;

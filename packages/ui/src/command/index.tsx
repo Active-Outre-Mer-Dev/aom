@@ -2,6 +2,7 @@ import { Command as CommandPrim } from "cmdk";
 import { ComponentPropsWithoutRef } from "react";
 import { Dialog } from "../dialog";
 import { Search, X } from "lucide-react";
+import { CommandProvider, useCommandProps } from "./command.context";
 
 type CommandProps = ComponentPropsWithoutRef<typeof CommandPrim>;
 
@@ -10,12 +11,14 @@ type PropTypes = {
   contentProps?: ComponentPropsWithoutRef<typeof Dialog.Content>;
 } & ComponentPropsWithoutRef<typeof Dialog>;
 
-export function Command({ children, contentProps, ...props }: PropTypes) {
+export function Command({ children, contentProps, onOpenChange, ...props }: PropTypes) {
   return (
-    <Dialog {...props}>
-      <Dialog.Content {...contentProps} noPadding>
-        <CommandPrim>{children}</CommandPrim>
-      </Dialog.Content>
+    <Dialog {...props} onOpenChange={onOpenChange}>
+      <CommandProvider onClose={onOpenChange ? () => onOpenChange(false) : undefined}>
+        <Dialog.Content {...contentProps} noPadding>
+          <CommandPrim>{children}</CommandPrim>
+        </Dialog.Content>
+      </CommandProvider>
     </Dialog>
   );
 }
@@ -35,6 +38,9 @@ function Item(props: ItemProps) {
 type InputProps = ComponentPropsWithoutRef<typeof CommandPrim.Input>;
 
 function Input(props: InputProps) {
+  const commandProps = useCommandProps();
+  const onClose = commandProps?.onClose;
+
   return (
     <div
       className={`rounded-t-md overflow-hidden
@@ -48,7 +54,11 @@ border-b-neutral-700  items-center px-2 mb-4`}
   dark:text-neutral-200`}
       />
 
-      <button aria-label="Close command menu" className="basis-5 flex  items-center justify-center">
+      <button
+        onClick={onClose}
+        aria-label="Close command menu"
+        className="basis-5 flex  items-center justify-center"
+      >
         <X size={16} className="basis-5 text-neutral-200" />
       </button>
     </div>

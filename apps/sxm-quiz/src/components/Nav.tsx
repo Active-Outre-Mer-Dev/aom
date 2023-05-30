@@ -1,6 +1,5 @@
 import { NavItem } from "./NavItem";
-import { Button, TextInput } from ".";
-import { Search } from "lucide-react";
+import { Button } from ".";
 import { SearchWrapper } from "./SearchWrapper";
 
 export function Nav() {

@@ -23,7 +23,7 @@ export function getAllMetadata() {
   const metadata = files.map(file => {
     const fileData = fs.readFileSync(path.join(contentFolder, file), "utf8");
     const data = getMetadata(fileData, file);
-    return { slug: data.metadata.slug };
+    return { slug: data.metadata.slug, data };
   });
   return metadata;
 }

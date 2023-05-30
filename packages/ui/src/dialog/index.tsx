@@ -21,9 +21,10 @@ data-[state=closed]:animate-overlay-hide`,
 export type DialogContentProps = {
   portalProps?: RadixDialog.DialogPortalProps;
 } & RadixDialog.DialogContentProps &
-  VariantProps<typeof overlayStyles>;
+  VariantProps<typeof overlayStyles> &
+  VariantProps<typeof cardStyles>;
 
-function Content({ blur, portalProps, className, ...props }: DialogContentProps) {
+function Content({ blur, portalProps, className, noPadding, ...props }: DialogContentProps) {
   return (
     <RadixDialog.Portal {...portalProps}>
       <RadixDialog.Overlay className={overlayStyles({ blur })}>
@@ -31,7 +32,8 @@ function Content({ blur, portalProps, className, ...props }: DialogContentProps)
           {...props}
           className={cardStyles({
             variant: "filled",
-            className
+            className,
+            noPadding
           })}
         >
           {props.children}

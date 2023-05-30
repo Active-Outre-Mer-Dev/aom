@@ -7,9 +7,9 @@ import { twMerge } from "tailwind-merge";
 
 type CardProps = ComponentPropsWithoutRef<"div"> & VariantProps<typeof cardStyles>;
 
-export function Card({ className, variant, ...props }: CardProps) {
+export function Card({ className, variant, noPadding, ...props }: CardProps) {
   const _children = Children.toArray(props.children);
-  const classes = cardStyles({ className, variant });
+  const classes = cardStyles({ className, variant, noPadding });
   return (
     <div className={twMerge(classes)}>
       {_children.map((child, index) => {

@@ -11,16 +11,24 @@ export function generateStaticParams() {
   return getAllMetadata();
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { slug: string; category: string } }) {
   const props = await generateContent(params.slug);
   if (props.error) notFound();
   const { content, headings, metadata, readTime } = props;
+  const color =
+    params.category === "history"
+      ? "text-error-600"
+      : params.category === "geography"
+      ? "text-secondary-600"
+      : params.category === "environment"
+      ? "text-success-600"
+      : "text-tertiary-600";
   return (
     <>
       <div className="flex gap-2 w-4/6 items-center border-b border-neutral-200 pb-5 mb-10">
         <span className="text-3xl font-medium text-neutral-900">Articles</span>
         <span className="h-10 w-[2px] bg-neutral-900" />
-        <span className="text-error-600 font-medium text-3xl">{metadata.type}</span>
+        <span className={`${color} font-medium text-3xl capitalize`}>{params.category}</span>
       </div>
       <div className="mb-36 flex gap-7">
         <div className=" basis-4/6">

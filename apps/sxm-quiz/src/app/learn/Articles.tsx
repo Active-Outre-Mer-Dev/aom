@@ -11,9 +11,10 @@ type PropTypes = {
   title: "Community" | "Featured" | "Recently added" | "All";
   type: QuestionCategory;
   amount?: number;
+  category: string;
 };
 
-export function Articles({ title, type, amount }: PropTypes) {
+export function Articles({ title, type, amount, category }: PropTypes) {
   const articles = Array(amount ?? 3).fill(null);
 
   return (
@@ -34,7 +35,7 @@ export function Articles({ title, type, amount }: PropTypes) {
         )}
         {articles.map((_, key) => {
           return (
-            <Link href={"/learn/sxm-history"} key={key} className="overflow-hidden group">
+            <Link href={`/learn/${category}/sxm-history`} key={key} className="overflow-hidden group">
               <figure
                 className={`rounded-xl overflow-hidden h-36 mb-4 px-2 relative flex items-center 
               justify-center  `}

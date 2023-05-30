@@ -1,5 +1,5 @@
 "use client";
-import type { Heading } from "@/lib/get-content";
+import type { Heading } from "../../../../lib/get-content";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

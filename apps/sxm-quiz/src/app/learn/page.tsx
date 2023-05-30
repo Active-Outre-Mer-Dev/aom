@@ -13,16 +13,16 @@ export default function Page() {
         <p className="text-2xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
       <section className="container mx-auto mb-36">
-        <Articles type="history" title="Featured" />
+        <Articles category="history" type="history" title="Featured" />
       </section>
       <section className="container mx-auto mb-36">
-        <Articles type="history" title="Recently added" />
+        <Articles category="history" type="history" title="Recently added" />
       </section>
       <section className="mb-36">
         <RandomFacts />
       </section>
       <section className="container mx-auto mb-36">
-        <Articles amount={9} title="All" type="economy" />
+        <Articles category="history" amount={9} title="All" type="economy" />
       </section>
 
       <section className="mb-36">
@@ -40,7 +40,7 @@ export default function Page() {
         </div>
       </section>
       <section className="container mx-auto mb-36">
-        <Articles title="Community" type="geography" />
+        <Articles category="history" title="Community" type="geography" />
       </section>
     </>
   );

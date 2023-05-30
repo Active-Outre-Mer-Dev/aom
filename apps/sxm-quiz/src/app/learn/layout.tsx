@@ -21,9 +21,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             Categories
           </p>
           <ul className="w-full">
-            <NavLink href={"/learn/categories/history"}>History</NavLink>
-            <NavLink href={"/learn/categories/geography"}>Geography</NavLink>
-            <NavLink href={"/learn/categories/economy"}>Economy</NavLink>
+            <NavLink href={"/learn/history"}>History</NavLink>
+            <NavLink href={"/learn/geography"}>Geography</NavLink>
+            <NavLink href={"/learn/economy"}>Economy</NavLink>
+            <NavLink href={"/learn/environment"}>Environment</NavLink>
           </ul>
         </div>
       </nav>

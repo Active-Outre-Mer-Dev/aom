@@ -1,8 +1,9 @@
 import { Command as CommandPrim } from "cmdk";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithRef, forwardRef } from "react";
 import { Dialog } from "../dialog";
 import { Search, X } from "lucide-react";
 import { CommandProvider, useCommandProps } from "./command.context";
+import type { ComponentPropsWithoutRef } from "react";
 
 type CommandProps = ComponentPropsWithoutRef<typeof CommandPrim>;
 
@@ -23,33 +24,38 @@ export function Command({ children, contentProps, onOpenChange, ...props }: Prop
   );
 }
 
-type ItemProps = ComponentPropsWithoutRef<typeof CommandPrim.Item>;
+type ItemProps = ComponentPropsWithoutRef<"div"> & {
+  disabled?: boolean | undefined;
+  onSelect?: ((value: string) => void) | undefined;
+  value?: string | undefined;
+};
 
 function Item(props: ItemProps) {
   return (
     <CommandPrim.Item
       {...props}
-      className={`dark:text-neutral-100 hover:bg-primary-600/30 p-3 rounded-md 
-    cursor-pointer text-base first-of-type:`}
+      className={`text-neutral-800 dark:text-neutral-100  p-3 rounded-md 
+    cursor-pointer text-base hover:bg-primary-200/30 hover:dark:bg-primary-600/30`}
     />
   );
 }
 
-type InputProps = ComponentPropsWithoutRef<typeof CommandPrim.Input>;
+type InputProps = { value?: string } & Omit<ComponentPropsWithRef<"input">, "crossOrigin" | "value" | "type">;
 
-function Input(props: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const commandProps = useCommandProps();
   const onClose = commandProps?.onClose;
 
   return (
     <div
-      className={`rounded-t-md overflow-hidden
-   flex gap-2 border-b 
-border-b-neutral-700  items-center px-2 mb-4`}
+      className={`rounded-t-md overflow-hidden flex gap-2 border-b
+     border-b-neutral-100 dark:border-b-neutral-700
+      items-center px-2 mb-4`}
     >
-      <Search size={16} className="basis-5 text-neutral-200" />
+      <Search size={16} className="basis-5 text-neutral-600 dark:text-neutral-200" />
       <CommandPrim.Input
         {...props}
+        ref={ref}
         className={`appearance-none h-12 outline-none grow block bg-wite dark:bg-neutral-800 
   dark:text-neutral-200`}
       />
@@ -59,20 +65,22 @@ border-b-neutral-700  items-center px-2 mb-4`}
         aria-label="Close command menu"
         className="basis-5 flex  items-center justify-center"
       >
-        <X size={16} className="basis-5 text-neutral-200" />
+        <X size={16} className="basis-5 text-neutral-600 dark:text-neutral-200" />
       </button>
     </div>
   );
-}
+});
 
-type GroupProps = ComponentPropsWithoutRef<typeof CommandPrim.Group>;
+type GroupProps = ComponentPropsWithoutRef<"div"> & { heading?: string; value?: string };
 
 function Group(props: GroupProps) {
-  return <CommandPrim.Group {...props} className="text-neutral-300 space-y-1 text-sm" />;
+  return (
+    <CommandPrim.Group {...props} className="text-neutral-700 dark:text-neutral-300 space-y-1 text-sm" />
+  );
 }
 
 function Seperator() {
-  return <CommandPrim.Separator className="h-[1px] w-full dark:bg-neutral-700 my-4 block" />;
+  return <CommandPrim.Separator className="h-[1px] w-full bg-neutral-100 dark:bg-neutral-700 my-4 block" />;
 }
 
 type ListProps = {

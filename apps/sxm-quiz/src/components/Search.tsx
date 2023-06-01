@@ -45,7 +45,7 @@ export function Search({ articles, quizzes }: PropTypes) {
         <Command.Input placeholder="Search" />
         <Command.List>
           <Command.Group heading="Articles">
-            {articles.map(article => {
+            {articles!.map(article => {
               return (
                 <Command.Item key={article.slug}>
                   <Link

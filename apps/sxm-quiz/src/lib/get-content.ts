@@ -16,7 +16,7 @@ type ArticleData = {
   thumbnail: string;
 };
 
-const contentFolder = path.resolve(process.cwd(), "public", "content");
+const contentFolder = path.resolve(process.cwd(), "src", "content");
 
 export function getAllMetadata() {
   try {

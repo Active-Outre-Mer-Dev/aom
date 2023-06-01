@@ -16,12 +16,12 @@ type ArticleData = {
   thumbnail: string;
 };
 
-const contentFolder = path.join(process.cwd(), "src", "content");
+const contentFolder = path.resolve(process.cwd(), "src", "content");
 
 export function getAllMetadata() {
   const files = fs.readdirSync(contentFolder).filter(file => file.endsWith(".md"));
   const metadata = files.map(file => {
-    const fileData = fs.readFileSync(path.join(contentFolder, file), "utf8");
+    const fileData = fs.readFileSync(path.resolve(contentFolder, file), "utf8");
     const data = getMetadata(fileData, file);
     return { slug: data.metadata.slug, data };
   });
@@ -29,7 +29,7 @@ export function getAllMetadata() {
 }
 
 function getCreationDate(file: string) {
-  const stat = fs.statSync(path.join(contentFolder, file));
+  const stat = fs.statSync(path.resolve(contentFolder, file));
   return format("PP")(stat.birthtime);
 }
 
@@ -68,7 +68,7 @@ type Content =
 export async function generateContent(slug: string): Promise<Content> {
   try {
     const file = `${slug}.md`;
-    const fileData = fs.readFileSync(path.join(contentFolder, file), "utf-8");
+    const fileData = fs.readFileSync(path.resolve(contentFolder, file), "utf-8");
     const data = getMetadata(fileData, file);
     const contentHTML = await remark().use(html).use(headingTree).process(data.content);
     return {

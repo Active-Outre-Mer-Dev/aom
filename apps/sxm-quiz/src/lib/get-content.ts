@@ -19,13 +19,17 @@ type ArticleData = {
 const contentFolder = path.resolve(process.cwd(), "public", "content");
 
 export function getAllMetadata() {
-  const files = fs.readdirSync(contentFolder).filter(file => file.endsWith(".md"));
-  const metadata = files.map(file => {
-    const fileData = fs.readFileSync(path.resolve(contentFolder, file), "utf8");
-    const data = getMetadata(fileData, file);
-    return { slug: data.metadata.slug, data };
-  });
-  return metadata;
+  try {
+    const files = fs.readdirSync(contentFolder).filter(file => file.endsWith(".md"));
+    const metadata = files.map(file => {
+      const fileData = fs.readFileSync(path.resolve(contentFolder, file), "utf8");
+      const data = getMetadata(fileData, file);
+      return { slug: data.metadata.slug, data };
+    });
+    return metadata;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function getCreationDate(file: string) {

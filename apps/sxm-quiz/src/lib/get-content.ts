@@ -16,7 +16,7 @@ type ArticleData = {
   thumbnail: string;
 };
 
-const contentFolder = path.resolve(process.cwd(), "src", "content");
+const contentFolder = path.resolve(process.cwd(), "public", "content");
 
 export function getAllMetadata() {
   const files = fs.readdirSync(contentFolder).filter(file => file.endsWith(".md"));

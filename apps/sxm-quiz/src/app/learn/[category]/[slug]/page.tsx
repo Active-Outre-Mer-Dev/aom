@@ -8,7 +8,8 @@ import { generateContent, getAllMetadata } from "@/lib/get-content";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return getAllMetadata();
+  const slugs = getAllMetadata()!.map(({ slug }) => ({ slug }));
+  return slugs;
 }
 
 export default async function Page({ params }: { params: { slug: string; category: string } }) {

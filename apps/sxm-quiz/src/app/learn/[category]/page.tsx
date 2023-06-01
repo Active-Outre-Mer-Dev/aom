@@ -1,5 +1,10 @@
 import { Title } from "@aom/ui";
 import { Articles } from "../Articles";
+const categories = ["history", "geography", "environment", "economy"];
+
+export function generateStaticParams() {
+  return categories.map(category => ({ category }));
+}
 
 export default function Page({ params }: { params: { category: string } }) {
   return (

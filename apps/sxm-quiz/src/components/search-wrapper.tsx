@@ -1,4 +1,4 @@
-import { Search } from "./search";
+import { Search } from "./searchbar";
 import { allQuizzes } from "@/quizzes";
 
 export function SearchWrapper() {

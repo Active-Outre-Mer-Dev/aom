@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter, Familjen_Grotesk } from "next/font/google";
-import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
+import { Nav } from "@/components/navbar";
+import { Footer } from "@/components/site-footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const heading = Familjen_Grotesk({ subsets: ["latin"], variable: "--font-heading" });

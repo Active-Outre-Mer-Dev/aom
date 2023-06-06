@@ -1,7 +1,7 @@
 import { Title } from "@aom/ui";
 import { Button } from "@/components/learn";
 import { RandomFacts } from "./random-facts";
-import { Articles } from "./articles";
+import { Articles } from "./article-list";
 
 export default function Page() {
   return (

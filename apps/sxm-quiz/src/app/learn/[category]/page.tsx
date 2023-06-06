@@ -1,5 +1,5 @@
 import { Title } from "@aom/ui";
-import { Articles } from "../articles";
+import { Articles } from "../article-list";
 const categories = ["history", "geography", "environment", "economy"];
 
 export function generateStaticParams() {

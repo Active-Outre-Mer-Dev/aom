@@ -1,6 +1,6 @@
 import { Card, Button } from "./client";
 import { Rocket, Zap, Timer } from "lucide-react";
-import { SummaryDetails } from "./Details";
+import { SummaryDetails } from "./details";
 import { Question } from "@/questions";
 import { RingProgress } from "@aom/ui";
 

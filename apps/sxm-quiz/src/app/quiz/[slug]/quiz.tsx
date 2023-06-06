@@ -2,7 +2,7 @@
 import { useReducer, useState, useRef } from "react";
 import { Button, Progress } from "@aom/ui";
 import { initialState, reducer } from "./reducer";
-import { Summary } from "./Summary";
+import { Summary } from "./summary";
 
 import type { Question } from "@/questions";
 

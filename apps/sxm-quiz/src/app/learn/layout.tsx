@@ -1,4 +1,4 @@
-import { NavLink } from "./NavLink";
+import { NavLink } from "./nav-link";
 import { BookOpen, LayoutGrid } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {

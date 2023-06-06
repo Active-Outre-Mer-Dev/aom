@@ -3,7 +3,7 @@ import { allQuizzes } from "@/quizzes";
 import Link from "next/link";
 import { buttonStyles } from "@aom/ui/src/button/styles";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
-import { Filters } from "./Filters";
+import { Filters } from "./filters";
 
 export const dynamic = "force-dynamic";
 

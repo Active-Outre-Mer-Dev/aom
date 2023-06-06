@@ -1,20 +1,18 @@
 "use client";
 import { Command } from "@aom/ui";
 import { useState, useEffect } from "react";
-import type { Articles } from "./SearchWrapper";
 import { SearchIcon, FileText, Circle } from "lucide-react";
 import { ListQuiz, QuestionQuiz } from "@/quizzes";
 import Link from "next/link";
 
 type PropTypes = {
-  articles: Articles;
   quizzes: {
     questionQuizzes: QuestionQuiz[];
     listQuizzes: ListQuiz[];
   };
 };
 
-export function Search({ articles, quizzes }: PropTypes) {
+export function Search({ quizzes }: PropTypes) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const openMenu = (e: KeyboardEvent) => {
@@ -45,20 +43,16 @@ export function Search({ articles, quizzes }: PropTypes) {
         <Command.Input placeholder="Search" />
         <Command.List>
           <Command.Group heading="Articles">
-            {articles.map(article => {
-              return (
-                <Command.Item key={article.slug}>
-                  <Link
-                    onClick={onClose}
-                    className="w-full h-full -m-3 p-3 block"
-                    href={`/learn/${article.data.metadata.type.toLowerCase()}/${article.slug}`}
-                  >
-                    <FileText size={16} className="inline-block mr-2 text-neutral-700" />
-                    {article.data.metadata.title}
-                  </Link>
-                </Command.Item>
-              );
-            })}
+            <Command.Item>
+              <Link
+                onClick={onClose}
+                className="w-full h-full -m-3 p-3 block"
+                href={`/learn/history/sxm-history`}
+              >
+                <FileText size={16} className="inline-block mr-2 text-neutral-700" />
+                SXM History Intro
+              </Link>
+            </Command.Item>
           </Command.Group>
           <Command.Group heading="Question Quizzes">
             {quizzes.questionQuizzes.map(quiz => {

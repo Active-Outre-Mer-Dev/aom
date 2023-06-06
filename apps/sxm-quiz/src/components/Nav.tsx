@@ -1,6 +1,5 @@
 import { NavItem } from "./NavItem";
-import { Button, TextInput } from ".";
-import { Search } from "lucide-react";
+import { Button } from ".";
 import { SearchWrapper } from "./SearchWrapper";
 
 export function Nav() {
@@ -19,7 +18,6 @@ export function Nav() {
         </div>
         <div className="flex items-center gap-4 ">
           <SearchWrapper />
-          {/* <TextInput icon={<Search size={14} className="text-neutral-500" />} placeholder="Search..." /> */}
           <Button variant="neutral" size={"sm"}>
             Sign in
           </Button>

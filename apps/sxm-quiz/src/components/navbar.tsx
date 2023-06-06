@@ -1,6 +1,6 @@
-import { NavItem } from "./NavItem";
+import { NavItem } from "./nav-item";
 import { Button } from ".";
-import { SearchWrapper } from "./SearchWrapper";
+import { SearchWrapper } from "./search-wrapper";
 
 export function Nav() {
   return (

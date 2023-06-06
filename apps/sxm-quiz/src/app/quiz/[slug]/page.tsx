@@ -1,6 +1,6 @@
 import { Quiz } from "./quiz";
 import { allQuizzes } from "@/quizzes";
-import { RelatedQuizzes } from "./Related";
+import { RelatedQuizzes } from "./related-quizzes";
 import { randomize } from "@/randomize-quiz";
 import { ListQuiz } from "@/components/quiz/list-quiz";
 

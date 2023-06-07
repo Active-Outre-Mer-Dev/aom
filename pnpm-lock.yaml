@@ -17,7 +17,7 @@ importers:
         specifier: ^0.1.11
         version: 0.1.13(prettier@2.8.0)
       turbo:
-        specifier: latest
+        specifier: ^1.9.8
         version: 1.9.8
 
   apps/aom-website:

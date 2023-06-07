@@ -11,9 +11,6 @@ const meta = {
       { label: "Pink", value: "pink" }
     ],
     fullWidth: false
-  },
-  argTypes: {
-    size: { type: "select", options: ["sm", "md", "lg"] }
   }
 } satisfies Meta<typeof UiSelect>;
 

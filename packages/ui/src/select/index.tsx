@@ -2,26 +2,18 @@ import React from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { cx } from "../cx";
+import { selectTriggerStyles } from "./styles";
+import type { VariantProps } from "cva";
 
 export type SelectProps = {
   items?: { value: string; label: string }[];
   placeholder?: string;
-  fullWidth?: boolean;
-} & RadixSelect.SelectProps;
+} & RadixSelect.SelectProps &
+  VariantProps<typeof selectTriggerStyles>;
 
-export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectProps) => (
+export const Select = ({ items = [], placeholder, fullWidth, size, ...props }: SelectProps) => (
   <RadixSelect.Root {...props}>
-    <RadixSelect.Trigger
-      className={cx(
-        `inline-flex items-center min-w-[150px] justify-between rounded px-[15px] 
-      text-sm leading-none h-8 gap-[5px] bg-white text-neutral-700 
-      dark:bg-neutral-800 focus:ring-2 dark:ring-offset-neutral-900 focus:ring-offset-2 
-      focus:ring-primary-600 focus:dark:ring-primary-500 border border-neutral-100
-      dark:border-neutral-700
-      dark:text-neutral-100  outline-none`,
-        fullWidth ? "w-full" : "min-w-[150px]"
-      )}
-    >
+    <RadixSelect.Trigger className={selectTriggerStyles({ fullWidth, size })}>
       <RadixSelect.Value
         className="text-neutral-600 dark:text-neutral-400"
         placeholder={placeholder || "Select item..."}
@@ -35,7 +27,7 @@ export const Select = ({ items = [], placeholder, fullWidth, ...props }: SelectP
         position="popper"
         className={`overflow-hidden border  translate-y-1 bg-white border-neutral-100
         dark:bg-neutral-800 rounded-md  dark:border-neutral-700
-        min-w-[--radix-select-trigger-width]`}
+        min-w-[var(--radix-select-trigger-width)]`}
       >
         <RadixSelect.ScrollUpButton
           className={`flex items-center justify-center h-[25px] 

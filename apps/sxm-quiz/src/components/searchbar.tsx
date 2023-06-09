@@ -36,7 +36,7 @@ export function Search({ quizzes }: PropTypes) {
         <SearchIcon size={14} className="text-neutral-500" />
         Search...
         <kbd className="text-xs bg-neutral-200/30 ring-1 ring-neutral-100 inline-block ml-6 p-[1px] rounded-sm">
-          Ctrl + K
+          Ctrl K
         </kbd>
       </button>
       <Command contentProps={{ className: "w-2/4", blur: true }} open={open} onOpenChange={setOpen}>

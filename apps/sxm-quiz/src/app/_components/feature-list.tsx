@@ -26,12 +26,12 @@ export function FeatureList() {
               Saint Martin.
             </Feature>
             <Feature Icon={Boxes} title="Multiple Topics, Endless Exploration">
-              We believe in catering to diverse interests. That's why our quiz app covers a wide range of
+              We believe in catering to diverse interests. That&apos;s why our quiz app covers a wide range of
               topics related to Saint Martin. Explore the facets of Saint Martin that intrigue you the most
               and dive deep into its rich tapestry of information.
             </Feature>
             <Feature Icon={Layers} title="Variety of quizzes">
-              Variety is the spice of life, and we've made sure to sprinkle it generously in our app.
+              Variety is the spice of life, and we&apos;ve made sure to sprinkle it generously in our app.
               Challenge yourself with a mix of quiz formats, including multiple choice, true or false, fill in
               the blanks, and more. Each quiz presents a unique set of questions, keeping you engaged and
               motivated throughout your learning journey.

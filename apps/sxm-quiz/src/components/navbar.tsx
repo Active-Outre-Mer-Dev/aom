@@ -13,14 +13,12 @@ export function Nav() {
               <NavItem href={"/"}>Home</NavItem>
               <NavItem href={"/quiz"}>Quiz</NavItem>
               <NavItem href={"/learn"}>Learn</NavItem>
+              <NavItem href={"/blog"}>Blog</NavItem>
             </ul>
           </nav>
         </div>
         <div className="flex items-center gap-4 ">
           <SearchWrapper />
-          <Button variant="neutral" size={"sm"}>
-            Sign in
-          </Button>
         </div>
       </div>
     </header>

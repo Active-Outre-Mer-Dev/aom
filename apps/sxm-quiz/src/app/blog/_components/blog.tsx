@@ -12,7 +12,7 @@ type PropTypes = {
 
 export function Blog({ tag, title }: PropTypes) {
   return (
-    <Link href={"/blog"} className="space-y-4 group ">
+    <Link href={`/blog/${title.toLowerCase().trim().replaceAll(" ", "-")}`} className="space-y-4 group ">
       <figure className="relative aspect-video rounded-md overflow-hidden mb-2">
         <Image src={asset} fill alt="" />
       </figure>

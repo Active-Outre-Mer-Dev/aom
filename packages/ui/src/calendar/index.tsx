@@ -34,7 +34,7 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         focus-within:relative focus-within:z-20
         [&:has(button:disabled)]:hover:bg-transparent`,
         day: `rounded-md text-neutral-900 dark:text-neutral-50 h-9 w-9 p-0 font-normal 
-         duration-200 ease-out`,
+         duration-200 ease-out flex items-center justify-center`,
         day_selected: `bg-primary-600 dark:bg-primary-500 text-primary-50 
         `,
         day_today: "bg-accent text-accent-foreground",
@@ -46,7 +46,7 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         ...classNames
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4 text-primary-50" />,
+        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4 " />,
         IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />
       }}
       {...props}

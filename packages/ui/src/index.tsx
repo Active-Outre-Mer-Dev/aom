@@ -24,3 +24,4 @@ export * from "./dialog";
 export * from "./action-icon";
 export * from "./ring-progress";
 export * from "./command";
+export * from "./calendar";

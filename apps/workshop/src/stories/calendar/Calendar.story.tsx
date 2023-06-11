@@ -31,17 +31,51 @@ export const MinDate: Story = {
   }
 };
 
-type PropTypes = {
-  disabled?: (Date | { before: Date })[];
+export const DayFormatter: Story = {
+  render: () => {
+    const month = new Date().getMonth();
+    return (
+      <CalendarDemo
+        bookedDates={[
+          new Date(2023, month, 5).toDateString(),
+          new Date(2023, month, 25).toDateString(),
+          new Date(2023, month, 1).toDateString(),
+          new Date(2023, month, 17).toDateString()
+        ]}
+      />
+    );
+  }
 };
 
-function CalendarDemo({ disabled }: PropTypes) {
+type PropTypes = {
+  disabled?: (Date | { before: Date })[];
+  bookedDates?: string[];
+};
+
+function CalendarDemo({ disabled, bookedDates }: PropTypes) {
   const [date, setDate] = useState<Date | undefined>(new Date());
   return (
     <Calendar
       mode="single"
       selected={date}
       showOutsideDays
+      formatters={{
+        formatDay: d => {
+          const hasBooking = bookedDates?.includes(d.toDateString());
+          return (
+            <>
+              {hasBooking ? (
+                <span className="w-full h-full relative flex items-center justify-center">
+                  {d.getDate()}
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-error-600"></span>
+                </span>
+              ) : (
+                d.getDate()
+              )}
+            </>
+          );
+        }
+      }}
       disabled={disabled}
       onSelect={setDate}
       className="p-2 rounded-md border border-neutral-100 dark:border-neutral-700 w-fit"
@@ -63,7 +97,7 @@ function CalendarDemo({ disabled }: PropTypes) {
         cell: `text-center text-sm p-0 relative hover:bg-neutral-100 hover:dark:bg-neutral-700
         [&:has([aria-selected])]:text-white
         [&:has([aria-selected])]:bg-primary-600 [&:has([aria-selected])]:dark:bg-primary-500
-         rounded-md overflow-hidden
+         rounded-md
         duration-200 ease-out
         focus-within:relative focus-within:z-20
         [&:has(button:disabled)]:hover:bg-transparent`,

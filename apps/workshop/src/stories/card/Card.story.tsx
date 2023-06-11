@@ -8,7 +8,8 @@ const meta = {
   tags: ["autodocs"],
   args: {
     children: <p className="text-neutral-900 dark:text-neutral-100">Hello there!</p>,
-    className: "w-fit"
+    className: "w-fit",
+    shadow: false
   }
 } satisfies Meta<typeof Card>;
 

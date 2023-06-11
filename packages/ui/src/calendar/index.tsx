@@ -1,16 +1,21 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
-
+import { CustomLabel } from "./caption-label";
+import format from "date-fns/format";
+import { useState } from "react";
 import { cx } from "../cx";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 export function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
+  const [month, setMonth] = useState<Date>(new Date());
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cx("p-3", className)}
+      month={month}
+      onMonthChange={setMonth}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
@@ -29,7 +34,7 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         cell: `text-center text-sm p-0 relative hover:bg-neutral-100 hover:dark:bg-neutral-700
         [&:has([aria-selected])]:text-white
         [&:has([aria-selected])]:bg-primary-600 [&:has([aria-selected])]:dark:bg-primary-500
-         rounded-md overflow-hidden
+         rounded-md
         duration-200 ease-out
         focus-within:relative focus-within:z-20
         [&:has(button:disabled)]:hover:bg-transparent`,
@@ -46,8 +51,11 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         ...classNames
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4 " />,
-        IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />
+        IconLeft: () => <ChevronLeft className="h-4 w-4 " />,
+        IconRight: () => <ChevronRight className="h-4 w-4" />,
+        CaptionLabel: () => (
+          <CustomLabel setMonth={setMonth}>{`${format(month, "MMMM")} ${format(month, "yyyy")}`}</CustomLabel>
+        )
       }}
       {...props}
     />

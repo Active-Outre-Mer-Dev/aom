@@ -6,10 +6,11 @@ import type { QuestionCategory } from "@/questions";
 
 type PropTypes = {
   children: React.ReactNode;
-  type: QuestionCategory;
+  type: "question" | "list";
   title: string;
   description: string;
   questionCount: number;
+  category: QuestionCategory;
 };
 
 export function Container({ children, ...props }: PropTypes) {

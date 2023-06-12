@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/experimental-ct-react";
-import { ListQuiz } from "../src/components/quiz/list-quiz";
+import { ListQuiz } from "../src/app/quiz/[slug]/_components/list-quiz";
 
 const options = ["Maho", "Orient Bay", "Simpson Bay"];
 const task = "Name every beach";

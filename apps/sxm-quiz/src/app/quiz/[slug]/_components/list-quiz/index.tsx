@@ -2,11 +2,11 @@
 import { FormEvent, useEffect, useReducer, useRef, useState } from "react";
 import { Button, TextInput, Card } from "@aom/ui";
 import { QuizProgression } from "./quiz-progress";
-import { ListResult } from "./list-result";
 import { ListDetails } from "./list-details";
 import { QuizOption } from "./list-option";
 import { ListTimer } from "./list-timer";
 import { initialState, reducer } from "./reducer";
+import { useQuiz } from "../container/container.context";
 
 type PropTypes = {
   task: string;
@@ -23,10 +23,21 @@ export function ListQuiz(props: PropTypes) {
   const [giveUp, setGiveUp] = useState(false);
   const [options, setOptions] = useState(props.options.map(option => option.toLowerCase()));
   const ref = useRef<HTMLInputElement>(null);
+  const { onComplete, complete } = useQuiz();
 
   useEffect(() => {
     if (hasStarted) ref.current?.focus();
   }, [state.score, hasStarted]);
+
+  useEffect(() => {
+    if (giveUp || state.inputs.length === props.options.length) {
+      onComplete(state.score, duration, 0);
+    }
+  }, [giveUp, state.inputs.length, props.options.length]);
+
+  useEffect(() => {
+    if (!complete && hasStarted) onReset();
+  }, [complete, hasStarted]);
 
   const onChange = (e: FormEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
@@ -61,14 +72,6 @@ export function ListQuiz(props: PropTypes) {
     setDuration(quizTimer - duration);
   };
 
-  const summaryProps = {
-    options: props.options,
-    inputs: state.inputs,
-    duration,
-    points: `${state.inputs.length}/${props.options.length}`,
-    score: Math.round((state.inputs.length / props.options.length) * 100)
-  };
-
   return (
     <div>
       {!isFinished && !giveUp ? (
@@ -92,9 +95,6 @@ export function ListQuiz(props: PropTypes) {
         </>
       ) : (
         <Card className="flex">
-          <ListResult {...summaryProps}>
-            <Button onClick={onReset}>Reset</Button>
-          </ListResult>
           <ListDetails>
             {props.options.map(option => {
               return (

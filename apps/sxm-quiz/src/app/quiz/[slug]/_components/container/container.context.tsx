@@ -4,8 +4,9 @@ import { initialState, reducer } from "./reducer";
 import type { State } from "./reducer";
 
 type ContextProps = {
-  type: QuestionCategory;
+  category: QuestionCategory;
   title: string;
+  type: "question" | "list";
   description: string;
   onComplete: (score: number, time: number, streak: number) => void;
   onReset: () => void;
@@ -22,7 +23,7 @@ export function useQuiz() {
   return value;
 }
 
-type PropTypes = Pick<ContextProps, "description" | "questionCount" | "type" | "title"> & {
+type PropTypes = Pick<ContextProps, "description" | "questionCount" | "category" | "title" | "type"> & {
   children: React.ReactNode;
 };
 

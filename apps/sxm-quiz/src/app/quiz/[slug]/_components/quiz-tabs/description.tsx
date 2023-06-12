@@ -6,7 +6,7 @@ import { RelatedQuizzes } from "../related-quizzes";
 import { getCatColor } from "@/get-category-color";
 
 export function Description() {
-  const { title, type } = useQuiz();
+  const { title, category: type } = useQuiz();
   return (
     <>
       <Title order={1} className="font-heading font-medium text-2xl mb-2">

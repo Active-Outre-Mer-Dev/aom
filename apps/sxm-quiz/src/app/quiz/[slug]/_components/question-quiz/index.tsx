@@ -1,14 +1,14 @@
 "use client";
-import { useReducer, useState, useRef } from "react";
+import { useReducer, useState, useRef, useEffect } from "react";
 import { Button, Progress } from "@aom/ui";
 import { initialState, reducer } from "./reducer";
-import { Summary } from "./quiz-summary";
+import { useQuiz } from "../container/container.context";
+import { QuestionQuizDetails } from "./details";
 
 import type { Question } from "@/questions";
 
 type PropTypes = {
   questions: Question[];
-  title: string;
 };
 
 function useTimer() {
@@ -32,15 +32,23 @@ function useTimer() {
 export function Quiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [time, timer] = useTimer();
+  const { onComplete, complete } = useQuiz();
 
+  useEffect(() => {
+    if (state.current === props.questions.length) onComplete(state.points, time, state.highStreak);
+  }, [state.current, props.questions.length]);
+
+  useEffect(() => {
+    if (!complete && state.choices.length === props.questions.length) onReset();
+  }, [complete, props.questions.length]);
+
+  const completed = state.choices.length === props.questions.length;
   const question = props.questions[state.current];
 
-  const complete = state.current === props.questions.length;
-  const options = !complete ? question.options : [];
+  const options = !completed ? question?.options : [];
   const progress = (state.current / props.questions.length) * 100;
-  const score = complete ? Math.round((state.points / props.questions.length) * 100) : 0;
 
-  const onReset = async () => {
+  const onReset = () => {
     dispatch({ type: "reset" });
     timer.reset();
   };
@@ -48,15 +56,9 @@ export function Quiz(props: PropTypes) {
   const onChoose = (choice: string) => {
     if (state.current === 0) timer.start();
     dispatch({ type: "next", value: { answer: question.answer, choice } });
-    if (state.current === props.questions.length - 1) timer.stop();
-  };
-
-  const result = {
-    highestStreak: state.highStreak,
-    points: `${state.points}/${props.questions.length}`,
-    score,
-    reset: onReset,
-    duration: time
+    if (state.current === props.questions.length - 1) {
+      timer.stop();
+    }
   };
 
   const details = {
@@ -66,11 +68,11 @@ export function Quiz(props: PropTypes) {
 
   return (
     <>
-      {complete ? (
-        <Summary resultProps={result} detailsProps={details} />
+      {completed ? (
+        <QuestionQuizDetails {...details} />
       ) : (
         <>
-          <div className=" flex justify-between items-end border-b border-neutral-200 pb-2 mb-5">
+          <div className=" flex justify-between items-end border-b border-neutral-200 pb-3 mb-5">
             <Progress aria-label="Quiz progression" size={"sm"} className="w-1/4" value={progress} />
             <span className="font-medium">
               Streak: <span className="font-heading">{state.streak}</span>
@@ -95,7 +97,7 @@ type OptionProps = { onChoose: (choice: string) => void; option: string };
 function Option({ option, onChoose }: OptionProps) {
   const onClick = () => onChoose(option);
   return (
-    <Button variant={"neutral"} onClick={onClick} className="grow basis-1/3">
+    <Button variant={"neutral"} onClick={onClick} className="grow basis-full">
       {option}
     </Button>
   );

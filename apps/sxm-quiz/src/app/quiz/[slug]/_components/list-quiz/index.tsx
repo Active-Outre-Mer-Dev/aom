@@ -36,8 +36,8 @@ export function ListQuiz(props: PropTypes) {
   }, [giveUp, state.inputs.length, props.options.length]);
 
   useEffect(() => {
-    if (!complete && hasStarted) onReset();
-  }, [complete, hasStarted]);
+    if (!complete) onReset();
+  }, [complete]);
 
   const onChange = (e: FormEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;

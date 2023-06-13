@@ -2,11 +2,13 @@
 import { FormEvent, useEffect, useReducer, useRef, useState } from "react";
 import { Button, TextInput, Card } from "@aom/ui";
 import { QuizProgression } from "./quiz-progress";
-import { ListDetails } from "./list-details";
 import { QuizOption } from "./list-option";
 import { ListTimer } from "./list-timer";
 import { initialState, reducer } from "./reducer";
 import { useQuiz } from "../container/container.context";
+import { Suspense, lazy } from "react";
+
+const ListDetails = lazy(() => import("./list-details"));
 
 type PropTypes = {
   task: string;
@@ -74,40 +76,42 @@ export default function ListQuiz(props: PropTypes) {
 
   return (
     <div>
-      {!isFinished && !giveUp ? (
-        <>
-          <ListTimer hasStarted={hasStarted} onClick={onGiveUp} timer={quizTimer} />
-          <QuizProgression
-            progress={(state.inputs.length / props.options.length) * 100}
-            optionsLeft={props.options.length - state.inputs.length}
-          />
-          <p className="font-heading text-2xl mb-6">{props.task}</p>
-          {hasStarted ? (
-            <TextInput ref={ref} key={state.score} onChange={onChange} />
-          ) : (
-            <Button onClick={onStart}>Start</Button>
-          )}
-          <div className="grid grid-cols-4 mt-6">
-            {state.inputs.map(option => {
-              return <Inputs key={option} option={option} />;
-            })}
+      <Suspense fallback={<p>Loading...</p>}>
+        {!isFinished && !giveUp ? (
+          <>
+            <ListTimer hasStarted={hasStarted} onClick={onGiveUp} timer={quizTimer} />
+            <QuizProgression
+              progress={(state.inputs.length / props.options.length) * 100}
+              optionsLeft={props.options.length - state.inputs.length}
+            />
+            <p className="font-heading text-2xl mb-6">{props.task}</p>
+            {hasStarted ? (
+              <TextInput ref={ref} key={state.score} onChange={onChange} />
+            ) : (
+              <Button onClick={onStart}>Start</Button>
+            )}
+            <div className="grid grid-cols-4 mt-6">
+              {state.inputs.map(option => {
+                return <Inputs key={option} option={option} />;
+              })}
+            </div>
+          </>
+        ) : (
+          <div className="flex">
+            <ListDetails>
+              {props.options.map(option => {
+                return (
+                  <QuizOption
+                    key={option}
+                    active={state.inputs.includes(option.toLowerCase())}
+                    option={option}
+                  />
+                );
+              })}
+            </ListDetails>
           </div>
-        </>
-      ) : (
-        <Card className="flex">
-          <ListDetails>
-            {props.options.map(option => {
-              return (
-                <QuizOption
-                  key={option}
-                  active={state.inputs.includes(option.toLowerCase())}
-                  option={option}
-                />
-              );
-            })}
-          </ListDetails>
-        </Card>
-      )}
+        )}
+      </Suspense>
     </div>
   );
 }

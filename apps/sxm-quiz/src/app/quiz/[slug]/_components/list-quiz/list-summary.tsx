@@ -1,26 +1,22 @@
 import { Rocket, Timer } from "lucide-react";
 import { RingProgress } from "@aom/ui";
+import { useQuiz } from "../container/container.context";
 
-type PropTypes = {
-  children: React.ReactNode;
-  score: number;
-  points: string;
-  duration: number;
-};
-
-export function ListResult({ children, score, points, duration }: PropTypes) {
+export default function ListSummary() {
+  const { score, time, questionCount } = useQuiz();
+  const percentage = Math.round((score / questionCount) * 100);
   return (
-    <div className=" basis-2/5 flex flex-col  gap-4 justify-between pr-4 py-6 border-r border-neutral-100 -my-4">
+    <>
       <p className="text-center text-2xl  mb-4 font-medium font-heading ">Summary</p>
       <div className="flex justify-center">
         <RingProgress
           rounded
           rootCircle="fill-success-200/30"
           color={"success"}
-          label={<RingLabel>{score}</RingLabel>}
+          label={<RingLabel>{percentage}</RingLabel>}
           thickness={5}
           size={100}
-          value={score}
+          value={percentage}
         />
       </div>
       <ul className="space-y-4 font-medium">
@@ -30,18 +26,19 @@ export function ListResult({ children, score, points, duration }: PropTypes) {
             <Rocket size={16} />
             Correct answers:
           </p>
-          <p>{points}</p>
+          <p>
+            {score}/{questionCount}
+          </p>
         </li>
         <li className="flex p-2 justify-between text-error-600 bg-error-200/30 rounded-md">
           <p className="flex items-center gap-2">
             {" "}
             <Timer size={16} /> Duration:
           </p>
-          <p>{format(duration)}</p>
+          <p>{format(time)}</p>
         </li>
       </ul>
-      {children}
-    </div>
+    </>
   );
 }
 

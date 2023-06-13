@@ -1,17 +1,20 @@
-import type { Question } from "@/questions";
-import { ScrollArea } from "./client";
+"use client";
+import { ScrollArea, Button } from "@aom/ui";
 import { useState } from "react";
-import { Button } from "./client";
+import type { Question } from "@/questions";
 
 type PropTypes = {
   questions: Question[];
   choices: string[];
 };
 
-export function SummaryDetails({ choices, questions }: PropTypes) {
+export default function QuestionQuizDetails({ choices, questions }: PropTypes) {
   return (
-    <div className="basis-3/5 grow p-2">
-      <ScrollArea className="h-96 -mr-6 pb-4 pr-2 grow">
+    <div className="basis-3/5 grow relative">
+      <ScrollArea
+        style={{ height: window.screen.height - 64 - 80 - 80 || 300 }}
+        className="h-96 -mr-4 pb-4 pr-4 grow"
+      >
         <p className="font-heading text-2xl font-medium mb-4 ">Details</p>
         <ul className="space-y-6">
           {questions.map((value, index) => {

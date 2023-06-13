@@ -29,7 +29,7 @@ function useTimer() {
   return [time, { stop, start, reset }] as const;
 }
 
-export function Quiz(props: PropTypes) {
+export default function Quiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [time, timer] = useTimer();
   const { onComplete, complete } = useQuiz();

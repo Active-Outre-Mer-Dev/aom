@@ -16,7 +16,7 @@ type PropTypes = {
 //timer for quiz in seconds
 const quizTimer = 60 * 2;
 
-export function ListQuiz(props: PropTypes) {
+export default function ListQuiz(props: PropTypes) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [duration, setDuration] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);

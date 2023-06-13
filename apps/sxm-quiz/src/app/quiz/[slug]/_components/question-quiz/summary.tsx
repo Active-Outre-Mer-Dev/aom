@@ -2,8 +2,8 @@ import { RingProgress } from "@aom/ui";
 import { useQuiz } from "../container/container.context";
 import { Rocket, Timer, Zap } from "lucide-react";
 
-export function QuestionSummary() {
-  const { score, time,  questionCount, streak,  } = useQuiz();
+export default function QuestionSummary() {
+  const { score, time, questionCount, streak } = useQuiz();
   const percentage = Math.round((score / questionCount) * 100);
   return (
     <>
@@ -46,7 +46,6 @@ export function QuestionSummary() {
           <p>{format(time)}</p>
         </li>
       </ul>
-      
     </>
   );
 }

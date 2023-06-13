@@ -1,8 +1,10 @@
-import { Quiz } from "./_components/question-quiz";
 import { allQuizzes } from "@/quizzes";
 import { randomize } from "@/randomize-quiz";
-import { ListQuiz } from "./_components/list-quiz";
 import { Container } from "./_components/container";
+import { Suspense, lazy } from "react";
+
+const Quiz = lazy(() => import("./_components/question-quiz"));
+const ListQuiz = lazy(() => import("./_components/list-quiz"));
 
 const desc = `Occaecat dolor ex deserunt eu. Esse incididunt commodo qui voluptate dolore Lorem enim elit 
 ullamco nostrud veniam sit deserunt.`;
@@ -22,11 +24,10 @@ export default function Page({ params }: { params: { slug: string } }) {
         title={quizGame.title}
         type={quizGame.type}
       >
-        {quizGame.type === "question" ? (
-          <Quiz questions={questions} />
-        ) : (
-          <ListQuiz task={quizGame.task} options={quizGame.options} />
-        )}
+        <Suspense fallback={<p>Loading quiz...</p>}>
+          {quizGame.type === "list" && <ListQuiz options={quizGame.options} task={quizGame.task} />}
+          {quizGame.type === "question" && <Quiz questions={questions} />}
+        </Suspense>
       </Container>
     </main>
   );

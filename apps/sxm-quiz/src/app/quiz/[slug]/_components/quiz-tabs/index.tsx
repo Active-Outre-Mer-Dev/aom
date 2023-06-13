@@ -3,6 +3,7 @@ import { Tabs } from "@aom/ui";
 import { Description } from "./description";
 import { SummaryResult } from "./summary";
 import { useQuiz } from "../container/container.context";
+import { Feedback } from "./feedback";
 
 export function QuizTabs() {
   const { complete, tab, onTabChange } = useQuiz();
@@ -21,6 +22,9 @@ export function QuizTabs() {
         </Tabs.Content>
         <Tabs.Content value="summary">
           <SummaryResult />
+        </Tabs.Content>
+        <Tabs.Content value="feedback">
+          <Feedback />
         </Tabs.Content>
       </Tabs>
     </Tabs>

@@ -7,6 +7,7 @@ import { ListTimer } from "./list-timer";
 import { initialState, reducer } from "./reducer";
 import { useQuiz } from "../container/container.context";
 import { Suspense, lazy } from "react";
+import { ListDetailsLoad } from "./list-details-load";
 
 const ListDetails = lazy(() => import("./list-details"));
 
@@ -76,7 +77,7 @@ export default function ListQuiz(props: PropTypes) {
 
   return (
     <div>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<ListDetailsLoad />}>
         {!isFinished && !giveUp ? (
           <>
             <ListTimer hasStarted={hasStarted} onClick={onGiveUp} timer={quizTimer} />

@@ -8,7 +8,7 @@ type PropTypes = {
   choices: string[];
 };
 
-export function QuestionQuizDetails({ choices, questions }: PropTypes) {
+export default function QuestionQuizDetails({ choices, questions }: PropTypes) {
   return (
     <div className="basis-3/5 grow relative">
       <ScrollArea

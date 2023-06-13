@@ -3,7 +3,10 @@ import { useReducer, useState, useRef, useEffect } from "react";
 import { Button, Progress } from "@aom/ui";
 import { initialState, reducer } from "./reducer";
 import { useQuiz } from "../container/container.context";
-import { QuestionQuizDetails } from "./details";
+import { Suspense, lazy } from "react";
+import { QuizDetailsLoad } from "./details-load";
+
+const QuestionQuizDetails = lazy(() => import("./details"));
 
 import type { Question } from "@/questions";
 
@@ -67,7 +70,7 @@ export default function Quiz(props: PropTypes) {
   };
 
   return (
-    <>
+    <Suspense fallback={<QuizDetailsLoad />}>
       {completed ? (
         <QuestionQuizDetails {...details} />
       ) : (
@@ -88,7 +91,7 @@ export default function Quiz(props: PropTypes) {
           </div>
         </>
       )}
-    </>
+    </Suspense>
   );
 }
 

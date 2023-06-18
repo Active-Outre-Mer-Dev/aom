@@ -1,16 +1,29 @@
 import { GetStarted } from "@/components/home/get-started";
 import { Button } from "@/components/home";
+import bg from "@/assets/home-gradient.png";
+import Link from "next/link";
 
 export function Hero() {
   return (
     <>
-      <section className=" bg-white pt-10 pb-20 relative mb-36">
-        <div className="w-3/5 mx-auto">
-          <h1 className="text-8xl text-neutral-800  mb-8 font-heading">
-            <span className="bg-gradient-to-r bg-clip-text text-transparent from-primary-600 to-primary-400">
+      <section
+        style={{ height: "calc(100vh - 64px)" }}
+        className="bg-neutral-900  pt-10 pb-20 relative  relative"
+      >
+        <img src={bg.src} alt={""} className="object-fill absolute top-0 left-0 w-full h-full" />
+        <div className="w-3/5 text-neutral-100 mx-auto relative dark flex flex-col justify-center h-full gap-4">
+          <Link
+            href={"/blog/introducing-sxm-quiz"}
+            className={`px-4 py-1 block border border-neutral-700 mb-6 rounded-full
+             bg-neutral-900 text-neutral-200 hover:border-primary-500 duration-200 ease-out w-fit`}
+          >
+            Introducing SXM Quiz. <span className="text-neutral-300 font-medium">Read blog →</span>
+          </Link>
+          <h1 className="text-7xl text-neutral-50  mb-4 font-heading">
+            <span className="bg-gradient-to-r bg-clip-text text-transparent from-primary-500 to-primary-50">
               Discover{" "}
             </span>
-            the island <br /> of Saint Martin
+            the island of <br /> Saint Martin
           </h1>
           <p className=" text-2xl mb-8">
             Test your knowledge, explore hidden gems, and learn fascinating facts about Saint Martin!{" "}
@@ -21,19 +34,6 @@ export function Hero() {
               Learn more
             </Button>
           </div>
-        </div>
-        <div className="custom-shape-divider-bottom-1684516878">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              className="shape-fill"
-            ></path>
-          </svg>
         </div>
       </section>
     </>

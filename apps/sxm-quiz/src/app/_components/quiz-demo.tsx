@@ -1,52 +1,49 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { WindowFrame } from "@aom/ui";
+import { QuestionQuizDemo } from "./question-quiz-demo";
+import { QuizToggle } from "./quiz-toggle";
+import JSConfetti from "js-confetti";
 
 export function QuizDemo() {
   const [state, setState] = useState<"quiz" | "list">("quiz");
+  const container = useRef<HTMLDivElement>(null);
+  const canvas = useRef<HTMLCanvasElement>();
+  const confetti = useRef<JSConfetti>();
+
+  const onConfetti = () => {
+    if (canvas.current && confetti.current) {
+      confetti.current.addConfetti();
+    } else {
+      canvas.current = document.createElement("canvas");
+      canvas.current.style.position = "absolute";
+      canvas.current.style.width = "100%";
+      canvas.current.style.top = "0px";
+      canvas.current.style.pointerEvents = "none";
+      container.current?.append(canvas.current);
+      confetti.current = new JSConfetti({ canvas: canvas.current });
+      confetti.current.addConfetti();
+    }
+  };
   const toggle = (type: typeof state) => {
     setState(type);
   };
+
   return (
     <>
-      <div className="basis-1/2 space-y-10">
+      <div ref={container} className="basis-1/2 space-y-10 relative">
         <div className="flex gap-4">
-          <Button active={state === "quiz"} type="quiz" onToggle={toggle} />
-          <Button active={state === "list"} type="list" onToggle={toggle} />
+          <QuizToggle active={state === "quiz"} type="quiz" onToggle={toggle} />
+          <QuizToggle active={state === "list"} type="list" onToggle={toggle} />
         </div>
-        <Demo>{state === "list" ? "List" : "Quiz"}</Demo>
+        <div className="basis-1/2  relative ">
+          <div className="inset-0 bg-neutral-200 blur-md absolute" />
+          <WindowFrame className="relative bg-white w-full h-full">
+            {" "}
+            {state === "quiz" ? <QuestionQuizDemo onConfetti={onConfetti} /> : "List"}
+          </WindowFrame>
+        </div>
       </div>
     </>
-  );
-}
-
-function Demo({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="basis-1/2  relative aspect-video">
-      <div className="-inset-0.5 bg-primary-300 blur-md absolute" />
-      <div className="relative bg-white w-full h-full">{children}</div>
-    </div>
-  );
-}
-
-function Button({
-  type,
-  active,
-  onToggle
-}: {
-  type: "list" | "quiz";
-  onToggle: (type: "list" | "quiz") => void;
-  active: boolean;
-}) {
-  const onClick = () => onToggle(type);
-  return (
-    <button
-      data-active={active}
-      onClick={onClick}
-      className={`group bg-white ring-primary-600 ring-1 text-neutral-900 px-4 
-    py-1 bg-white data-[active=true]:bg-primary-600  data-[active=true]:text-white 
-    data-[active=false]:ring-neutral-200 rounded-md capitalize relative duration-200 ease-out`}
-    >
-      {type}
-    </button>
   );
 }

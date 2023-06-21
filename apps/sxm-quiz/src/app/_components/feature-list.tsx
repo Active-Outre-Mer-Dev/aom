@@ -1,13 +1,13 @@
-import { Feature } from "./feature";
-import { Title } from "@aom/ui";
+import { Title, WindowFrame, Skeleton } from "@aom/ui";
 import { QuizDemo } from "./quiz-demo";
+import { Suspense } from "react";
 
 export function FeatureList() {
   return (
     <>
       <section className="pb-36 bg-white pt-24  relative">
-        <div className="w-5/6 mx-auto flex flex-col gap-36">
-          <div className="flex gap-4">
+        <div className="container mx-auto flex flex-col gap-36">
+          <div className="flex gap-8">
             <div className="basis-1/2">
               <Title
                 order={2}
@@ -21,10 +21,71 @@ export function FeatureList() {
                 about Saint Martin.
               </p>
             </div>
-            <Card />
+            <FramerWrapper>
+              <p className="font-heading font-medium text-2xl mb-2 text-neutral-900">
+                When was St Martin discovered?
+              </p>
+              <ul className="space-y-4">
+                <li>
+                  <div className={`rounded-md p-2 bg-success-700 text-white`}>1493</div>
+                  <p className="text-sm mt-2">
+                    Christopher Columbus discovered and named Saint Martin on November 11, 1493 without ever
+                    setting foot on the island.
+                  </p>
+                </li>
+                <li>
+                  <div className={`rounded-md p-2 bg-white  border border-neutral-100`}>1492</div>
+                </li>
+                <li>
+                  <div className={`rounded-md p-2 bg-white  border border-neutral-100`}>1648</div>
+                </li>
+                <li>
+                  <div className={`rounded-md p-2 bg-error-600 text-white borde`}>1297</div>
+                </li>
+              </ul>
+            </FramerWrapper>
           </div>
-          <div className="flex gap-4">
-            <Card />
+          <div className="flex gap-8">
+            <FramerWrapper>
+              <div className="grid grid-cols-3 gap-x-2 gap-y-4 ">
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+                <div className="rounded-md border border-neutral-100 p-1">
+                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                </div>
+              </div>
+            </FramerWrapper>
             <div className="basis-1/2">
               <Title order={2} className=" mb-8 text-5xl font-heading font-medium ">
                 <span className="bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text text-transparent">
@@ -56,19 +117,24 @@ export function FeatureList() {
                 motivated throughout your learning journey.
               </p>
             </div>
-            <QuizDemo />
+            <Suspense fallback={null}>
+              <QuizDemo />
+            </Suspense>
           </div>
         </div>
       </section>
     </>
   );
 }
+type PropTypes = {
+  children: React.ReactNode;
+};
 
-function Card() {
+function FramerWrapper(props: PropTypes) {
   return (
-    <div className="basis-1/2  relative aspect-video">
-      <div className="-inset-0.5 bg-primary-300 blur-md absolute" />
-      <div className="relative bg-white w-full h-full" />
+    <div className="basis-1/2 relative ">
+      <div className="absolute inset-0 blur-md bg-neutral-200"></div>
+      <WindowFrame className="relative h-full">{props.children}</WindowFrame>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Command } from "@aom/ui";
 import { useState, useEffect } from "react";
 import { SearchIcon, FileText, Circle } from "lucide-react";
 import { ListQuiz, QuestionQuiz } from "@/quizzes";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type PropTypes = {
   quizzes: {
@@ -14,6 +14,8 @@ type PropTypes = {
 
 export function Search({ quizzes }: PropTypes) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     const openMenu = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "k") {
@@ -25,7 +27,10 @@ export function Search({ quizzes }: PropTypes) {
     return () => window.removeEventListener("keydown", openMenu);
   }, []);
 
-  const onClose = () => setOpen(false);
+  const onNavigate = (value: string) => {
+    router.push(`/${value}`);
+    setOpen(false);
+  };
 
   return (
     <>
@@ -43,45 +48,29 @@ export function Search({ quizzes }: PropTypes) {
         <Command.Input placeholder="Search" />
         <Command.List>
           <Command.Group heading="Articles">
-            <Command.Item>
-              <Link
-                onClick={onClose}
-                className="w-full h-full -m-3 p-3 block"
-                href={`/learn/history/sxm-history`}
-              >
-                <FileText size={16} className="inline-block mr-2 text-neutral-700" />
-                SXM History Intro
-              </Link>
+            <Command.Item value="learn/history/sxm-history" onSelect={onNavigate}>
+              <FileText size={16} className="inline-block mr-2 text-neutral-700" />
+              SXM History Intro
             </Command.Item>
           </Command.Group>
+          <Command.Seperator />
           <Command.Group heading="Question Quizzes">
             {quizzes.questionQuizzes.map(quiz => {
               return (
-                <Command.Item key={quiz.slug}>
-                  <Link
-                    onClick={onClose}
-                    className="w-full h-full -m-3 p-3 block"
-                    href={`/quiz/${quiz.slug}`}
-                  >
-                    <Circle size={16} className="inline-block mr-2 text-neutral-700" />
-                    {quiz.title}
-                  </Link>
+                <Command.Item value={`quiz/${quiz.slug}`} onSelect={onNavigate} key={quiz.slug}>
+                  <Circle size={16} className="inline-block mr-2 text-neutral-700" />
+                  {quiz.title}
                 </Command.Item>
               );
             })}
           </Command.Group>
+          <Command.Seperator />
           <Command.Group heading="List Quizzes">
             {quizzes.listQuizzes.map(quiz => {
               return (
-                <Command.Item key={quiz.slug}>
-                  <Link
-                    onClick={onClose}
-                    className="w-full h-full -m-3 p-3 block"
-                    href={`/quiz/${quiz.slug}`}
-                  >
-                    <Circle size={16} className="inline-block mr-2 text-neutral-700" />
-                    {quiz.title}
-                  </Link>
+                <Command.Item key={quiz.slug} onSelect={onNavigate} value={`quiz/${quiz.slug}`}>
+                  <Circle size={16} className="inline-block mr-2 text-neutral-700" />
+                  {quiz.title}
                 </Command.Item>
               );
             })}

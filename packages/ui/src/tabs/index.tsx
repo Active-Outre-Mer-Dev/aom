@@ -22,12 +22,16 @@ function Trigger({ customBg, ...props }: TabsTriggerProps) {
     <RadixTabs.Trigger
       {...props}
       className={cx(
-        `relative text-neutral-800 dark:text-neutral-100 px-5 flex-1 flex items-center 
+        `relative text-gray-800 dark:text-gray-100 px-5 flex-1 flex items-center 
         justify-center rounded-t-md text-[15px] leading-none select-none  
         outline-none cursor-default hover:cursor-pointer duration-200 ease-out 
-        data-[state=inactive]:dark:text-neutral-300 data-[state=inactive]:text-neutral-600
+        data-[state=inactive]:dark:text-gray-300 data-[state=inactive]:text-gray-600
         data-[state=inactive]:hover:dark:bg-neutral-800/50 
-        data-[state=inactive]:hover:bg-neutral-300/10`,
+        data-[state=inactive]:hover:bg-neutral-300/10
+        data-[state=inactive]:data-[disabled]:text-gray-400 
+        data-[state=inactive]:data-[disabled]:dark:text-gray-500
+        data-[disabled]:hover:bg-white/0 data-[disabled]:hover:dark:bg-white/0
+         data-[disabled]:cursor-default`,
         customBg ? "" : `group`,
         props.className
       )}

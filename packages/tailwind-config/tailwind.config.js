@@ -123,6 +123,18 @@ module.exports = {
         800: "#4f2500",
         900: "#200c00"
       },
+      gray: {
+        50: "#e4f3f6",
+        100: "#d0d9e0",
+        200: "#b8c1c6",
+        300: "#9da8ad",
+        400: "#849095",
+        500: "#6a777b",
+        600: "#525c61",
+        700: "#384145",
+        800: "#1d262b",
+        900: "#020917"
+      },
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white

@@ -24,18 +24,21 @@ export function Command({ children, contentProps, onOpenChange, ...props }: Prop
   );
 }
 
-type ItemProps = ComponentPropsWithoutRef<"div"> & {
+type ItemProps = {
   disabled?: boolean | undefined;
   onSelect?: ((value: string) => void) | undefined;
   value?: string | undefined;
+  className?: string;
+  children?: React.ReactNode;
 };
 
 function Item(props: ItemProps) {
   return (
     <CommandPrim.Item
       {...props}
-      className={`text-neutral-800 dark:text-neutral-100  p-3 rounded-md 
-    cursor-pointer text-base hover:bg-primary-200/30 hover:dark:bg-primary-600/30`}
+      className={`text-gray-800 dark:text-gray-100  p-3 rounded-md 
+    cursor-pointer text-base hover:bg-primary-200/30 hover:dark:bg-primary-600/30 
+    data-[selected=true]:bg-primary-200/30 data-[selected=true]:dark:bg-primary-600/30`}
     />
   );
 }
@@ -52,12 +55,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
      border-b-neutral-100 dark:border-b-neutral-700
       items-center px-2 mb-4`}
     >
-      <Search size={16} className="basis-5 text-neutral-600 dark:text-neutral-200" />
+      <Search size={16} className="basis-5 text-gray-600 dark:text-gray-200" />
       <CommandPrim.Input
         {...props}
         ref={ref}
         className={`appearance-none h-12 outline-none grow block bg-wite dark:bg-neutral-800 
-  dark:text-neutral-200`}
+  dark:text-gray-200`}
       />
 
       <button
@@ -65,7 +68,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         aria-label="Close command menu"
         className="basis-5 flex  items-center justify-center"
       >
-        <X size={16} className="basis-5 text-neutral-600 dark:text-neutral-200" />
+        <X size={16} className="basis-5 text-gray-600 dark:text-gray-200" />
       </button>
     </div>
   );
@@ -74,9 +77,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 type GroupProps = ComponentPropsWithoutRef<"div"> & { heading?: string; value?: string };
 
 function Group(props: GroupProps) {
-  return (
-    <CommandPrim.Group {...props} className="text-neutral-700 dark:text-neutral-300 space-y-1 text-sm" />
-  );
+  return <CommandPrim.Group {...props} className="text-gray-700 dark:text-gray-300 space-y-1 text-sm" />;
 }
 
 function Seperator() {
@@ -90,7 +91,7 @@ type ListProps = {
 function List({ emptyMessage, children, ...props }: ListProps) {
   return (
     <CommandPrim.List {...props} className="space-y-2 mb-4 px-5 py-2">
-      <CommandPrim.Empty className="text-neutral-800 dark:text-neutral-100">
+      <CommandPrim.Empty className="text-gray-800 dark:text-gray-100">
         {emptyMessage || "No results found"}
       </CommandPrim.Empty>
       {children}

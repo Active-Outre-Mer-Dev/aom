@@ -2,13 +2,14 @@ import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type { ComponentPropsWithRef } from "react";
-type PropTypes = { heading?: string } & ComponentPropsWithRef<"div">;
+type PropTypes = { heading?: string; classNames?: { body?: string } } & ComponentPropsWithRef<"div">;
 
 const className = `ring-1 ring-neutral-100 rounded-md dark:ring-neutral-700 bg-white
 dark:bg-neutral-800`;
 
 export const WindowFrame = forwardRef<HTMLDivElement, PropTypes>((props, ref) => {
   const classes = twMerge(className, props.className);
+  const bodyClass = twMerge("px-3 py-4", props.classNames?.body);
   return (
     <div ref={ref} {...props} className={classes}>
       <div
@@ -38,7 +39,7 @@ export const WindowFrame = forwardRef<HTMLDivElement, PropTypes>((props, ref) =>
           </p>
         )}
       </div>
-      <div className="px-3 py-4">{props.children}</div>
+      <div className={bodyClass}>{props.children}</div>
     </div>
   );
 });

@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { WindowFrame } from "@aom/ui";
 import { QuestionQuizDemo } from "./question-quiz-demo";
+import { ListQuizzDemo } from "./list-quiz-demo";
 import { QuizToggle } from "./quiz-toggle";
 import JSConfetti from "js-confetti";
 
@@ -40,7 +41,7 @@ export function QuizDemo() {
           <div className="inset-0 bg-neutral-200 blur-md absolute" />
           <WindowFrame className="relative bg-white w-full h-full">
             {" "}
-            {state === "quiz" ? <QuestionQuizDemo onConfetti={onConfetti} /> : "List"}
+            {state === "quiz" ? <QuestionQuizDemo onConfetti={onConfetti} /> : <ListQuizzDemo onConfetti={onConfetti} />}
           </WindowFrame>
         </div>
       </div>

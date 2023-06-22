@@ -1,9 +1,10 @@
 import { Button } from "@/components/home";
 import Image from "next/image";
-import photo from "@/assets/Group 3.png";
+import photo from "@/assets/article-demo.png";
 import { FeatureList } from "./_components/feature-list";
 import { Hero } from "./_components/hero";
 import gradient from "@/assets/contribute-gradient.png";
+import { WindowFrame } from "@aom/ui";
 
 export default function Home() {
   return (
@@ -27,9 +28,11 @@ export default function Home() {
         <Button variant={"neutral"} className="block mx-auto mb-5 ">
           Get started
         </Button>
-        <figure className="mx-auto w-fit ">
-          <Image src={photo} alt={""} />
-        </figure>
+        <WindowFrame classNames={{ body: "p-0" }} className="mx-auto w-2/4 ">
+          <figure className="relative aspect-video">
+            <Image src={photo} alt={""} fill className="object-cover" />
+          </figure>
+        </WindowFrame>
       </section>
       <section className="py-20 relative flex flex-col items-center gap-6 from-primary-800 to-neutral-900 text-white">
         <img src={gradient.src} loading="lazy" className="absolute top-0 left-0 w-full h-full object-fill" />

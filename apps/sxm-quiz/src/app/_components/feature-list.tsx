@@ -97,9 +97,9 @@ export function FeatureList() {
                 </span>
               </Title>
               <p style={{ width: "calc(36ch, 90%, 72ch)" }} className="text-lg leading-relaxed">
-                We believe in catering to diverse interests. That's why our quiz app covers a wide range of
-                topics related to Saint Martin. Explore the facets of Saint Martin that intrigue you the most
-                and dive deep into its rich tapestry of information.
+                We believe in catering to diverse interests. That&apos;s why our quiz app covers a wide range
+                of topics related to Saint Martin. Explore the facets of Saint Martin that intrigue you the
+                most and dive deep into its rich tapestry of information.
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@ export function FeatureList() {
                 </span>{" "}
               </Title>
               <p style={{ width: "calc(36ch, 90%, 72ch)" }} className="text-lg leading-relaxed">
-                Variety is the spice of life, and we've made sure to sprinkle it generously in our app.
+                Variety is the spice of life, and we&apos;ve made sure to sprinkle it generously in our app.
                 Challenge yourself with a mix of quiz formats, including multiple choice, true or false, fill
                 in the blanks, and more. Each quiz presents a unique set of questions, keeping you engaged and
                 motivated throughout your learning journey.

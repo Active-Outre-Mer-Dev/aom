@@ -1,6 +1,6 @@
 "use client";
 import { Title } from "@aom/ui";
-import { randomFacts as facts } from "@/data-lists.json";
+import data from "@/data-lists.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -55,7 +55,7 @@ export function RandomFacts() {
     return pause;
   }, []);
   const [direction, current] = value;
-  const fact = facts[current];
+  const fact = data.randomFacts[current];
 
   const next = () => {
     slide(1);
@@ -64,8 +64,8 @@ export function RandomFacts() {
   const slide = (direction: number) => {
     setValue(([, cur]) => {
       let nextValue = cur + direction;
-      if (direction === 1 && nextValue >= facts.length) nextValue = 0;
-      if (direction === -1 && nextValue < 0) nextValue = facts.length - 1;
+      if (direction === 1 && nextValue >= data.randomFacts.length) nextValue = 0;
+      if (direction === -1 && nextValue < 0) nextValue = data.randomFacts.length - 1;
       return [direction, nextValue];
     });
   };

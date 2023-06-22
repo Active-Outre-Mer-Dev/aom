@@ -78,9 +78,10 @@ function FramerTab() {
         className="text-neutral-800 dark:text-neutral-100 w-2/4"
       >
         <UiTabs.List>
-          {values.map(tab => {
+          {values.map((tab, key) => {
+            const last = key === values.length - 1;
             return (
-              <UiTabs.Trigger customBg value={tab.value}>
+              <UiTabs.Trigger disabled={last} customBg value={tab.value}>
                 {active === tab.value && (
                   <motion.div
                     layoutId="tab-bg"

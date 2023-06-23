@@ -23,6 +23,7 @@ export function Filters(props: PropTypes) {
       <div className="flex gap-4 items-center">
         <Select
           aria-label="Filter by category"
+          key={props.search}
           defaultValue={props.search}
           onValueChange={onChange}
           items={[

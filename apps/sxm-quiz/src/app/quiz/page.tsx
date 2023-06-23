@@ -21,25 +21,10 @@ export default function Page({ searchParams }: PageProps) {
     : allQuizzes.all;
   return (
     <>
-      <section className="bg-gradient-to-r from-primary-500 to-primary-200 h-96 text-white relative flex items-center justify-center">
-        <Title className="font-heading mb-4 text-center text-white" order={1}>
-          Explore all of our quizzes
+      <section id="quiz-section" className="container   mx-auto mt-20 mb-20">
+        <Title order={1} className="capitalize mb-10 text-5xl font-heading font-medium">
+          {topic ? topic : "all"} Quizzes
         </Title>
-        <div className="custom-shape-divider-bottom-1684197028">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"
-              className="shape-fill"
-            ></path>
-          </svg>
-        </div>
-      </section>
-      <section id="quiz-section" className="container   mx-auto pt-20 mb-20">
         <Filters search={topic || undefined} />
         <div className="grid gap-4 grid-cols-3">
           {filteredQuizzes.map((quiz, key) => {
@@ -76,39 +61,42 @@ function QuizCard(props: PropTypes) {
   const isQuestionBased = props.type === "question";
   return (
     <>
-      <Card className="relative" style={{ backgroundColor: "white" }}>
-        <div className="flex justify-between items-center mb-2">
-          <Title order={3} className="font-heading">
-            {props.title}
-          </Title>
-          <div
-            className={`font-heading font-medium text-lg rounded-full
+      <Card className="relative flex flex-col justify-between">
+        <div>
+          <div className="flex justify-between items-center mb-2">
+            <Title order={2} className="font-heading font-medium text-2xl">
+              {props.title}
+            </Title>
+            <div
+              className={`font-heading font-medium text-lg rounded-full
            flex items-center justify-center h-10 w-10 ${scoreColor}`}
-          >
-            {props.score ? props.score : <span className="h-[1px] w-1/4 bg-neutral-600"></span>}
+            >
+              {props.score ? props.score : <span className="h-[1px] w-1/4 bg-neutral-600"></span>}
+            </div>
           </div>
         </div>
 
-        <p className="mb-4">
-          Eiusmod proident exercitation enim dolor cupidatat sint fugiat excepteur eiusmod occaecat
-          reprehenderit.
-        </p>
-        <span className="text-sm text-neutral-500 inline-block mb-4">
-          {isQuestionBased && (
-            <>
-              {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
-            </>
-          )}
-          <Badge color={color}>{props.category}</Badge>
-        </span>
-        <div className="flex gap-2">
-          <Link
-            className={buttonStyles({ size: "sm" })}
-            href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}
-          >
-            Take quiz
-          </Link>
-          <DetailsWrapper badgeColor={color} {...props} />
+        <p className="mb-4">{props.description}</p>
+        <div className="">
+          <span className="text-sm text-gray-600 block mb-4 ">
+            {isQuestionBased ? (
+              <>
+                {props.questions.length} {props.questions.length > 1 ? "questions" : "question"} -{" "}
+              </>
+            ) : (
+              <>{props.options.length} options - </>
+            )}
+            <Badge color={color}>{props.category}</Badge>
+          </span>
+          <div className="flex gap-2">
+            <Link
+              className={buttonStyles({ size: "sm" })}
+              href={`/quiz/${props.title.toLowerCase().replaceAll(" ", "-")}`}
+            >
+              Take quiz
+            </Link>
+            <DetailsWrapper badgeColor={color} {...props} />
+          </div>
         </div>
       </Card>
     </>

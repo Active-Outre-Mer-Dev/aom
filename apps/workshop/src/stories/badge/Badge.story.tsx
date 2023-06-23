@@ -24,3 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = { args: { color: "primary" } };
+
+export const StatusBadge: Story = {
+  args: { variant: "status" }
+};

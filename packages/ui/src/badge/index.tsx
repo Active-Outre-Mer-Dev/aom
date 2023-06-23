@@ -7,10 +7,16 @@ import type { ComponentPropsWithRef } from "react";
 export type BadgeProps = ComponentPropsWithRef<"div"> & VariantProps<typeof badgeStyles>;
 
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  ({ className, color, fullWidth, size, ...props }, ref) => {
-    const classes = badgeStyles({ className, color, fullWidth, size });
+  ({ className, color, fullWidth, size, variant, ...props }, ref) => {
+    const classes = badgeStyles({ className, color, fullWidth, size, variant });
     return (
-      <div {...props} ref={ref} className={twMerge(classes)}>
+      <div
+        {...props}
+        data-color={color || "primary"}
+        data-variant={variant}
+        ref={ref}
+        className={twMerge(classes)}
+      >
         {props.children}
       </div>
     );

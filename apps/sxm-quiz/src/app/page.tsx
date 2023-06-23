@@ -34,10 +34,18 @@ export default function Home() {
           </figure>
         </WindowFrame>
       </section>
-      <section className="py-20 relative flex flex-col items-center gap-6 from-primary-800 to-neutral-900 text-white">
-        <img src={gradient.src} loading="lazy" className="absolute top-0 left-0 w-full h-full object-fill" />
-        <h2 className="text-center text-5xl font-medium  font-heading relative">Become a contributor</h2>
-        <p className="text-center relative text-lg" style={{ width: "clamp(36ch, 90%, 50ch)" }}>
+      <section className="py-20 relative flex flex-col items-center gap-6 bg-neutral-900 text-white">
+        <Image src={gradient.src} alt={""} fill sizes={"100vw"} quality={100} className=" object-cover" />
+        <h2
+          className={`text-center text-6xl font-medium  font-heading relative bg-gradient-to-b 
+        from-white to-gray-200 bg-clip-text text-transparent`}
+        >
+          Become a contributor
+        </h2>
+        <p
+          className="text-center relative text-2xl text-gray-100"
+          style={{ width: "clamp(36ch, 90%, 50ch)" }}
+        >
           Have some knowledge you&apos;d like to share with the island? Look no further! Become a contributor
           today and join our community!
         </p>

@@ -33,7 +33,7 @@ export const WindowFrame = forwardRef<HTMLDivElement, PropTypes>((props, ref) =>
         {props.heading && (
           <p
             className={`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4
-           text-neutral-700 text-sm dark:text-neutral-200`}
+           text-gray-700 text-sm dark:text-gray-200`}
           >
             {props.heading}
           </p>

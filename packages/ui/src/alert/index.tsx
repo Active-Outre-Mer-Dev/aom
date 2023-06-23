@@ -1,15 +1,16 @@
 import { forwardRef } from "react";
-import { alertStyles } from "./styles";
+import { alertStyles, bodyStyles } from "./styles";
 import { twMerge } from "tailwind-merge";
 import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";
 
 export type AlertProps = ComponentPropsWithRef<"div"> &
-  VariantProps<typeof alertStyles> & { icon?: React.ReactNode };
+  VariantProps<typeof alertStyles> & { icon?: React.ReactNode; classNames?: { body?: string } };
 
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ({ className, color, title, icon, ...props }, ref) => {
     const classes = alertStyles({ className, color });
+    const bodyClasses = bodyStyles({ color, title: Boolean(title), className: props.classNames?.body });
     return (
       <div ref={ref} role="alert" {...props} className={twMerge(classes)}>
         {icon ? (
@@ -34,10 +35,12 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
             </svg>
           </div>
         )}
-        <div className={"col-span-11"}>
-          {title ? <h5 className="font-semibold grow text-lg block">{title}</h5> : null}
-        </div>
-        <span className={"row-start-2  col-start-2 col-span-11"}>{props.children}</span>
+        {title ? (
+          <div className={"col-span-11"}>
+            <h5 className="font-medium grow text-lg block">{title}</h5>
+          </div>
+        ) : null}
+        <span className={twMerge(bodyClasses)}>{props.children}</span>
       </div>
     );
   }

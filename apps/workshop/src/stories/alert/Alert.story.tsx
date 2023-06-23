@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { IconInfoCircle } from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 import { Alert as UiAlert } from "@aom/ui";
 import { parameters } from "../../parameters";
 
@@ -22,3 +22,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Alert: Story = {};
+
+export const CustomIcon: Story = {
+  args: { icon: <IconCheck size={16} /> }
+};

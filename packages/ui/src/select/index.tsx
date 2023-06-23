@@ -93,8 +93,8 @@ function Group(props: RadixSelect.SelectGroupProps & { label: string }) {
     <>
       <RadixSelect.Group>
         <RadixSelect.Label
-          className={`px-[25px] text-xs leading-[25px] dark:text-neutral-300 
-        text-neutral-500`}
+          className={`px-[25px] text-xs leading-[25px] dark:text-gray-300 
+        text-gray-500`}
         >
           {props.label}
         </RadixSelect.Label>

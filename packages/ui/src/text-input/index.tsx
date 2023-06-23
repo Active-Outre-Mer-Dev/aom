@@ -25,7 +25,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           aria-describedby={`${inputId}-description`}
           className={cx(
             `appearance-none relative  outline-none w-full bg-transparent h-full inline-block
-          placeholder:dark:text-neutral-600 placeholder:text-neutral-400`,
+          placeholder:dark:text-gray-600 placeholder:text-gray-400`,
             icon ? "pl-8" : "pl-2"
           )}
         />

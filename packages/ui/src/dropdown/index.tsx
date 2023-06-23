@@ -12,10 +12,10 @@ const itemStyles = cva(
         data-[highlighted]:dark:bg-warn-600/30`,
         error: `text-error-600 dark:text-error-200 
         data-[highlighted]:bg-error-200/30 data-[highlighted]:dark:bg-error-600/30`,
-        default: `dark:text-neutral-100 text-neutral-900  
-      data-[disabled]:text-neutral-200 data-[highlighted]:bg-primary-200/30 
+        default: `dark:text-gray-100 text-gray-900  
+      data-[disabled]:text-gray-200 data-[highlighted]:bg-primary-200/30 
       data-[highlighted]:text-primary-600 data-[highlighted]:dark:text-primary-200
-      data-[disabled]:dark:text-neutral-500 data-[highlighted]:dark:bg-primary-600/30`
+      data-[disabled]:dark:text-gray-500 data-[highlighted]:dark:bg-primary-600/30`
       }
     },
     defaultVariants: {
@@ -36,10 +36,10 @@ function Item({ icon, rightSection, color, className, ...props }: DropdownItemPr
       {props.children}
       {rightSection ? (
         <div
-          className={`ml-auto pl-[20px] text-neutral-400 group-data-[highlighted]:text-primary-300 
+          className={`ml-auto pl-[20px] text-gray-400 group-data-[highlighted]:text-primary-300 
           group-data-[highlighted]:dark:text-primary-400
-            group-data-[disabled]:dark:text-neutral-600 dark:text-neutral-500 
-            group-data-[disabled]:text-neutral-200`}
+            group-data-[disabled]:dark:text-gray-600 dark:text-gray-500 
+            group-data-[disabled]:text-gray-200`}
         >
           {rightSection}
         </div>
@@ -81,18 +81,15 @@ function Label(props: RadixDropdown.DropdownMenuLabelProps) {
   return (
     <RadixDropdown.Label
       {...props}
-      className={`text-xs h-5 dark:text-neutral-300 font-medium
-   flex items-center text-neutral-500 mb-[2px] px-[5px] relative pl-[25px]`}
+      className={`text-xs h-5 dark:text-gray-300 font-medium
+   flex items-center text-gray-500 mb-[2px] px-[5px] relative pl-[25px]`}
     />
   );
 }
 
 function Separator(props: RadixDropdown.DropdownMenuSeparatorProps) {
   return (
-    <RadixDropdown.Separator
-      {...props}
-      className="h-[1px] dark:bg-neutral-700 bg-neutral-100 my-[5px]"
-    />
+    <RadixDropdown.Separator {...props} className="h-[1px] dark:bg-neutral-700 bg-neutral-100 my-[5px]" />
   );
 }
 

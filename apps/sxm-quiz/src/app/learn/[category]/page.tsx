@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { category: string } }) {
         {params.category} Articles
       </Title>
       <section className="container mx-auto mb-36">
-        <Articles category={params.category} amount={9} type="history" title="Featured" />
+        <Articles category={params.category} title="Featured" />
       </section>
     </div>
   );

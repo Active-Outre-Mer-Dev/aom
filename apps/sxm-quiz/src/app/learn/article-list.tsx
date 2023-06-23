@@ -2,20 +2,19 @@ import { Title, Badge } from "@aom/ui";
 import Image from "next/image";
 import { getCatColor } from "@/get-category-color";
 import { Select } from "./client";
-import pixel from "@/assets/sxm2.jpg";
 import profile from "@/assets/agis.jpg";
 import Link from "next/link";
+import { getAllMetadata } from "@/lib/get-content";
+
 import type { QuestionCategory } from "@/questions";
 
 type PropTypes = {
   title: "Community" | "Featured" | "Recently added" | "All";
-  type: QuestionCategory;
-  amount?: number;
   category: string;
 };
 
-export function Articles({ title, type, amount, category }: PropTypes) {
-  const articles = Array(amount ?? 3).fill(null);
+export function Articles({ title, category }: PropTypes) {
+  const articles = getAllMetadata();
 
   return (
     <>
@@ -33,15 +32,16 @@ export function Articles({ title, type, amount, category }: PropTypes) {
             />
           </div>
         )}
-        {articles.map((_, key) => {
+        {articles.map((article, key) => {
+          const { metadata } = article.data;
           return (
-            <Link href={`/learn/${category}/sxm-history`} key={key} className="overflow-hidden group">
+            <Link href={`/learn/${category}/${article.slug}`} key={key} className="overflow-hidden group">
               <figure
                 className={`rounded-xl overflow-hidden h-36 mb-4 px-2 relative flex items-center 
               justify-center  `}
               >
                 <Image
-                  src={pixel}
+                  src={metadata.thumbnail}
                   fill
                   alt=""
                   className=" object-cover group-hover:scale-110 duration-200 ease-out"
@@ -52,12 +52,9 @@ export function Articles({ title, type, amount, category }: PropTypes) {
                 className={`relative group-hover:text-primary-500 font-medium capitalize font-heading mb-4
                 duration-200 ease-out`}
               >
-                Intro to SXM {type}
+                {metadata.title}
               </Title>
-              <p className="mb-4">
-                Sit commodo reprehenderit mollit ullamco eiusmod est cupidatat esse exercitation ut. Nostrud
-                cupidatat ullamco aute elit nisi eiusmod elit.
-              </p>
+              <p className="mb-4">{metadata.intro}</p>
               <div className="flex justify-between items-end">
                 <div className="flex items-center gap-4">
                   <img
@@ -68,11 +65,13 @@ export function Articles({ title, type, amount, category }: PropTypes) {
                     alt={""}
                   />
                   <div>
-                    <span className="block text-sm font-medium">Agis Carty</span>
+                    <span className="block text-sm font-medium">{metadata.author}</span>
                     <span className="block text-sm text-neutral-600">{new Date().toDateString()}</span>
                   </div>
                 </div>
-                <Badge color={getCatColor(type)}>{type}</Badge>
+                <Badge className="capitalize" color={getCatColor(metadata.type as QuestionCategory)}>
+                  {metadata.type}
+                </Badge>
               </div>
             </Link>
           );

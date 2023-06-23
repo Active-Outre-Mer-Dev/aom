@@ -1,7 +1,7 @@
 ---
 title: SXM History Intro
 author: Agis Carty
-type: History
+type: history
 intro: Saint Martin is an island with a very rich history. In this article, We will be covering basics of Saint Martin's most impactful historical events.
 thumbnail: /sxm2.jpg
 ---

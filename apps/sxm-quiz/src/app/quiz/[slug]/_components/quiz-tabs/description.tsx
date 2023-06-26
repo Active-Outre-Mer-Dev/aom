@@ -2,11 +2,16 @@ import { ActionIcon, Badge, Title } from "@aom/ui";
 import { Share, ThumbsDown } from "lucide-react";
 import { ThumbsUp } from "lucide-react";
 import { useQuiz } from "../container/container.context";
-import { RelatedQuizzes } from "../related-quizzes";
+import { RelatedArticles } from "../related-articles";
 import { getCatColor } from "@/get-category-color";
 
-export function Description() {
-  const { title, category: type } = useQuiz();
+type PropTypes = {
+  count: number;
+};
+
+export function Description({ count }: PropTypes) {
+  const { title, category: type, description, average } = useQuiz();
+
   return (
     <>
       <Title order={1} className="font-heading font-medium text-2xl mb-2">
@@ -26,23 +31,20 @@ export function Description() {
           </ActionIcon>
         </div>
       </div>
-      <p className="mb-8">
-        Dolor ut culpa occaecat occaecat veniam irure reprehenderit esse dolor duis non. Ea qui incididunt
-        tempor mollit velit dolore minim ut dolore aute.
-      </p>
+      <p className="mb-8">{description}</p>
       <div className="flex justify-between">
         <div className="text-center grow">
           <span className="block text-neutral-600 font-medium text-sm mb-2">Times completed</span>
-          <span className="font-semibold font-heading text-xl">40.1k</span>
+          <span className="font-semibold font-heading text-xl">{count}</span>
         </div>
         <div className="w-[1px] bg-neutral-300" />
         <div className="text-center grow">
           <span className="block text-neutral-600 font-medium text-sm mb-2">Average score</span>
-          <span className="font-semibold font-heading text-xl">85%</span>
+          <span className="font-semibold font-heading text-xl">{average}%</span>
         </div>
       </div>
       <hr className="text-neutral-100 w-full h-[1px] my-4" />
-      <RelatedQuizzes />
+      <RelatedArticles />
     </>
   );
 }

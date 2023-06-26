@@ -5,10 +5,10 @@ const nextConfig = {
       transform: "@aom/ui/src/{{ kebabCase member }}",
       skipDefaultConversion: true
     }
+  },
+  experimental: {
+    serverActions: true
   }
-  // experimental: {
-  //   serverActions: true
-  // }
 };
 
 module.exports = nextConfig;

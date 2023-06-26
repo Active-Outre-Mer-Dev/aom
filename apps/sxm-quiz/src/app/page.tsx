@@ -6,7 +6,7 @@ import { Hero } from "./_components/hero";
 import gradient from "@/assets/contribute-gradient.png";
 import { WindowFrame } from "@aom/ui";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Hero />

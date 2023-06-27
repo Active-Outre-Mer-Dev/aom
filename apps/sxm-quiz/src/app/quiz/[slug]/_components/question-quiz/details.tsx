@@ -66,9 +66,9 @@ function Options({ answer, choice, options, description }: Props) {
                   size={"sm"}
                   variant={"neutral"}
                   className="text-neutral-800"
-                  onClick={() => setShow(true)}
+                  onClick={() => setShow(prev => !prev)}
                 >
-                  Show answer
+                  {show ? "Hide answer" : "Show answer"}
                 </Button>
               )}
             </span>{" "}

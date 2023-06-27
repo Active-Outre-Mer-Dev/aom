@@ -9,18 +9,29 @@ import { getAllMetadata } from "@/lib/get-content";
 import type { QuestionCategory } from "@/questions";
 
 type PropTypes = {
-  title: "Community" | "Featured" | "Recently added" | "All";
+  title?: "Community" | "Featured" | "Recently added" | "All";
   category: string;
+  type?: string;
 };
 
-export function Articles({ title, category }: PropTypes) {
-  const articles = getAllMetadata();
+export function Articles({ title, category, type }: PropTypes) {
+  const articles = type
+    ? getAllMetadata().filter(({ data }) => data.metadata.type === type)
+    : getAllMetadata();
 
   return (
     <>
-      <Title order={2} className="font-heading mb-10">
-        {title} articles
-      </Title>
+      {title && (
+        <Title order={2} className="font-heading mb-10">
+          {title} articles
+        </Title>
+      )}
+
+      {articles.length === 0 && (
+        <Title order={2} className="font-heading mb-10">
+          Coming soon
+        </Title>
+      )}
       <div className="grid lg:grid-cols-3 gap-x-8 gap-y-16">
         {title === "All" && (
           <div className="col-span-full">
@@ -66,7 +77,7 @@ export function Articles({ title, category }: PropTypes) {
                   />
                   <div>
                     <span className="block text-sm font-medium">{metadata.author}</span>
-                    <span className="block text-sm text-neutral-600">{new Date().toDateString()}</span>
+                    <span className="block text-sm text-neutral-600">{metadata.creationDate}</span>
                   </div>
                 </div>
                 <Badge className="capitalize" color={getCatColor(metadata.type as QuestionCategory)}>

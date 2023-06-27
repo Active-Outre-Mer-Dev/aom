@@ -1,11 +1,12 @@
-import { ActionIcon } from "./client";
 import { Title } from "@aom/ui";
-import { Bookmark, Share, ExternalLink } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 import profile from "@/assets/agis.jpg";
 import pixel2 from "@/assets/pixel.jpg";
 import { TableOfContents } from "./toc";
 import { generateContent, getAllMetadata } from "@/lib/get-content";
 import { notFound } from "next/navigation";
+import { ShareButton } from "./share-article";
+import { ExternalLink } from "./external-link";
 
 export function generateStaticParams() {
   const slugs = getAllMetadata()!.map(({ slug }) => ({ slug }));
@@ -26,6 +27,7 @@ export default async function Page({ params }: { params: { slug: string; categor
       : "text-tertiary-600";
   return (
     <>
+      <ExternalLink />
       <div className="flex gap-2 w-4/6 items-center border-b border-neutral-200 pb-5 mb-10">
         <span className="text-3xl font-medium text-neutral-900">Articles</span>
         <span className="h-10 w-[2px] bg-neutral-900" />
@@ -39,14 +41,7 @@ export default async function Page({ params }: { params: { slug: string; categor
                 <h1 id={"intro"} className={"text-4xl leading-none font-medium font-heading"}>
                   {metadata.title}
                 </h1>
-                <div className="gap-2 flex">
-                  <ActionIcon aria-label="Bookmark" color={"secondary"} size={"lg"}>
-                    <Bookmark aria-hidden="true" size={"50%"} />
-                  </ActionIcon>
-                  <ActionIcon aria-label="Share" color={"primary"} size={"lg"}>
-                    <Share aria-hidden="true" size={"50%"} />
-                  </ActionIcon>
-                </div>
+                <ShareButton title={metadata.title} />
               </header>
               <p style={{ width: "clamp(36ch, 90%, 75ch)" }} className="text-lg mb-4">
                 {metadata.intro}
@@ -68,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string; categor
                     href={"https://github.com/bluepnwage"}
                     className="text-primary-500 flex items-center"
                   >
-                    Github <ExternalLink size={16} className="inline-block ml-2" />
+                    Github <ExternalLinkIcon size={16} className="inline-block ml-2" />
                   </a>
                 </div>
               </div>
@@ -80,14 +75,14 @@ export default async function Page({ params }: { params: { slug: string; categor
               dangerouslySetInnerHTML={{ __html: content }}
             ></div>
           </article>
-          <div className="space-y-10">
+          {/* <div className="space-y-10">
             <Title order={2} className="font-medium font-heading mb-6">
               Related Articles
             </Title>
             <RelatedArticles />
             <RelatedArticles />
             <RelatedArticles />
-          </div>
+          </div> */}
         </div>
         <TableOfContents headings={headings} />
       </div>

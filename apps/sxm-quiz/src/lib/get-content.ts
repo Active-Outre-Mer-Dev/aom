@@ -30,7 +30,7 @@ export function getAllMetadata() {
 
 function getCreationDate(file: string) {
   const stat = fs.statSync(path.join(contentFolder, file));
-  return format("PP")(stat.birthtime);
+  return format("PP")(stat.mtime);
 }
 
 function getMetadata(fileData: string, file: string) {

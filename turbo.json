@@ -8,7 +8,12 @@
     },
     "sxm-quiz#build": {
       "dependsOn": ["^build"],
-      "env": ["SUPABASE_SERVICE_KEY", "NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY"],
+      "env": [
+        "SUPABASE_SERVICE_KEY",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "RESEND_API_KEY"
+      ],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},

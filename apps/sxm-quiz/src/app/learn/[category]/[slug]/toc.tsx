@@ -2,6 +2,7 @@
 import type { Heading } from "../../../../lib/get-content";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 type TOCProps = {
   headings: Heading[];
@@ -22,6 +23,7 @@ function createObserver(cb: (id: string) => void) {
 
 export function TableOfContents({ headings }: TOCProps) {
   const [activeId, setActiveId] = useState("");
+  const { slug, category } = useParams();
   useEffect(() => {
     const observer = createObserver(setActiveId);
 
@@ -49,12 +51,14 @@ export function TableOfContents({ headings }: TOCProps) {
       <div className="sticky top-20">
         <p className="font-medium text-lg mb-5">On this page</p>
         <ul className="space-y-2 mb-5">
-          <Item active={activeId === "intro"} id={"intro"}>
+          <Item slug={slug} category={category} active={activeId === "intro"} id={"intro"}>
             Intro
           </Item>
           {headings.map(heading => {
             return (
               <Item
+                category={category}
+                slug={slug}
                 key={`user-content-${heading.data.hProperties.id}`}
                 active={activeId === `user-content-${heading.data.hProperties.id}`}
                 id={`user-content-${heading.data.hProperties.id}`}
@@ -77,16 +81,18 @@ type PropTypes = {
   active: boolean;
   id: string;
   children: React.ReactNode;
+  slug: string;
+  category: string;
 };
 
-function Item({ active, children, id }: PropTypes) {
+function Item({ active, children, id, category, slug }: PropTypes) {
   return (
     <li
       data-active={active}
       className={`data-[active=true]:text-primary-500 underline-offset-2 text-neutral-700
         data-[active=true]:underline data-[active=true]:font-medium`}
     >
-      <a href={`/learn/sxm-history#${id}`}>{children}</a>
+      <a href={`/learn/${category}/${slug}#${id}`}>{children}</a>
     </li>
   );
 }

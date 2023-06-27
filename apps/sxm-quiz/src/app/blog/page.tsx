@@ -2,7 +2,6 @@ import Image from "next/image";
 import asset from "@/assets/pixel.jpg";
 import { Badge, Title } from "@aom/ui";
 import { Avatar } from "@/components/avatar";
-import { BlogList } from "./_components/blog-list";
 import { formatDate } from "@/lib/format-date";
 
 export default function Page() {
@@ -36,7 +35,6 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <BlogList />
       </div>
     </main>
   );

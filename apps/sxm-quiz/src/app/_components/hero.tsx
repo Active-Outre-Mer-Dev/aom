@@ -12,7 +12,7 @@ export function Hero() {
         className="bg-neutral-900 block  pt-10 pb-20 relative"
       >
         <Image priority src={mesh} fill alt={""} quality={100} sizes="100vw" className="object-cover  " />
-        <div className="w-3/5 text-neutral-100 mx-auto relative dark flex flex-col justify-center h-full gap-4">
+        <div className="w-11/12 lg:w-3/5 text-neutral-100 mx-auto relative dark flex flex-col justify-center h-full gap-4">
           <Link
             href={"/blog/introducing-sxm-quiz"}
             className="w-fit relative rounded-full before:absolute before:-inset-0 before:scale-x-0 before:rounded-full before:opacity-0 hover:before:opacity-100 before:bg-primary-600/40 before:blur-sm before:duration-200 before:ease-out hover:before:scale-x-100"
@@ -24,7 +24,7 @@ export function Hero() {
               Introducing SXM Quiz. <span className="text-primary-300">Read blog →</span>
             </div>
           </Link>
-          <h1 className="text-7xl text-neutral-50  mb-4 font-heading">
+          <h1 className="text-5xl lg:text-7xl text-neutral-50  mb-4 font-heading">
             <span className="bg-gradient-to-r bg-clip-text text-transparent from-primary-400 to-primary-200">
               Discover
             </span>{" "}

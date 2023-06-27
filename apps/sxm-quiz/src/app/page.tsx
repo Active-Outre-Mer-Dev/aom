@@ -17,18 +17,21 @@ export default async function Home() {
         via-primary-400 to-transparent `}
         />
         <h2
-          className={`text-center text-5xl font-medium mb-10 font-heading
+          className={`text-center text-3xl lg:text-5xl font-medium mb-10 font-heading
         bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text text-transparent `}
         >
           Unveil the essence of Saint Martin
         </h2>
-        <p className="text-center text-2xl mb-4 ">
+        <p
+          style={{ width: "clamp(36ch, 90%, 50ch)" }}
+          className="text-center mx-auto text-lg lg:text-2xl mb-4 "
+        >
           Written articles by the community to teach you everything about the island!
         </p>
         <Button variant={"neutral"} className="block mx-auto mb-5 ">
           Get started
         </Button>
-        <WindowFrame classNames={{ body: "p-0" }} className="mx-auto w-2/4 ">
+        <WindowFrame classNames={{ body: "p-0" }} className="mx-auto w-11/12 lg:w-2/4 ">
           <figure className="relative aspect-video">
             <Image src={photo} alt={""} fill className="object-cover" />
           </figure>
@@ -37,13 +40,13 @@ export default async function Home() {
       <section className="py-20 relative flex flex-col items-center gap-6 bg-neutral-900 text-white">
         <Image src={gradient.src} alt={""} fill sizes={"100vw"} quality={100} className=" object-cover" />
         <h2
-          className={`text-center text-6xl font-medium  font-heading relative bg-gradient-to-b 
+          className={`text-center text-4xl lg:text-6xl font-medium  font-heading relative bg-gradient-to-b 
         from-white to-gray-200 bg-clip-text text-transparent`}
         >
           Become a contributor
         </h2>
         <p
-          className="text-center relative text-2xl text-gray-100"
+          className="text-center relative text-lg lg:text-2xl text-gray-100"
           style={{ width: "clamp(36ch, 90%, 50ch)" }}
         >
           Have some knowledge you&apos;d like to share with the island? Look no further! Become a contributor

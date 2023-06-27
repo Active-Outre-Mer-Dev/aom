@@ -19,8 +19,8 @@ export function Filters(props: PropTypes) {
   };
 
   return (
-    <div className="flex justify-between items-center w-full mb-10">
-      <div className="flex gap-4 items-center">
+    <div className="flex justify-between items-start lg:items-center w-full mb-10">
+      <div className="flex flex-col lg:flex-row gap-4  lg:items-center">
         <Select
           aria-label="Filter by category"
           key={props.search}

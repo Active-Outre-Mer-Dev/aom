@@ -1,6 +1,8 @@
 "use client";
 import { ScrollArea, Button } from "@aom/ui";
 import { useState } from "react";
+import { useQuiz } from "../container/container.context";
+
 import type { Question } from "@/questions";
 
 type PropTypes = {
@@ -9,13 +11,20 @@ type PropTypes = {
 };
 
 export default function QuestionQuizDetails({ choices, questions }: PropTypes) {
+  const { onReset } = useQuiz();
+
   return (
     <div className="basis-3/5 grow relative">
       <ScrollArea
         style={{ height: window.screen.height - 64 - 80 - 80 || 300 }}
         className="h-96 -mr-4 pb-4 pr-4 grow"
       >
-        <p className="font-heading text-2xl font-medium mb-4 ">Details</p>
+        <div className="flex justify-between">
+          <p className="font-heading text-2xl font-medium mb-4 ">Details</p>
+          <Button onClick={onReset} size={"sm"} className="lg:hidden">
+            Try again
+          </Button>
+        </div>
         <ul className="space-y-6">
           {questions.map((value, index) => {
             const choice = choices[index];

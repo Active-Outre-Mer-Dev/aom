@@ -3,20 +3,29 @@ import asset from "@/assets/pixel.jpg";
 import { Badge, Title } from "@aom/ui";
 import { Avatar } from "@/components/avatar";
 import { formatDate } from "@/lib/format-date";
+import Link from "next/link";
 
 export default function Page() {
   return (
     <main>
-      <Title order={1} className="text-center mb-20 font-medium font-heading">
+      <Title order={1} className="text-center mb-16 lg:mb-20 font-medium font-heading">
         Blog
       </Title>
-      <div className="grid grid-cols-3 gap-x-10 gap-y-20 container mx-auto mb-36">
-        <div className="flex gap-4 col-span-full">
+      <div className="grid lg:grid-cols-3 gap-x-10 gap-y-20 w-11/12 lg:container mx-auto mb-36">
+        <Link
+          href={"/blog/introducing-sxm-quiz"}
+          className="group flex flex-col lg:flex-row gap-4 col-span-full"
+        >
           <figure className="basis-1/2 relative aspect-video rounded-md overflow-hidden">
-            <Image src={asset} className="w-full h-full" fill alt="" />
+            <Image
+              src={asset}
+              className="w-full h-full group-hover:scale-105 duration-200 ease-out"
+              fill
+              alt=""
+            />
           </figure>
           <div className="basis-1/2 grow space-y-4">
-            <Title order={2} className="mb-2 font-medium font-heading">
+            <Title order={2} className="mb-2 group-hover:text-primary-500 font-medium font-heading">
               Introducing SXM Quiz
             </Title>
             <p className="text-xl">
@@ -34,7 +43,7 @@ export default function Page() {
               <Badge color={"error"}>Product update</Badge>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </main>
   );

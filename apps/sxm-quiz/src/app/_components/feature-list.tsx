@@ -5,13 +5,13 @@ import { Suspense } from "react";
 export function FeatureList() {
   return (
     <>
-      <section className="pb-36 bg-white pt-24  relative">
-        <div className="container mx-auto flex flex-col gap-36">
-          <div className="flex gap-8">
+      <section className="pb-36 bg-white pt-16 lg:pt-24  relative">
+        <div className="w-11/12 lg:container mx-auto flex flex-col gap-20 lg:gap-36">
+          <div className="flex flex-col lg:flex-row gap-8">
             <div className="basis-1/2">
               <Title
                 order={2}
-                className="bg-gradient-to-b mb-8 text-5xl font-heading font-medium from-neutral-600 to-neutral-900 bg-clip-text text-transparent"
+                className="bg-gradient-to-b mb-8 text-4xl lg:text-5xl font-heading font-medium from-neutral-600 to-neutral-900 bg-clip-text text-transparent"
               >
                 Learn as you play
               </Title>
@@ -45,49 +45,51 @@ export function FeatureList() {
               </ul>
             </FramerWrapper>
           </div>
-          <div className="flex gap-8">
-            <FramerWrapper>
-              <div className="grid grid-cols-3 gap-x-2 gap-y-4 ">
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="basis-1/2 hidden lg:block">
+              <FramerWrapper>
+                <div className="grid lg:grid-cols-3 gap-x-2 gap-y-4 ">
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
                 </div>
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
-                </div>
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
-                </div>
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
-                </div>
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
-                </div>
-                <div className="rounded-md border border-neutral-100 p-1">
-                  <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
-                  <Skeleton rounded className="h-2 w-4/5 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/4 mb-1" />
-                  <Skeleton rounded className="h-2 w-2/3 mb-1" />
-                </div>
-              </div>
-            </FramerWrapper>
+              </FramerWrapper>
+            </div>
             <div className="basis-1/2">
-              <Title order={2} className=" mb-8 text-5xl font-heading font-medium ">
+              <Title order={2} className=" mb-8 text-4xl lg:text-5xl font-heading font-medium ">
                 <span className="bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text text-transparent">
                   Multiple Topics,
                 </span>{" "}
@@ -102,10 +104,52 @@ export function FeatureList() {
                 most and dive deep into its rich tapestry of information.
               </p>
             </div>
+            <div className="basis-1/2  lg:hidden">
+              <FramerWrapper>
+                <div className="grid lg:grid-cols-3 gap-x-2 gap-y-4 ">
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                  <div className="hidden lg:block rounded-md border border-neutral-100 p-1">
+                    <p className="font-medium text-xl font-heading mb-4">SXM Geography</p>
+                    <Skeleton rounded className="h-2 w-4/5 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/4 mb-1" />
+                    <Skeleton rounded className="h-2 w-2/3 mb-1" />
+                  </div>
+                </div>
+              </FramerWrapper>
+            </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col lg:flex-row gap-4">
             <div className="basis-1/2">
-              <Title order={2} className=" mb-8 text-5xl font-heading font-medium ">
+              <Title order={2} className=" mb-8 text-4xl lg:text-5xl font-heading font-medium ">
                 <span className="bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text text-transparent">
                   Variety of quizzes
                 </span>{" "}
@@ -132,7 +176,7 @@ type PropTypes = {
 
 function FramerWrapper(props: PropTypes) {
   return (
-    <div className="basis-1/2 relative ">
+    <div className=" basis-1/2 relative ">
       <div className="absolute inset-0 blur-md bg-neutral-200"></div>
       <WindowFrame className="relative h-full">{props.children}</WindowFrame>
     </div>

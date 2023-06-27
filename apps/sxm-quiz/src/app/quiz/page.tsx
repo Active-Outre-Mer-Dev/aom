@@ -21,12 +21,12 @@ export default function Page({ searchParams }: PageProps) {
     : allQuizzes.all;
   return (
     <>
-      <section id="quiz-section" className="container   mx-auto mt-20 mb-20">
-        <Title order={1} className="capitalize mb-10 text-5xl font-heading font-medium">
+      <section id="quiz-section" className="w-11/12 lg:container   mx-auto mt-16 lg:mt-20 mb-20">
+        <Title order={1} className="capitalize mb-10 text-4xl lg:text-5xl font-heading font-medium">
           {topic ? topic : "all"} Quizzes
         </Title>
         <Filters search={topic || undefined} />
-        <div className="grid gap-4 grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           {filteredQuizzes.map((quiz, key) => {
             // const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
             return <QuizCard {...quiz} key={key} />;

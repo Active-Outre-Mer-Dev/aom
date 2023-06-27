@@ -7,17 +7,17 @@ import asset from "@/assets/pixel.jpg";
 export default function Page() {
   return (
     <>
-      <div className="flex gap-2 w-3/6 mx-auto mt-20 items-center border-b border-neutral-200 pb-5 mb-10">
+      <div className="flex gap-2 w-11/12 lg:w-3/6 mx-auto mt-10 lg:mt-20 items-center border-b border-neutral-200 pb-5 mb-10">
         <span className="text-2xl font-medium text-neutral-900">Blogs</span>
         <span className="h-10 w-[2px] bg-neutral-900" />
         <span className={`text-error-600 font-medium text-2xl capitalize`}>Product update</span>
       </div>
-      <div className="mb-36 flex gap-7 w-3/6 mx-auto">
+      <div className="mb-16 lg:mb-36 flex gap-7 w-11/12 lg:w-3/6 mx-auto">
         <div>
-          <article className="mb-16">
+          <article className="lg:mb-16">
             <div className="mb-10">
               <header className="flex items-center justify-between mb-4">
-                <h1 id={"intro"} className={"text-6xl leading-none font-medium font-heading"}>
+                <h1 id={"intro"} className={"text-4xl mb-5 lg:text-6xl leading-none font-medium font-heading"}>
                   Introducing SXM Quiz
                 </h1>
                 <div className="gap-2 flex">

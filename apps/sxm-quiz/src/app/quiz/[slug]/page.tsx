@@ -36,7 +36,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <main style={{ minHeight: "calc(100vh - 64px - 80px)" }} className="flex gap-5 w-4/5 mx-auto mt-5 mb-36">
+    <main
+      style={{ minHeight: "calc(100vh - 64px - 80px)" }}
+      className="flex gap-5 w-11/12 lg:w-4/5 mx-auto mt-5 mb-16 lg:mb-36"
+    >
       <Container
         relatedArticles={quizGame.relatedArticles}
         update={update}

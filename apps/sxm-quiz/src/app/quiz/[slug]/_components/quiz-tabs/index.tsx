@@ -6,10 +6,10 @@ import { useQuiz } from "../container/container.context";
 import { Feedback } from "./feedback";
 
 type PropTypes = {
-  count:number
-}
+  count: number;
+};
 
-export function QuizTabs({count}:PropTypes) {
+export function QuizTabs({ count }: PropTypes) {
   const { complete, tab, onTabChange } = useQuiz();
   return (
     <Tabs>
@@ -22,7 +22,7 @@ export function QuizTabs({count}:PropTypes) {
           <Tabs.Trigger value="feedback">Feedback</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content noPadding value="description">
-          <Description count={count}/>
+          <Description count={count} />
         </Tabs.Content>
         <Tabs.Content value="summary">
           <SummaryResult />

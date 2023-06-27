@@ -12,21 +12,21 @@ export default function Page() {
         </Title>
         <p className="text-2xl text-center text-neutral-600">For Saint Martiners, by Saint Martiners</p>
       </section>
-      <section className="container mx-auto mb-36">
+      <section className="w-11/12 lg:container mx-auto mb-36">
         <Articles category="history" title="Featured" />
       </section>
-      <section className="container mx-auto mb-36">
+      <section className="w-11/12 lg:container mx-auto mb-36">
         <Articles category="history" title="Recently added" />
       </section>
       <section className="mb-36">
         <RandomFacts />
       </section>
-      <section className="container mx-auto mb-36">
+      <section className="w-11/12 lg:container mx-auto mb-36">
         <Articles category="history" title="All" />
       </section>
 
       <section className="mb-36">
-        <div className="radial-gradient p-4 w-3/4 mx-auto text-primary-50  rounded-xl">
+        <div className="radial-gradient p-4 w-11/12 lg:w-3/4 mx-auto text-primary-50  rounded-xl">
           <Title order={2} className="font-heading mb-2">
             Become a contributor
           </Title>
@@ -39,7 +39,7 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="container mx-auto mb-36">
+      <section className="w-11/12 lg:container mx-auto mb-36">
         <Articles category="history" title="Community" />
       </section>
     </>

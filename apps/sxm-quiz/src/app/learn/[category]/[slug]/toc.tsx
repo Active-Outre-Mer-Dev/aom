@@ -1,5 +1,5 @@
 "use client";
-import type { Heading } from "../../../../lib/get-content";
+import type { Heading } from "@/lib/get-content";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -47,7 +47,7 @@ export function TableOfContents({ headings }: TOCProps) {
     };
   }, []);
   return (
-    <div className="basis-1/6  px-4">
+    <div className="basis-1/6  px-4 hidden lg:block">
       <div className="sticky top-20">
         <p className="font-medium text-lg mb-5">On this page</p>
         <ul className="space-y-2 mb-5">

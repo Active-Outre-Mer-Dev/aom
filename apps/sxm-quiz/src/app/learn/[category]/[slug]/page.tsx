@@ -7,6 +7,7 @@ import { generateContent, getAllMetadata } from "@/lib/get-content";
 import { notFound } from "next/navigation";
 import { ShareButton } from "./share-article";
 import { ExternalLink } from "./external-link";
+import { MobileTOC } from "./mobile-toc";
 
 export function generateStaticParams() {
   const slugs = getAllMetadata()!.map(({ slug }) => ({ slug }));
@@ -28,14 +29,14 @@ export default async function Page({ params }: { params: { slug: string; categor
   return (
     <>
       <ExternalLink />
-      <div className="flex gap-2 w-4/6 items-center border-b border-neutral-200 pb-5 mb-10">
+      <div className="flex gap-2  lg:w-4/6 items-center border-b border-neutral-200 pb-5 mb-10">
         <span className="text-3xl font-medium text-neutral-900">Articles</span>
         <span className="h-10 w-[2px] bg-neutral-900" />
         <span className={`${color} font-medium text-3xl capitalize`}>{params.category}</span>
       </div>
-      <div className="mb-36 flex gap-7">
-        <div className=" basis-4/6">
-          <article className="mb-16">
+      <div className="mb-16 lg:mb-36 flex gap-7">
+        <div className=" lg:basis-4/6">
+          <article className="lg:mb-16">
             <div className="mb-10">
               <header className="flex items-center justify-between mb-4">
                 <h1 id={"intro"} className={"text-4xl leading-none font-medium font-heading"}>
@@ -69,6 +70,7 @@ export default async function Page({ params }: { params: { slug: string; categor
               </div>
             </div>
             <img src={metadata.thumbnail} alt={""} className={"rounded-xl mb-10"} />
+            <MobileTOC headings={headings} {...params} />
             <div
               className={`prose-ul:list-disc prose-headings:font-medium prose-h2:mt-10 prose-lg prose-h2:mb-4
                prose-h2:text-3xl prose-a:text-primary-500`}

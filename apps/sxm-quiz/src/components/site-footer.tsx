@@ -4,7 +4,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-white border-t border-t-neutral-100 py-5 flex items-center justify-between">
-      <div className="container mx-auto flex items-center justify-between h-full">
+      <div className="w-11/12 lg:container mx-auto flex items-center justify-between h-full">
         <span className="text-neutral-600">
           Built by <span className="underline">AOMDev</span>, {year}
         </span>

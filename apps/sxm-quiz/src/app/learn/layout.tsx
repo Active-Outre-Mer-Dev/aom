@@ -4,7 +4,10 @@ import { LayoutGrid } from "lucide-react";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
-      <nav style={{ height: "calc(100vh - 64px)" }} className="w-1/6 p-4  space-y-6 fixed top-16 left-0">
+      <nav
+        style={{ height: "calc(100vh - 64px)" }}
+        className="w-1/6 p-4 hidden lg:block  space-y-6 fixed top-16 left-0"
+      >
         <div>
           <p className="text-lg flex items-center gap-2 text-neutral-700 font-medium mb-2">
             <LayoutGrid size={18} className="text-neutral-700" />
@@ -18,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </ul>
         </div>
       </nav>
-      <div className="ml-auto w-5/6 px-4 mt-10">{children}</div>
+      <div className="lg:ml-auto lg:w-5/6 px-4 mt-10">{children}</div>
     </main>
   );
 }

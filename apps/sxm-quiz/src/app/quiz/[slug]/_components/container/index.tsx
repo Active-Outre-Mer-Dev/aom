@@ -21,10 +21,10 @@ type PropTypes = {
 export function Container({ children, ...props }: PropTypes) {
   return (
     <ContainerProvider {...props}>
-      <Card className="basis-2/5">
+      <Card className="hidden lg:block basis-2/5">
         <QuizTabs count={props.count} />
       </Card>
-      <Card className="basis-3/5 ">{children}</Card>
+      <Card className="basis-full lg:basis-3/5 ">{children}</Card>
     </ContainerProvider>
   );
 }

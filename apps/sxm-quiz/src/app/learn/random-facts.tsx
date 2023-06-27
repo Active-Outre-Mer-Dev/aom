@@ -77,7 +77,7 @@ export function RandomFacts() {
     <div
       onMouseEnter={pause}
       onMouseLeave={start}
-      className="rounded-xl overflow-hidden relative flex flex-col items-center  radial-gradient text-center h-56  p-4  mx-auto w-3/4 text-white"
+      className="rounded-xl group overflow-hidden relative flex flex-col items-center  radial-gradient text-center h-72 lg:h-56  p-4  mx-auto w-11/12 lg:w-3/4 text-white"
     >
       <Title order={2} className="font-heading ">
         Did you know?
@@ -92,20 +92,20 @@ export function RandomFacts() {
           exit={"exit"}
           className="text-primary-50 text-xl absolute -inset-0  flex items-center justify-center "
         >
-          <span className="w-3/4">{fact}</span>
+          <span className="w-11/12 lg:w-3/4">{fact}</span>
         </motion.span>
       </AnimatePresence>
 
       <button
         onClick={prev}
-        className={`absolute flex items-center justify-center bg-white h-7 w-7 rounded-full
+        className={`absolute group-hover:opacity-100 opacity-0 duration-200 ease-out flex items-center justify-center bg-white h-7 w-7 rounded-full
        text-primary-600 top-2/4 -translate-y-2/4 left-4`}
       >
         <ChevronLeft size={"75%"} />
       </button>
       <button
         onClick={next}
-        className={`absolute flex items-center justify-center bg-white h-7 w-7 rounded-full
+        className={`absolute group-hover:opacity-100 opacity-0 duration-200 ease-out flex items-center justify-center bg-white h-7 w-7 rounded-full
        text-primary-600 top-2/4 -translate-y-2/4 right-4`}
       >
         <ChevronRight size={"75%"} />

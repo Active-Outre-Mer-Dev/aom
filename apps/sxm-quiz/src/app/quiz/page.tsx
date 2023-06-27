@@ -28,8 +28,8 @@ export default function Page({ searchParams }: PageProps) {
         <Filters search={topic || undefined} />
         <div className="grid gap-4 grid-cols-3">
           {filteredQuizzes.map((quiz, key) => {
-            const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
-            return <QuizCard {...quiz} score={randomScore} key={key} />;
+            // const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
+            return <QuizCard {...quiz} key={key} />;
           })}
         </div>
       </section>

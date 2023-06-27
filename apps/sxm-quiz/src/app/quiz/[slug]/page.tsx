@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Container
         relatedArticles={quizGame.relatedArticles}
         update={update}
-        average={avg}
+        average={avg || 0}
         category={quizGame.category}
         questionCount={quizGame.type === "question" ? questions.length : quizGame.options.length}
         description={quizGame.description}

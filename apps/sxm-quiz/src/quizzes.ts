@@ -94,20 +94,20 @@ const sxmGeo = geoQuiz(
   `Embark on a quiz journey through geography in Saint Martin! 
 Dive into its captivating details, uncover hidden insights, and deepen your understanding of this 
 fascinating subject.`,
-  [{ title: "SXM History  intro", category: "history", slug: "sxm-history" }]
+  []
 );
 const sxmEco = ecoQuiz(
   "SXM Economy Intro",
   `Embark on a quiz journey through economics in Saint Martin! 
 Dive into its captivating details, uncover hidden insights, and deepen your understanding of this 
 fascinating subject.`,
-  [{ title: "SXM History  intro", category: "history", slug: "sxm-history" }]
+  []
 );
 const sxmEnv = envQuiz(
   "SXM Environment Intro",
   `Explore the environmental treasures of Saint Martin with our captivating quiz! Delve into its ecosystems,
    biodiversity, and sustainability, and deepen your connection to the island's remarkable natural environment.`,
-  [{ title: "SXM History  intro", category: "history", slug: "sxm-history" }]
+  []
 );
 const sxmGeneral = createQuestionQuiz(
   "general",
@@ -123,7 +123,7 @@ const allBeaches = listQuizPartial("geography")(
   `Get ready for the ultimate beach challenge! Test your knowledge of Saint Martin's coastline by 
   listing every captivating beach in this exciting quiz.`,
   lists.beaches,
-  [{ title: "SXM History  intro", category: "history", slug: "sxm-history" }]
+  []
 );
 
 const allQuestionQuizzes = [sxmGeneral, sxmHistory, sxmEco, sxmGeo, sxmEnv];

@@ -1,8 +1,12 @@
-import { Textarea, Button } from "@aom/ui";
+import { Textarea, Button, Alert } from "@aom/ui";
 import type { FormEvent } from "react";
 import { useQuiz } from "../container/container.context";
+import { useState } from "react";
+import { Check } from "lucide-react";
+
 export function Feedback() {
   const { title } = useQuiz();
+  const [show, setShow] = useState(false);
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -12,13 +16,24 @@ export function Feedback() {
       body: form
     });
     if (res.ok) {
-      alert("Email sent!!");
+      setShow(true);
+
+      setTimeout(() => {
+        setShow(false);
+      }, 1000 * 5);
     }
   };
   return (
-    <form className="space-y-4" onSubmit={onSubmit}>
-      <Textarea label="Write message" name="message" id="message" />
-      <Button variant={"neutral"}>Submit</Button>
-    </form>
+    <>
+      <form className="space-y-4 mb-4" onSubmit={onSubmit}>
+        <Textarea label="Write message" name="message" id="message" />
+        <Button variant={"neutral"}>Submit</Button>
+      </form>
+      {show && (
+        <Alert icon={<Check size={16} />} color={"success"}>
+          Thank you for your feedback!
+        </Alert>
+      )}
+    </>
   );
 }

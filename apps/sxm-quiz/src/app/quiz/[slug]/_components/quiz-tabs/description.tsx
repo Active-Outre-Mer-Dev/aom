@@ -1,9 +1,9 @@
 import { ActionIcon, Badge, Title } from "@aom/ui";
-import { Share, ThumbsDown } from "lucide-react";
-import { ThumbsUp } from "lucide-react";
+import { Share } from "lucide-react";
 import { useQuiz } from "../container/container.context";
 import { RelatedArticles } from "../related-articles";
 import { getCatColor } from "@/get-category-color";
+import { useParams } from "next/navigation";
 
 type PropTypes = {
   count: number;
@@ -11,6 +11,15 @@ type PropTypes = {
 
 export function Description({ count }: PropTypes) {
   const { title, category: type, description, average } = useQuiz();
+  const { slug } = useParams();
+
+  const onShare = async () => {
+    await navigator.share({
+      url: `${location.origin}/quiz/${slug}`,
+      title: `SXM Quiz - ${title}`,
+      text: description
+    });
+  };
 
   return (
     <>
@@ -19,17 +28,9 @@ export function Description({ count }: PropTypes) {
       </Title>
       <div className="flex justify-between items-end mb-6">
         <Badge color={getCatColor(type)}>{type}</Badge>
-        <div className="flex gap-2">
-          <ActionIcon variant={"subtle"} color="success" size={"md"}>
-            <ThumbsUp size={"75%"} />
-          </ActionIcon>
-          <ActionIcon variant={"subtle"} size={"md"}>
-            <ThumbsDown size={"75%"} />
-          </ActionIcon>
-          <ActionIcon variant={"subtle"} size={"md"}>
-            <Share size={"75%"} />
-          </ActionIcon>
-        </div>
+        <ActionIcon onClick={onShare} variant={"subtle"} size={"md"}>
+          <Share size={"75%"} />
+        </ActionIcon>
       </div>
       <p className="mb-8">{description}</p>
       <div className="flex justify-between">

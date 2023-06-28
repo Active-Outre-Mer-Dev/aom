@@ -1,6 +1,6 @@
 import React from "react";
 import * as RadixSelect from "@radix-ui/react-select";
-import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown, ChevronUp } from "./icons";
 import { cx } from "../cx";
 import { selectTriggerStyles } from "./styles";
 import type { VariantProps } from "cva";
@@ -19,7 +19,7 @@ export const Select = ({ items = [], placeholder, fullWidth, size, ...props }: S
         placeholder={placeholder || "Select item..."}
       />
       <RadixSelect.Icon className="text-neutral-200 w-4 h-4">
-        <ChevronDown size={"100%"} />
+        <ChevronDown />
       </RadixSelect.Icon>
     </RadixSelect.Trigger>
     <RadixSelect.Portal>
@@ -81,7 +81,7 @@ const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
           className={`absolute left-1 w-4 inline-flex 
         items-center justify-center`}
         >
-          <Check size={"100%"} />
+          <Check />
         </RadixSelect.ItemIndicator>
       </RadixSelect.Item>
     );

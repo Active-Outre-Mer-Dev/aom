@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "./icons";
 import { DayPicker } from "react-day-picker";
 import { CustomLabel } from "./caption-label";
 import format from "date-fns/format";
@@ -52,8 +52,8 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         ...classNames
       }}
       components={{
-        IconLeft: () => <ChevronLeft className="h-4 w-4 " />,
-        IconRight: () => <ChevronRight className="h-4 w-4" />,
+        IconLeft: () => <ChevronLeft />,
+        IconRight: () => <ChevronRight />,
         CaptionLabel: () => (
           <CustomLabel setMonth={setMonth}>{`${format(month, "MMMM")} ${format(month, "yyyy")}`}</CustomLabel>
         )

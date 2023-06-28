@@ -1,5 +1,4 @@
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
 import { forwardRef, useId } from "react";
 import type { ComponentPropsWithRef } from "react";
 import { Label } from "../label";
@@ -23,7 +22,19 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(({ label, .
             className={`text-primary-50 bg-primary-600
            dark:bg-primary-500 data-[state=unchecked]:opacity-0 data-[state=checked]:opacity-100`}
           >
-            <Check size={"100%"} />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={"100%"}
+              height={"100%"}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         {label ? (

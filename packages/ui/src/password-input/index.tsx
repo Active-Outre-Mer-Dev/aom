@@ -1,7 +1,7 @@
 import { useState, forwardRef, useId } from "react";
 import { InputRoot } from "../input-wrapper";
 import { cx } from "../cx";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "./icons";
 import type { ComponentPropsWithRef } from "react";
 import type { InputRootProps } from "../input-wrapper";
 
@@ -43,7 +43,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             hover:dark:bg-neutral-700/50`}
               onClick={() => setType(type === "text" ? "password" : "text")}
             >
-              {type === "password" ? <Eye size={16} /> : <EyeOff size={16} />}
+              {type === "password" ? <Eye /> : <EyeOff />}
             </button>
           </div>
         </InputRoot>

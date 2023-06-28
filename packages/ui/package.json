@@ -1,6 +1,6 @@
 {
   "name": "@aomdev/ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "exports": {
@@ -51,9 +51,6 @@
     "cmdk": "^0.2.0",
     "cva": "npm:class-variance-authority@^0.5.2",
     "date-fns": "^2.30.0",
-    "install": "^0.13.0",
-    "lucide-react": "^0.180.0",
-    "npm": "^9.6.5",
     "react-day-picker": "^8.7.1",
     "tailwind-merge": "^1.12.0"
   }

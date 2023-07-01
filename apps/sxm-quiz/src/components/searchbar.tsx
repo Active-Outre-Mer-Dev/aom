@@ -2,17 +2,15 @@
 import { Command } from "@aomdev/ui";
 import { useState, useEffect } from "react";
 import { SearchIcon, FileText, Circle } from "lucide-react";
-import { ListQuiz, QuestionQuiz } from "@/quizzes";
 import { useRouter } from "next/navigation";
+import { createSlug } from "@/create-slug";
 
-type PropTypes = {
-  quizzes: {
-    questionQuizzes: QuestionQuiz[];
-    listQuizzes: ListQuiz[];
-  };
+const defaultItems = {
+  nameAll: ["All SXM Beaches"],
+  multipleChoice: ["General History", "General Geography", "General Environment"]
 };
 
-export function Search({ quizzes }: PropTypes) {
+export function Searchbar() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
@@ -55,22 +53,24 @@ export function Search({ quizzes }: PropTypes) {
           </Command.Group>
           <Command.Seperator />
           <Command.Group heading="Question Quizzes">
-            {quizzes.questionQuizzes.map(quiz => {
+            {defaultItems.multipleChoice.map(quiz => {
+              const slug = createSlug(quiz);
               return (
-                <Command.Item value={`quiz/${quiz.slug}`} onSelect={onNavigate} key={quiz.slug}>
+                <Command.Item value={`quiz/${slug}`} onSelect={onNavigate} key={slug}>
                   <Circle size={16} className="inline-block mr-2 text-neutral-700" />
-                  {quiz.title}
+                  {quiz}
                 </Command.Item>
               );
             })}
           </Command.Group>
           <Command.Seperator />
           <Command.Group heading="List Quizzes">
-            {quizzes.listQuizzes.map(quiz => {
+            {defaultItems.nameAll.map(quiz => {
+              const slug = createSlug(quiz);
               return (
-                <Command.Item key={quiz.slug} onSelect={onNavigate} value={`quiz/${quiz.slug}`}>
+                <Command.Item key={slug} onSelect={onNavigate} value={`quiz/${slug}`}>
                   <Circle size={16} className="inline-block mr-2 text-neutral-700" />
-                  {quiz.title}
+                  {quiz}
                 </Command.Item>
               );
             })}

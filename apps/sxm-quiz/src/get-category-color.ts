@@ -1,7 +1,6 @@
-import { QuestionCategory } from "./questions";
 import type { BadgeProps } from "@aom/ui";
 
-export function getCatColor(type: QuestionCategory): BadgeProps["color"] {
+export function getCatColor(type: string): BadgeProps["color"] {
   switch (type) {
     case "economy": {
       return "primary";

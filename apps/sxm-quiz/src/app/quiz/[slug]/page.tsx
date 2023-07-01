@@ -7,53 +7,81 @@ import { cookies } from "next/headers";
 import { Database } from "@/types/database.types";
 import { notFound } from "next/navigation";
 import { revalidatePath } from "next/cache";
-
 const Quiz = lazy(() => import("./_components/question-quiz"));
 const ListQuiz = lazy(() => import("./_components/list-quiz"));
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const quizGame =
-    params.slug === "random"
-      ? allQuizzes.all[Math.floor(Math.random() * allQuizzes.all.length)]
-      : allQuizzes.all.find(({ slug }) => slug === params.slug)!;
-  const questions = quizGame.type === "question" ? randomize(quizGame.questions) : [];
-  const supabase = createServerComponentClient<Database>({ cookies });
-  const quizPromise = supabase.from("quiz").select("completed, slug").eq("slug", quizGame.slug).single();
-  const scorePromise = supabase.from("scores").select("score").eq("quiz_slug", quizGame.slug);
+type SupabaseClient = ReturnType<typeof createServerComponentClient<Database>>;
 
-  const [{ data, error }, { error: scoreError, data: scoreData }] = await Promise.all([
-    quizPromise,
-    scorePromise
-  ]);
+type PageProps = {
+  params: { slug: string };
+};
 
-  if (error || scoreError) notFound();
+async function s(supabase: SupabaseClient, id: number, type: "multiple_choice" | "list" | null) {
+  switch (type) {
+    case "multiple_choice":
+      return supabase.from("quiz_multiple_choice").select("*").eq("quiz_id", id);
 
-  const avg = scoreData ? Math.round(scoreData.reduce((a, c) => a + c.score, 0) / scoreData.length) : 0;
+    case "list": {
+      return supabase.from("quiz_name_all").select("*").eq("quiz_id", id).single();
+    }
+    default:
+      notFound();
+      break;
+  }
+}
+
+export default async function Page({ params }: PageProps) {
+  const supabase = createServerComponentClient<Database>(
+    { cookies },
+    { supabaseKey: process.env.SUPABASE_SERVICE_KEY }
+  );
+
+  const { data: quizData, error: quizError } = await supabase
+    .from("quiz")
+    .select("*, scores (quiz_id, score)")
+    .eq("slug", params.slug)
+    .eq("status", "published")
+    .single();
+
+  if (quizError) notFound();
+
+  const { data } = await s(supabase, quizData?.id, quizData.type);
+
+  const average = Array.isArray(quizData.scores)
+    ? Math.round(quizData.scores.reduce((a, c) => a + c.score, 0) / quizData.scores.length)
+    : 0;
 
   const update = async () => {
     "use server";
-    revalidatePath(`/quiz/${quizGame.slug}`);
+    revalidatePath(`/quiz/${params.slug}`);
   };
-
+  if (!data) notFound();
   return (
     <main
       style={{ minHeight: "calc(100vh - 64px - 80px)" }}
       className="flex gap-5 w-11/12 lg:w-4/5 mx-auto mt-5 mb-16 lg:mb-36"
     >
       <Container
-        relatedArticles={quizGame.relatedArticles}
-        update={update}
-        average={avg || 0}
-        category={quizGame.category}
-        questionCount={quizGame.type === "question" ? questions.length : quizGame.options.length}
-        description={quizGame.description}
-        count={data?.completed ?? 0}
-        title={quizGame.title}
-        type={quizGame.type}
+        id={quizData.id}
+        update={update ?? 0}
+        average={Number.isInteger(average) ? average : 0}
+        category={quizData.category}
+        questionCount={Array.isArray(data) ? data.length : data.options.length}
+        description={quizData.description}
+        count={quizData.completions}
+        title={quizData.title}
+        type={quizData.type}
       >
         <Suspense fallback={<p>Loading quiz...</p>}>
-          {quizGame.type === "list" && <ListQuiz options={quizGame.options} task={quizGame.task} />}
-          {quizGame.type === "question" && <Quiz questions={questions} />}
+          {"options" in data && <ListQuiz options={data.options} task={data.task} />}
+          {Array.isArray(data) && (
+            <Quiz
+              questions={data.map(question => ({
+                ...question,
+                options: randomize([...question.options, question.answer])
+              }))}
+            />
+          )}
         </Suspense>
       </Container>
     </main>

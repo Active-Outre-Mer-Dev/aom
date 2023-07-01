@@ -11,7 +11,7 @@ export function SummaryResult() {
   return (
     <div className=" basis-2/5 flex flex-col  gap-4 justify-between pr-4 py-6 -my-4">
       <Suspense fallback={<SummaryLoad />}>
-        {type === "question" ? <QuestionSummary /> : <ListSummary />}
+        {type === "multiple_choice" ? <QuestionSummary /> : <ListSummary />}
       </Suspense>
       <Button fullWidth onClick={onReset} className="block mt-5">
         Try again

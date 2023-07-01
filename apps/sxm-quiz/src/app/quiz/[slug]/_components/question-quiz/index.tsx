@@ -5,13 +5,14 @@ import { initialState, reducer } from "./reducer";
 import { useQuiz } from "../container/container.context";
 import { Suspense, lazy } from "react";
 import { QuizDetailsLoad } from "./details-load";
+import type { Database, MultipleChoice } from "@/types/database.types";
 
 const QuestionQuizDetails = lazy(() => import("./details"));
 
 import type { Question } from "@/questions";
 
 type PropTypes = {
-  questions: Question[];
+  questions: MultipleChoice[];
 };
 
 function useTimer() {
@@ -48,7 +49,7 @@ export default function Quiz(props: PropTypes) {
   const completed = state.choices.length === props.questions.length;
   const question = props.questions[state.current];
 
-  const options = !completed ? question?.options : [];
+  const options = !completed ? question.options : [];
   const progress = (state.current / props.questions.length) * 100;
 
   const onReset = () => {

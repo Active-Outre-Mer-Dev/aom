@@ -3,10 +3,10 @@ import { ScrollArea, Button } from "@aom/ui";
 import { useState } from "react";
 import { useQuiz } from "../container/container.context";
 
-import type { Question } from "@/questions";
+import type { MultipleChoice } from "@/types/database.types";
 
 type PropTypes = {
-  questions: Question[];
+  questions: MultipleChoice[];
   choices: string[];
 };
 

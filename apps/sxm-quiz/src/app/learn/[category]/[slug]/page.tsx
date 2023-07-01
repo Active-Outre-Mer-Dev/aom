@@ -8,15 +8,26 @@ import { notFound } from "next/navigation";
 import { ShareButton } from "./share-article";
 import { ExternalLink } from "./external-link";
 import { MobileTOC } from "./mobile-toc";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/database.types";
+import { formatDate } from "@/lib/format-date";
 
 export function generateStaticParams() {
   const slugs = getAllMetadata()!.map(({ slug }) => ({ slug }));
   return slugs;
 }
 
+const supabase = createClient<Database>(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_KEY!
+);
+
 export default async function Page({ params }: { params: { slug: string; category: string } }) {
   const props = await generateContent(params.slug);
-  if (props.error) notFound();
+  const { error, data } = await supabase.from("articles").select("*").eq("slug", params.slug).single();
+
+  if (props.error || error) notFound();
+
   const { content, headings, metadata, readTime } = props;
   const color =
     params.category === "history"
@@ -48,7 +59,7 @@ export default async function Page({ params }: { params: { slug: string; categor
                 {metadata.intro}
               </p>
               <span className="text-neutral-600 text-sm block mb-6">
-                {metadata.creationDate} - {readTime} min read
+                {formatDate(new Date(data.created_at))} - {readTime} min read
               </span>
               <div className="flex items-end justify-between">
                 <div className="flex items-center gap-2">

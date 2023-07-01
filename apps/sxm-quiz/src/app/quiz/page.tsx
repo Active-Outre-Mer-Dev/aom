@@ -1,5 +1,4 @@
 import { Title, Card, Badge } from "@aomdev/ui";
-import { allQuizzes } from "@/quizzes";
 import Link from "next/link";
 import { buttonStyles } from "@aomdev/ui/src/button/styles";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
@@ -31,10 +30,10 @@ export default async function Page({ searchParams }: PageProps) {
     .eq("type", "list");
   const search = new URLSearchParams(searchParams);
   const topic = search.get("topic");
-  const filteredQuizzes = topic
-    ? allQuizzes.all.filter(({ category }) => category === topic)
-    : allQuizzes.all;
   if (error || nameAllError) return <p>No quizzes</p>;
+
+  const allQuizzes = [...multipleChoice, ...nameAll];
+  const filteredQuizzes = topic ? allQuizzes.filter(({ category }) => category === topic) : allQuizzes;
 
   return (
     <>
@@ -44,7 +43,7 @@ export default async function Page({ searchParams }: PageProps) {
         </Title>
         <Filters search={topic || undefined} />
         <div className="grid gap-4 lg:grid-cols-3">
-          {[...multipleChoice, ...nameAll].map((quiz, key) => {
+          {filteredQuizzes.map(quiz => {
             // const randomScore = key === 0 ? undefined : Math.floor(Math.random() * 100);
             return <QuizCard quiz={quiz} key={quiz.id} />;
           })}

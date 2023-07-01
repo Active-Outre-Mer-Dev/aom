@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Textarea } from "@aom/ui";
+import { Textarea } from "@aomdev/ui";
 
 const meta = {
   title: "Molecules/Textarea",

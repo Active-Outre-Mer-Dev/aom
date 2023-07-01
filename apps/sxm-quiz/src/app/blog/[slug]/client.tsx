@@ -1,2 +1,2 @@
 "use client";
-export { ActionIcon } from "@aom/ui";
+export { ActionIcon } from "@aomdev/ui";

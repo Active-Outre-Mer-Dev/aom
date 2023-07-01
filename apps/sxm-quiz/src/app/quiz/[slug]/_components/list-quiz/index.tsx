@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useEffect, useReducer, useRef, useState } from "react";
-import { Button, TextInput, Card } from "@aom/ui";
+import { Button, TextInput, Card } from "@aomdev/ui";
 import { QuizProgression } from "./quiz-progress";
 import { QuizOption } from "./list-option";
 import { ListTimer } from "./list-timer";

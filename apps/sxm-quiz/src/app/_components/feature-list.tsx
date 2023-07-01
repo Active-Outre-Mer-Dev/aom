@@ -1,4 +1,4 @@
-import { Title, WindowFrame, Skeleton } from "@aom/ui";
+import { Title, WindowFrame, Skeleton } from "@aomdev/ui";
 import { QuizDemo } from "./quiz-demo";
 import { Suspense } from "react";
 

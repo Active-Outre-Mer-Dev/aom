@@ -1,6 +1,6 @@
 "use client";
 
-import { ActionIcon } from "@aom/ui";
+import { ActionIcon } from "@aomdev/ui";
 import { Share } from "lucide-react";
 import { useParams } from "next/navigation";
 

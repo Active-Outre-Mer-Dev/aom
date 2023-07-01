@@ -1,4 +1,4 @@
-import type { BadgeProps } from "@aom/ui";
+import type { BadgeProps } from "@aomdev/ui";
 
 export function getCatColor(type: string): BadgeProps["color"] {
   switch (type) {

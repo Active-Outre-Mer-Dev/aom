@@ -1,5 +1,5 @@
 import { Rocket, Timer } from "lucide-react";
-import { RingProgress } from "@aom/ui";
+import { RingProgress } from "@aomdev/ui";
 import { useQuiz } from "../container/container.context";
 
 export default function ListSummary() {

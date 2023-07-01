@@ -1,5 +1,5 @@
 "use client";
-import { ScrollArea, Button } from "@aom/ui";
+import { ScrollArea, Button } from "@aomdev/ui";
 import { useState } from "react";
 import { useQuiz } from "../container/container.context";
 

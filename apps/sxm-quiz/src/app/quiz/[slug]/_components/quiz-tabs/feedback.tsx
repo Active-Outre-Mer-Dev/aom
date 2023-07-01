@@ -1,4 +1,4 @@
-import { Textarea, Button, Alert } from "@aom/ui";
+import { Textarea, Button, Alert } from "@aomdev/ui";
 import type { FormEvent } from "react";
 import { useQuiz } from "../container/container.context";
 import { useState } from "react";

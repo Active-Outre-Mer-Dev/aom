@@ -1,5 +1,5 @@
 "use client";
-import { ActionIcon, Select } from "@aom/ui";
+import { ActionIcon, Select } from "@aomdev/ui";
 import { useRouter } from "next/navigation";
 import { Shuffle } from "lucide-react";
 import { getRandomQuiz } from "@/lib/get-random-quiz";

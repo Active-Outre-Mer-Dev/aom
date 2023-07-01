@@ -1,4 +1,4 @@
-import { Skeleton } from "@aom/ui";
+import { Skeleton } from "@aomdev/ui";
 
 const options = Array(30).fill(null);
 

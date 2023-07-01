@@ -1,4 +1,4 @@
-import { Button, Command } from "@aom/ui";
+import { Button, Command } from "@aomdev/ui";
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 

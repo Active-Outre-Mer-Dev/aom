@@ -1,4 +1,4 @@
-import { ActionIcon, Badge, Title } from "@aom/ui";
+import { ActionIcon, Badge, Title } from "@aomdev/ui";
 import { Share } from "lucide-react";
 import { useQuiz } from "../container/container.context";
 import { RelatedArticles } from "../related-articles";

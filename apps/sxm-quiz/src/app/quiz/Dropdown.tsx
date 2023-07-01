@@ -1,6 +1,6 @@
 "use client";
 import { MoreVertical, Bookmark, Share } from "lucide-react";
-import { Dropdown as UiDropdown } from "@aom/ui";
+import { Dropdown as UiDropdown } from "@aomdev/ui";
 
 export function Dropdown() {
   return (

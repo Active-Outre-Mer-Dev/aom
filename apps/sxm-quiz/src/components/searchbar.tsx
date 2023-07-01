@@ -1,5 +1,5 @@
 "use client";
-import { Command } from "@aom/ui";
+import { Command } from "@aomdev/ui";
 import { useState, useEffect } from "react";
 import { SearchIcon, FileText, Circle } from "lucide-react";
 import { ListQuiz, QuestionQuiz } from "@/quizzes";

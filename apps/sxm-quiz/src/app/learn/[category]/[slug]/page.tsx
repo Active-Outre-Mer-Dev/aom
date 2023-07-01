@@ -1,4 +1,4 @@
-import { Title } from "@aom/ui";
+import { Title } from "@aomdev/ui";
 import { ExternalLinkIcon } from "lucide-react";
 import profile from "@/assets/agis.jpg";
 import pixel2 from "@/assets/pixel.jpg";

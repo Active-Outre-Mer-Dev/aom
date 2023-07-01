@@ -2,7 +2,7 @@ import { Avatar } from "@/components/avatar";
 import Image from "next/image";
 import Link from "next/link";
 import asset from "@/assets/pixel.jpg";
-import { Title, Badge } from "@aom/ui";
+import { Title, Badge } from "@aomdev/ui";
 import { formatDate } from "@/lib/format-date";
 
 type PropTypes = {

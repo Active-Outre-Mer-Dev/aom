@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { RingProgress } from "@aom/ui";
+import { RingProgress } from "@aomdev/ui";
 
 const meta = {
   title: "Molecules/RingProgress",

@@ -1,5 +1,5 @@
 import { useAnimate } from "framer-motion";
-import { Button } from "@aom/ui";
+import { Button } from "@aomdev/ui";
 
 export function QuestionQuizDemo({ onConfetti }: { onConfetti: () => void }) {
   return (

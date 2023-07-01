@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Slider } from "@aom/ui";
+import { Slider } from "@aomdev/ui";
 
 const meta = {
   title: "Molecules/Slider",

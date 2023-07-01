@@ -1,4 +1,4 @@
-import { Button } from "@aom/ui";
+import { Button } from "@aomdev/ui";
 import { useEffect, useRef, useState } from "react";
 
 type PropTypes = {

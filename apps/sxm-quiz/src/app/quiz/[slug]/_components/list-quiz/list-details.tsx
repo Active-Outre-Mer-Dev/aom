@@ -1,4 +1,4 @@
-import { ScrollArea, Button } from "@aom/ui";
+import { ScrollArea, Button } from "@aomdev/ui";
 import { useQuiz } from "../container/container.context";
 
 type PropTypes = {

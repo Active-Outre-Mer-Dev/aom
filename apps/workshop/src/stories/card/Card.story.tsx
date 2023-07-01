@@ -1,6 +1,6 @@
-import { Card } from "@aom/ui";
+import { Card } from "@aomdev/ui";
 import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@aom/ui";
+import { Button } from "@aomdev/ui";
 
 const meta = {
   title: "Molecules/Card",

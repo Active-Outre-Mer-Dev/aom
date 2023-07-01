@@ -1,4 +1,4 @@
-import { RingProgress } from "@aom/ui";
+import { RingProgress } from "@aomdev/ui";
 import { useQuiz } from "../container/container.context";
 import { Rocket, Timer, Zap } from "lucide-react";
 

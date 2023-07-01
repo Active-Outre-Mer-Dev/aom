@@ -1,5 +1,5 @@
 "use client";
-import { Title } from "@aom/ui";
+import { Title } from "@aomdev/ui";
 import data from "@/data-lists.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TextInput, PasswordInput as UiPassword } from "@aom/ui";
+import { TextInput, PasswordInput as UiPassword } from "@aomdev/ui";
 import { IconAt } from "@tabler/icons-react";
-import { Button } from "@aom/ui";
+import { Button } from "@aomdev/ui";
 
 const meta = {
   title: "Molecules/Input",

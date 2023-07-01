@@ -1,4 +1,4 @@
-import { Skeleton } from "@aom/ui";
+import { Skeleton } from "@aomdev/ui";
 
 const questions = Array(9).fill(null);
 const options = Array(4).fill(null);

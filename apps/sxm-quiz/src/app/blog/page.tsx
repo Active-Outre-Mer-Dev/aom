@@ -1,6 +1,6 @@
 import Image from "next/image";
 import asset from "@/assets/pixel.jpg";
-import { Badge, Title } from "@aom/ui";
+import { Badge, Title } from "@aomdev/ui";
 import { Avatar } from "@/components/avatar";
 import { formatDate } from "@/lib/format-date";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 "use client";
 import { ContainerProvider } from "./container.context";
-import { Card } from "@aom/ui";
+import { Card } from "@aomdev/ui";
 import { QuizTabs } from "../quiz-tabs";
 
 type PropTypes = {

@@ -1,8 +1,8 @@
 "use client";
 import { Bookmark, X } from "lucide-react";
 import Link from "next/link";
-import { Badge, Card, Dialog } from "@aom/ui";
-import { buttonStyles } from "@aom/ui/src/button/styles";
+import { Badge, Card, Dialog } from "@aomdev/ui";
+import { buttonStyles } from "@aomdev/ui/src/button/styles";
 import { Share } from "lucide-react";
 import type { PropTypes as ContainerProps } from "./details-modals";
 import { useState } from "react";

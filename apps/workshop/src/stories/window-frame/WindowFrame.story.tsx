@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { WindowFrame } from "@aom/ui";
+import { WindowFrame } from "@aomdev/ui";
 
 const meta = { title: "Molecules/WindowFrame", component: WindowFrame } satisfies Meta<typeof WindowFrame>;
 

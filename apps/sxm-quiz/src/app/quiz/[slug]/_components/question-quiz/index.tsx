@@ -1,6 +1,6 @@
 "use client";
 import { useReducer, useState, useRef, useEffect } from "react";
-import { Button, Progress } from "@aom/ui";
+import { Button, Progress } from "@aomdev/ui";
 import { initialState, reducer } from "./reducer";
 import { useQuiz } from "../container/container.context";
 import { Suspense, lazy } from "react";

@@ -1,5 +1,5 @@
 "use client";
-import { Tabs } from "@aom/ui";
+import { Tabs } from "@aomdev/ui";
 import { Description } from "./description";
 import { SummaryResult } from "./summary";
 import { useQuiz } from "../container/container.context";

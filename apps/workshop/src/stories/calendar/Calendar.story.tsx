@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Calendar } from "@aom/ui";
+import { Calendar } from "@aomdev/ui";
 import { useState } from "react";
 
 const meta = { component: Calendar, title: "Atoms/Calendar" } satisfies Meta<typeof Calendar>;

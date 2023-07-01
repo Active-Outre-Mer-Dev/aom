@@ -1,6 +1,6 @@
 "use client";
 import json from "@/data-lists.json";
-import { Button, TextInput } from "@aom/ui";
+import { Button, TextInput } from "@aomdev/ui";
 import { useRef, useState, useEffect } from "react";
 import { ShowConfetti } from "./show-confetti";
 

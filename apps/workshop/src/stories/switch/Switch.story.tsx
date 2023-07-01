@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Switch } from "@aom/ui";
+import { Switch } from "@aomdev/ui";
 import { IconCheck } from "@tabler/icons-react";
 
 const meta = {

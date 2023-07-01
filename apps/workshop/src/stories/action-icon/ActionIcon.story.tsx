@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { ActionIcon } from "@aom/ui";
+import { ActionIcon } from "@aomdev/ui";
 import { IconCheck } from "@tabler/icons-react";
 
 const meta = {

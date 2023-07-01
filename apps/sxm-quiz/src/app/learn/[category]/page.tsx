@@ -1,4 +1,4 @@
-import { Title } from "@aom/ui";
+import { Title } from "@aomdev/ui";
 import { Articles } from "../article-list";
 const categories = ["history", "geography", "environment", "economy"];
 import { getAllMetadata } from "@/lib/get-content";

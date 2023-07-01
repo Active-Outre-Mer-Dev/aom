@@ -1,4 +1,4 @@
-import { Skeleton } from "@aom/ui";
+import { Skeleton } from "@aomdev/ui";
 export function SummaryLoad() {
   return (
     <>

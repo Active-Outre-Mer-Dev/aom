@@ -1,5 +1,5 @@
 "use client";
-import { Badge } from "@aom/ui";
+import { Badge } from "@aomdev/ui";
 import { getCatColor } from "@/get-category-color";
 import Link from "next/link";
 import { useQuiz } from "./container/container.context";

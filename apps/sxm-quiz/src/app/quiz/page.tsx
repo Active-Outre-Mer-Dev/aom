@@ -1,7 +1,7 @@
-import { Title, Card, Badge } from "@aom/ui";
+import { Title, Card, Badge } from "@aomdev/ui";
 import { allQuizzes } from "@/quizzes";
 import Link from "next/link";
-import { buttonStyles } from "@aom/ui/src/button/styles";
+import { buttonStyles } from "@aomdev/ui/src/button/styles";
 import { DetailsWrapper } from "@/components/quiz/details-modals";
 import { Filters } from "./quiz-filters";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";

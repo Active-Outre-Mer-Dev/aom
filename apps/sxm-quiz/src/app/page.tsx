@@ -4,7 +4,7 @@ import photo from "@/assets/article-demo.png";
 import { FeatureList } from "./_components/feature-list";
 import { Hero } from "./_components/hero";
 import gradient from "@/assets/contribute-gradient.png";
-import { WindowFrame } from "@aom/ui";
+import { WindowFrame } from "@aomdev/ui";
 
 export default async function Home() {
   return (

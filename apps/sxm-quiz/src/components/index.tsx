@@ -1,2 +1,2 @@
 "use client";
-export { Button, TextInput } from "@aom/ui";
+export { Button, TextInput } from "@aomdev/ui";

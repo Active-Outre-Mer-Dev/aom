@@ -1,4 +1,4 @@
-import { Button } from "@aom/ui";
+import { Button } from "@aomdev/ui";
 import { useQuiz } from "../container/container.context";
 import { Suspense, lazy } from "react";
 import { SummaryLoad } from "./summary-load";

@@ -12,9 +12,9 @@ The island of Saint-Martin is situated approximately *240 kilometers (150 miles)
 
 Saint-Martin is characterized by its beautiful coastline, featuring stunning white sandy beaches and turquoise waters. The island is renowned for its picturesque landscapes, lush hills, and scenic views. One of the most famous landmarks on the island is Pic Paradis, the highest point on Saint-Martin, reaching an elevation of 424 meters (1,391 feet). From its summit, visitors can enjoy panoramic views of the island and the surrounding Caribbean Sea.
 
-The climate of Saint-Martin is tropical, with warm temperatures throughout the year. The dry season typically runs from December to April, while the wet season occurs from May to November. **The island is susceptible to hurricanes during the Atlantic hurricane season, which lasts from June to November**.
+The climate of Saint-Martin is tropical, with warm temperatures throughout the year. The dry season typically runs from December to April, while the wet season occurs from May to November. The island is susceptible to hurricanes during the Atlantic hurricane season, which lasts from **June to November**.
 
-In terms of population, the French side of the island, Saint-Martin, has a population of around 35,000 people, while the Dutch side, Sint Maarten, has a larger population of approximately 42,000 people. **The capital and largest city on the French side is Marigot**, while on **the Dutch side, it is Philipsburg**.
+In terms of population, the French side of the island, Saint-Martin, has a population of around 35,000 people, while the Dutch side, Sint Maarten, has a larger population of approximately 42,000 people. The capital and largest city on the French side is **Marigot**, while on **the Dutch side, it is **Philipsburg**.
 
 Tourism plays a significant role in the economy of Saint-Martin, with visitors attracted to its stunning beaches, water sports activities, vibrant nightlife, and cultural diversity. The island offers a wide range of accommodations, restaurants, and entertainment options to cater to the needs of tourists.
 

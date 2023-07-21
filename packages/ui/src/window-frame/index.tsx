@@ -7,9 +7,9 @@ type PropTypes = { heading?: string; classNames?: { body?: string } } & Componen
 const className = `ring-1 ring-neutral-100 rounded-md dark:ring-neutral-700 bg-white
 dark:bg-neutral-800`;
 
-export const WindowFrame = forwardRef<HTMLDivElement, PropTypes>((props, ref) => {
+export const WindowFrame = forwardRef<HTMLDivElement, PropTypes>(({ classNames, ...props }, ref) => {
   const classes = twMerge(className, props.className);
-  const bodyClass = twMerge("px-3 py-4", props.classNames?.body);
+  const bodyClass = twMerge("px-3 py-4", classNames?.body);
   return (
     <div ref={ref} {...props} className={classes}>
       <div

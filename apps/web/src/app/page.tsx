@@ -3,6 +3,7 @@ import yalo from "@/assets/yalo-frame.png";
 import yaloLogo from "@/assets/logo.png";
 import { Cards } from "@/components/Cards";
 import { Button } from "@/components/shared";
+import { WindowFrame } from "@aomdev/ui";
 
 export default function Home() {
   return (
@@ -80,9 +81,7 @@ export default function Home() {
               <p className="text-neutral-300 text-sm">CEO of Yalography</p>
             </div>
           </div>
-          <figure className="basis-2/4">
-            <Image src={yalo} alt={""} />
-          </figure>
+          <WindowFrame className="basis-1/2">Test</WindowFrame>
         </div>
       </section>
       <section className="container mx-auto mb-52">

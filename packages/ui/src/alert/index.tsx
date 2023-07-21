@@ -8,9 +8,9 @@ export type AlertProps = ComponentPropsWithRef<"div"> &
   VariantProps<typeof alertStyles> & { icon?: React.ReactNode; classNames?: { body?: string } };
 
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, color, title, icon, ...props }, ref) => {
+  ({ className, color, title, icon, classNames, ...props }, ref) => {
     const classes = alertStyles({ className, color });
-    const bodyClasses = bodyStyles({ color, title: Boolean(title), className: props.classNames?.body });
+    const bodyClasses = bodyStyles({ color, title: Boolean(title), className: classNames?.body });
     return (
       <div ref={ref} role="alert" {...props} className={twMerge(classes)}>
         {icon ? (

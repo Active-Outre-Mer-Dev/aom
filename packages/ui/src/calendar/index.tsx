@@ -9,13 +9,13 @@ import { cx } from "../cx";
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 export function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
-  const [month, setMonth] = useState<Date>(new Date());
+  const [date, setDate] = useState<Date>(new Date());
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cx("p-3", className)}
-      month={month}
-      onMonthChange={setMonth}
+      month={date}
+      onMonthChange={setDate}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
@@ -55,7 +55,10 @@ export function Calendar({ className, classNames, showOutsideDays = true, ...pro
         IconLeft: () => <ChevronLeft />,
         IconRight: () => <ChevronRight />,
         CaptionLabel: () => (
-          <CustomLabel setMonth={setMonth}>{`${format(month, "MMMM")} ${format(month, "yyyy")}`}</CustomLabel>
+          <CustomLabel date={date} setDate={setDate}>{`${format(date, "MMMM")} ${format(
+            date,
+            "yyyy"
+          )}`}</CustomLabel>
         )
       }}
       {...props}

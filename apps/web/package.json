@@ -10,12 +10,12 @@
     "check": "next lint && tsc --noEmit"
   },
   "dependencies": {
+    "@aomdev/ui": "workspace:*",
     "@tabler/icons-react": "^2.15.0",
     "framer-motion": "^10.11.6",
-    "next": "^13.2.4",
+    "next": "^13.4.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@aomdev/ui": "workspace:*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",

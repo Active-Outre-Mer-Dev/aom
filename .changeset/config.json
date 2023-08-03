@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "your-name/your-repository" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "Active-Outre-Mer-Dev/aom" }],
   "commit": false,
   "fixed": [],
   "linked": [],

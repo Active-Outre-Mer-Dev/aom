@@ -1,6 +1,6 @@
 import { cva } from "cva";
 
-export const avatarStyles = cva("rounded-full inline-block dark:text-gray-200 text-gray-700", {
+export const avatarStyles = cva("rounded-full inline-block ", {
   variants: {
     size: {
       sm: "h-10 w-10",
@@ -8,10 +8,10 @@ export const avatarStyles = cva("rounded-full inline-block dark:text-gray-200 te
       lg: "w-14 h-14"
     },
     color: {
-      primary: "bg-primary-100 dark:bg-primary-800",
-      gray: "bg-gray-100 dark:bg-gray-800",
-      success: "bg-success-100 dark:bg-success-800",
-      error: "bg-error-100 dark:bg-error-800"
+      primary: "bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-100",
+      gray: "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-100",
+      success: "bg-success-100 dark:bg-success-800 text-success-700 dark:text-success-100",
+      error: "bg-error-100 dark:bg-error-800 text-error-600 dark:text-error-100"
     }
   },
   defaultVariants: {

@@ -19,7 +19,11 @@ const _Avatar = forwardRef<HTMLSpanElement, PropTypes>(
         {!props.src ? (
           <RadixAvatar.Fallback
             {...fallbackProps}
-            className={avatarStyles({ size, className: "flex items-center justify-center" })}
+            className={avatarStyles({
+              size,
+              className: `flex items-center justify-center ${fallbackProps?.className}`,
+              color
+            })}
           >
             {props.children ? props.children : <UserCircle />}
           </RadixAvatar.Fallback>

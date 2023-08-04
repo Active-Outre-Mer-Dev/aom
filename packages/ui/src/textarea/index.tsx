@@ -1,15 +1,18 @@
-import { forwardRef } from "react";
-import { cx } from "../cx";
+import { forwardRef, useId } from "react";
 import { Label } from "../label";
-import { useId } from "react";
+import { textareaStyles } from "./styles";
+import { twMerge } from "tailwind-merge";
 import type { ComponentPropsWithRef } from "react";
+import type { VariantProps } from "cva";
 
-export type TextareaProps = ComponentPropsWithRef<"textarea"> & { label?: string; wrapperClass?: string };
+export type TextareaProps = VariantProps<typeof textareaStyles> &
+  ComponentPropsWithRef<"textarea"> & { label?: string; error?: boolean };
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ ...props }, ref) => {
   const id = useId();
+  const classes = twMerge(textareaStyles());
   return (
-    <div className={props.wrapperClass}>
+    <div>
       {props.label ? (
         <Label htmlFor={props.id || id} className="block mb-1">
           {props.label}
@@ -17,18 +20,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, r
       ) : null}
 
       <textarea
+        data-error={props.error}
         ref={ref}
         {...props}
         id={props.id || id}
         rows={props.rows || 3}
-        className={cx(
-          `rounded-md placeholder:text-neutral-400 py-1 bg-transparent duration-200 
-          ease-out text-neutral-900 w-full appearance-none border resize-none 
-          border-neutral-300 outline-none focus:border-primary-600 focus:dark:border-primary-400
-          dark:border-neutral-700 placeholder:dark:text-neutral-600 dark:text-neutral-200 pl-2  
-          `,
-          props.className
-        )}
+        className={classes}
       />
     </div>
   );

@@ -1,5 +1,11 @@
 # @aomdev/ui
 
+## 0.1.1
+
+### Patch Changes
+
+- Update styling to match other inputs
+
 ## 0.1.0
 
 ### Minor Changes

@@ -29,3 +29,4 @@ export * from "./popover";
 export * from "./window-frame";
 export * from "./tooltip";
 export * from "./avatar";
+export * from "./theme-icon";

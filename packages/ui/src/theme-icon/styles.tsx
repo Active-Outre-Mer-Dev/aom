@@ -3,12 +3,13 @@ import { cva } from "cva";
 export const themeIconStyles = cva("flex items-center justify-center", {
   variants: {
     color: {
-      primary: ` bg-primary-600  ring-primary-500 dark:ring-primary-600 `,
-      secondary: `bg-secondary-600  ring-secondary-500 dark:ring-secondary-600`,
-      success: `bg-success-600  ring-success-500 dark:ring-success-600`,
-      warn: `bg-warn-600  ring-warn-500 dark:ring-warn-600`,
-      error: `bg-error-600  ring-error-500 dark:ring-error-600`,
-      gray: "bg-gray-600  ring-gray-500 dark:ring-gray-600 "
+      primary: ` bg-primary-600  ring-primary-500  `,
+      secondary: `bg-secondary-600  ring-secondary-500 `,
+      success: `bg-success-600  ring-success-500 `,
+      warn: `bg-warn-600  ring-warn-500 `,
+      error: `bg-error-600  ring-error-500 `,
+      gray: "bg-gray-600  ring-gray-500  ",
+      tertiary: "bg-tertiary-600 ring-tertiary-500"
     },
     radius: {
       sm: "rounded-sm",
@@ -71,6 +72,11 @@ export const themeIconStyles = cva("flex items-center justify-center", {
       color: ["gray"],
       variant: ["outline", "light"],
       className: "text-gray-600 dark:text-gray-200"
+    },
+    {
+      color: ["tertiary"],
+      variant: ["outline", "light"],
+      className: "text-tertiary-600 dark:text-tertiary-200"
     }
   ]
 });

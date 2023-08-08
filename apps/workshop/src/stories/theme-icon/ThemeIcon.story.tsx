@@ -13,8 +13,11 @@ const meta = {
     variant: { type: "select", options: ["light", "outline", "filled"] },
     //@ts-expect-error
     radius: { type: "select", options: ["sm", "md", "lg", "xl", "full"] },
-    //@ts-expect-error
-    color: { type: "select", options: ["primary", "secondary", "success", "warn", "error", "gray"] }
+    color: {
+      //@ts-expect-error
+      type: "select",
+      options: ["primary", "secondary", "success", "warn", "error", "gray", "tertiary"]
+    }
   }
 } satisfies Meta<typeof ThemeIcon>;
 

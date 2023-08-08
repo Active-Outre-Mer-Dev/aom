@@ -61,9 +61,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         className="basis-5 text-gray-600 dark:text-gray-200"
       >
         <circle cx="11" cy="11" r="8" />
@@ -88,9 +88,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="basis-5 text-gray-600 dark:text-gray-200"
         >
           <path d="M18 6 6 18" />

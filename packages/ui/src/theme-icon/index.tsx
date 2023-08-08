@@ -7,8 +7,8 @@ import type { VariantProps } from "cva";
 type PropTypes = ComponentPropsWithRef<"div"> & VariantProps<typeof themeIconStyles>;
 
 export const ThemeIcon = forwardRef<HTMLDivElement, PropTypes>(
-  ({ radius, size, color, variant, ...props }, ref) => {
+  ({ radius, size, color = "primary", variant, ...props }, ref) => {
     const className = twMerge(themeIconStyles({ radius, color, size, variant, className: props.className }));
-    return <div {...props} ref={ref} className={className} />;
+    return <div {...props} data-color={color} ref={ref} className={className} />;
   }
 );

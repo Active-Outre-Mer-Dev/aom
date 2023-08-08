@@ -5,7 +5,7 @@ import { IconClockCog } from "@tabler/icons-react";
 const meta = {
   title: "Molecules/ThemeIcon",
   component: ThemeIcon,
-  args: { children: <IconClockCog size={"75%"} className="stroke-white" /> },
+  args: { children: <IconClockCog size={"75%"} /> },
   argTypes: {
     //@ts-expect-error
     size: { type: "select", options: ["md", "lg", "xl"] },
@@ -14,7 +14,7 @@ const meta = {
     //@ts-expect-error
     radius: { type: "select", options: ["sm", "md", "lg", "xl", "full"] },
     //@ts-expect-error
-    color: { type: "select", options: ["primary", "secondary", "success", "warn", "error"] }
+    color: { type: "select", options: ["primary", "secondary", "success", "warn", "error", "gray"] }
   }
 } satisfies Meta<typeof ThemeIcon>;
 

@@ -1,5 +1,6 @@
 import { Meta, Canvas, Story, Controls } from "@storybook/blocks";
-import { Badge } from "@aomdev/ui";
+import { Badge, Tabs, ActionIcon } from "@aomdev/ui";
+import { IconCopy, IconCheck } from "@tabler/icons-react";
 import * as ButtonStories from "./Button.story";
 
 <Badge color={"warn"}>Incomplete</Badge>
@@ -18,17 +19,379 @@ This component extends the native button element and offers additional propertie
 
 <Controls />
 
+## Layout
+
+<table className="w-full">
+  <tr>
+    <th>Size</th>
+    <th>Text</th>
+    <th>Height</th>
+    <th>Padding X</th>
+  </tr>
+  <tr>
+    <td>Small</td>
+    <td>14px</td>
+    <td>32px</td>
+    <td>8px</td>
+  </tr>
+  <tr>
+    <td>Medium</td>
+    <td>16px</td>
+    <td>40px</td>
+    <td>16px</td>
+  </tr>
+  <tr>
+    <td>Large</td>
+    <td>18px</td>
+    <td>48px</td>
+    <td>24px</td>
+  </tr>
+</table>
+
 ## Primary Button
 
 High emphasis button used for primary actions.
 
+### Preview
+
 <Canvas of={ButtonStories.Primary} />
+
+### Colors
+
+<Tabs defaultValue="light">
+  <Tabs.List>
+    <Tabs.Trigger value="light">Light mode</Tabs.Trigger>
+    <Tabs.Trigger value="dark">Dark mode</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="light">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>Primary</td>
+        <td>600</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(77, 50, 128)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Primary</td>
+        <td>50</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(241, 236, 255)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+  <Tabs.Content value="dark">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>Primary</td>
+        <td>600</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(77, 50, 128)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Primary</td>
+        <td>50</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(241, 236, 255)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+</Tabs>
 
 ## Neutral Button
 
 Low emphasis button used for secondary actions.
 
+### Preview
+
 <Canvas of={ButtonStories.Neutral} />
+
+### Colors
+
+<Tabs defaultValue="light">
+  <Tabs.List>
+    <Tabs.Trigger value="light">Light mode</Tabs.Trigger>
+    <Tabs.Trigger value="dark">Dark mode</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="light">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>White</td>
+        <td>-</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(255, 255, 255)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Gray</td>
+        <td>800</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("#1d262b");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Border</td>
+        <td>Neutral</td>
+        <td>200</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(180, 176, 204)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+  <Tabs.Content value="dark">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>White</td>
+        <td>-</td>
+        <td>10</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(255, 255, 255)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Gray</td>
+        <td>100</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("#d0d9e0");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Border</td>
+        <td>White</td>
+        <td>-</td>
+        <td>10</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgba(255, 255, 255, 0.1)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+</Tabs>
+
+## Outline Button
+
+Low emphasis button used for secondary actions.
+
+### Preview
+
+<Canvas of={ButtonStories.Outline} />
+
+### Colors
+
+<Tabs defaultValue="light">
+  <Tabs.List>
+    <Tabs.Trigger value="light">Light mode</Tabs.Trigger>
+    <Tabs.Trigger value="dark">Dark mode</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="light">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>White</td>
+        <td>-</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(255, 255, 255)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Primary</td>
+        <td>500</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(99, 65, 164)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Border</td>
+        <td>Primary</td>
+        <td>500</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(99, 65, 164)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+  <Tabs.Content value="dark">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>Transparent</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgba(255, 255, 255, 0)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Primary</td>
+        <td>300</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(153, 127, 205)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Border</td>
+        <td>Primary</td>
+        <td>300</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(153, 127, 205)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+</Tabs>
 
 ## CTA Button
 
@@ -40,7 +403,98 @@ High emphasis button used as a call to action.
 
 Indicates destructive actions.
 
+### Preview
+
 <Canvas of={ButtonStories.Error} />
+
+### Colors
+
+<Tabs defaultValue="light">
+  <Tabs.List>
+    <Tabs.Trigger value="light">Light mode</Tabs.Trigger>
+    <Tabs.Trigger value="dark">Dark mode</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="light">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>Error</td>
+        <td>600</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(160, 18, 32)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Neutral</td>
+        <td>50</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(240, 238, 250)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+  <Tabs.Content value="dark">
+    <table className="w-full">
+      <tr>
+        <th>Element</th>
+        <th>Color</th>
+        <th>Shade</th>
+        <th>Opacity</th>
+      </tr>
+      <tr>
+        <td>Background</td>
+        <td>Error</td>
+        <td>600</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(160, 18, 32)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+      <tr>
+        <td>Text</td>
+        <td>Neutral</td>
+        <td>50</td>
+        <td>100</td>
+        <td>
+          <ActionIcon
+            onClick={async () => {
+              await navigator.clipboard.writeText("rgb(240, 238, 250)");
+            }}
+          >
+            <IconCopy size={"75%"} />
+          </ActionIcon>
+        </td>
+      </tr>
+    </table>
+  </Tabs.Content>
+</Tabs>
 
 ## Loading Button
 

@@ -27,6 +27,12 @@ jobs:
         run: pnpm install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure to have this set up under GitHub secrets
+
+      - name: Run build
+        run: pnpm run build --filter @aomdev/ui
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure to have this set up under GitHub secrets
+
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@master
         with:

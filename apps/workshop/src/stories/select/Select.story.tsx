@@ -10,9 +10,12 @@ const meta = {
       { label: "Orange", value: "orange" },
       { label: "Pink", value: "pink" }
     ],
-    fullWidth: false
+
+    fullWidth: false,
+    triggerProps: { "aria-label": "Color" }
   },
   argTypes: {
+    //@ts-expect-error
     size: { type: "select", options: ["sm", "md", "lg"] }
   }
 } satisfies Meta<typeof UiSelect>;

@@ -8,12 +8,13 @@ import type { VariantProps } from "cva";
 export type SelectProps = {
   items?: { value: string; label: string }[];
   placeholder?: string;
+  triggerProps?: RadixSelect.SelectTriggerProps;
 } & RadixSelect.SelectProps &
   VariantProps<typeof selectTriggerStyles>;
 
-export const Select = ({ items = [], placeholder, fullWidth, size, ...props }: SelectProps) => (
+export const Select = ({ items = [], placeholder, fullWidth, size, triggerProps, ...props }: SelectProps) => (
   <RadixSelect.Root {...props}>
-    <RadixSelect.Trigger className={selectTriggerStyles({ fullWidth, size })}>
+    <RadixSelect.Trigger {...triggerProps} className={selectTriggerStyles({ fullWidth, size })}>
       <RadixSelect.Value
         className="text-neutral-600 dark:text-neutral-400"
         placeholder={placeholder || "Select item..."}

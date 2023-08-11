@@ -9,7 +9,7 @@ export type ActionIconProps = ComponentPropsWithRef<"button"> & VariantProps<typ
 export const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(
   ({ className, color, size, variant, ...props }, ref) => {
     const classes = actionIconStyles({ className, color, size, variant });
-    return <button ref={ref} {...props} className={twMerge(classes)} />;
+    return <button ref={ref} {...props} data-color={color} className={twMerge(classes)} />;
   }
 );
 

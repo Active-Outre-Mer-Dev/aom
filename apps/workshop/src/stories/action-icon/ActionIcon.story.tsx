@@ -8,17 +8,17 @@ const meta = {
   args: {
     children: <IconCheck size={"70%"} />,
     size: "md",
-    label: "Check task",
     variant: "light",
-    color: "primary"
+    color: "primary",
+    "aria-label": "Check task"
   },
   argTypes: {
     // @ts-expect-error
     size: { type: "select", options: ["md", "lg", "xl"] },
     // @ts-expect-error
-    variant: { type: "radio", options: ["light", "subtle"] },
+    variant: { type: "radio", options: ["light", "subtle", "filled"] },
     // @ts-expect-error
-    color: { type: "select", options: ["primary", "success", "secondary", "warn", "error"] }
+    color: { type: "select", options: ["primary", "success", "secondary", "warn", "error", "gray"] }
   }
 } satisfies Meta<typeof ActionIcon>;
 

@@ -59,4 +59,12 @@ const _Table = forwardRef<HTMLTableElement, ComponentPropsWithRef<"table">>((pro
 
 const Table = Object.assign(_Table, { Body, Caption, Cell, Head, Header, Row });
 
+Body.displayName = "TableBody";
+Caption.displayName = "TableCaption";
+Cell.displayName = "TableCell";
+Head.displayName = "TableHead";
+Header.displayName = "TableHeader";
+Row.displayName = "TableRow";
+Table.displayName = "Table";
+
 export { Table };

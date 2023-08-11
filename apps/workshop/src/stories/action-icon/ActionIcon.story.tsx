@@ -8,8 +8,8 @@ const meta = {
   args: {
     children: <IconCheck size={"70%"} />,
     size: "md",
-    variant: "light",
-    color: "primary",
+    // variant: "light",
+    // color: "primary",
     "aria-label": "Check task"
   },
   argTypes: {

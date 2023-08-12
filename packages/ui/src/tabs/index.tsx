@@ -53,9 +53,12 @@ function Trigger({ customBg, ...props }: TabsTriggerProps) {
 
 export type TabsContentProps = RadixTabs.TabsContentProps & VariantProps<typeof cardStyles>;
 
-function Content({ className, variant = "outline", ...props }: TabsContentProps) {
+function Content({ className, variant = "outline", noPadding, ...props }: TabsContentProps) {
   return (
-    <RadixTabs.Content {...props} className={cx(cardStyles({ className, variant }), "translate-y-2")}>
+    <RadixTabs.Content
+      {...props}
+      className={cx(cardStyles({ className, variant, noPadding }), "translate-y-2")}
+    >
       {props.children}
     </RadixTabs.Content>
   );

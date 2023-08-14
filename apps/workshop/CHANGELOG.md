@@ -1,5 +1,12 @@
 # workshop
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`94f3a46`](https://github.com/Active-Outre-Mer-Dev/aom/commit/94f3a46df1ea80c0ec611aeb11aff83b43864273), [`f5cd9bd`](https://github.com/Active-Outre-Mer-Dev/aom/commit/f5cd9bd6925c65d19d8970b25e0d6968b423f210), [`bbfda33`](https://github.com/Active-Outre-Mer-Dev/aom/commit/bbfda330392885759ad86444a80fe1e4c47c288d), [`3696904`](https://github.com/Active-Outre-Mer-Dev/aom/commit/36969041f3188e8ff552953b06cff3c697479049), [`53c973e`](https://github.com/Active-Outre-Mer-Dev/aom/commit/53c973e5b0ca1cab62395779402c3503c4ed894d), [`de3d5cc`](https://github.com/Active-Outre-Mer-Dev/aom/commit/de3d5ccca6807267e0cd2e8eb63458297e330475), [`12b45c4`](https://github.com/Active-Outre-Mer-Dev/aom/commit/12b45c4f5ee164f750a1b8e2a9227c93decc464d), [`2cc5213`](https://github.com/Active-Outre-Mer-Dev/aom/commit/2cc5213a600548570b53d6f6891500066f29f4be)]:
+  - @aomdev/ui@0.3.0
+
 ## 0.0.4
 
 ### Patch Changes

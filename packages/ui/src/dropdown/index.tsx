@@ -1,5 +1,6 @@
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
 import { cva } from "cva";
+import { cx } from "../cx";
 import type { VariantProps } from "cva";
 
 const itemStyles = cva(
@@ -54,15 +55,15 @@ export type DropdownContentProps = {
 } & RadixDropdown.DropdownMenuContentProps;
 
 function Content({ arrow, portalProps, ...props }: DropdownContentProps) {
+  const className = cx(
+    `min-w-[220px] bg-white rounded-md p-[5px] 
+  dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700
+  `,
+    props.className
+  );
   return (
     <RadixDropdown.Portal {...portalProps}>
-      <RadixDropdown.Content
-        {...props}
-        sideOffset={5}
-        className={`min-w-[220px] bg-white rounded-md p-[5px] 
-        dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700
-        `}
-      >
+      <RadixDropdown.Content {...props} sideOffset={5} className={className}>
         {props.children}
       </RadixDropdown.Content>
     </RadixDropdown.Portal>
@@ -78,19 +79,17 @@ export function Dropdown(props: RadixDropdown.DropdownMenuProps) {
 }
 
 function Label(props: RadixDropdown.DropdownMenuLabelProps) {
-  return (
-    <RadixDropdown.Label
-      {...props}
-      className={`text-xs h-5 dark:text-gray-300 font-medium
-   flex items-center text-gray-500 mb-[2px] px-[5px] relative pl-[25px]`}
-    />
+  const className = cx(
+    `text-xs h-5 dark:text-gray-300 font-medium
+  flex items-center text-gray-500 mb-[2px] px-[5px] relative pl-[25px]`,
+    props.className
   );
+  return <RadixDropdown.Label {...props} className={className} />;
 }
 
 function Separator(props: RadixDropdown.DropdownMenuSeparatorProps) {
-  return (
-    <RadixDropdown.Separator {...props} className="h-[1px] dark:bg-neutral-700 bg-neutral-100 my-[5px]" />
-  );
+  const className = cx("h-[1px] dark:bg-neutral-700 bg-neutral-100 my-[5px]", props.className);
+  return <RadixDropdown.Separator {...props} className={className} />;
 }
 
 Dropdown.Item = Item;

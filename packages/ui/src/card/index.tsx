@@ -12,7 +12,7 @@ const _Card = forwardRef<HTMLDivElement, CardProps>(
     const _children = Children.toArray(props.children);
     const classes = cardStyles({ className, variant, noPadding, shadow });
     return (
-      <div className={twMerge(classes)} ref={ref}>
+      <div {...props} className={twMerge(classes)} ref={ref}>
         {_children.map((child, index) => {
           if (typeof child === "object" && "type" in child && child.type === Section)
             return cloneElement(child, {

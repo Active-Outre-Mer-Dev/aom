@@ -6,7 +6,7 @@ text-sm leading-none  gap-[5px] bg-white text-gray-700
 dark:bg-neutral-800 focus:ring-2 dark:ring-offset-neutral-900 focus:ring-offset-2 
 focus:ring-primary-600 focus:dark:ring-primary-500 border border-neutral-100
 dark:border-neutral-700
-dark:text-gray-100  outline-none`,
+dark:text-gray-100  outline-none data-[disabled]:grayscale data-[disabled]:bg-gray-200/50`,
   {
     variants: {
       size: {

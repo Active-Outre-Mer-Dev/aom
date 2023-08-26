@@ -9,10 +9,19 @@ export type SelectProps = {
   items?: { value: string; label: string }[];
   placeholder?: string;
   triggerProps?: RadixSelect.SelectTriggerProps;
+  contentProps?: RadixSelect.SelectContentProps;
 } & RadixSelect.SelectProps &
   VariantProps<typeof selectTriggerStyles>;
 
-export const Select = ({ items = [], placeholder, fullWidth, size, triggerProps, ...props }: SelectProps) => (
+export const Select = ({
+  items = [],
+  placeholder,
+  fullWidth,
+  size,
+  triggerProps,
+  contentProps,
+  ...props
+}: SelectProps) => (
   <RadixSelect.Root {...props}>
     <RadixSelect.Trigger {...triggerProps} className={selectTriggerStyles({ fullWidth, size })}>
       <RadixSelect.Value
@@ -26,9 +35,13 @@ export const Select = ({ items = [], placeholder, fullWidth, size, triggerProps,
     <RadixSelect.Portal>
       <RadixSelect.Content
         position="popper"
-        className={`overflow-hidden border  translate-y-1 bg-white border-neutral-100
+        className={cx(
+          `overflow-hidden border  translate-y-1 bg-white border-neutral-100
         dark:bg-neutral-800 rounded-md  dark:border-neutral-700
-        min-w-[var(--radix-select-trigger-width)]`}
+        min-w-[var(--radix-select-trigger-width)]`,
+          contentProps?.className
+        )}
+        {...props}
       >
         <RadixSelect.ScrollUpButton
           className={`flex items-center justify-center h-[25px] 

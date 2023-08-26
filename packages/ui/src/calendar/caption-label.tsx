@@ -5,13 +5,14 @@ import { ChevronLeft, ChevronRight } from "./icons";
 import format from "date-fns/format";
 
 const MONTHS = [...Array(12).keys()];
-type PropTypes = {
+export type PropTypes = {
   setDate: (date: Date) => void;
   date: Date;
   children: React.ReactNode;
+  labelContentProps?: React.ComponentProps<typeof Popover.Content>;
 };
 
-export function CustomLabel(props: PropTypes) {
+export function CustomLabel({ labelContentProps, ...props }: PropTypes) {
   const [page, setPage] = useState(0);
 
   const decade = useMemo(() => {
@@ -32,7 +33,7 @@ export function CustomLabel(props: PropTypes) {
   }, [props.date.getFullYear(), page]);
 
   return (
-    <Popover>
+    <Popover modal>
       <Popover.Trigger asChild>
         <button
           className={`w-2/4 hover:bg-neutral-50 hover:dark:bg-neutral-700 rounded-md flex justify-center
@@ -41,7 +42,13 @@ export function CustomLabel(props: PropTypes) {
           {props.children}
         </button>
       </Popover.Trigger>
-      <Popover.Content className={cardStyles({ variant: "filled", className: "flex flex-col gap-4" })}>
+      <Popover.Content
+        {...labelContentProps}
+        className={cardStyles({
+          variant: "filled",
+          className: `flex flex-col gap-4 ${labelContentProps?.className}`
+        })}
+      >
         <div className="grid grid-cols-3 gap-2">
           {MONTHS.map((month, key) => {
             const date = new Date();

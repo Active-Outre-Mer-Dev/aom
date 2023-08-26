@@ -54,7 +54,8 @@ const Caption = forwardRef<HTMLElement, ComponentPropsWithRef<"caption">>((props
 });
 
 const _Table = forwardRef<HTMLTableElement, ComponentPropsWithRef<"table">>((props, ref) => {
-  return <table ref={ref} {...props} className="w-full text-sm" />;
+  const className = cx(props.className, "text-sm");
+  return <table ref={ref} {...props} className={className} />;
 });
 
 const Table = Object.assign(_Table, { Body, Caption, Cell, Head, Header, Row });

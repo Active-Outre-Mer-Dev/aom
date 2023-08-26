@@ -1,5 +1,22 @@
 # @aomdev/ui
 
+## 0.4.0
+
+### Minor Changes
+
+- [`59bb913`](https://github.com/Active-Outre-Mer-Dev/aom/commit/59bb9137ac62f6ed1f0b0756ac09f6567c4e8e26) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Select:
+
+  - Add contentProps prop
+  - Add styles for disabled state
+
+- [`3107d01`](https://github.com/Active-Outre-Mer-Dev/aom/commit/3107d01348630bc6ed41a13dd7b3d10a105271d3) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Calendar - add props for caption label and additional styles
+
+### Patch Changes
+
+- [`5852656`](https://github.com/Active-Outre-Mer-Dev/aom/commit/5852656ae3ee93d4260c9fad90ad3bfa67d70494) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Table - ensure table can receive additional classes
+
+- [`0029831`](https://github.com/Active-Outre-Mer-Dev/aom/commit/002983112fafb164d587f1c03049350adf2f0232) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Card - fix props not applying
+
 ## 0.3.0
 
 ### Minor Changes

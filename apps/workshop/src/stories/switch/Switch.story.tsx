@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Switch } from "@aomdev/ui";
-import { IconCheck } from "@tabler/icons-react";
+import { IconMoonStars, IconSun } from "@tabler/icons-react";
+import { useState } from "react";
 
 const meta = {
   title: "Molecules/Switch",
@@ -8,7 +9,7 @@ const meta = {
   tags: ["autodocs"],
   args: {
     required: false,
-    label: "Airplane mode",
+    label: "My crazy label",
     size: "md"
   },
   argTypes: {
@@ -26,7 +27,19 @@ export const SwitchInput: Story = {
 };
 
 export const SwitchWithIcon: Story = {
-  args: {
-    thumbIcon: <IconCheck size={12} />
+  render() {
+    return <CustomSwitch />;
   }
 };
+
+function CustomSwitch() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <Switch
+      onCheckedChange={setChecked}
+      label={"Toggle mode"}
+      thumbIcon={checked ? <IconMoonStars size={12} /> : <IconSun size={12} />}
+    />
+  );
+}

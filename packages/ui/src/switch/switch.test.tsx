@@ -6,4 +6,8 @@ test.describe("ui/switch", () => {
     const component = await mount(<Switch />);
     await expect(component).toBeVisible();
   });
+  test("displays label", async ({ mount }) => {
+    const component = await mount(<Switch label="My label" />);
+    await expect(component).toContainText("My label");
+  });
 });

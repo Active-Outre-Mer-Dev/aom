@@ -32,6 +32,9 @@ transition-transform duration-100 translate-x-0.5 will-change-transform
         md: "w-4 h-4 data-[state=checked]:translate-x-[24px]",
         lg: "w-5 h-5 data-[state=checked]:translate-x-[30px]"
       }
+    },
+    defaultVariants: {
+      size: "md"
     }
   }
 );
@@ -46,7 +49,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
   ({ className, size, thumbIcon, ...props }, ref) => (
     <>
       <div className="flex items-center gap-2">
-        {props.label ? <Label htmlFor="airplane-mode">Airplane mode</Label> : null}
+        {props.label ? <Label htmlFor="airplane-mode">{props.label}</Label> : null}
         <RadixSwitch.Root ref={ref} {...props} className={styles({ className, size })} id="airplane-mode">
           <RadixSwitch.Thumb className={thumbStyles({ size })}>
             {thumbIcon ? (

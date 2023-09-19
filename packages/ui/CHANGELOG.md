@@ -1,5 +1,13 @@
 # @aomdev/ui
 
+## 0.4.1
+
+### Patch Changes
+
+- [#115](https://github.com/Active-Outre-Mer-Dev/aom/pull/115) [`824a58a`](https://github.com/Active-Outre-Mer-Dev/aom/commit/824a58aced6bc591913d87ce17a346741746275f) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Switch - remove default label and add default thumb size
+
+- [`3fc93e5`](https://github.com/Active-Outre-Mer-Dev/aom/commit/3fc93e52bbeb30e01274b8da9e863b619be222c3) Thanks [@bluepnwage](https://github.com/bluepnwage)! - InputWrapper - change input border color
+
 ## 0.4.0
 
 ### Minor Changes

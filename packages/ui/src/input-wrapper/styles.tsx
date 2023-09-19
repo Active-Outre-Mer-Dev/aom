@@ -2,7 +2,7 @@ import { cva } from "cva";
 
 export const inputStyles = cva(
   `rounded-md  relative text-neutral-900  border 
-border-neutral-300 outline-none 
+border-neutral-100 outline-none 
  data-[error=true]:border-error-600 
 data-[error=true]:dark:border-error-400 
 dark:border-neutral-700  dark:text-neutral-200  

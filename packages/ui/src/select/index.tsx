@@ -41,7 +41,7 @@ export const Select = ({
         min-w-[var(--radix-select-trigger-width)]`,
           contentProps?.className
         )}
-        {...props}
+        {...contentProps}
       >
         <RadixSelect.ScrollUpButton
           className={`flex items-center justify-center h-[25px] 

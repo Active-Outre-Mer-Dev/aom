@@ -10,7 +10,8 @@ export type SelectProps = {
   placeholder?: string;
   triggerProps?: RadixSelect.SelectTriggerProps;
   contentProps?: RadixSelect.SelectContentProps;
-} & RadixSelect.SelectProps &
+  children?: React.ReactNode;
+} & Omit<RadixSelect.SelectProps, "children"> &
   VariantProps<typeof selectTriggerStyles>;
 
 export const Select = ({

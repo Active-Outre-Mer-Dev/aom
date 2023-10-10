@@ -2,7 +2,7 @@ import { Popover } from "../popover";
 import { cardStyles } from "../card/styles";
 import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "./icons";
-import format from "date-fns/format";
+import { format } from "date-fns";
 
 const MONTHS = [...Array(12).keys()];
 export type PropTypes = {

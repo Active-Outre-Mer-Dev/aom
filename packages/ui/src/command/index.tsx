@@ -3,25 +3,23 @@ import { ComponentPropsWithRef, forwardRef } from "react";
 import { Dialog } from "../dialog";
 import { CommandProvider, useCommandProps } from "./command.context";
 import type { ComponentPropsWithoutRef } from "react";
+import type { DialogProps, DialogContentProps } from "../dialog";
 
-type CommandProps = ComponentPropsWithoutRef<typeof CommandPrim>;
+type CommandProps = {
+  label?: string | undefined;
+  shouldFilter?: boolean | undefined;
+  filter?: ((value: string, search: string) => number) | undefined;
+  value?: string | undefined;
+  onValueChange?: ((value: string) => void) | undefined;
+  loop?: boolean | undefined;
+  children?: React.ReactNode;
+} & ComponentPropsWithoutRef<"div">;
 
 type PropTypes = {
   commandProps?: CommandProps;
-  contentProps?: ComponentPropsWithoutRef<typeof Dialog.Content>;
-} & ComponentPropsWithoutRef<typeof Dialog>;
-
-export function Command({ children, contentProps, onOpenChange, ...props }: PropTypes) {
-  return (
-    <Dialog {...props} onOpenChange={onOpenChange}>
-      <CommandProvider onClose={onOpenChange ? () => onOpenChange(false) : undefined}>
-        <Dialog.Content {...contentProps} noPadding>
-          <CommandPrim>{children}</CommandPrim>
-        </Dialog.Content>
-      </CommandProvider>
-    </Dialog>
-  );
-}
+  contentProps?: DialogContentProps;
+  children?: React.ReactNode;
+} & Omit<DialogProps, "children">;
 
 type ItemProps = {
   disabled?: boolean | undefined;
@@ -31,14 +29,16 @@ type ItemProps = {
   children?: React.ReactNode;
 };
 
-function Item(props: ItemProps) {
+function Item({ children, ...props }: ItemProps) {
   return (
     <CommandPrim.Item
       {...props}
       className={`text-gray-800 dark:text-gray-100  p-3 rounded-md 
     cursor-pointer text-base 
     data-[selected=true]:bg-primary-200/30 data-[selected=true]:dark:bg-primary-600/30`}
-    />
+    >
+      {children}
+    </CommandPrim.Item>
   );
 }
 
@@ -113,7 +113,7 @@ function Seperator() {
 
 type ListProps = {
   emptyMessage?: string;
-} & ComponentPropsWithoutRef<typeof CommandPrim.List>;
+} & ComponentPropsWithoutRef<"div">;
 
 function List({ emptyMessage, children, ...props }: ListProps) {
   return (
@@ -123,6 +123,18 @@ function List({ emptyMessage, children, ...props }: ListProps) {
       </CommandPrim.Empty>
       {children}
     </CommandPrim.List>
+  );
+}
+
+export function Command({ children, contentProps, onOpenChange, commandProps, ...props }: PropTypes) {
+  return (
+    <Dialog {...props} onOpenChange={onOpenChange}>
+      <CommandProvider {...commandProps} onClose={onOpenChange ? () => onOpenChange(false) : undefined}>
+        <Dialog.Content {...contentProps} noPadding>
+          <CommandPrim>{children}</CommandPrim>
+        </Dialog.Content>
+      </CommandProvider>
+    </Dialog>
   );
 }
 

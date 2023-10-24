@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { Popover, Button, TextInput } from "@aomdev/ui";
-import { cardStyles } from "@aomdev/ui/src/card/styles";
+import { cardStyles } from "@aomdev/ui/dist/card/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 

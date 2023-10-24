@@ -1,9 +1,9 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { Calendar, Popover, Button } from "@aomdev/ui";
-import { cardStyles } from "@aomdev/ui/src/card/styles";
+import { cardStyles } from "@aomdev/ui/dist/card/styles";
 import { useState } from "react";
 import { IconCalendar } from "@tabler/icons-react";
-import { inputStyles } from "@aomdev/ui/src/input-wrapper/styles";
+import { inputStyles } from "@aomdev/ui/dist/input-wrapper/styles";
 
 const meta = { component: Calendar, title: "Atoms/DatePicker" } satisfies Meta<typeof Calendar>;
 

@@ -19,12 +19,12 @@
     "./dist/*/styles": {
       "import": "./dist/*/styles.mjs",
       "node": "./dist/*/styles.js",
-      "default": "./dist/*/styles.js"
+      "default": "./dist/*/styles.js",
+      "types": "./dist/*/styles.d.ts"
     }
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "license": "MIT",
   "scripts": {

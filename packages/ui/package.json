@@ -14,7 +14,8 @@
     "./dist/*": {
       "import": "./dist/*/index.mjs",
       "default": "./dist/*/index.js",
-      "node": "./dist/*/index.js"
+      "node": "./dist/*/index.js",
+      "types": "./dist/*/index.d.ts"
     },
     "./dist/*/styles": {
       "import": "./dist/*/styles.mjs",

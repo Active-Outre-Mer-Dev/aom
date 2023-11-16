@@ -38,6 +38,12 @@ export const Drop: Story = {
             </Dropdown.Label>
             <Dropdown.Item>Share</Dropdown.Item>
             <Dropdown.Item>Bookmark</Dropdown.Item>
+            <Dropdown.Sub>
+              <Dropdown.SubTrigger>Hello</Dropdown.SubTrigger>
+              <Dropdown.SubContent sideOffset={10} alignOffset={-5}>
+                <Dropdown.Item>WTF</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
           </Dropdown.Content>
         </Dropdown>
       </div>

@@ -6,7 +6,7 @@
     "lint": "turbo run lint",
     "clean": "turbo run clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test",
+    "test": "turbo run test --filter @aomdev/ui",
     "start": "turbo run start",
     "check": "turbo run check",
     "changeset": "changeset",

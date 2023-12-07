@@ -7,7 +7,7 @@ export default defineConfig(async (options: Options) => ({
   external: ["react", "react-dom"],
   dts: true,
   clean: true,
-  format: ["esm"],
+  format: ["esm", "cjs"],
   splitting: true,
   entry: ["src/**/index.tsx", "src/**/styles.tsx"],
   treeshake: true

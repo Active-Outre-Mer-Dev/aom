@@ -1,29 +1,7 @@
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
-import { cva } from "cva";
 import { cx } from "../cx";
-import type { VariantProps } from "cva";
-
-const itemStyles = cva(
-  `group text-sm leading-none rounded-[3px] flex items-center h-8 px-[5px]
-   relative pl-[25px] select-none outline-none`,
-  {
-    variants: {
-      color: {
-        warn: `text-warn-600 dark:text-warn-200 data-[highlighted]:bg-warn-200/30
-        data-[highlighted]:dark:bg-warn-600/30`,
-        error: `text-error-600 dark:text-error-200 
-        data-[highlighted]:bg-error-200/30 data-[highlighted]:dark:bg-error-600/30`,
-        default: `dark:text-gray-100 text-gray-900  
-      data-[disabled]:text-gray-200 data-[highlighted]:bg-primary-200/30 
-      data-[highlighted]:text-primary-600 data-[highlighted]:dark:text-primary-200
-      data-[disabled]:dark:text-gray-500 data-[highlighted]:dark:bg-primary-600/30`
-      }
-    },
-    defaultVariants: {
-      color: "default"
-    }
-  }
-);
+import { type VariantProps } from "cva";
+import { itemStyles } from "./styles";
 
 export type DropdownItemProps = VariantProps<typeof itemStyles> & {
   icon?: React.ReactNode;
@@ -92,6 +70,38 @@ function Separator(props: RadixDropdown.DropdownMenuSeparatorProps) {
   return <RadixDropdown.Separator {...props} className={className} />;
 }
 
+function Sub(props: RadixDropdown.DropdownMenuSubProps) {
+  return <RadixDropdown.Sub {...props} />;
+}
+
+export type DropdownSubTriggerProps = VariantProps<typeof itemStyles> &
+  RadixDropdown.DropdownMenuSubTriggerProps;
+
+function SubTrigger({ color, className, ...props }: DropdownSubTriggerProps) {
+  return <RadixDropdown.SubTrigger {...props} className={itemStyles({ className, color })} />;
+}
+
+export type SubContentProps = {
+  portalProps?: RadixDropdown.MenuPortalProps;
+} & RadixDropdown.MenuSubContentProps;
+
+function SubContent({ portalProps, ...props }: SubContentProps) {
+  const className = cx(
+    `min-w-[220px] bg-white rounded-md p-[5px] 
+      dark:bg-neutral-800 border border-neutral-100 dark:border-neutral-700
+      `,
+    props.className
+  );
+  return (
+    <RadixDropdown.Portal {...portalProps}>
+      <RadixDropdown.SubContent {...props} className={className} />
+    </RadixDropdown.Portal>
+  );
+}
+
+Dropdown.Sub = Sub;
+Dropdown.SubContent = SubContent;
+Dropdown.SubTrigger = SubTrigger;
 Dropdown.Item = Item;
 Dropdown.Content = Content;
 Dropdown.Trigger = Trigger;

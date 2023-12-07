@@ -33,17 +33,23 @@ export const WithIcon: Story = {
 };
 
 export const PasswordInput: Story = {
-  render: props => {
-    return <UiPassword {...props} label="Password" placeholder="" />;
+  render: (props) => {
+    return (
+      <UiPassword
+        {...props}
+        label="Password"
+        placeholder=""
+      />
+    );
   }
 };
 
 export const TestInput: Story = {
-  render: props => {
+  render: (props) => {
     return (
       <div className="flex gap-2">
         <TextInput {...props} />
-        <Button size={"small"}>Hello there</Button>
+        <Button size={"sm"}>Hello there</Button>
       </div>
     );
   }

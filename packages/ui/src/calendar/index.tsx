@@ -2,7 +2,7 @@ import * as React from "react";
 import { ChevronLeft, ChevronRight } from "./icons";
 import { DayPicker } from "react-day-picker";
 import { CustomLabel } from "./caption-label";
-import format from "date-fns/format";
+import { format } from "date-fns";
 import { useState } from "react";
 import { cx } from "../cx";
 import { Popover } from "../popover";

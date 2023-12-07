@@ -6,7 +6,8 @@ import {
   IconPhoto,
   IconSearch,
   IconTransferOut,
-  IconTrash
+  IconTrash,
+  IconChevronRight
 } from "@tabler/icons-react";
 
 const meta = { title: "atoms/Dropdown", component: Dropdown } satisfies Meta<typeof Dropdown>;
@@ -29,7 +30,10 @@ export const Drop: Story = {
           <Dropdown.Content>
             <Dropdown.Item rightSection={"⌘+T"}>New Tab </Dropdown.Item>
             <Dropdown.Item rightSection={"⌘+N"}>New Window </Dropdown.Item>
-            <Dropdown.Item disabled rightSection={" ⇧+⌘+N"}>
+            <Dropdown.Item
+              disabled
+              rightSection={" ⇧+⌘+N"}
+            >
               New Private Window{" "}
             </Dropdown.Item>
             <Dropdown.Separator className="h-[1px] bg-neutral-100 my-[5px]" />
@@ -58,15 +62,83 @@ export const WithIcons: Story = {
             <Dropdown.Item icon={<IconSettings size={14} />}>Settings</Dropdown.Item>
             <Dropdown.Item icon={<IconMessage size={14} />}>Message</Dropdown.Item>
             <Dropdown.Item icon={<IconPhoto size={14} />}>Photo</Dropdown.Item>
-            <Dropdown.Item disabled rightSection={"⌘+K"} icon={<IconSearch size={14} />}>
+            <Dropdown.Item
+              disabled
+              rightSection={"⌘+K"}
+              icon={<IconSearch size={14} />}
+            >
               Search
             </Dropdown.Item>
             <Dropdown.Separator />
             <Dropdown.Label>Danger zone</Dropdown.Label>
-            <Dropdown.Item color={"warn"} icon={<IconTransferOut size={14} />}>
+            <Dropdown.Item
+              color={"warn"}
+              icon={<IconTransferOut size={14} />}
+            >
               Transfer my account
             </Dropdown.Item>
-            <Dropdown.Item color={"error"} icon={<IconTrash size={14} />}>
+            <Dropdown.Item
+              color={"error"}
+              icon={<IconTrash size={14} />}
+            >
+              Delete my account
+            </Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
+      </div>
+    );
+  }
+};
+
+export const WithSubContent: Story = {
+  render() {
+    return (
+      <div className="flex justify-center">
+        <Dropdown>
+          <Dropdown.Trigger asChild>
+            <Button>Menu</Button>
+          </Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Label>Application</Dropdown.Label>
+            <Dropdown.Item icon={<IconSettings size={14} />}>Settings</Dropdown.Item>
+            <Dropdown.Item icon={<IconMessage size={14} />}>Message</Dropdown.Item>
+            <Dropdown.Item icon={<IconPhoto size={14} />}>Photo</Dropdown.Item>
+            <Dropdown.Sub>
+              <Dropdown.SubTrigger className="group">
+                More tools{" "}
+                <IconChevronRight
+                  color="currentColor"
+                  className="inline-block ml-auto "
+                  size={16}
+                />
+              </Dropdown.SubTrigger>
+              <Dropdown.SubContent
+                sideOffset={10}
+                alignOffset={-10}
+              >
+                <Dropdown.Item>Save page</Dropdown.Item>
+                <Dropdown.Item>Create shortcut</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
+            <Dropdown.Item
+              disabled
+              rightSection={"⌘+K"}
+              icon={<IconSearch size={14} />}
+            >
+              Search
+            </Dropdown.Item>
+            <Dropdown.Separator />
+            <Dropdown.Label>Danger zone</Dropdown.Label>
+            <Dropdown.Item
+              color={"warn"}
+              icon={<IconTransferOut size={14} />}
+            >
+              Transfer my account
+            </Dropdown.Item>
+            <Dropdown.Item
+              color={"error"}
+              icon={<IconTrash size={14} />}
+            >
               Delete my account
             </Dropdown.Item>
           </Dropdown.Content>
@@ -101,13 +173,19 @@ function AnimatedDropdown() {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex justify-center">
-      <Dropdown open={open} onOpenChange={setOpen}>
+      <Dropdown
+        open={open}
+        onOpenChange={setOpen}
+      >
         <Dropdown.Trigger asChild>
           <Button>Menu</Button>
         </Dropdown.Trigger>
         <AnimatePresence>
           {open && (
-            <Dropdown.Content asChild portalProps={{ forceMount: true }}>
+            <Dropdown.Content
+              asChild
+              portalProps={{ forceMount: true }}
+            >
               <motion.div
                 key={"animated"}
                 variants={variant}
@@ -119,15 +197,25 @@ function AnimatedDropdown() {
                 <Dropdown.Item icon={<IconSettings size={14} />}>Settings</Dropdown.Item>
                 <Dropdown.Item icon={<IconMessage size={14} />}>Message</Dropdown.Item>
                 <Dropdown.Item icon={<IconPhoto size={14} />}>Photo</Dropdown.Item>
-                <Dropdown.Item disabled rightSection={"⌘+K"} icon={<IconSearch size={14} />}>
+                <Dropdown.Item
+                  disabled
+                  rightSection={"⌘+K"}
+                  icon={<IconSearch size={14} />}
+                >
                   Search
                 </Dropdown.Item>
                 <Dropdown.Separator />
                 <Dropdown.Label>Danger zone</Dropdown.Label>
-                <Dropdown.Item color={"warn"} icon={<IconTransferOut size={14} />}>
+                <Dropdown.Item
+                  color={"warn"}
+                  icon={<IconTransferOut size={14} />}
+                >
                   Transfer my account
                 </Dropdown.Item>
-                <Dropdown.Item color={"error"} icon={<IconTrash size={14} />}>
+                <Dropdown.Item
+                  color={"error"}
+                  icon={<IconTrash size={14} />}
+                >
                   Delete my account
                 </Dropdown.Item>
               </motion.div>

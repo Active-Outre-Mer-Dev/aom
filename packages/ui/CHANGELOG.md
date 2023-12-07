@@ -1,5 +1,13 @@
 # @aomdev/ui
 
+## 0.4.2
+
+### Patch Changes
+
+- [`b32181273c632a11a33b2faa81214df74cc37bbf`](https://github.com/Active-Outre-Mer-Dev/aom/commit/b32181273c632a11a33b2faa81214df74cc37bbf) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Select - fix content props
+
+- [#121](https://github.com/Active-Outre-Mer-Dev/aom/pull/121) [`71d9c75c563f3dbd8604783dc10e35f18f5fbb2a`](https://github.com/Active-Outre-Mer-Dev/aom/commit/71d9c75c563f3dbd8604783dc10e35f18f5fbb2a) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Dropdown - Add support for subcontent
+
 ## 0.4.1
 
 ### Patch Changes

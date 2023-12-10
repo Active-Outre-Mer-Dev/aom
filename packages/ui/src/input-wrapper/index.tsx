@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import { cx } from "../cx";
 import { Label } from "../label";
-import { inputStyles } from "./styles";
+import { inputStyles } from "../../styles/input-wrapper.styles";
 import { twMerge } from "tailwind-merge";
 import type { VariantProps } from "cva";
 
@@ -12,7 +12,10 @@ type InputWrapperProps = Pick<InputRootProps, "error"> &
 function InputWrapper({ children, className, size, ...props }: InputWrapperProps) {
   const classes = inputStyles({ className, size });
   return (
-    <div data-error={props.error ? true : false} className={twMerge(classes)}>
+    <div
+      data-error={props.error ? true : false}
+      className={twMerge(classes)}
+    >
       {children}
     </div>
   );
@@ -31,21 +34,33 @@ export function InputRoot({ children, description, error, icon, id, label, requi
   return (
     <div>
       {label ? (
-        <Label htmlFor={id!} className={cx("block", description ? "" : "mb-1")}>
+        <Label
+          htmlFor={id!}
+          className={cx("block", description ? "" : "mb-1")}
+        >
           {label}{" "}
           {required ? (
-            <span aria-label="required" className="text-error-400">
+            <span
+              aria-label="required"
+              className="text-error-400"
+            >
               *
             </span>
           ) : null}
         </Label>
       ) : null}
       {description ? (
-        <span id={`${id}-description`} className="dark:text-neutral-200 text-xs inline-block mb-1">
+        <span
+          id={`${id}-description`}
+          className="dark:text-neutral-200 text-xs inline-block mb-1"
+        >
           {description}
         </span>
       ) : null}
-      <InputWrapper error={error} size={size}>
+      <InputWrapper
+        error={error}
+        size={size}
+      >
         {icon ? (
           <span
             aria-hidden="true"

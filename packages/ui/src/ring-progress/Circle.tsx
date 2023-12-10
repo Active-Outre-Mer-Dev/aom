@@ -1,5 +1,5 @@
 import { getCurveProps } from "./get-curve-props";
-import { ringStyles } from "./styles";
+import { ringStyles } from "../../styles/ring-progress.styles";
 import type { RingProgressProps } from ".";
 import type { ComponentPropsWithoutRef } from "react";
 

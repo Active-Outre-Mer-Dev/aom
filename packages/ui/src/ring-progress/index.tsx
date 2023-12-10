@@ -1,5 +1,5 @@
 import { Circle } from "./Circle";
-import { ringStyles } from "./styles";
+import { ringStyles } from "../../styles/ring-progress.styles";
 import { cx } from "../cx";
 import type { VariantProps } from "cva";
 
@@ -26,8 +26,15 @@ export function RingProgress({
   rootCircle
 }: RingProgressProps & RootClass) {
   return (
-    <div style={{ width: size, height: size }} className="relative">
-      <svg width={size} height={size} className="-rotate-90">
+    <div
+      style={{ width: size, height: size }}
+      className="relative"
+    >
+      <svg
+        width={size}
+        height={size}
+        className="-rotate-90"
+      >
         <Circle
           size={size}
           value={value}

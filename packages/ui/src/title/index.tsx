@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { titleStyles } from "./styles";
+import { titleStyles } from "../../styles/title.styles";
 import { twMerge } from "tailwind-merge";
 import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";
@@ -10,7 +10,11 @@ export const Title = forwardRef<HTMLHeadingElement, TitleProps>(({ order, classN
   const Component = `h${order}` as `h1`;
   const classes = twMerge(titleStyles({ className, order }));
   return (
-    <Component ref={ref} className={classes} {...props}>
+    <Component
+      ref={ref}
+      className={classes}
+      {...props}
+    >
       {props.children}
     </Component>
   );

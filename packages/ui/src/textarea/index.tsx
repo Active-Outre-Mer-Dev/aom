@@ -1,6 +1,6 @@
 import { forwardRef, useId } from "react";
 import { Label } from "../label";
-import { textareaStyles } from "./styles";
+import { textareaStyles } from "../../styles/textarea.styles";
 import { twMerge } from "tailwind-merge";
 import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "cva";
@@ -14,7 +14,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ ...pro
   return (
     <div>
       {props.label ? (
-        <Label htmlFor={props.id || id} className="block mb-1">
+        <Label
+          htmlFor={props.id || id}
+          className="block mb-1"
+        >
           {props.label}
         </Label>
       ) : null}

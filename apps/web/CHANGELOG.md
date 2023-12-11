@@ -1,5 +1,12 @@
 # web
 
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`c3a9ae6bee1130abf09c6f3842cc03bf84b0b011`](https://github.com/Active-Outre-Mer-Dev/aom/commit/c3a9ae6bee1130abf09c6f3842cc03bf84b0b011)]:
+  - @aomdev/ui@0.5.0
+
 ## 1.0.8
 
 ### Patch Changes

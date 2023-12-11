@@ -1,5 +1,11 @@
 # @aomdev/ui
 
+## 0.5.0
+
+### Minor Changes
+
+- [#122](https://github.com/Active-Outre-Mer-Dev/aom/pull/122) [`c3a9ae6bee1130abf09c6f3842cc03bf84b0b011`](https://github.com/Active-Outre-Mer-Dev/aom/commit/c3a9ae6bee1130abf09c6f3842cc03bf84b0b011) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Support server and client components
+
 ## 0.4.2
 
 ### Patch Changes

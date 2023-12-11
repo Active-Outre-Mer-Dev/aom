@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { badgeStyles } from "./styles";
+import { badgeStyles } from "../../styles/badge.styles";
 import { twMerge } from "tailwind-merge";
 import type { VariantProps } from "cva";
 import type { ComponentPropsWithRef } from "react";

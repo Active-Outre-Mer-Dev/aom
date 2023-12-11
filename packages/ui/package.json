@@ -2,10 +2,13 @@
   "name": "@aomdev/ui",
   "version": "0.4.2",
   "sideEffects": false,
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": "./dist",
-    "./src/*": "./dist/*"
+    "./src/*": "./dist/*",
+    "./client/*": "./dist/client/*",
+    "./client": "./dist/client",
+    "./styles": "./dist/styles"
   },
   "files": [
     "dist",

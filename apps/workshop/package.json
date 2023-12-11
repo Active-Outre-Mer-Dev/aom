@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "preview": "vite preview",
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build"
+    "dev": "storybook dev -p 6006"
   },
   "dependencies": {
     "@tabler/icons-react": "^2.15.0",

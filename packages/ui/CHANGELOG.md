@@ -1,5 +1,11 @@
 # @aomdev/ui
 
+## 0.5.1
+
+### Patch Changes
+
+- [`8c68837e5325b3b920d4bff9c6502e0281698bf5`](https://github.com/Active-Outre-Mer-Dev/aom/commit/8c68837e5325b3b920d4bff9c6502e0281698bf5) Thanks [@bluepnwage](https://github.com/bluepnwage)! - Chore - Fix package.json exports
+
 ## 0.5.0
 
 ### Minor Changes

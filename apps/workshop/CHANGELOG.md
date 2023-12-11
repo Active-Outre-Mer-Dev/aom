@@ -1,5 +1,12 @@
 # workshop
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies [[`8c68837e5325b3b920d4bff9c6502e0281698bf5`](https://github.com/Active-Outre-Mer-Dev/aom/commit/8c68837e5325b3b920d4bff9c6502e0281698bf5)]:
+  - @aomdev/ui@0.5.1
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@aomdev/ui",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "exports": {

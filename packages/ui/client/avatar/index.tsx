@@ -41,7 +41,7 @@ const _Avatar = forwardRef<HTMLSpanElement, PropTypes>(
 
 type GroupProps = VariantProps<typeof avatarGroupStyles> & ComponentPropsWithRef<"div">;
 
-const Group = forwardRef<HTMLDivElement, GroupProps>(({ spacing, className, ...props }, ref) => {
+export const AvatarGroup = forwardRef<HTMLDivElement, GroupProps>(({ spacing, className, ...props }, ref) => {
   return (
     <div
       ref={ref}
@@ -52,6 +52,6 @@ const Group = forwardRef<HTMLDivElement, GroupProps>(({ spacing, className, ...p
   );
 });
 
-const Avatar = Object.assign(_Avatar, { Group });
+const Avatar = Object.assign(_Avatar, { Group: AvatarGroup });
 
 export { Avatar };

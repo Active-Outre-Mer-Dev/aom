@@ -24,7 +24,7 @@ export type DialogContentProps = {
   VariantProps<typeof overlayStyles> &
   VariantProps<typeof cardStyles>;
 
-function Content({ blur, portalProps, className, noPadding, ...props }: DialogContentProps) {
+export function DialogContent({ blur, portalProps, className, noPadding, ...props }: DialogContentProps) {
   return (
     <RadixDialog.Portal {...portalProps}>
       <RadixDialog.Overlay className={overlayStyles({ blur })}>
@@ -45,7 +45,7 @@ function Content({ blur, portalProps, className, noPadding, ...props }: DialogCo
 
 export type DialogCloseProps = RadixDialog.DialogCloseProps;
 
-function Close({ className, ...props }: DialogCloseProps) {
+export function DialogClose({ className, ...props }: DialogCloseProps) {
   const defaultStyles = `h-6 w-6 rounded-full inline-flex items-center justify-center 
   hover:bg-neutral-100 hover:dark:bg-neutral-700`;
   return (
@@ -58,7 +58,7 @@ function Close({ className, ...props }: DialogCloseProps) {
 
 export type DialogTriggerProps = VariantProps<typeof buttonStyles> & RadixDialog.DialogTriggerProps;
 
-function Trigger({ variant, color, fullWidth, size, className, ...props }: DialogTriggerProps) {
+export function DialogTrigger({ variant, color, fullWidth, size, className, ...props }: DialogTriggerProps) {
   return (
     <RadixDialog.Trigger
       {...props}
@@ -67,7 +67,7 @@ function Trigger({ variant, color, fullWidth, size, className, ...props }: Dialo
   );
 }
 
-function Title({ className, ...props }: RadixDialog.DialogTitleProps) {
+export function DialogTitle({ className, ...props }: RadixDialog.DialogTitleProps) {
   return (
     <RadixDialog.Title
       {...props}
@@ -76,7 +76,7 @@ function Title({ className, ...props }: RadixDialog.DialogTitleProps) {
   );
 }
 
-function Description(props: RadixDialog.DialogDescriptionProps) {
+export function DialogDescription(props: RadixDialog.DialogDescriptionProps) {
   return (
     <RadixDialog.Description
       {...props}
@@ -91,8 +91,8 @@ export function Dialog(props: DialogProps) {
   return <RadixDialog.Root {...props}></RadixDialog.Root>;
 }
 
-Dialog.Trigger = Trigger;
-Dialog.Content = Content;
-Dialog.Close = Close;
-Dialog.Title = Title;
-Dialog.Description = Description;
+Dialog.Trigger = DialogTrigger;
+Dialog.Content = DialogContent;
+Dialog.Close = DialogClose;
+Dialog.Title = DialogTitle;
+Dialog.Description = DialogDescription;

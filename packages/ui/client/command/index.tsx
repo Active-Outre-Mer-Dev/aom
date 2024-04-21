@@ -37,7 +37,7 @@ type ItemProps = {
   children?: React.ReactNode;
 };
 
-function Item(props: ItemProps) {
+export function CommandItem(props: ItemProps) {
   return (
     <CommandPrim.Item
       {...props}
@@ -50,7 +50,7 @@ function Item(props: ItemProps) {
 
 type InputProps = { value?: string } & Omit<ComponentPropsWithRef<"input">, "crossOrigin" | "value" | "type">;
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const CommandInput = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const commandProps = useCommandProps();
   const onClose = commandProps?.onClose;
 
@@ -113,7 +113,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
 type GroupProps = ComponentPropsWithoutRef<"div"> & { heading?: string; value?: string };
 
-function Group(props: GroupProps) {
+export function CommandGroup(props: GroupProps) {
   return (
     <CommandPrim.Group
       {...props}
@@ -122,7 +122,7 @@ function Group(props: GroupProps) {
   );
 }
 
-function Seperator() {
+export function CommandSeperator() {
   return <CommandPrim.Separator className="h-[1px] w-full bg-neutral-100 dark:bg-neutral-700 my-4 block" />;
 }
 
@@ -130,7 +130,7 @@ type ListProps = {
   emptyMessage?: string;
 } & ComponentPropsWithoutRef<typeof CommandPrim.List>;
 
-function List({ emptyMessage, children, ...props }: ListProps) {
+export function CommandList({ emptyMessage, children, ...props }: ListProps) {
   return (
     <CommandPrim.List
       {...props}
@@ -144,8 +144,8 @@ function List({ emptyMessage, children, ...props }: ListProps) {
   );
 }
 
-Command.Item = Item;
-Command.Seperator = Seperator;
-Command.Group = Group;
-Command.List = List;
-Command.Input = Input;
+Command.Item = CommandItem;
+Command.Seperator = CommandSeperator;
+Command.Group = CommandGroup;
+Command.List = CommandList;
+Command.Input = CommandInput;

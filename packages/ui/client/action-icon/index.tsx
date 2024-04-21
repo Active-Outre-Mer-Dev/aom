@@ -1,4 +1,3 @@
-"use client";
 import { forwardRef } from "react";
 import { actionIconStyles } from "./styles";
 import { twMerge } from "tailwind-merge";

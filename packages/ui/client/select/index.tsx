@@ -56,12 +56,12 @@ export const Select = ({
           {items.length > 0
             ? items.map((item) => {
                 return (
-                  <Item
+                  <SelectItem
                     key={item.value}
                     value={item.value}
                   >
                     {item.label}
-                  </Item>
+                  </SelectItem>
                 );
               })
             : props.children}
@@ -77,7 +77,7 @@ export const Select = ({
   </RadixSelect.Root>
 );
 
-const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
+export const SelectItem = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
   ({ children, className, ...props }, forwardedRef) => {
     return (
       <RadixSelect.Item
@@ -108,7 +108,7 @@ const Item = React.forwardRef<HTMLDivElement, RadixSelect.SelectItemProps>(
   }
 );
 
-function Group(props: RadixSelect.SelectGroupProps & { label: string }) {
+export function SelectGroup(props: RadixSelect.SelectGroupProps & { label: string }) {
   return (
     <>
       <RadixSelect.Group>
@@ -124,5 +124,5 @@ function Group(props: RadixSelect.SelectGroupProps & { label: string }) {
   );
 }
 
-Select.Group = Group;
-Select.Item = Item;
+Select.Group = SelectGroup;
+Select.Item = SelectItem;

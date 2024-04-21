@@ -5,7 +5,7 @@ import { Label } from "../../src/label";
 export type RadioItem = { label?: string } & RadixRadio.RadioGroupItemProps;
 export type RadioProps = RadixRadio.RadioGroupProps;
 
-function Item({ label, ...props }: RadioItem) {
+export function RadioItem({ label, ...props }: RadioItem) {
   const id = useId();
   return (
     <div className="flex items-center gap-2">
@@ -38,4 +38,4 @@ export function Radio(props: RadioProps) {
   );
 }
 
-Radio.Item = Item;
+Radio.Item = RadioItem;

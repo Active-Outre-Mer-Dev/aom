@@ -3,7 +3,7 @@ import { cardStyles } from "../../src/card/styles";
 import { cx } from "../../src/cx";
 import type { VariantProps } from "cva";
 
-function List(props: RadixTabs.TabsListProps) {
+export function TabsList(props: RadixTabs.TabsListProps) {
   return (
     <RadixTabs.List
       {...props}
@@ -17,7 +17,7 @@ function List(props: RadixTabs.TabsListProps) {
 
 export type TabsTriggerProps = { customBg?: boolean } & RadixTabs.TabsTriggerProps;
 
-function Trigger({ customBg, ...props }: TabsTriggerProps) {
+export function TabsTrigger({ customBg, ...props }: TabsTriggerProps) {
   return (
     <RadixTabs.Trigger
       {...props}
@@ -53,7 +53,7 @@ function Trigger({ customBg, ...props }: TabsTriggerProps) {
 
 export type TabsContentProps = RadixTabs.TabsContentProps & VariantProps<typeof cardStyles>;
 
-function Content({ className, variant = "outline", noPadding, ...props }: TabsContentProps) {
+export function TabsContent({ className, variant = "outline", noPadding, ...props }: TabsContentProps) {
   return (
     <RadixTabs.Content
       {...props}
@@ -74,6 +74,6 @@ export function Tabs(props: RadixTabs.TabsProps) {
     </RadixTabs.Root>
   );
 }
-Tabs.Content = Content;
-Tabs.List = List;
-Tabs.Trigger = Trigger;
+Tabs.Content = TabsContent;
+Tabs.List = TabsList;
+Tabs.Trigger = TabsTrigger;

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "./icons";
 import format from "date-fns/format";
 
-const MONTHS = [...Array(12).keys()];
+const MONTHS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 export type PropTypes = {
   setDate: (date: Date) => void;
   date: Date;

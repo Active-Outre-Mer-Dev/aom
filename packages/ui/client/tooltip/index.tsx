@@ -4,7 +4,7 @@ type ContentProps = {
   portalProps?: RadixTooltip.TooltipPortalProps;
 } & RadixTooltip.TooltipContentProps;
 
-function Content({ portalProps, ...props }: ContentProps) {
+export function TooltipContent({ portalProps, ...props }: ContentProps) {
   return (
     <>
       <RadixTooltip.Portal {...portalProps}>
@@ -14,7 +14,7 @@ function Content({ portalProps, ...props }: ContentProps) {
   );
 }
 
-function Trigger(props: RadixTooltip.TooltipTriggerProps) {
+export function TooltipTrigger(props: RadixTooltip.TooltipTriggerProps) {
   return <RadixTooltip.Trigger {...props} />;
 }
 
@@ -30,5 +30,5 @@ export function Tooltip({ providerProps, ...props }: RootProps) {
   );
 }
 
-Tooltip.Content = Content;
-Tooltip.Trigger = Trigger;
+Tooltip.Content = TooltipContent;
+Tooltip.Trigger = TooltipTrigger;

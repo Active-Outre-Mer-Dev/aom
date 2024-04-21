@@ -1,6 +1,6 @@
 import * as RadixPopover from "@radix-ui/react-popover";
 
-function Trigger(props: RadixPopover.PopoverTriggerProps) {
+export function PopoverTrigger(props: RadixPopover.PopoverTriggerProps) {
   return <RadixPopover.Trigger {...props} />;
 }
 
@@ -8,7 +8,7 @@ type ContentProps = {
   portalProps?: RadixPopover.PopoverPortalProps;
 } & RadixPopover.PopperContentProps;
 
-function Content({ portalProps, ...props }: ContentProps) {
+export function PopoverContent({ portalProps, ...props }: ContentProps) {
   return (
     <RadixPopover.Portal {...portalProps}>
       <RadixPopover.Content {...props}>{props.children}</RadixPopover.Content>
@@ -16,7 +16,7 @@ function Content({ portalProps, ...props }: ContentProps) {
   );
 }
 
-function Close(props: RadixPopover.PopoverCloseProps) {
+export function PopoverClose(props: RadixPopover.PopoverCloseProps) {
   return (
     <RadixPopover.Close
       {...props}
@@ -45,6 +45,6 @@ export function Popover(props: RadixPopover.PopoverProps) {
   return <RadixPopover.Root {...props} />;
 }
 
-Popover.Content = Content;
-Popover.Trigger = Trigger;
-Popover.Close = Close;
+Popover.Content = PopoverContent;
+Popover.Trigger = PopoverTrigger;
+Popover.Close = PopoverClose;

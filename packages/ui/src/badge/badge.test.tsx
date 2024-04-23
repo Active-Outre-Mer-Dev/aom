@@ -3,7 +3,7 @@ import { Badge } from ".";
 
 test.describe("ui/badge", () => {
   test("is visible", async ({ mount }) => {
-    const component = await mount(<Badge />);
+    const component = await mount(<Badge>Hello ther</Badge>);
     await expect(component).toBeVisible();
   });
   test("renders children", async ({ mount }) => {

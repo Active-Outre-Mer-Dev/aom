@@ -4,6 +4,6 @@ import { Slider } from ".";
 test.describe("ui/slider", () => {
   test("is visible", async ({ mount }) => {
     const component = await mount(<Slider />);
-    await expect(component).toBeVisible();
+    await expect(component.getByRole("slider")).toBeVisible();
   });
 });

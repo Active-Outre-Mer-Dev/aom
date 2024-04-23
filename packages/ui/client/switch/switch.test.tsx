@@ -3,7 +3,7 @@ import { Switch } from ".";
 
 test.describe("ui/switch", () => {
   test("is visible", async ({ mount }) => {
-    const component = await mount(<Switch />);
+    const component = await mount(<Switch label="Hello World" />);
     await expect(component).toBeVisible();
   });
   test("displays label", async ({ mount }) => {

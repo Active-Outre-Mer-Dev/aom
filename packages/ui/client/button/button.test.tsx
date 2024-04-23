@@ -4,7 +4,7 @@ import { Button } from ".";
 
 test.describe("ui/button", () => {
   test("is visible", async ({ mount }) => {
-    const component = await mount(<Button></Button>);
+    const component = await mount(<Button>Hello</Button>);
     await expect(component).toBeVisible();
   });
   test("children are rendered", async ({ mount }) => {

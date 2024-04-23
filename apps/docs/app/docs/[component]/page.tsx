@@ -1,14 +1,13 @@
-import { Title } from "@aomdev/ui";
+import { Mdx } from "@/components/mdx";
 
-export default function ComponentPage({ params }: { params: { component: string } }) {
+export default async function ComponentPage({ params }: { params: { component: string } }) {
+  const componentImport = await import(`@/content/${params.component}.mdx`);
+  const Component = componentImport.default;
   return (
     <main>
-      <Title
-        order={1}
-        className="capitalize font-bold text-4xl"
-      >
-        {params.component}
-      </Title>
+      <Mdx>
+        <Component />
+      </Mdx>
     </main>
   );
 }

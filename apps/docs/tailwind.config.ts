@@ -140,6 +140,6 @@ const config: Config = {
       white: colors.white
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/typography")]
 };
 export default config;

@@ -1,0 +1,25 @@
+import { Button } from "@aomdev/ui/client";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aomdev/ui/client/tabs";
+
+# Button
+
+Component used to render buttons.
+
+<Tabs defaultValue="demo" className="text-neutral-800 dark:text-neutral-100">
+          <TabsList >
+            <TabsTrigger value="demo">Demo</TabsTrigger>
+            <TabsTrigger value="code">Code</TabsTrigger>
+          </TabsList>
+          <TabsContent value="demo">
+            <Button>Hello there</Button>
+          </TabsContent>
+          <TabsContent value="code">
+            ```jsx
+import { Button } from "@aomdev/ui/client";
+
+export function ButtonDemo() {
+  return <Button>Hello there</Button>;
+}
+```
+          </TabsContent>
+        </Tabs>

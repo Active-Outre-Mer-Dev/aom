@@ -7,7 +7,7 @@ type PropTypes = {
   renderBar?: boolean;
 } & LinkProps;
 
-export function NavLink(props: PropTypes) {
+export function NavLink({ renderBar, ...props }: PropTypes) {
   const path = usePathname();
   const isActive = path === props.href;
   return (
@@ -17,7 +17,7 @@ export function NavLink(props: PropTypes) {
       className={`data-[active=true]:text-primary-300 text-gray-200 font-semibold hover:text-primary-300`}
     >
       {props.children}
-      {isActive && props.renderBar && (
+      {isActive && renderBar && (
         <span className="bg-primary-300 h-[2px] left-0 absolute bottom-[0.5px] rounded w-full"></span>
       )}
     </Link>

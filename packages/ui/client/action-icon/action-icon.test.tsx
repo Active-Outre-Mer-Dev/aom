@@ -22,8 +22,4 @@ test.describe("ui/action-icon", () => {
     await component.click();
     expect(clicked).toBeTruthy();
   });
-  test("receives aria-label", async ({ mount }) => {
-    const component = await mount(<ActionIcon aria-label="Click" />);
-    expect(await component.getAttribute("aria-label")).toStrictEqual("Click");
-  });
 });

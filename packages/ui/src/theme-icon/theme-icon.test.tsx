@@ -3,7 +3,7 @@ import { ThemeIcon } from ".";
 
 test.describe("ui/ThemeIcon", () => {
   test("it renders", async ({ mount }) => {
-    const component = await mount(<ThemeIcon />);
+    const component = await mount(<ThemeIcon>T</ThemeIcon>);
     await expect(component).toBeVisible();
   });
 });

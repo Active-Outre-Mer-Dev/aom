@@ -5,7 +5,7 @@ import { checkboxStyles } from "../../styles/checkbox.styles";
 import type { VariantProps } from "cva";
 import type { ComponentPropsWithRef } from "react";
 
-type CheckboxProps = RadixCheckbox.CheckboxProps &
+export type CheckboxProps = RadixCheckbox.CheckboxProps &
   ComponentPropsWithRef<"input"> & { label?: string } & VariantProps<typeof checkboxStyles>;
 
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(

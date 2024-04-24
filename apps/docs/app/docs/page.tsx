@@ -1,7 +1,12 @@
+import { Mdx } from "@/components/mdx";
+import GettingStarted from "@/content/getting-started.mdx";
+
 export default function Page() {
   return (
     <main>
-      <p>This is the introduction docs page</p>
+      <Mdx>
+        <GettingStarted />
+      </Mdx>
     </main>
   );
 }

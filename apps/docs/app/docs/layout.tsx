@@ -8,6 +8,12 @@ export default async function DocsLayout({ children }: { children: React.ReactNo
       {" "}
       <div className="w-1/6">
         <p className="font-bold text-lg mb-6">Getting started</p>
+        <ul className="space-y-4 mb-8">
+          <li>
+            <NavLink href={"/docs"}>Installation</NavLink>
+          </li>
+        </ul>
+        <p className="font-bold text-lg mb-6">Components</p>
         <ul className="space-y-4">
           {links.map((link) => {
             return (

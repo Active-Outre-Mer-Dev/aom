@@ -1,25 +1,34 @@
-import { Button } from "@aomdev/ui/client";
+import { Button } from "@aomdev/ui/client/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aomdev/ui/client/tabs";
+import { IconButton, LoaderButton } from "@/components/demos/button/button-examples";
+import { ButtonDemo } from "@/components/demos/button/button-demo.tsx";
+import { ButtonProps } from "@/components/demos/button/button-props";
+import { TabsDemo } from "@/components/tabs-demo";
 
 # Button
 
 Component used to render buttons.
 
-<Tabs defaultValue="demo" className="text-neutral-800 dark:text-neutral-100">
-          <TabsList >
-            <TabsTrigger value="demo">Demo</TabsTrigger>
-            <TabsTrigger value="code">Code</TabsTrigger>
-          </TabsList>
-          <TabsContent value="demo">
-            <Button>Hello there</Button>
-          </TabsContent>
-          <TabsContent value="code">
-            ```jsx
+<TabsDemo demoContent={<ButtonDemo/>}>
+        ```jsx
 import { Button } from "@aomdev/ui/client";
 
 export function ButtonDemo() {
   return <Button>Hello there</Button>;
 }
 ```
-          </TabsContent>
-        </Tabs>
+</TabsDemo>
+
+## Props
+
+<ButtonProps />
+
+## Examples
+
+### With Icon
+
+<IconButton />
+
+### With spinner
+
+<LoaderButton />

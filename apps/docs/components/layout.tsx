@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Nav() {
   return (
-    <header className="border-b-neutral-700 border-b flex h-14 mb-12">
+    <header className="border-b-neutral-700 border-b flex h-14 mb-12 sticky top-0 z-[50] backdrop-blur-md bg-neutral-900/60">
       <div className="container mx-auto flex items-center justify-between">
         <div>
           <Link

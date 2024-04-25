@@ -1,13 +1,14 @@
 import { NavLink } from "@/components/navlink";
+import { Toc } from "@/components/toc";
 import { getLinks } from "@/lib/get-sidebar";
 
 export default async function DocsLayout({ children }: { children: React.ReactNode }) {
   const links = await getLinks();
   return (
-    <div className="flex container mx-auto gap-6">
+    <div className="flex container mx-auto gap-6 pb-16">
       {" "}
       <div className="w-1/6 ">
-        <div className="sticky top-12">
+        <div className="sticky top-16">
           <p className="font-bold text-lg mb-6">Getting started</p>
           <ul className="space-y-4 mb-8">
             <li>
@@ -32,9 +33,11 @@ export default async function DocsLayout({ children }: { children: React.ReactNo
           </ul>
         </div>
       </div>
-      <div className="w-4/6">{children}</div>
-      <div className="w-1/6">
-        <p className="font-semibold text-lg">On this page</p>
+      <div
+        id="markdown-content"
+        className="w-5/6"
+      >
+        {children}
       </div>
     </div>
   );

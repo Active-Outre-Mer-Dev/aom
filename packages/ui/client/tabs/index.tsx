@@ -1,13 +1,19 @@
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { cardStyles } from "../../src/card/styles";
 import { cx } from "../../src/cx";
+import { twMerge } from "tailwind-merge";
 import type { VariantProps } from "cva";
 
-export function TabsList(props: RadixTabs.TabsListProps) {
+export type TabsListProps = {
+  grow?: boolean;
+} & RadixTabs.TabsListProps;
+
+export function TabsList({ grow, ...props }: TabsListProps) {
   return (
     <RadixTabs.List
       {...props}
-      className={`shrink-0 border-b border-neutral-300 dark:border-neutral-700 gap-1 h-10
+      data-grow={grow}
+      className={`shrink-0 border-b border-neutral-300 dark:border-neutral-700 gap-1 h-10 group
        flex`}
     >
       {props.children}
@@ -22,7 +28,7 @@ export function TabsTrigger({ customBg, ...props }: TabsTriggerProps) {
     <RadixTabs.Trigger
       {...props}
       className={cx(
-        `relative text-gray-800 dark:text-gray-100 px-5 flex-1 flex items-center 
+        `relative text-gray-800 dark:text-gray-100 px-5 flex items-center group-data-[grow=true]:grow
         justify-center rounded-t-md text-[15px] leading-none select-none  
         outline-none cursor-default hover:cursor-pointer duration-200 ease-out 
         data-[state=inactive]:dark:text-gray-300 data-[state=inactive]:text-gray-600
@@ -53,11 +59,13 @@ export function TabsTrigger({ customBg, ...props }: TabsTriggerProps) {
 
 export type TabsContentProps = RadixTabs.TabsContentProps & VariantProps<typeof cardStyles>;
 
-export function TabsContent({ className, variant = "outline", noPadding, ...props }: TabsContentProps) {
+export function TabsContent({ variant = "outline", noPadding, ...props }: TabsContentProps) {
+  const classes = cx("p-4 translate-y-2", props.className);
+  const className = twMerge(classes);
   return (
     <RadixTabs.Content
       {...props}
-      className={cx(cardStyles({ className, variant, noPadding }), "translate-y-2")}
+      className={className}
     >
       {props.children}
     </RadixTabs.Content>

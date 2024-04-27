@@ -1,5 +1,17 @@
 # @aomdev/ui
 
+## 0.6.0
+
+### Minor Changes
+
+- [#127](https://github.com/Active-Outre-Mer-Dev/aom/pull/127) [`95ed334aec7671693847151d1eba1408bfdc03d2`](https://github.com/Active-Outre-Mer-Dev/aom/commit/95ed334aec7671693847151d1eba1408bfdc03d2) Thanks [@bluepnwage](https://github.com/bluepnwage)! - [ui] - export individual client components
+
+### Patch Changes
+
+- [#129](https://github.com/Active-Outre-Mer-Dev/aom/pull/129) [`e024661baab6d4dfb8f798f03f707306bf2f908d`](https://github.com/Active-Outre-Mer-Dev/aom/commit/e024661baab6d4dfb8f798f03f707306bf2f908d) Thanks [@bluepnwage](https://github.com/bluepnwage)! - [ui] - add grow property to TabsList
+
+- [#125](https://github.com/Active-Outre-Mer-Dev/aom/pull/125) [`46c2b4e35e525a8a161793d17a6de35c5d1a4537`](https://github.com/Active-Outre-Mer-Dev/aom/commit/46c2b4e35e525a8a161793d17a6de35c5d1a4537) Thanks [@bluepnwage](https://github.com/bluepnwage)! - [ui] - Fix package.json exports field
+
 ## 0.5.1
 
 ### Patch Changes

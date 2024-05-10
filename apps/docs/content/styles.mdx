@@ -1,0 +1,64 @@
+import { Button } from "@aomdev/ui/client/button";
+import { StylesDemo } from "@/components/demos/styles-demo";
+import { StylesFunctionsDemo } from "@/components/demos/styles-functions-demo";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@aomdev/ui/client/tabs";
+import { TabsDemo } from "@/components/tabs-demo";
+
+# Styles
+
+Components are styled by default and are customizable through props. You can also override default styles simply be adding tailwind classes to the `className` prop.
+
+<TabsDemo demoContent={<StylesDemo />} >
+
+```tsx
+import { Button } from "@aomdev/ui/client/button";
+
+export function StylesDemo() {
+  return (
+    <div className="flex gap-4">
+      <Button>Hello world</Button>
+      <Button variant={"outline"}>Hello world</Button>
+      <Button variant={"neutral"}>Hello world</Button>
+      <Button className="dark:bg-error-500">Overwritten styles</Button>
+    </div>
+  );
+}
+```
+
+</TabsDemo>
+
+## Using styles functions
+
+All components are styled using functions that return tailwind classes. These functions can be imported and used to style elements without having to import any components. This can help reduce bundle size
+and avoid having to import client components.
+
+<TabsDemo demoContent={<StylesFunctionsDemo />} >
+```tsx
+import { cardStyles, buttonStyles, badgeStyles } from "@aomdev/ui/styles";
+
+export function StylesFunctionsDemo() {
+  return (
+    <div className={cardStyles({ className: "w-fit space-y-4" })}>
+      <div className="flex items-center gap-4">
+        <h3
+          style={{ margin: 0 }}
+          className="font-semibold text-3xl mt-0"
+        >
+          Custom Card
+        </h3>
+        <div className={badgeStyles()}>New</div>
+      </div>
+      <p>
+        Esse sunt Lorem consectetur non. Amet proident aute nisi commodo. Excepteur ullamco ex occaecat
+        aliquip voluptate sit velit labore culpa est. Id cillum officia occaecat officia voluptate sint
+        eiusmod do. Nisi adipisicing ex Lorem esse. Proident incididunt laboris fugiat ipsum occaecat. Laborum
+        pariatur ex ex amet.
+      </p>
+      <button className={buttonStyles()}>View</button>
+    </div>
+  );
+}
+
+```
+</TabsDemo>
+```

@@ -1,0 +1,8 @@
+.headings {
+    & h2 {
+        margin-top: 40px;
+        font-weight: 600;
+        font-size: 40px;
+        display: block;
+    }
+}

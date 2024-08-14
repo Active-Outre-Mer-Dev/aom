@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconLoader2 as Spinner, IconMail } from "@tabler/icons-react";
-import { Button } from "@aomdev/ui";
+import { Button } from "@aomdev/ui/client";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Molecules/Button",
@@ -66,11 +66,19 @@ export const Loading: Story = {
     variant: "primary",
     loading: true
   },
-  render: props => {
+  render: (props) => {
     return (
-      <Button {...props} className=" ">
+      <Button
+        {...props}
+        className=" "
+      >
         {" "}
-        {props.loading && <Spinner size={16} className="inline-block mr-2 animate-spin" />}
+        {props.loading && (
+          <Spinner
+            size={16}
+            className="inline-block mr-2 animate-spin"
+          />
+        )}
         {props.children}
       </Button>
     );
@@ -82,10 +90,16 @@ export const WithIcon: Story = {
     variant: "primary",
     children: "Send email"
   },
-  render: props => {
+  render: (props) => {
     return (
-      <Button {...props} className="inline-flex justify-center items-center">
-        <IconMail size={16} className="inline-block mr-2" />
+      <Button
+        {...props}
+        className="inline-flex justify-center items-center"
+      >
+        <IconMail
+          size={16}
+          className="inline-block mr-2"
+        />
         {props.children}
       </Button>
     );

@@ -1,6 +1,6 @@
 import { Card } from "@aomdev/ui";
 import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@aomdev/ui";
+import { Button } from "@aomdev/ui/client";
 
 const meta = {
   title: "Molecules/Card",
@@ -29,12 +29,18 @@ export const WithSection: Story = {
   args: {
     variant: "filled"
   },
-  render: props => {
+  render: (props) => {
     return (
       <>
-        <Card {...props} className="text-neutral-900 w-[300px] dark:text-neutral-50">
+        <Card
+          {...props}
+          className="text-neutral-900 w-[300px] dark:text-neutral-50"
+        >
           <Card.Section className="overflow-hidden">
-            <img src={"/pixel.webp"} width={"100%"} />
+            <img
+              src={"/pixel.webp"}
+              width={"100%"}
+            />
           </Card.Section>
           <h3 className="text-2xl mb-2 font-semibold mt-2">Pixel art</h3>
           <p className="dark:text-neutral-100 mb-4 text-neutral-800">

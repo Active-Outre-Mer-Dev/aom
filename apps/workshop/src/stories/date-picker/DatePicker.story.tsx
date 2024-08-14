@@ -1,9 +1,8 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Calendar, Popover, Button } from "@aomdev/ui";
-import { cardStyles } from "@aomdev/ui/src/card/styles";
+import { Calendar, Popover } from "@aomdev/ui/client";
 import { useState } from "react";
 import { IconCalendar } from "@tabler/icons-react";
-import { inputStyles } from "@aomdev/ui/src/input-wrapper/styles";
+import { inputStyles, cardStyles } from "@aomdev/ui/styles";
 
 const meta = { component: Calendar, title: "Atoms/DatePicker" } satisfies Meta<typeof Calendar>;
 
@@ -30,11 +29,22 @@ function DatePicker() {
             {formatDate(date)}
           </button>
         </Popover.Trigger>
-        <Popover.Content sideOffset={5} className={cardStyles({ variant: "outline" })}>
-          <Calendar selected={date} onSelect={setDate} mode="single" />
+        <Popover.Content
+          sideOffset={5}
+          className={cardStyles({ variant: "outline" })}
+        >
+          <Calendar
+            selected={date}
+            onSelect={setDate}
+            mode="single"
+          />
         </Popover.Content>
       </Popover>
-      <input hidden type="date" value={date?.toISOString()} />
+      <input
+        hidden
+        type="date"
+        value={date?.toISOString()}
+      />
     </div>
   );
 }

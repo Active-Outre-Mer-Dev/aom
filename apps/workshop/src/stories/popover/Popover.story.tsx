@@ -1,8 +1,9 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Popover, Button, TextInput } from "@aomdev/ui";
-import { cardStyles } from "@aomdev/ui/src/card/styles";
+import { Popover, Button } from "@aomdev/ui/client";
+import { cardStyles } from "@aomdev/ui/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { TextInput } from "@aomdev/ui";
 
 const meta = { component: Popover, title: "Molecules/Popover" } satisfies Meta<typeof Popover>;
 
@@ -18,7 +19,10 @@ export const Default: Story = {
           <Popover.Trigger asChild>
             <Button>Hello there</Button>
           </Popover.Trigger>
-          <Popover.Content sideOffset={5} className={cardStyles({ variant: "filled" })}>
+          <Popover.Content
+            sideOffset={5}
+            className={cardStyles({ variant: "filled" })}
+          >
             <div className="flex justify-between">
               <span
                 className={`font-heading font-medium text-lg block mb-2 text-neutral-800 
@@ -29,9 +33,18 @@ export const Default: Story = {
               <Popover.Close aria-label="Close" />
             </div>
             <div className="space-y-4">
-              <TextInput label="Width" size={"sm"} />
-              <TextInput label="Height" size={"sm"} />
-              <TextInput label="Position" size={"sm"} />
+              <TextInput
+                label="Width"
+                size={"sm"}
+              />
+              <TextInput
+                label="Height"
+                size={"sm"}
+              />
+              <TextInput
+                label="Position"
+                size={"sm"}
+              />
             </div>
           </Popover.Content>
         </Popover>
@@ -50,7 +63,10 @@ function AnimatedPopover() {
   const [open, setOpen] = useState(false);
   return (
     <div className="justify-center flex">
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover
+        open={open}
+        onOpenChange={setOpen}
+      >
         <Popover.Trigger asChild>
           <Button>Hello there</Button>
         </Popover.Trigger>
@@ -62,7 +78,11 @@ function AnimatedPopover() {
               sideOffset={5}
               className={cardStyles({ variant: "filled" })}
             >
-              <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+              <motion.div
+                exit={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+              >
                 <div className="flex justify-between">
                   <span
                     className={`font-heading font-medium text-lg block mb-2 text-neutral-800 
@@ -73,9 +93,18 @@ function AnimatedPopover() {
                   <Popover.Close aria-label="Close" />
                 </div>
                 <div className="space-y-4">
-                  <TextInput label="Width" size={"sm"} />
-                  <TextInput label="Height" size={"sm"} />
-                  <TextInput label="Position" size={"sm"} />
+                  <TextInput
+                    label="Width"
+                    size={"sm"}
+                  />
+                  <TextInput
+                    label="Height"
+                    size={"sm"}
+                  />
+                  <TextInput
+                    label="Position"
+                    size={"sm"}
+                  />
                 </div>
               </motion.div>
             </Popover.Content>

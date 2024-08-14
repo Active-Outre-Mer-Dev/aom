@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Avatar } from "@aomdev/ui";
+import { Avatar } from "@aomdev/ui/client";
 
 const meta = {
   title: "Molecules/Avatar",
@@ -41,10 +41,22 @@ export const Group: Story = {
       // @ts-expect-error
       <Avatar.Group spacing={props.spacing}>
         <Avatar size={props.size} />
-        <Avatar size={props.size} src={"/profile.jpg"} />
-        <Avatar size={props.size} src={"/profile-2.jpg"} />
-        <Avatar size={props.size} src={"/profile-3.jpg"} />
-        <Avatar size={props.size} fallbackProps={{ className: "font-semibold " }}>
+        <Avatar
+          size={props.size}
+          src={"/profile.jpg"}
+        />
+        <Avatar
+          size={props.size}
+          src={"/profile-2.jpg"}
+        />
+        <Avatar
+          size={props.size}
+          src={"/profile-3.jpg"}
+        />
+        <Avatar
+          size={props.size}
+          fallbackProps={{ className: "font-semibold " }}
+        >
           +5
         </Avatar>
       </Avatar.Group>

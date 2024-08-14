@@ -1,4 +1,4 @@
-import { Button, Command } from "@aomdev/ui";
+import { Button, Command } from "@aomdev/ui/client";
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: props => {
+  render: (props) => {
     return <MyCommand />;
   }
 };
@@ -19,7 +19,11 @@ function MyCommand() {
   return (
     <>
       <Button onClick={() => setState(true)}>Open menu</Button>
-      <Command contentProps={{ className: "w-4/5" }} open={state} onOpenChange={setState}>
+      <Command
+        contentProps={{ className: "w-4/5" }}
+        open={state}
+        onOpenChange={setState}
+      >
         <Command.Input placeholder="Search quizzes" />
         <Command.List>
           <Command.Group heading="Question quizzes">

@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Tabs as UiTabs, Button, TextInput } from "@aomdev/ui";
+import { Tabs as UiTabs, Button } from "@aomdev/ui/client";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { IconUser, IconLock } from "@tabler/icons-react";
+import { TextInput } from "@aomdev/ui";
 
 const meta = { title: "Atoms/Tabs", component: UiTabs } satisfies Meta<typeof UiTabs>;
 
@@ -17,7 +18,10 @@ function Account() {
       <p className="mb-4 text-neutral-700 dark:text-neutral-200">
         Make changes to your account here. Click save when you&apos;re done
       </p>
-      <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+      <form
+        className="space-y-4"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <TextInput label="Name" />
         <TextInput label="Username" />
         <Button className="block ml-auto">Save</Button>
@@ -33,7 +37,10 @@ function Password() {
       <p className="mb-4 text-neutral-700 dark:text-neutral-200">
         Change your password here. After saving, you&apos;ll be logged out.
       </p>
-      <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+      <form
+        className="space-y-4"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <TextInput label="Current password" />
         <TextInput label="New Password" />
         <Button className="block ml-auto">Save</Button>
@@ -46,7 +53,10 @@ export const Tabs: Story = {
   render: () => {
     return (
       <div className="flex justify-center">
-        <UiTabs defaultValue="account" className="text-neutral-800 dark:text-neutral-100 w-2/4">
+        <UiTabs
+          defaultValue="account"
+          className="text-neutral-800 dark:text-neutral-100 w-2/4"
+        >
           <UiTabs.List>
             <UiTabs.Trigger value="account">Account</UiTabs.Trigger>
             <UiTabs.Trigger value="password">Password</UiTabs.Trigger>
@@ -81,7 +91,11 @@ function FramerTab() {
           {values.map((tab, key) => {
             const last = key === values.length - 1;
             return (
-              <UiTabs.Trigger disabled={last} customBg value={tab.value}>
+              <UiTabs.Trigger
+                disabled={last}
+                customBg
+                value={tab.value}
+              >
                 {active === tab.value && (
                   <motion.div
                     layoutId="tab-bg"
@@ -119,7 +133,10 @@ function Icons() {
         <UiTabs.List>
           {values.map(({ Icon, ...tab }) => {
             return (
-              <UiTabs.Trigger customBg value={tab.value}>
+              <UiTabs.Trigger
+                customBg
+                value={tab.value}
+              >
                 {active === tab.value && (
                   <motion.div
                     layoutId="tab-bg"

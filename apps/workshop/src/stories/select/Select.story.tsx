@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Select as UiSelect } from "@aomdev/ui";
+import { Select as UiSelect } from "@aomdev/ui/client";
 
 const meta = {
   title: "Molecules/Select",
@@ -28,9 +28,12 @@ export const Select: Story = {};
 
 export const WithGroups: Story = {
   args: { placeholder: "Select food" },
-  render: props => {
+  render: (props) => {
     return (
-      <UiSelect fullWidth={props.fullWidth} placeholder={props.placeholder}>
+      <UiSelect
+        fullWidth={props.fullWidth}
+        placeholder={props.placeholder}
+      >
         <UiSelect.Group label="Fruits">
           <UiSelect.Item value="orange">Orange</UiSelect.Item>
           <UiSelect.Item value="apple">Apple</UiSelect.Item>

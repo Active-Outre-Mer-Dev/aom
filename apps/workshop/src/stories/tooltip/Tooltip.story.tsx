@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Tooltip, Button } from "@aomdev/ui";
-import { cardStyles } from "@aomdev/ui/src/card/styles";
+import { Tooltip, Button } from "@aomdev/ui/client";
+import { cardStyles } from "@aomdev/ui/styles";
 
 const meta = { title: "Molecules/Tooltip", component: Tooltip } satisfies Meta<typeof Tooltip>;
 

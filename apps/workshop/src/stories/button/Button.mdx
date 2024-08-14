@@ -1,6 +1,7 @@
 import { Meta, Canvas, Story, Controls } from "@storybook/blocks";
-import { Badge, Tabs, ActionIcon } from "@aomdev/ui";
+import { Badge } from "@aomdev/ui";
 import { IconCopy, IconCheck } from "@tabler/icons-react";
+import { Tabs, ActionIcon } from "@aomdev/ui/client";
 import * as ButtonStories from "./Button.story";
 
 <Badge color={"warn"}>Incomplete</Badge>
@@ -9,7 +10,10 @@ import * as ButtonStories from "./Button.story";
 
 Interactive component used to respond to user events.
 
-<Meta of={ButtonStories} name="Docs" />
+<Meta
+  of={ButtonStories}
+  name="Docs"
+/>
 
 <Canvas of={ButtonStories.Primary} />
 

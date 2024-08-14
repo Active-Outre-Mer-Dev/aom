@@ -1,8 +1,9 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Dialog, Button, TextInput } from "@aomdev/ui";
+import { Dialog, Button } from "@aomdev/ui/client";
 import { IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { TextInput } from "@aomdev/ui";
 
 const meta = { title: "Atoms/Dialog", component: Dialog } satisfies Meta<typeof Dialog>;
 
@@ -22,7 +23,10 @@ export const DefaultDialog: Story = {
             <Dialog.Title>Account</Dialog.Title>
             <Dialog.Close asChild>
               <button aria-label="Close">
-                <IconX size={15} className="text-neutral-700 dark:text-neutral-200" />
+                <IconX
+                  size={15}
+                  className="text-neutral-700 dark:text-neutral-200"
+                />
               </button>
             </Dialog.Close>
           </div>
@@ -46,13 +50,19 @@ export const AnimatedDialog: Story = {
 function Animated() {
   const [open, setOpen] = useState(false);
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={setOpen}
+    >
       <Dialog.Trigger asChild>
         <Button>Open modal</Button>
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (
-          <Dialog.Content portalProps={{ forceMount: true }} asChild>
+          <Dialog.Content
+            portalProps={{ forceMount: true }}
+            asChild
+          >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -62,7 +72,10 @@ function Animated() {
                 <Dialog.Title>Account</Dialog.Title>
                 <Dialog.Close asChild>
                   <button aria-label="Close">
-                    <IconX size={15} className="text-neutral-700 dark:text-neutral-200" />
+                    <IconX
+                      size={15}
+                      className="text-neutral-700 dark:text-neutral-200"
+                    />
                   </button>
                 </Dialog.Close>
               </div>

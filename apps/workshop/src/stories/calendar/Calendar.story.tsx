@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { Calendar } from "@aomdev/ui";
+import { Calendar } from "@aomdev/ui/client";
 import { useState } from "react";
 
 const meta = { component: Calendar, title: "Atoms/Calendar" } satisfies Meta<typeof Calendar>;
@@ -59,7 +59,7 @@ function CalendarDemo({ disabled, bookedDates }: PropTypes) {
       selected={date}
       showOutsideDays
       formatters={{
-        formatDay: d => {
+        formatDay: (d) => {
           const hasBooking = bookedDates?.includes(d.toDateString());
           return (
             <>

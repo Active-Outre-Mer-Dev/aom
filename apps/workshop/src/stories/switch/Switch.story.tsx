@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Switch } from "@aomdev/ui";
+import { Switch } from "@aomdev/ui/client";
 import { IconMoonStars, IconSun } from "@tabler/icons-react";
 import { useState } from "react";
 
